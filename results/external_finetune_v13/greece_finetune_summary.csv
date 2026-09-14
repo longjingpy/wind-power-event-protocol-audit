@@ -1,0 +1,2 @@
+training,epochs,test_pairs,nmi,ari,agreement,source_training_labels
+Pizhou encoder fine-tuned on unlabeled Greek train shapes,5,17357,0.5764764869456205,0.6335690681373594,0.7757100881488737,0

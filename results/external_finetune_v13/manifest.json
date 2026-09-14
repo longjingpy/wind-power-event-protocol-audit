@@ -1,0 +1,9 @@
+{
+  "training": "Pizhou encoder fine-tuned on unlabeled Greek train shapes",
+  "epochs": 5,
+  "test_pairs": 17357,
+  "nmi": 0.5764764869456205,
+  "ari": 0.6335690681373594,
+  "agreement": 0.7757100881488737,
+  "source_training_labels": 0
+}
