@@ -109,11 +109,61 @@ def supplement_tables():
                   ["Representation", "k", "Runs", "Mean NMI", "SD NMI", "Mean ARI"],
                   [[rep, k, len(part), f3(part.nmi.mean()), f3(part.nmi.std()), f3(part.ari.mean())]
                    for (rep, k), part in external.groupby(["representation", "k"])])
+    rematch = pd.read_csv(ROOT / "outputs/event_matching_v13/event_matching_summary.csv")
+    text += table("Table S16. Event-level IoU and matching-strategy sensitivity",
+                  ["Site", "IoU cutoff", "Matcher", "Pairs", "Mean IoU", "NMI", "ARI"],
+                  [[names.get(r.site, r.site), f"{r.cutoff:.1f}", r.method,
+                    str(int(r.pairs)), f3(r.mean_iou), f3(r.nmi), f3(r.ari)]
+                   for r in rematch.itertuples()])
     weather = pd.read_csv(ROOT / "outputs/weather_uncertainty_v12/risk_block_intervals.csv")
     text += table("Table S15. Observational weather contrasts with shared calendar-block intervals",
                   ["Source", "Horizon (h)", "Block days", "Blocks", "Risk difference", "95% interval"],
                   [[r.source, r.horizon_h, r.block_days, r.occupied_blocks, f3(r.risk_difference),
                     f"[{f3(r.ci95_low)}, {f3(r.ci95_high)}]"] for r in weather.itertuples()])
+    budget = pd.read_csv(ROOT / "outputs/detection_benchmark_v9_100/metrics.csv")
+    budget = budget[(budget.split == "test") & budget.iou_cutoff.eq(0.3)]
+    bsum = budget.groupby(["model", "protocol"])[["precision", "recall", "f1", "optimizer_steps"]].mean().reset_index()
+    text += table("Table S22. 100-epoch upper-budget controlled detection sensitivity",
+                  ["Model", "Protocol", "Precision", "Recall", "F1", "Optimizer steps"],
+                  [[r.model, r.protocol, f3(r.precision), f3(r.recall), f3(r.f1), f3(r.optimizer_steps)]
+                   for r in bsum.itertuples()])
+    adjusted = json.loads((ROOT / "outputs/weather_adjusted_v13/adjusted_weather_association.json").read_text())
+    text += table("Table S19. Adjusted weather association model",
+                  ["Records", "Blocks", "Risk difference", "95% interval", "Odds ratio", "OR interval"],
+                  [[adjusted["rows"], adjusted["blocks"], f3(adjusted["standardized_risk_difference"]),
+                    f"[{f3(adjusted["standardized_rd_ci95"][0])}, {f3(adjusted["standardized_rd_ci95"][1])}]",
+                    f3(adjusted["odds_ratio"]), f"[{f3(adjusted["odds_ratio_ci95"][0])}, {f3(adjusted["odds_ratio_ci95"][1])}]"]])
+    local = json.loads((ROOT / "outputs/external_local_v13/manifest.json").read_text())
+    frozen = pd.read_csv(ROOT / "outputs/dynamic_events_v6/external_greece/representation_summary.csv")
+    text += table("Table S20. Greek local-training and frozen-transfer comparison",
+                  ["Training population", "Test pairs", "NMI", "ARI", "Agreement"],
+                  [["Greek local", local["configuration_pairs"], f3(local["mean_nmi"]), f3(local["mean_ari"]), f3(local["mean_agreement"])],
+                   ["Pizhou frozen", len(frozen), f3(frozen.nmi.mean()), f3(frozen.ari.mean()), f3(frozen.agreement.mean())]])
+    fine = json.loads((ROOT / "outputs/external_finetune_v13/manifest.json").read_text())
+    text += table("Table S21. Greek external training-population comparison",
+                  ["Training population", "Epochs", "Test pairs", "NMI", "ARI", "Agreement"],
+                  [["Greek local", "K-means", local["configuration_pairs"], f3(local["mean_nmi"]), f3(local["mean_ari"]), f3(local["mean_agreement"])],
+                   ["Pizhou frozen", "100", len(frozen), f3(frozen.nmi.mean()), f3(frozen.ari.mean()), f3(frozen.agreement.mean())],
+                   ["Pizhou + Greek adaptation", fine["epochs"], fine["test_pairs"], f3(fine["nmi"]), f3(fine["ari"]), f3(fine["agreement"])]])
+    sampling = pd.read_csv(ROOT / "outputs/yandun_sampling_v13/yandun_sampling_summary.csv")
+    sm = sampling.groupby("frequency", sort=False)[["grid_rows", "usable_rows", "threshold_4h_candidates"]].sum().reset_index()
+    text += table("Table S17. Yandun native and aggregated sampling sensitivity",
+                  ["Grid", "Rows", "Usable rows", "4-h threshold candidates"],
+                  [[r.frequency, str(int(r.grid_rows)), str(int(r.usable_rows)), str(int(r.threshold_4h_candidates))]
+                   for r in sm.itertuples()])
+    return text
+
+
+
+    weight = pd.read_csv(ROOT / "outputs/weight_sensitivity_v13/weight_sensitivity.csv")
+    weight_test = weight[weight.split.eq("test")]
+    wsummary = weight_test.groupby(["site", "factor"])[["all_nmae_pct", "ramp_nmae_pct", "ramp_n"]].mean().reset_index()
+    econ = weight[weight.split.str.startswith("economics_base")].groupby(["site", "factor"])[["test_cost", "selected_power"]].mean().reset_index()
+    wsummary = wsummary.merge(econ, on=["site", "factor"])
+    text += table("Table S18. Event-weight sensitivity for forecasting and scenario cost",
+                  ["Site", "Weight", "All nMAE (%)", "Ramp nMAE (%)", "Ramp n", "Base cost", "Selected P"],
+                  [[r.site, r.factor, f3(r.all_nmae_pct), f3(r.ramp_nmae_pct), str(int(r.ramp_n)),
+                    f3(r.test_cost), f3(r.selected_power)] for r in wsummary.itertuples()])
     return text
 
 
