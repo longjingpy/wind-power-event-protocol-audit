@@ -43,7 +43,7 @@ def draw_metrics(ax, data, keys, labels, point_unit, title):
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    cv = pd.read_csv(ROOT / "outputs/cv_benchmark_v7/cv_benchmark_metrics.csv")
+    cv = pd.read_csv(ROOT / "outputs/cv_benchmark_v7_100_complete/cv_benchmark_metrics.csv")
     groups = ["pairs:" + farm for farm in ["pizhou", "suining", "yandun", "lahaute", "hill"]]
     cv = cv[(cv.k == 4) & cv.group.isin(groups)].copy()
     assert len(cv) == 60 and cv.nmi.notna().all()
