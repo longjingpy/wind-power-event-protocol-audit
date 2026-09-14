@@ -1,0 +1,11 @@
+{
+  "site": "greece",
+  "train_events": 49312,
+  "test_events": 12571,
+  "configuration_pairs": 62,
+  "mean_nmi": 0.5961877044010611,
+  "mean_ari": 0.5358183789459533,
+  "mean_agreement": 0.6679100182529527,
+  "model": "locally standardized raw25 + KMeans k4",
+  "frozen_training_rows": 0
+}
