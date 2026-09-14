@@ -1,0 +1,25 @@
+{
+  "rows": 4070,
+  "blocks": 31,
+  "formula": "outcome_4h ~ treatment + pre_power + pre_speed + pre_power_change + C(hour) + C(month)",
+  "treatment_log_odds": -0.370836268639217,
+  "cluster_se": 0.14738054829997968,
+  "standardized_risk_difference": -0.07418797301552278,
+  "odds_ratio": 0.69015693264218,
+  "pre_treatment_covariates": [
+    "pre_power",
+    "pre_speed",
+    "pre_power_change",
+    "hour",
+    "month"
+  ],
+  "status": "ASSOCIATION_ADJUSTED_OBSERVATIONAL",
+  "standardized_rd_ci95": [
+    -0.13060198239710516,
+    -0.0169991919435064
+  ],
+  "odds_ratio_ci95": [
+    0.5170053050503144,
+    0.9212992343041974
+  ]
+}
