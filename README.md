@@ -1,27 +1,27 @@
 # Wind-power event protocol audit
 
-This repository contains the open analysis code and aggregate result tables for:
+Initial public release v0.1.0 for **Measuring transferable wind-power dynamics with explicit event protocols**.
 
-**Measuring transferable wind-power dynamics with explicit event protocols**
+This initial package contains selected analysis interfaces, tests and aggregate tables. It supports local reproduction of the two aggregate representation comparisons. Full raw-data-to-manuscript reproduction remains under preparation.
 
-The release contains the detector contract, matching and representation interfaces, figure builders, tests, and aggregate summaries. Proprietary Pizhou, Suining and Yandun SCADA rows remain outside the release. Public archives are downloaded from their original sources by the documented scripts.
+## Reproduce the included comparisons
 
-## Reproduction
-
-The primary environment is Ubuntu 24.04 with Python 3.12. Install the pinned dependencies from the project lock file, then run:
+Use Python 3.12, install `requirements.txt`, then run from this repository:
 
 ```bash
-python script/plot_manuscript_extensions_v11.py
-python script/redraw_figures_v12.py
-python -m pytest -q tests/test_user_label_clock_v9.py
+python script/reproduce_aggregate_figures.py
+python -m pytest -q tests
 ```
 
-The aggregate CSV files identify the evaluation population, sampling unit and metric used in each table and figure. The manuscript separates measurement results, observational associations and causal identification questions.
+Outputs are written to `reproduced/`. Other scripts retain paths to the full research workspace and require additional input archives.
 
-## Data
+## Data access
 
-SDWPF is openly available from Figshare (doi:10.6084/m9.figshare.24798654; CC BY 4.0). The Greek monitoring archive is available from Zenodo (doi:10.5281/zenodo.14546480). La Haute Borne and Hill of Towie are public-source archives. Private SCADA records are represented by aggregate tables only.
+SDWPF: doi:10.6084/m9.figshare.24798654 (CC BY 4.0).
+Greek monitoring archive: doi:10.5281/zenodo.14546480.
+La Haute Borne and Hill of Towie are public-source archives.
+The current release contains aggregate results for Pizhou, Suining and Yandun. Raw-data redistribution scope is being confirmed with the data provider.
 
 ## License
 
-Code is released under the MIT License. Dataset rights remain with their original providers.
+Project-authored code is MIT licensed. Original dataset and third-party code rights remain with their providers.

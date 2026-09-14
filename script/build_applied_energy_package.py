@@ -85,7 +85,7 @@ def supplement_tables():
     if human_metrics.exists():
         rows = list(csv.DictReader(human_metrics.open(newline="")))
         text += table("Table S11. Human-labelled centre-region detector agreement", ["Site", "Detector", "Windows", "TP", "FP", "FN", "Precision", "Recall", "F1"], [[r["site"], detector_name(r["config"]), r["n_windows"], r["tp"], r["fp"], r["fn"], f3(r["precision"]), f3(r["recall"]), f3(r["f1"])] for r in rows])
-    learned = pd.read_csv(ROOT / "outputs/cv_benchmark_v7/cv_benchmark_metrics.csv")
+    learned = pd.read_csv(ROOT / "outputs/cv_benchmark_v7_100_complete/cv_benchmark_metrics.csv")
     farm_groups = ["pairs:" + name for name in ["pizhou", "suining", "yandun", "lahaute", "hill"]]
     learned = learned[(learned.k == 4) & learned.group.isin(farm_groups)]
     text += table("Table S12. Learned representations by farm, averaged over three seeds (k = 4)",
@@ -93,11 +93,27 @@ def supplement_tables():
                   [[rep.replace("_", " "), names.get(group.replace("pairs:", ""), group),
                     f3(part.nmi.mean()), f3(part.ari.mean())]
                    for (rep, group), part in learned.groupby(["representation", "group"])])
+    weighted = pd.read_csv(ROOT / "outputs/matching_coverage_v12/coverage_weighted_agreement.csv")
+    iou = pd.read_csv(ROOT / "outputs/matching_coverage_v12/iou_threshold_sensitivity.csv")
+    pair = pd.read_csv(ROOT / "outputs/matching_coverage_v12/pair_coverage_summary.csv")
+    comp_rows = [[names.get(r["group"], r["group"]), f3(r["pair_weighted_nmi"]), f3(r["pair_weighted_ari"]), str(int(r["total_pairs"])),
+                  f3(pair[pair.site == r["group"]].left_coverage.mean()), f3(pair[pair.site == r["group"]].right_coverage.mean()),
+                  f3(iou[iou.site == r["group"]].fraction_iou_ge_030.iloc[0]),
+                  f3(iou[iou.site == r["group"]].fraction_iou_ge_050.iloc[0]),
+                  f3(iou[iou.site == r["group"]].fraction_iou_ge_070.iloc[0])]
+                 for _, r in weighted.iterrows()]
+    text += table("Table S14. Matched-count-weighted agreement and detector-occupancy overlap",
+                  ["Site", "Weighted NMI", "Weighted ARI", "Pairs", "Left cov.", "Right cov.", "IoU >= 0.3", "IoU >= 0.5", "IoU >= 0.7"], comp_rows)
     external = pd.read_csv(ROOT / "outputs/sdwpf_v7/learned_forward_metrics.csv")
     text += table("Table S13. SDWPF learned-model transfer across seven batches and three seeds",
                   ["Representation", "k", "Runs", "Mean NMI", "SD NMI", "Mean ARI"],
                   [[rep, k, len(part), f3(part.nmi.mean()), f3(part.nmi.std()), f3(part.ari.mean())]
                    for (rep, k), part in external.groupby(["representation", "k"])])
+    weather = pd.read_csv(ROOT / "outputs/weather_uncertainty_v12/risk_block_intervals.csv")
+    text += table("Table S15. Observational weather contrasts with shared calendar-block intervals",
+                  ["Source", "Horizon (h)", "Block days", "Blocks", "Risk difference", "95% interval"],
+                  [[r.source, r.horizon_h, r.block_days, r.occupied_blocks, f3(r.risk_difference),
+                    f"[{f3(r.ci95_low)}, {f3(r.ci95_high)}]"] for r in weather.itertuples()])
     return text
 
 
@@ -152,7 +168,7 @@ def main():
     # Place each figure beside the result it explains.
     cap_map = {number: caption.strip() for number, caption in captions}
     def inline_fig(number, anchor):
-        figure = (r"\begin{figure}[H]\centering" + "\n" +
+        figure = (r"\setcounter{figure}{" + str(int(number)-1) + "}\n" + r"\begin{figure}[H]\centering" + "\n" +
                   r"\includegraphics[width=0.92\linewidth]{fig" + number + ".pdf}\n" +
                   r"\caption{" + latex(cap_map[number]) + "}\n" +
                   r"\label{fig:" + number + "}" + "\n" + r"\end{figure}" + "\n")
@@ -160,8 +176,8 @@ def main():
         if anchor not in body:
             raise RuntimeError("inline anchor missing: " + anchor)
         body = body.replace(anchor, anchor + "\n\n" + figure, 1)
-    inline_fig("1", "A two-round annotation study adds V-shaped and inverted-V events as concrete examples of internal dynamics.")
-    inline_fig("2", "Together, support and coverage give the reader both the amount of comparative evidence and its reach within the catalogue")
+    inline_fig("1", "The framework supports a compact reporting record for future ramp studies and gives flexibility analyses a traceable measurement layer.")
+    inline_fig("2", "Together, support and coverage give the reader both the amount of comparative evidence and its reach within the catalogue (Figs. 1 and 2).")
     inline_fig("3", "Figure 3 displays the fixed-feature comparison.")
     inline_fig("4", "These comparisons describe sensitivity to grouping resolution (Fig. 4).")
     inline_fig("5", "The NMI describes retained shape grouping, and the coverage identifies the fraction of candidate support reached by temporal matching (Fig. 5).")

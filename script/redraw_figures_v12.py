@@ -25,7 +25,7 @@ def main():
         for p,v in zip(x+(j-.5)*w,vals): ax.text(p,v+.018,f'{v:.3f}',ha='center',fontsize=8)
     ax.set_xticks(x,FARMS,rotation=18,ha='right'); ax.set_ylim(0, .8); style(ax,'Fig. 2 | Temporal correspondence carries shared event structure','NMI (k = 4)'); ax.legend(frameon=False,ncol=2); save(fig,2)
     # Fig 3: one question, representation choice changes retained information.
-    keys=['raw25','raw_pca6','statistics9','gaf_pca6','signed_gaf_pca6']; labels=['Raw25','Raw-PCA6','Statistics9','GAF-PCA6','Signed-GAF-PCA6']
+    keys=['raw25','raw_pca6','statistics9','gaf_pca6','gaf_signed_pca6']; labels=['Raw25','Raw-PCA6','Statistics9','GAF-PCA6','Signed-GAF-PCA6']
     d=rep[(rep.k==4)&rep.group.isin(['hill','lahaute','pizhou','suining','yandun'])&rep.representation.isin(keys)].copy(); means=d.groupby('representation')[['nmi','ari']].mean().reindex(keys)
     fig,ax=plt.subplots(figsize=(7.2,4.3)); x=np.arange(len(keys)); ax.bar(x-.19,means.nmi,.36,label='NMI',color='#267A8B'); ax.bar(x+.19,means.ari,.36,label='ARI',color='#D99348')
     for i,(a,b) in enumerate(zip(means.nmi,means.ari)): ax.text(i-.19,a+.02,f'{a:.3f}',ha='center',fontsize=8); ax.text(i+.19,b+.02,f'{b:.3f}',ha='center',fontsize=8)
@@ -42,7 +42,13 @@ def main():
     sd=pd.read_csv(ROOT/'outputs/sdwpf_v7/learned_forward_metrics.csv'); sd=sd[(sd.k==4)&(sd.representation.isin(['tcn','transformer']))]
     fig,ax=plt.subplots(figsize=(7.2,4.2)); x=np.arange(len(g)); ax.plot(x,g.median_nmi,'o-',lw=2,color='#216E8C',label='Greek median NMI'); ax.fill_between(x,g.min_nmi,g.max_nmi,color='#216E8C',alpha=.14,label='Greek observed range'); ax.set_xticks(x,g.sample_bin); ax.set_ylim(0,1); style(ax,'Fig. 5 | External transfer retains agreement as support grows','NMI'); ax.set_xlabel('Matched events per configuration pair'); ax.legend(frameon=False,loc='lower left'); ax.text(.98,.96,'SDWPF transferred models: TCN 0.626; Transformer 0.589',transform=ax.transAxes,ha='right',va='top',fontsize=8); save(fig,5)
     # Fig 6: one question, weather-defined periods and subsequent risk.
-    w=pd.read_csv(DATA/'weather_mechanism/risk_by_horizon.csv'); fig,ax=plt.subplots(figsize=(7.2,4.2)); ax.plot(w.horizon_h,w.risk_difference,'o-',lw=2,color='#C45C35');
-    for x0,y0 in zip(w.horizon_h,w.risk_difference): ax.text(x0,y0+.005,f'{y0:+.3f}',ha='center',fontsize=9)
-    ax.set_xticks(w.horizon_h); ax.set_xlabel('Outcome horizon after weather reference (h)'); ax.set_ylim(0,.11); style(ax,'Fig. 6 | Wind-change exposure concentrates subsequent event starts','Risk difference (exposed − unexposed)'); ax.text(.98,.06,'ERA5: 21,300 exposed; 84,761 unexposed',transform=ax.transAxes,ha='right',fontsize=8); save(fig,6)
+    w=pd.read_csv(ROOT/'outputs/weather_uncertainty_v12/risk_block_intervals.csv'); w=w[w.block_days.eq(7)]
+    fig,ax=plt.subplots(figsize=(7.2,4.4))
+    for source,offset,color,marker in [('ERA5',-.09,'#216E8C','o'),('NOAA',.09,'#C45C35','s')]:
+        part=w[w.source.eq(source)].sort_values('horizon_h'); y=100*part.risk_difference.to_numpy()
+        interval=np.array([y-100*part.ci95_low.to_numpy(),100*part.ci95_high.to_numpy()-y])
+        ax.errorbar(part.horizon_h.to_numpy()+offset,y,yerr=interval,fmt=marker,color=color,capsize=4,markersize=6,lw=1.5,label=source)
+    ax.axhline(0,color='#8795A0',lw=.8); ax.set_xticks([1,2,4]); ax.set_xlabel('Outcome horizon (h)'); ax.set_ylim(-6,16)
+    style(ax,'Fig. 6 | Weather context and uncertainty in subsequent event risk','Risk difference (percentage points)'); ax.legend(frameon=False,ncol=2,loc='upper left')
+    fig.text(.5,-.04,'ERA5: 21,300 / 84,761 records; NOAA: 41,163 / 19,668 (exposed / unexposed)',ha='center',fontsize=8); save(fig,6)
 if __name__=='__main__': main()
