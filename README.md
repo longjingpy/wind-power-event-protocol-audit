@@ -4,7 +4,7 @@ Code and analysis resources for **Measuring transferable wind-power dynamics wit
 
 ## Study data
 
-The provider authorizes release, and the current distribution policy is to share de-identified processed datasets. The former original-input release v0.2.0 is now a non-public draft while the processed replacement is prepared. See `DATA_POLICY_V17.md` for the current status. Original provider terms remain applicable.
+The provider authorizes release, and the current distribution uses de-identified processed datasets. Download the verified [processed SCADA v0.3.0 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.3.0), containing seven archives and 333 turbines. The former original-input v0.2.0 release remains a non-public draft. See `DATA_POLICY_V17.md` for identifier and clock handling. Original provider terms remain applicable.
 
 The processed-data schema and verified file index are under `datasets/processed_v17/`. The former raw-file manifest has been removed from the current distribution tree; its historical copies remain outside the new dataset bundle.
 
@@ -24,6 +24,8 @@ Research scripts additionally require `requirements-research.txt`. Current corre
 The v16 controlled HPO record is under `results/detection_hpo_v16/`. It covers three validation-selected candidates for each neural model, three training seeds, and four window candidates for the mean rule. Twelve selected checkpoints for TimesNet, KAN-AD, TCN-AE and Transformer-AE are under `models/detection_hpo_v16/`. Fresh post-selection results, paired intervals and CPU timing are in `results/detection_confirmation_v16/`. See `REPRODUCIBILITY_V16.md` for the tested checkpoint-inference command and for the distinction between an observed environment snapshot and a clean-install guarantee.
 
 The storage-policy tables include the historical 10%-power/2-hour engineering benchmark, declared price scenarios and the complete conditional-advantage grid. These values are scenario costs per installed MW, with no claim of site-specific settlement revenue.
+
+The latest evidence map is `REPRODUCIBILITY_V17.md`; the itemized review register is `REVIEW_ACTION_REGISTER_V17.md`. The public repository separates measurement, synthetic confirmation, storage, weather and processed-data populations so that a passing check in one population does not silently become a claim about another.
 
 The full raw-data-to-manuscript command is under integration. Aggregate reproduction and targeted experiment checks are reported separately from that outstanding end-to-end test.
 
