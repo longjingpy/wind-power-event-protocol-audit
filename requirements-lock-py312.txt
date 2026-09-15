@@ -1,0 +1,15 @@
+# Environment observed for the v16 aggregate and HPO verification runs.
+# Python interpreter: 3.12; platform: Ubuntu 24.04; ROCm/CUDA is optional for
+# the aggregate scripts. Recreate from requirements.txt, then pin these exact
+# versions when a full raw-data rebuild is required.
+numpy==2.4.6
+pandas==2.3.3
+matplotlib==3.11.1
+pytest==9.1.1
+scipy==1.18.0
+scikit-learn==1.7.2
+statsmodels==0.14.6
+patsy==1.0.2
+torch==2.9.1+rocm7.2.0.git7e1940d4
+openpyxl==3.1.5
+pyarrow==25.0.1

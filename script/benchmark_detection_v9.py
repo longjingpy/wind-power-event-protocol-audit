@@ -88,15 +88,15 @@ def evaluate(scores, truth, config, cutoff=.3, detailed=False):
 
 
 class SequenceAE(nn.Module):
-    def __init__(self,kind):
+    def __init__(self,kind,hidden=24,latent_dim=16):
         super().__init__(); self.kind=kind
         if kind=='tcn_ae':
-            self.enc=nn.Sequential(nn.Conv1d(1,24,5,padding=2),nn.GELU(),nn.Conv1d(24,24,3,padding=2,dilation=2),nn.GELU(),nn.AdaptiveAvgPool1d(8),nn.Flatten(),nn.Linear(24*8,16))
+            self.enc=nn.Sequential(nn.Conv1d(1,hidden,5,padding=2),nn.GELU(),nn.Conv1d(hidden,hidden,3,padding=2,dilation=2),nn.GELU(),nn.AdaptiveAvgPool1d(8),nn.Flatten(),nn.Linear(hidden*8,latent_dim))
         else:
-            self.proj=nn.Linear(1,24); self.pos=nn.Parameter(torch.randn(1,L,24)*.02)
-            layer=nn.TransformerEncoderLayer(24,4,48,dropout=.1,batch_first=True,activation='gelu')
-            self.enc=nn.Sequential(nn.TransformerEncoder(layer,2),nn.Flatten(),nn.Linear(L*24,16))
-        self.dec=nn.Sequential(nn.Linear(16,96),nn.GELU(),nn.Linear(96,L))
+            self.proj=nn.Linear(1,hidden); self.pos=nn.Parameter(torch.randn(1,L,hidden)*.02)
+            layer=nn.TransformerEncoderLayer(hidden,4,max(hidden*2,32),dropout=.1,batch_first=True,activation='gelu')
+            self.enc=nn.Sequential(nn.TransformerEncoder(layer,2),nn.Flatten(),nn.Linear(L*hidden,latent_dim))
+        self.dec=nn.Sequential(nn.Linear(latent_dim,96),nn.GELU(),nn.Linear(96,L))
 
     def forward(self,x):
         x=self.enc(x.transpose(1,2)) if self.kind=='tcn_ae' else self.enc(self.proj(x)+self.pos)
@@ -104,10 +104,10 @@ class SequenceAE(nn.Module):
 
 
 class UpstreamAE(nn.Module):
-    def __init__(self,kind):
+    def __init__(self,kind,hidden=None,latent_dim=16):
         super().__init__(); sys.path.insert(0,str(UPSTREAM))
         from models import TimesNet, KANAD
-        cfg=SimpleNamespace(task_name='anomaly_detection',seq_len=L,label_len=0,pred_len=0,d_model=16 if kind=='timesnet' else 4,d_ff=32,enc_in=1,c_out=1,e_layers=1,top_k=3,num_kernels=3,embed='fixed',freq='h',dropout=.1)
+        cfg=SimpleNamespace(task_name='anomaly_detection',seq_len=L,label_len=0,pred_len=0,d_model=hidden or (16 if kind=='timesnet' else 4),d_ff=max((hidden or (16 if kind=='timesnet' else 4))*2,32),enc_in=1,c_out=1,e_layers=1,top_k=3,num_kernels=3,embed='fixed',freq='h',dropout=.1)
         self.model=(TimesNet if kind=='timesnet' else KANAD).Model(cfg)
 
     def forward(self,x): return self.model(x,None,None,None)
@@ -126,11 +126,11 @@ def infer(model,x,mu,sd,device):
     return score
 
 
-def fit_model(kind,seed,train,val_normal,epochs,device):
+def fit_model(kind,seed,train,val_normal,epochs,device,hidden=24,latent_dim=16,lr=.001):
     torch.manual_seed(seed); rng=np.random.default_rng(seed)
-    model=UpstreamAE(kind) if kind in ['timesnet','kanad'] else SequenceAE(kind)
+    model=UpstreamAE(kind,hidden,latent_dim) if kind in ['timesnet','kanad'] else SequenceAE(kind,hidden,latent_dim)
     model.to(device); mu=float(train.mean());sd=float(train.std());sd=max(sd,1e-6)
-    opt=torch.optim.Adam(model.parameters(),lr=.001); best=np.inf;best_state=None;bad=steps=0; log=[]
+    opt=torch.optim.Adam(model.parameters(),lr=lr); best=np.inf;best_state=None;bad=steps=0; log=[]
     for epoch in range(epochs):
         model.train(); order=rng.permutation(len(train)); losses=[]
         for a in range(0,len(train),64):
@@ -197,7 +197,7 @@ def main(args):
             if name.endswith('_rule'):
                 train_s=rule_scores(train,name);v=rule_scores(val,name);ts=rule_scores(test,name);ss=rule_scores(shift,name);steps=0
             else:
-                model,mu,sd,steps=fit_model(name,seed,train,val[~yval.any(1)],args.epochs,device)
+                model,mu,sd,steps=fit_model(name,seed,train,val[~yval.any(1)],args.epochs,device,args.hidden,args.latent_dim,args.learning_rate)
                 train_s=infer(model,train,mu,sd,device);v=infer(model,val,mu,sd,device);ts=infer(model,test,mu,sd,device);ss=infer(model,shift,mu,sd,device)
             base={'threshold':float(np.quantile(train_s,.99)),'ratio':1.,'gap':0,'minimum':1}
             best=calibrate(v,yval); configuration[f'{name}-{seed}']={'default':base,'calibrated':best,'optimizer_steps':steps,'train_rows':len(train),'validation_rows':len(val),'test_rows':len(test)}
@@ -229,5 +229,5 @@ def main(args):
 
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--test',action='store_true');ap.add_argument('--epochs',type=int,default=30);ap.add_argument('--seeds',type=int,nargs='+',default=[41,42,43]);ap.add_argument('--models',nargs='+',default=['rate_rule','mean_rule','tcn_ae','transformer_ae','timesnet','kanad']);ap.add_argument('--output-dir',type=Path,default=OUT);args=ap.parse_args();OUT=args.output_dir
+    ap=argparse.ArgumentParser();ap.add_argument('--test',action='store_true');ap.add_argument('--epochs',type=int,default=30);ap.add_argument('--seeds',type=int,nargs='+',default=[41,42,43]);ap.add_argument('--models',nargs='+',default=['rate_rule','mean_rule','tcn_ae','transformer_ae','timesnet','kanad']);ap.add_argument('--output-dir',type=Path,default=OUT);ap.add_argument('--hidden',type=int,default=24);ap.add_argument('--latent-dim',type=int,default=16);ap.add_argument('--learning-rate',type=float,default=.001);args=ap.parse_args();OUT=args.output_dir
     tests() if args.test else main(args)

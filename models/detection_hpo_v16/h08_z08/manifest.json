@@ -1,0 +1,20 @@
+{
+  "status": "CONTROLLED_SYNTHETIC_COMPLETE_NOT_REAL_FIELD_ACCURACY",
+  "models": [
+    "timesnet",
+    "kanad"
+  ],
+  "seeds": [
+    41,
+    42,
+    43
+  ],
+  "upstream_commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+  "label_semantics": "entire finite injected episode, not WPRE edge or physical cause",
+  "training": "normal-only reconstruction, full minibatch epochs",
+  "calibration": "validation only, same grid all methods",
+  "point_adjustment": false,
+  "time_points": 96,
+  "economic_scope": "alarm cost ratio sensitivity only; storage economic benefit remains separate",
+  "runtime_seconds": 92.47699195099995
+}

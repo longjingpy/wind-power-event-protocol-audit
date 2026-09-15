@@ -21,6 +21,10 @@ python -m pytest -q tests
 
 Research scripts additionally require `requirements-research.txt`. Current corrections are in `event_matching_v14.py`, `yandun_sampling_v14.py`, `weather_adjusted_v14.py` and `external_transfer_v14.py`. These scripts retain the full research workspace paths.
 
+The v16 controlled HPO record is under `results/detection_hpo_v16/`. It contains three validation-only hidden/latent/learning-rate configurations, three seeds and a held-out summary; the selected TimesNet and KAN-AD checkpoints are under `models/detection_hpo_v16/`. The exact observed Python 3.12 package versions are listed in `requirements-lock-py312.txt`. See `REPRODUCIBILITY_V16.md` for the distinction between aggregate, controlled-HPO and full raw-data reproduction.
+
+The storage-policy tables include the historical 10%-power/2-hour engineering benchmark, declared price scenarios and the complete conditional-advantage grid. These values are scenario costs per installed MW, with no claim of site-specific settlement revenue.
+
 The full raw-data-to-manuscript command is under integration. Aggregate reproduction and targeted experiment checks are reported separately from that outstanding end-to-end test.
 
 ## Version status

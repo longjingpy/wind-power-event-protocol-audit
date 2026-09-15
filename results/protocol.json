@@ -1,0 +1,29 @@
+{
+  "policy_benchmark": {
+    "power_fraction": 0.1,
+    "duration_h": 2,
+    "meaning": "historical Jiangsu policy scenario, not a universal current obligation"
+  },
+  "efficiency": 0.92,
+  "soc_fraction_bounds": [
+    0.1,
+    0.9
+  ],
+  "initial_soc_fraction": 0.5,
+  "terminal_energy_value_cny_mwh": 300,
+  "capital_assumptions": {
+    "power_cny_kw_upfront": 350,
+    "energy_cny_kwh_upfront": 1100,
+    "life_years": 10,
+    "discount": 0.08,
+    "crf": 0.14902948869707533,
+    "fixed_om_fraction": 0.02
+  },
+  "price_scope": "Declared shortfall/surplus scenarios; severe-deviation premiums are sensitivity parameters, not observed site tariffs",
+  "critical_deviation_fraction": 0.2,
+  "controller": "delivery-time deviation following with validation-selected energy reserve",
+  "oracle": "perfect-information lower bound only",
+  "units": "CNY per installed MW over the complete test calendar",
+  "pizhou_capacity_basis": "provided data/real filename records 87.45MW",
+  "yandun_capacity_basis": "sum machine_meta rated_power = 200500kW"
+}

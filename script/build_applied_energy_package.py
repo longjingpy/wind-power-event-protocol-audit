@@ -61,7 +61,13 @@ TABLE_SOURCES = {
   "19": "outputs/weather_adjusted_v14/adjusted_weather_association.json",
   "20": "outputs/external_local_v13/greece_local_raw25_pairs.csv",
   "21": "outputs/external_transfer_v14/summary.csv",
-  "22": "outputs/detection_benchmark_v9_100/metrics.csv"
+  "22": "outputs/detection_benchmark_v9_100/metrics.csv",
+  "23": "outputs/storage_policy_v15/capacity_price_surface.csv",
+  "24": "outputs/storage_policy_v15/validation_selected_designs.csv",
+  "25": "outputs/storage_policy_v15/oracle_bounds.csv"
+  ,"26": "outputs/storage_policy_v15/conditional_advantage.csv"
+  ,"27": "outputs/detection_benchmark_v9_100/compute_cost_summary.csv"
+  ,"28": "outputs/detection_hpo_v16/selected_summary.csv"
 }
 
 
@@ -76,7 +82,7 @@ def table(title, headers, rows):
 
 
 def supplement_tables():
-    text = "\n\n## Supplementary result tables\n\nThe tables present the evaluation populations and measures defined in Supplementary Methods S1–S10. Calendar-block intervals summarize temporal variation within each farm. Seed and batch summaries describe their stated computational units.\n"
+    text = "\n\n## Supplementary result tables\n\nThe tables present the evaluation populations and measures defined in Supplementary Methods S1–S12. Calendar-block intervals summarize temporal variation within each farm. Seed and batch summaries describe their stated computational units.\n"
     def detector_name(value, site=None):
         if site == 'greece':
             for lag, minutes in [('1h', '20 min'), ('2h', '40 min'), ('4h', '80 min')]:
@@ -109,7 +115,7 @@ def supplement_tables():
         text += table("Table S7. Forecasts on common chronological targets", ["Site", "Model", "Training", "Subset", "n", "nMAE (%)"], [[r["site"], r["model"], r["training"].replace("_", " "), r["subset"].replace("_", " "), r["n"], f3(r["nmae"])] for r in rows])
     if (decision / "economic_summary.csv").exists():
         rows = list(csv.DictReader((decision / "economic_summary.csv").open(newline="")))
-        text += table("Table S8. Validation-selected storage scenario costs", ["Site", "Model", "Training", "Scenario", "P (MW/MW)", "E (MWh/MW)", "Cost (CNY per norm. MW)"], [[r["site"], r["model"], r["training"].replace("_", " "), r["scenario"], f3(r["power"]), f3(r["energy"]), f3(r["cost"])] for r in rows])
+        text += table("Table S8. Storage costs under the legacy annual-charge assumptions", ["Site", "Model", "Training", "Scenario", "P (MW/MW)", "E (MWh/MW)", "Cost (CNY per norm. MW)"], [[r["site"], r["model"], r["training"].replace("_", " "), r["scenario"], f3(r["power"]), f3(r["energy"]), f3(r["cost"])] for r in rows])
     controlled = ROOT / "outputs/detection_benchmark_v9/protocol_ablation_metrics.csv"
     if controlled.exists():
         rows = list(csv.DictReader(controlled.open(newline="")))
@@ -149,10 +155,11 @@ def supplement_tables():
                    for (rep, k), part in external.groupby(["representation", "k"])])
     rematch = pd.read_csv(ROOT / "outputs/event_matching_v14/event_matching_summary.csv")
     text += table("Table S16. Event-level IoU and matching-strategy sensitivity",
-                  ["Site", "IoU", "Matcher", "Pairs", "NMI", "ARI", "Weighted NMI", "Left cov.", "Right cov."],
-                  [[names.get(r.site, r.site), f"{r.cutoff:.1f}", r.method.replace("_", " "),
-                    str(int(r.pairs)), f3(r.nmi), f3(r.ari), f3(r.weighted_nmi), f3(r.left_coverage), f3(r.right_coverage)]
+                  ["Site", "IoU", "Matcher", "Pairs", "NMI", "ARI", "W. NMI", "W. ARI", "Left cov.", "Right cov."],
+                  [[names.get(r.site, r.site), f"{r.cutoff:.1f}", {"greedy": "Greedy", "maximum_iou": "Max. IoU"}[r.method],
+                    str(int(r.pairs)), f3(r.nmi), f3(r.ari), f3(r.weighted_nmi), f3(r.weighted_ari), f3(r.left_coverage), f3(r.right_coverage)]
                    for r in rematch.itertuples()])
+    text += "\nMax. IoU denotes maximum-total-IoU assignment. NMI and ARI are equal-configuration-pair means over pairs with matched events; W. NMI and W. ARI are weighted by matched-event counts. Left and right coverage are mean matched fractions of the respective detector catalogues across all configuration pairs.\n"
     weather = pd.read_csv(ROOT / "outputs/weather_uncertainty_v12/risk_block_intervals.csv")
     text += table("Table S15. Observational weather contrasts with shared calendar-block intervals",
                   ["Source", "Horizon (h)", "Block days", "Blocks", "Risk difference", "95% interval"],
@@ -181,9 +188,9 @@ def supplement_tables():
                    ["Pizhou frozen", len(frozen), f3(frozen.nmi.mean()), f3(frozen.ari.mean()), f3(frozen.agreement.mean())]])
     fine = pd.read_csv(ROOT / "outputs/external_transfer_v14/summary.csv")
     text += table("Table S21. Same-encoder Greek frozen and adapted TCN comparison",
-                  ["Mode", "Pairs", "Equal NMI", "Equal ARI", "Pooled NMI", "Weighted NMI", "Weighted ARI"],
+                  ["Mode", "Pairs", "Equal NMI", "Equal ARI", "Pooled NMI", "Pooled ARI", "Weighted NMI", "Weighted ARI"],
                   [[r.mode.replace("_", " "), r.event_pairs, f3(r.equal_pair_nmi),
-                    f3(r.equal_pair_ari), f3(r.pooled_nmi), f3(r.weighted_nmi), f3(r.weighted_ari)] for r in fine.itertuples()])
+                    f3(r.equal_pair_ari), f3(r.pooled_nmi), f3(r.pooled_ari), f3(r.weighted_nmi), f3(r.weighted_ari)] for r in fine.itertuples()])
     sampling = pd.read_csv(ROOT / "outputs/yandun_sampling_v14/anchor_detection_summary.csv")
     text += table("Table S17. Yandun physical-horizon and sampling sensitivity",
                   ["Minutes", "Horizon (h)", "Clock", "Eligible anchors", "Positive anchors", "Positive rate"],
@@ -194,10 +201,49 @@ def supplement_tables():
     wsummary = weight_test.groupby(["site", "factor"])[["all_nmae_pct", "ramp_nmae_pct", "ramp_n"]].mean().reset_index()
     econ = weight[weight.split.str.startswith("economics_base")].groupby(["site", "factor"])[["test_cost", "selected_power"]].mean().reset_index()
     wsummary = wsummary.merge(econ, on=["site", "factor"])
-    text += table("Table S18. Event-weight sensitivity for forecasting and scenario cost",
+    text += table("Table S18. Event-weight sensitivity under the legacy annual-charge assumptions",
                   ["Site", "Factor", "Ramp weight", "All nMAE (%)", "Ramp nMAE (%)", "Base cost"],
                   [[r.site, r.factor, r.factor + 1, f3(r.all_nmae_pct), f3(r.ramp_nmae_pct), f3(r.test_cost)] for r in wsummary.itertuples()])
-    assert sorted(row["table"] for row in TABLE_LOG) == list(range(1, 23))
+    policy = pd.read_csv(ROOT / "outputs/storage_policy_v15/capacity_price_surface.csv")
+    fixed = policy[policy.storage_fraction.eq(.1) & policy.duration_h.eq(2)]
+    cost = fixed.groupby(["site", "model", "price_case", "tail_premium", "training"]).total_cny_per_installed_mw.mean().unstack("training").reset_index()
+    text += table("Table S23. Fixed 10%-power and 2-hour storage costs per installed MW",
+                  ["Site", "Model", "Prices", "Tail premium", "MSE cost", "Event-weighted cost", "Difference"],
+                  [[r.site, r.model, r.price_case, r.tail_premium, f3(r.mse), f3(r.event_weighted),
+                    f3(r.event_weighted-r.mse)] for r in cost.itertuples()])
+    designs = pd.read_csv(ROOT / "outputs/storage_policy_v15/validation_selected_designs.csv")
+    counts = designs.groupby(["regime", "fraction", "duration_h"]).size().reset_index(name="configurations")
+    text += table("Table S24. Validation-selected storage designs across model-seed-price configurations",
+                  ["Design regime", "Power fraction", "Duration (h)", "Configurations"],
+                  [[r.regime.replace("_", " "), r.fraction, r.duration_h, r.configurations] for r in counts.itertuples()])
+    bounds = pd.read_csv(ROOT / "outputs/storage_policy_v15/oracle_bounds.csv").groupby(["site", "model", "training", "case"]).mean(numeric_only=True).reset_index()
+    text += table("Table S25. Perfect-information and feasible online operating costs per installed MW",
+                  ["Site", "Model", "Training", "Prices", "Oracle bound", "Online control"],
+                  [[r.site, r.model, r.training.replace("_", " "), r.case,
+                    f3(r.oracle_operating_cny_per_installed_mw), f3(r.online_operating_cny_per_installed_mw)] for r in bounds.itertuples()])
+    conditional = pd.read_csv(ROOT / "outputs/storage_policy_v15/conditional_advantage.csv")
+    conditional = conditional[conditional.mean_difference < 0].sort_values("mean_difference")
+    text += table("Table S26. Conditions associated with lower event-weighted storage cost",
+                  ["Site", "Model", "Prices", "Tail premium", "Power fraction", "Duration (h)", "Mean difference", "Seeds better"],
+                  [[r.site, r.model, r.price_case, r.tail_premium, r.storage_fraction, r.duration_h,
+                    f3(r.mean_difference), f"{int(r.better_seeds)}/{int(r.seeds)}"] for r in conditional.itertuples()])
+    text += "\nMean difference is event-weighted minus MSE total cost in CNY per installed MW, averaged over three seeds. Negative values identify declared scenario cells; the table lists all such cells in the tested grid.\n"
+    compute = pd.read_csv(ROOT / "outputs/detection_benchmark_v9_100/compute_cost_summary.csv")
+    compute_labels = {"mean_rule": "Mean rule", "timesnet": "TimesNet", "kanad": "KAN-AD",
+                      "tcn_ae": "TCN-AE", "transformer_ae": "Transformer-AE"}
+    text += table("Table S27. Controlled detection compute budget and model size",
+                  ["Model", "Seeds", "Parameters", "Max steps", "Max epochs", "Test n", "CKPT bytes"],
+                  [[compute_labels.get(r.model, r.model), r.seeds, r.parameters, r.train_optimizer_steps, r.train_epochs, r.test_sequences, r.checkpoint_bytes]
+                   for r in compute.itertuples()])
+    text += "\nOptimizer steps, epochs and checkpoint sizes are recorded from the upper-budget benchmark; the mean-change rule is analytic and has no fitted parameters.\n"
+    hpo = pd.read_csv(ROOT / "outputs/detection_hpo_v16/selected_summary.csv")
+    text += table("Table S28. Validation-selected detection hyperparameters and held-out performance",
+                  ["Model", "Selected configuration", "Validation F1", "Test F1", "Test precision", "Test recall", "Delay (steps)", "Seeds"],
+                  [[r.model, r.selected_config, f3(r.validation_f1_mean) if pd.notna(r.validation_f1_mean) else "analytic",
+                    f3(r.test_f1_mean), f3(r.test_precision_mean), f3(r.test_recall_mean), f3(r.test_delay_mean_steps), r.seeds]
+                   for r in hpo.itertuples()])
+    text += "\nHyperparameters are selected by mean validation F1 across three seeds; the reported test metrics use the selected configuration and remain untouched during selection. The mean-change rule has no learned hyperparameters.\n"
+    assert sorted(row["table"] for row in TABLE_LOG) == list(range(1, 29))
     (OUT / "supplementary_table_manifest.json").write_text(json.dumps(sorted(TABLE_LOG, key=lambda row: row["table"]), indent=2))
     first = text.index("\n\n### Table S")
     parts = re.split(r"(?=\n\n### Table S\d+\.)", text[first:])
@@ -214,6 +260,8 @@ PREAMBLE = r"""\documentclass[preprint,12pt]{elsarticle}
 \usepackage{caption,float}
 \usepackage{needspace}
 \usepackage{xurl}
+\let\OriginalPath\path
+\renewcommand{\path}[1]{\mbox{\OriginalPath{#1}}}
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,fontsize=\footnotesize}
 \usepackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
@@ -306,6 +354,10 @@ def main():
     supp_latex = latex(supp_md)
     for heading in ["section", "subsection", "subsubsection"]:
         supp_latex = supp_latex.replace("\\" + heading + "{", "\\" + heading + "*{")
+    supp_latex = supp_latex.replace(
+        r"\subsubsection*{Table S",
+        r"\needspace{9\baselineskip}\subsubsection*{Table S",
+    )
     # Give the detector field enough room while preserving readable numeric columns.
     start = supp_latex.index("Table S11.")
     end = supp_latex.index("Table S12.", start)
