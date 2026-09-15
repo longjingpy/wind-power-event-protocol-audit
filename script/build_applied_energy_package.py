@@ -77,7 +77,10 @@ def table(title, headers, rows):
 
 def supplement_tables():
     text = "\n\n## Supplementary result tables\n\nThe tables present the evaluation populations and measures defined in Supplementary Methods S1–S10. Calendar-block intervals summarize temporal variation within each farm. Seed and batch summaries describe their stated computational units.\n"
-    def detector_name(value):
+    def detector_name(value, site=None):
+        if site == 'greece':
+            for lag, minutes in [('1h', '20 min'), ('2h', '40 min'), ('4h', '80 min')]:
+                value = value.replace('_' + lag, '_' + minutes)
         return (value.replace("endpoint_corridor", "Corridor")
                      .replace("adaptive_corridor", "Adaptive corridor")
                      .replace("financial_tail", "Tail")
@@ -119,7 +122,7 @@ def supplement_tables():
     human_metrics = ROOT / "outputs/user_labels_v9/window_detector_metrics.csv"
     if human_metrics.exists():
         rows = list(csv.DictReader(human_metrics.open(newline="")))
-        text += table("Table S11. Human-labelled centre-region detector agreement", ["Site", "Detector", "Windows", "TP", "FP", "FN", "Precision", "Recall", "F1"], [[r["site"], detector_name(r["config"]), r["n_windows"], r["tp"], r["fp"], r["fn"], f3(r["precision"]), f3(r["recall"]), f3(r["f1"])] for r in rows])
+        text += table("Table S11. Human-labelled centre-region detector agreement", ["Site", "Detector", "Windows", "TP", "FP", "FN", "Precision", "Recall", "F1"], [[r["site"], detector_name(r["config"], r["site"]), r["n_windows"], r["tp"], r["fp"], r["fn"], f3(r["precision"]), f3(r["recall"]), f3(r["f1"])] for r in rows])
     learned = pd.read_csv(ROOT / "outputs/cv_benchmark_v7_100_complete/cv_benchmark_metrics.csv")
     farm_groups = ["pairs:" + name for name in ["pizhou", "suining", "yandun", "lahaute", "hill"]]
     learned = learned[(learned.k == 4) & learned.group.isin(farm_groups)]
@@ -146,9 +149,9 @@ def supplement_tables():
                    for (rep, k), part in external.groupby(["representation", "k"])])
     rematch = pd.read_csv(ROOT / "outputs/event_matching_v14/event_matching_summary.csv")
     text += table("Table S16. Event-level IoU and matching-strategy sensitivity",
-                  ["Site", "IoU", "Matcher", "Pairs", "NMI", "ARI", "Weighted NMI"],
-                  [[names.get(r.site, r.site), f"{r.cutoff:.1f}", r.method,
-                    str(int(r.pairs)), f3(r.nmi), f3(r.ari), f3(r.weighted_nmi)]
+                  ["Site", "IoU", "Matcher", "Pairs", "NMI", "ARI", "Weighted NMI", "Left cov.", "Right cov."],
+                  [[names.get(r.site, r.site), f"{r.cutoff:.1f}", r.method.replace("_", " "),
+                    str(int(r.pairs)), f3(r.nmi), f3(r.ari), f3(r.weighted_nmi), f3(r.left_coverage), f3(r.right_coverage)]
                    for r in rematch.itertuples()])
     weather = pd.read_csv(ROOT / "outputs/weather_uncertainty_v12/risk_block_intervals.csv")
     text += table("Table S15. Observational weather contrasts with shared calendar-block intervals",
@@ -178,9 +181,9 @@ def supplement_tables():
                    ["Pizhou frozen", len(frozen), f3(frozen.nmi.mean()), f3(frozen.ari.mean()), f3(frozen.agreement.mean())]])
     fine = pd.read_csv(ROOT / "outputs/external_transfer_v14/summary.csv")
     text += table("Table S21. Same-encoder Greek frozen and adapted TCN comparison",
-                  ["Mode", "Pairs", "Config. pairs", "Equal-pair NMI", "Equal-pair ARI", "Pooled NMI"],
-                  [[r.mode.replace("_", " "), r.event_pairs, r.configuration_pairs, f3(r.equal_pair_nmi),
-                    f3(r.equal_pair_ari), f3(r.pooled_nmi)] for r in fine.itertuples()])
+                  ["Mode", "Pairs", "Equal NMI", "Equal ARI", "Pooled NMI", "Weighted NMI", "Weighted ARI"],
+                  [[r.mode.replace("_", " "), r.event_pairs, f3(r.equal_pair_nmi),
+                    f3(r.equal_pair_ari), f3(r.pooled_nmi), f3(r.weighted_nmi), f3(r.weighted_ari)] for r in fine.itertuples()])
     sampling = pd.read_csv(ROOT / "outputs/yandun_sampling_v14/anchor_detection_summary.csv")
     text += table("Table S17. Yandun physical-horizon and sampling sensitivity",
                   ["Minutes", "Horizon (h)", "Clock", "Eligible anchors", "Positive anchors", "Positive rate"],
