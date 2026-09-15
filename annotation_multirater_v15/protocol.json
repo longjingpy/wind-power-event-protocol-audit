@@ -1,0 +1,19 @@
+{
+  "schema": "wind_multirater_v15",
+  "packet_id": "wind-v15-d20810d7ee01",
+  "windows": 200,
+  "target_hours": 2,
+  "context_hours": 4,
+  "selection_truth": false,
+  "sites": 4,
+  "strata_per_site": {
+    "steady_screen": 20,
+    "rising_screen": 5,
+    "falling_screen": 5,
+    "turning_screen": 10,
+    "random_screen": 10
+  },
+  "legacy_labels_used": false,
+  "independent_raters_received": 0,
+  "sha256_windows": "d20810d7ee0199e53afaa0685b3730b9fda313ff337469cdbea092cef2be064b"
+}

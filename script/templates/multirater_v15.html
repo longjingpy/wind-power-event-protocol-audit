@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>风功率区域独立复核</title>
+<style>
+:root{font-family:system-ui,"Microsoft YaHei",sans-serif;color:#183449;background:#f2f5f8}
+body{margin:0}[hidden]{display:none!important}main{max-width:1040px;margin:auto;padding:20px}
+h1{font-size:25px;margin:0 0 6px}p{line-height:1.65;margin:8px 0}
+.card{background:white;border:1px solid #dce4e9;border-radius:14px;padding:18px;margin:14px 0}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.grow{flex:1}.muted{color:#576c7b;font-size:13px}
+button,input,select{font:inherit;border:1px solid #b7c8d2;border-radius:8px;padding:10px;background:white;color:inherit}
+button{cursor:pointer;min-height:44px}button:hover{background:#eef7fb}button:focus-visible,input:focus-visible{outline:3px solid #197b9b;outline-offset:2px}
+.primary{background:#166b83;color:white;border-color:#166b83}.primary:hover{background:#125c72}
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.choices button{text-align:left;border:2px solid #c7d4dc}
+.choices button.chosen{border-color:#14798e;background:#e8f6f8;font-weight:bold}
+.tag{background:#fff0d8;padding:5px 9px;border-radius:6px;color:#865716;font-weight:600}
+svg{width:100%;display:block;min-height:150px}#powerSvg{touch-action:manipulation;cursor:crosshair}
+#notice{min-height:24px;color:#24647a}progress{width:160px;height:15px}
+#boundaryStart,#boundaryEnd{width:82px}.small{font-size:13px}
+details{margin-top:12px}summary{cursor:pointer}#privacy{font-size:12px;color:#607887}
+@media(max-width:650px){main{padding:10px}.card{padding:12px}.choices{grid-template-columns:repeat(2,1fr)}h1{font-size:21px}#powerSvg{min-height:210px}svg text{font-size:24px}}
+</style></head>
+<body><main>
+<header><h1>风功率区域独立复核</h1><p class="muted">独立作答 · 不显示旧答案 · 无登录与后台上传</p></header>
+<section class="card" aria-label="身份与说明">
+<div class="row"><label for="rater">匿名标注者 ID</label><input id="rater" maxlength="40" placeholder="例如 R2026_A01" autocomplete="off"><button id="start" class="primary">开始 / 恢复</button><button id="randomId">生成匿名 ID</button></div>
+<p>只判断<span class="tag">橙色目标段：−1 至 +1 小时</span>。两侧灰色区域用于理解背景，不给整个 4 小时贴一个标签。</p>
+<details><summary>标注定义与操作说明</summary>
+<p>有可辨识的上升、下降、转折或波动时选择相应动态形态；V 与倒 V 即使端点净变化很小，也属于动态事件。持续低功率本身按状态记录，若目标段出现转入或转出，请选择下降或上升。数据不足时选择“缺测/坏数据”。</p>
+<p>每个按钮对应一个完整答案，点击后自动保存。可关闭自动下一条、回退修改，或用数字键 1–9 作答。置信度与起止边界可选；仅有区域标签时不会生成精确起点真值。</p>
+<p>请独立作答，不查看其他人的答案或源目录中的抽样分层。所有数据保存在当前浏览器，导出 JSON 后交给研究负责人。</p>
+</details></section>
+<section id="workspace" class="card" hidden>
+<div class="row"><strong id="position" class="grow"></strong><progress id="progress" value="0"></progress><span id="done" class="muted"></span><label class="small"><input id="autoNext" type="checkbox" checked>自动下一条</label></div>
+<p id="scopeText" class="muted"></p>
+<svg id="powerSvg" viewBox="0 0 960 290" role="img" aria-label="归一化风功率，橙色为需要判断的两小时"></svg>
+<label class="small"><input id="showWind" type="checkbox">显示风速背景（不推测运行原因）</label>
+<svg id="windSvg" viewBox="0 0 960 140" role="img" aria-label="风速背景"></svg>
+<div class="row small"><span>可选置信度</span><select id="confidence"><option value="unrated">未填写</option><option value="high">高</option><option value="medium">中</option><option value="low">低</option></select>
+<span>可选边界（分钟）</span><input id="boundaryStart" type="number" min="-60" max="60" placeholder="起点" aria-label="事件起点分钟"><input id="boundaryEnd" type="number" min="-60" max="60" placeholder="终点" aria-label="事件终点分钟"><select id="clickMode"><option value="none">点击图不标边界</option><option value="start">点击图标起点</option><option value="end">点击图标终点</option></select><button id="clearBounds">清除边界</button></div>
+<p class="muted">一个按钮即可作答；边界可跳过。已选答案用蓝框标记。</p>
+<div id="choices" class="choices"></div>
+<div class="row" style="margin-top:15px"><button id="previous">← 上一条</button><button id="next">下一条 →</button><button id="nextUnanswered">跳到未答</button><span class="grow"></span><button id="export" class="primary">导出当前答案 JSON</button></div>
+</section>
+<div id="notice" role="status" aria-live="polite"></div>
+<p id="privacy">无需填写姓名、邮箱或联系方式。答案仅保存在当前浏览器并由参与者自行导出，页面不向后台提交作答内容。</p>
+</main><script type="application/json" id="packet">__PACKET__</script>
+<script>
+"use strict";
+const packet=JSON.parse(document.getElementById("packet").textContent);
+const $=id=>document.getElementById(id);
+const definitions=[
+["upward","1  明显上升","yes"],["downward","2  明显下降","yes"],
+["valley","3  V 字：先降后升","yes"],["peak","4  倒 V：先升后降","yes"],
+["oscillatory","5  多次波动 / 复合变化","yes"],["low_state","6  持续低功率状态","no"],
+["quiet","7  平稳 / 无动态事件","no"],["uncertain","8  无法确定","uncertain"],
+["data_issue","9  缺测 / 坏数据","unassessable"]];
+let rater="",order=[],position=0,answers={},advanceTimer=null;
+function shuffled(n,key){let seed=2166136261;for(const c of key)seed=Math.imul(seed^c.charCodeAt(0),16777619)>>>0;
+const out=Array.from({length:n},(_,i)=>i);for(let i=n-1;i>0;i--){seed=(Math.imul(seed,1664525)+1013904223)>>>0;const j=seed%(i+1);[out[i],out[j]]=[out[j],out[i]]}return out}
+function storageKey(){return "wind-review:"+packet.packet_id+":"+rater}
+function notify(text){$("notice").textContent=text}
+function current(){return packet.windows[order[position]]}
+function persist(){try{localStorage.setItem(storageKey(),JSON.stringify({rater,answers,position}));notify("已保存在本机；完成后请导出 JSON。")}catch(e){notify("本地保存受浏览器限制，请及时导出 JSON。")}}
+function el(name,attrs={},text){const node=document.createElementNS("http://www.w3.org/2000/svg",name);for(const[k,v]of Object.entries(attrs))node.setAttribute(k,v);if(text!==undefined)node.textContent=text;return node}
+function draw(svg,values,height,label,maxDefault){
+svg.replaceChildren();const w=current(),L=66,R=24,T=19,B=33,W=960,H=height;
+const finite=values.filter(v=>v!==null&&Number.isFinite(v));
+const ymin=label==="Power / reference"?Math.min(-.03,...finite):0;
+const ymax=Math.max(maxDefault,...finite),X=m=>L+(m+120)/240*(W-L-R),Y=v=>H-B-(v-ymin)/(ymax-ymin)*(H-T-B);
+svg.append(el("rect",{x:L,y:T,width:W-L-R,height:H-T-B,fill:"#f0f3f5"}));
+svg.append(el("rect",{x:X(-60),y:T,width:X(60)-X(-60),height:H-T-B,fill:"#ffe9c7"}));
+for(let j=0;j<=4;j++){const v=ymin+j*(ymax-ymin)/4,y=Y(v);svg.append(el("line",{x1:L,x2:W-R,y1:y,y2:y,stroke:"#d8e1e7","stroke-width":1}));svg.append(el("text",{x:L-8,y:y+4,"text-anchor":"end","font-size":12,fill:"#465d6d"},v.toFixed(label==="Power / reference"?2:1)))}
+for(const m of[-120,-60,0,60,120]){const x=X(m);svg.append(el("line",{x1:x,x2:x,y1:T,y2:H-B,stroke:Math.abs(m)===60?"#ca963b":"#d8e1e7","stroke-dasharray":Math.abs(m)===60?"4 3":"none"}));svg.append(el("text",{x,y:H-10,"text-anchor":"middle","font-size":12,fill:"#465d6d"},(m/60)+" h"))}
+svg.append(el("text",{x:L,y:13,"font-size":12,fill:"#345267"},label));
+let segment=[];function flush(){if(segment.length>1)svg.append(el("polyline",{points:segment.join(" "),fill:"none",stroke:"#176c89","stroke-width":2.4}));segment=[]}
+w.minutes.forEach((m,i)=>{const v=values[i];if(v===null||!Number.isFinite(v)){flush();return}if(i>0&&m-w.minutes[i-1]>1.5*w.nominal_minutes)flush();segment.push(X(m)+","+Y(v));svg.append(el("circle",{cx:X(m),cy:Y(v),r:2.6,fill:"#176c89"}))});flush();
+if(label==="Power / reference"){for(const field of["boundaryStart","boundaryEnd"]){const value=$(field).value;if(value!=="")svg.append(el("line",{x1:X(Number(value)),x2:X(Number(value)),y1:T,y2:H-B,stroke:"#9a4362","stroke-width":2}))}}
+}
+function render(){
+const w=current(),saved=answers[w.window_id];
+$("position").textContent="样本 "+(position+1)+" / "+order.length+" · "+w.window_id;
+$("progress").max=order.length;$("progress").value=Object.keys(answers).length;$("done").textContent=Object.keys(answers).length+" 已答";
+$("scopeText").textContent="目标源时钟："+w.target_start+" 至 "+w.target_end+"；仅标橙色区域。";
+$("confidence").value=saved?.confidence||"unrated";$("boundaryStart").value=saved?.event_start_relative_min??"";$("boundaryEnd").value=saved?.event_end_relative_min??"";
+$("choices").replaceChildren();for(const[code,title,presence]of definitions){const b=document.createElement("button");b.type="button";b.textContent=title;b.dataset.label=code;b.className=saved?.morphology===code?"chosen":"";b.addEventListener("click",()=>answer(code,presence));$("choices").append(b)}
+draw($("powerSvg"),w.power,290,"Power / reference",1.1);
+const show=$("showWind").checked&&w.wind.length>0;$("windSvg").style.display=show?"block":"none";if(show)draw($("windSvg"),w.wind,140,"Wind speed (m/s)",12);
+$("previous").disabled=position===0;$("next").disabled=position===order.length-1;
+}
+function boundaries(){const a=$("boundaryStart").value,b=$("boundaryEnd").value;if(a===""&&b==="")return[null,null];
+if(a===""||b===""||Number(a)<-60||Number(b)>60||Number(a)>Number(b))throw Error("起终点须成对填写，满足 −60 ≤ 起点 ≤ 终点 ≤ 60。");
+return[Number(a),Number(b)]}
+function answer(morphology,presence){
+if(!rater)return;clearTimeout(advanceTimer);
+let bounds;try{bounds=presence==='yes'?boundaries():[null,null]}catch(e){notify(e.message);return}
+const w=current();answers[w.window_id]={window_id:w.window_id,target_start:w.target_start,target_end:w.target_end,
+event_presence:presence,morphology,confidence:$("confidence").value,
+event_start_relative_min:bounds[0],event_end_relative_min:bounds[1],updated_at:new Date().toISOString()};
+persist();render();if($("autoNext").checked&&position<order.length-1)advanceTimer=setTimeout(()=>{position++;persist();render();$("workspace").scrollIntoView({block:"start"})},220)}
+function move(delta){clearTimeout(advanceTimer);position=Math.max(0,Math.min(order.length-1,position+delta));persist();render();$("workspace").scrollIntoView({block:"start"})}
+function start(){const id=$("rater").value.trim();if(!/^[A-Za-z0-9_-]{3,40}$/.test(id)){notify("匿名 ID 请使用 3–40 位英文字母、数字、下划线或短横线。");return}
+clearTimeout(advanceTimer);rater=id;order=shuffled(packet.windows.length,packet.packet_id+rater);answers={};position=0;
+try{const saved=JSON.parse(localStorage.getItem(storageKey())||"null");if(saved){answers=saved.answers||{};position=Math.min(saved.position||0,order.length-1)}}catch(e){notify("旧存档无法读取，请使用导出备份。")}
+$("workspace").hidden=false;render();$("workspace").scrollIntoView({block:"start"});notify("已进入独立作答；每位参与者请使用不同匿名 ID。")}
+$("start").onclick=start;$("randomId").onclick=()=>{$("rater").value="R_"+(crypto.randomUUID?crypto.randomUUID().slice(0,8):Math.random().toString(16).slice(2,10));start()};
+$("previous").onclick=()=>move(-1);$("next").onclick=()=>move(1);
+$("nextUnanswered").onclick=()=>{const i=order.findIndex(index=>!answers[packet.windows[index].window_id]);if(i>=0){position=i;render()}else notify("所有样本已作答，请导出。")};
+$("showWind").onchange=()=>{if(rater)render()};
+$("clearBounds").onclick=()=>{$("boundaryStart").value="";$("boundaryEnd").value="";draw($("powerSvg"),current().power,290,"Power / reference",1.1)};
+for(const id of["boundaryStart","boundaryEnd"])$(id).oninput=()=>{if(rater)draw($("powerSvg"),current().power,290,"Power / reference",1.1)};
+$("powerSvg").onclick=e=>{if(!rater||$("clickMode").value==="none")return;const rect=$("powerSvg").getBoundingClientRect(),x=(e.clientX-rect.left)*960/rect.width;
+const minute=Math.round((x-66)/(960-66-24)*240-120);if(minute < -60||minute > 60){notify("边界只在橙色目标段内标记。");return}
+$($("clickMode").value==="start"?"boundaryStart":"boundaryEnd").value=minute;draw($("powerSvg"),current().power,290,"Power / reference",1.1)};
+$("export").onclick=()=>{clearTimeout(advanceTimer);const result={schema:packet.schema,packet_id:packet.packet_id,annotator_id:rater,exported_at:new Date().toISOString(),
+annotation_scope:"central_2h",display_hours:4,annotations:Object.values(answers)};
+const blob=new Blob([JSON.stringify(result,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),link=document.createElement("a");link.href=url;link.download="human_labels_v15_"+rater+"_"+packet.packet_id+".json";link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);notify("已导出 "+result.annotations.length+" 条，请把 JSON 文件交给研究负责人。")};
+document.addEventListener("keydown",e=>{if(!rater||["INPUT","SELECT","TEXTAREA"].includes(e.target.tagName))return;
+const n=Number(e.key);if(n>=1&&n<=9){e.preventDefault();const d=definitions[n-1];answer(d[0],d[2])}else if(e.key==="ArrowLeft")move(-1);else if(e.key==="ArrowRight")move(1)});
+</script></body></html>
