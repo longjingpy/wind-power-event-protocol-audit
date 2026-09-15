@@ -1,7 +1,7 @@
-# Environment observed for the v16 aggregate and HPO verification runs.
-# Python interpreter: 3.12; platform: Ubuntu 24.04; ROCm/CUDA is optional for
-# the aggregate scripts. Recreate from requirements.txt, then pin these exact
-# versions when a full raw-data rebuild is required.
+# Observed direct-package snapshot, not a validated installation lock.
+# Python: 3.12; Ubuntu 24.04. Transitive dependencies are not captured here.
+# The vendor ROCm torch build needs its matching wheel index; a clean
+# installation and Docker/Singularity build remain outstanding.
 numpy==2.4.6
 pandas==2.3.3
 matplotlib==3.11.1

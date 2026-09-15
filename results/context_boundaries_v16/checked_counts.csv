@@ -1,0 +1,16 @@
+site,split,events,shapes
+hill,test,100200,87987
+hill,train,244364,223301
+hill,validation,57587,50223
+lahaute,test,14875,13294
+lahaute,train,38422,35169
+lahaute,validation,11863,10049
+pizhou,test,148855,104836
+pizhou,train,444693,297854
+pizhou,validation,132968,89640
+suining,test,48471,37418
+suining,train,138778,111213
+suining,validation,51219,38164
+yandun,test,285838,282741
+yandun,train,228221,131424
+yandun,validation,37895,25063

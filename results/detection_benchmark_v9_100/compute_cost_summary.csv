@@ -1,0 +1,6 @@
+model,seeds,parameters,train_optimizer_steps,train_epochs,test_sequences,checkpoint_bytes,compute_measure
+mean_rule,1,0,0,0,800,0,analytic score; no fitted parameters
+timesnet,3,37297,2200,88,800,479161,upper-budget training log; max across seeds
+kanad,3,9845,2225,89,800,48673,upper-budget training log; max across seeds
+tcn_ae,3,15928,2500,100,800,68229,upper-budget training log; max across seeds
+transformer_ae,3,59920,2075,83,800,252208,upper-budget training log; max across seeds

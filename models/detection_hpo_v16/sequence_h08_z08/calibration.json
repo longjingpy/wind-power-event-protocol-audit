@@ -1,0 +1,110 @@
+{
+  "tcn_ae-41": {
+    "default": {
+      "threshold": 0.20542985200881958,
+      "ratio": 1.0,
+      "gap": 0,
+      "minimum": 1
+    },
+    "calibrated": {
+      "threshold": 0.7238753885030728,
+      "ratio": 0.5,
+      "gap": 2,
+      "minimum": 3
+    },
+    "optimizer_steps": 750,
+    "train_rows": 1600,
+    "validation_rows": 400,
+    "test_rows": 800
+  },
+  "tcn_ae-42": {
+    "default": {
+      "threshold": 0.2109709233045578,
+      "ratio": 1.0,
+      "gap": 0,
+      "minimum": 1
+    },
+    "calibrated": {
+      "threshold": 0.7277119278907731,
+      "ratio": 0.5,
+      "gap": 2,
+      "minimum": 3
+    },
+    "optimizer_steps": 750,
+    "train_rows": 1600,
+    "validation_rows": 400,
+    "test_rows": 800
+  },
+  "tcn_ae-43": {
+    "default": {
+      "threshold": 0.22219596803188324,
+      "ratio": 1.0,
+      "gap": 0,
+      "minimum": 1
+    },
+    "calibrated": {
+      "threshold": 0.7443954944610588,
+      "ratio": 0.5,
+      "gap": 2,
+      "minimum": 3
+    },
+    "optimizer_steps": 750,
+    "train_rows": 1600,
+    "validation_rows": 400,
+    "test_rows": 800
+  },
+  "transformer_ae-41": {
+    "default": {
+      "threshold": 0.15434902906417847,
+      "ratio": 1.0,
+      "gap": 0,
+      "minimum": 1
+    },
+    "calibrated": {
+      "threshold": 0.5272893190383894,
+      "ratio": 0.5,
+      "gap": 2,
+      "minimum": 3
+    },
+    "optimizer_steps": 750,
+    "train_rows": 1600,
+    "validation_rows": 400,
+    "test_rows": 800
+  },
+  "transformer_ae-42": {
+    "default": {
+      "threshold": 0.15486137568950653,
+      "ratio": 1.0,
+      "gap": 0,
+      "minimum": 1
+    },
+    "calibrated": {
+      "threshold": 0.5284517705440508,
+      "ratio": 0.5,
+      "gap": 2,
+      "minimum": 3
+    },
+    "optimizer_steps": 750,
+    "train_rows": 1600,
+    "validation_rows": 400,
+    "test_rows": 800
+  },
+  "transformer_ae-43": {
+    "default": {
+      "threshold": 0.1551932394504547,
+      "ratio": 1.0,
+      "gap": 0,
+      "minimum": 1
+    },
+    "calibrated": {
+      "threshold": 0.47293399423360744,
+      "ratio": 0.5,
+      "gap": 2,
+      "minimum": 3
+    },
+    "optimizer_steps": 750,
+    "train_rows": 1600,
+    "validation_rows": 400,
+    "test_rows": 800
+  }
+}

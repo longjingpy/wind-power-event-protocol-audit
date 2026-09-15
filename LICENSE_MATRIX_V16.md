@@ -9,6 +9,6 @@
 | La Haute Borne / OpenOA | Original public provider terms | Cite the source record and OpenOA ecosystem |
 | Hill of Towie | Original public provider terms | Cite the source record and archive attribution |
 | ERA5 and NOAA | Original ECMWF / NOAA terms | Preserve source notices and attribution; this release does not replace them |
-| Upstream TimesNet and KAN-AD implementations | Upstream software licenses | Preserve upstream notices; this repository distributes only the study adapters and checkpoints |
+| Upstream TimesNet and KAN-AD implementations | MIT, THUML copyright retained | A four-file dependency subset is vendored at commit 4e938a1767106324dd753b2a44832bf870a0252e; original LICENSE and source record accompany it |
 
 This matrix records the study's redistribution decision and attribution route. It is not a legal interpretation of a third-party licence. The release excludes credentials, private attachments and unrelated confidential GNSS material.

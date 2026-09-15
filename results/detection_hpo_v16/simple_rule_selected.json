@@ -1,0 +1,19 @@
+{
+  "tp": 296,
+  "fp": 103,
+  "fn": 104,
+  "precision": 0.7418546365914787,
+  "recall": 0.74,
+  "f1": 0.7409261576971214,
+  "mean_delay_steps": 1.162162162162162,
+  "sequences": 800,
+  "truth_events": 400,
+  "selected_window": 4,
+  "validation_f1": 0.7738693467336684,
+  "config": {
+    "threshold": 0.07176654972136018,
+    "ratio": 0.5,
+    "gap": 2,
+    "minimum": 1
+  }
+}

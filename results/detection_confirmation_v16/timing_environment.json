@@ -1,0 +1,10 @@
+{
+  "cpu": "AMD Ryzen 7 9700X 8-Core Processor",
+  "os": "Ubuntu 24.04 under WSL2",
+  "torch": "2.9.1+rocm7.2.0.git7e1940d4",
+  "cpu_threads": 2,
+  "warmup_runs": 1,
+  "timed_runs": 5,
+  "scope": "CPU reconstruction/score generation including array normalization; postprocessing excluded",
+  "simple_implementation": "NumPy cumulative-sum adjacent-window means"
+}

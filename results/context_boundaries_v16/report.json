@@ -1,0 +1,9 @@
+{
+  "status": "PASS_PRIMARY_TEMPORAL_CONTEXT_BOUNDS",
+  "candidate_events": 1984249,
+  "complete_shapes": 1538376,
+  "turbines": 189,
+  "violations": 0,
+  "context_margin_minutes_each_side": 120,
+  "scope": "all five primary farms; event and context index/time/split checks, not an audit of all model leakage channels"
+}

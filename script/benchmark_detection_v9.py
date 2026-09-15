@@ -14,6 +14,7 @@ import json
 import sys
 import time
 import subprocess
+import os
 import numpy as np
 import pandas as pd
 import torch
@@ -22,7 +23,8 @@ from sklearn.metrics import average_precision_score, roc_auc_score
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'outputs/detection_benchmark_v9'
-UPSTREAM=ROOT/'temp/tslib_official'
+bundled_upstream=ROOT/'third_party/tslib'
+UPSTREAM=Path(os.environ.get('WPF_TSLIB_ROOT', str(bundled_upstream if bundled_upstream.exists() else ROOT/'temp/tslib_official')))
 L=96
 
 
@@ -126,9 +128,9 @@ def infer(model,x,mu,sd,device):
     return score
 
 
-def fit_model(kind,seed,train,val_normal,epochs,device,hidden=24,latent_dim=16,lr=.001):
+def fit_model(kind,seed,train,val_normal,epochs,device,hidden=None,latent_dim=16,lr=.001):
     torch.manual_seed(seed); rng=np.random.default_rng(seed)
-    model=UpstreamAE(kind,hidden,latent_dim) if kind in ['timesnet','kanad'] else SequenceAE(kind,hidden,latent_dim)
+    model=UpstreamAE(kind,hidden,latent_dim) if kind in ['timesnet','kanad'] else SequenceAE(kind,hidden or 24,latent_dim)
     model.to(device); mu=float(train.mean());sd=float(train.std());sd=max(sd,1e-6)
     opt=torch.optim.Adam(model.parameters(),lr=lr); best=np.inf;best_state=None;bad=steps=0; log=[]
     for epoch in range(epochs):
@@ -143,7 +145,8 @@ def fit_model(kind,seed,train,val_normal,epochs,device,hidden=24,latent_dim=16,l
         else: bad+=1
         if bad>=5: break
     model.load_state_dict(best_state)
-    torch.save({'state_dict':best_state,'mean':mu,'std':sd,'kind':kind,'seed':seed,'train_rows':len(train),'optimizer_steps':steps},OUT/f'model_{kind}_{seed}.pt')
+    torch.save({'state_dict':best_state,'mean':mu,'std':sd,'kind':kind,'seed':seed,'train_rows':len(train),'optimizer_steps':steps,
+                'hidden_or_order':hidden,'latent_dim':latent_dim,'learning_rate':lr},OUT/f'model_{kind}_{seed}.pt')
     pd.DataFrame(log).to_csv(OUT/f'training_{kind}_{seed}.csv',index=False)
     return model,mu,sd,steps
 
@@ -224,10 +227,11 @@ def main(args):
     d=pd.DataFrame(allrows);p=d[(d.iou_cutoff==.3)].pivot(index=['model','seed','split'],columns='protocol',values=['f1','precision','recall'])
     gains=pd.DataFrame({m+'_gain':p[(m,'calibrated')]-p[(m,'default')] for m in ['f1','precision','recall']})
     gains.to_csv(OUT/'within_model_protocol_gain.csv')
-    commit=subprocess.check_output(['git','-C',str(UPSTREAM),'rev-parse','HEAD'],text=True).strip()
+    record=UPSTREAM/'source_record.json'
+    commit=json.loads(record.read_text())['commit'] if record.is_file() else subprocess.check_output(['git','-C',str(UPSTREAM),'rev-parse','HEAD'],text=True).strip()
     (OUT/'manifest.json').write_text(json.dumps({'status':'CONTROLLED_SYNTHETIC_COMPLETE_NOT_REAL_FIELD_ACCURACY','models':args.models,'seeds':args.seeds,'upstream_commit':commit,'label_semantics':'entire finite injected episode, not WPRE edge or physical cause','training':'normal-only reconstruction, full minibatch epochs','calibration':'validation only, same grid all methods','point_adjustment':False,'time_points':L,'economic_scope':'alarm cost ratio sensitivity only; storage economic benefit remains separate','runtime_seconds':time.monotonic()-t0},indent=2),encoding='utf8')
 
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--test',action='store_true');ap.add_argument('--epochs',type=int,default=30);ap.add_argument('--seeds',type=int,nargs='+',default=[41,42,43]);ap.add_argument('--models',nargs='+',default=['rate_rule','mean_rule','tcn_ae','transformer_ae','timesnet','kanad']);ap.add_argument('--output-dir',type=Path,default=OUT);ap.add_argument('--hidden',type=int,default=24);ap.add_argument('--latent-dim',type=int,default=16);ap.add_argument('--learning-rate',type=float,default=.001);args=ap.parse_args();OUT=args.output_dir
+    ap=argparse.ArgumentParser();ap.add_argument('--test',action='store_true');ap.add_argument('--epochs',type=int,default=30);ap.add_argument('--seeds',type=int,nargs='+',default=[41,42,43]);ap.add_argument('--models',nargs='+',default=['rate_rule','mean_rule','tcn_ae','transformer_ae','timesnet','kanad']);ap.add_argument('--output-dir',type=Path,default=OUT);ap.add_argument('--hidden',type=int,default=None);ap.add_argument('--latent-dim',type=int,default=16);ap.add_argument('--learning-rate',type=float,default=.001);args=ap.parse_args();OUT=args.output_dir
     tests() if args.test else main(args)

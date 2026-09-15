@@ -64,10 +64,14 @@ TABLE_SOURCES = {
   "22": "outputs/detection_benchmark_v9_100/metrics.csv",
   "23": "outputs/storage_policy_v15/capacity_price_surface.csv",
   "24": "outputs/storage_policy_v15/validation_selected_designs.csv",
-  "25": "outputs/storage_policy_v15/oracle_bounds.csv"
-  ,"26": "outputs/storage_policy_v15/conditional_advantage.csv"
-  ,"27": "outputs/detection_benchmark_v9_100/compute_cost_summary.csv"
-  ,"28": "outputs/detection_hpo_v16/selected_summary.csv"
+  "25": "outputs/storage_policy_v15/oracle_bounds.csv",
+  "26": "outputs/storage_policy_v15/conditional_advantage.csv",
+  "27": "outputs/detection_benchmark_v9_100/compute_cost_summary.csv",
+  "28": "outputs/detection_hpo_v16/selected_summary.csv",
+  "29": "outputs/detection_confirmation_v16/metrics.csv",
+  "30": "outputs/detection_confirmation_v16/paired_gain_intervals.csv",
+  "31": "outputs/detection_confirmation_v16/compute.csv",
+  "32": "outputs/matched_composition_v16/site_composition_summary.csv"
 }
 
 
@@ -237,13 +241,46 @@ def supplement_tables():
                    for r in compute.itertuples()])
     text += "\nOptimizer steps, epochs and checkpoint sizes are recorded from the upper-budget benchmark; the mean-change rule is analytic and has no fitted parameters.\n"
     hpo = pd.read_csv(ROOT / "outputs/detection_hpo_v16/selected_summary.csv")
+    hpo_names = {"h08_z08": "size 8", "h16_z16": "size 16", "sequence_h08_z08": "width 8, z 8", "mean_w4": "window 4"}
     text += table("Table S28. Validation-selected detection hyperparameters and held-out performance",
-                  ["Model", "Selected configuration", "Validation F1", "Test F1", "Test precision", "Test recall", "Delay (steps)", "Seeds"],
-                  [[r.model, r.selected_config, f3(r.validation_f1_mean) if pd.notna(r.validation_f1_mean) else "analytic",
-                    f3(r.test_f1_mean), f3(r.test_precision_mean), f3(r.test_recall_mean), f3(r.test_delay_mean_steps), r.seeds]
+                  ["Model", "Selected size", "Validation F1", "Test F1 (SD)", "Precision", "Recall", "Delay", "Seeds"],
+                  [["Trans.-AE" if r.model == "transformer_ae" else compute_labels.get(r.model, r.model), hpo_names.get(r.selected_config, r.selected_config), f3(r.validation_f1_mean),
+                    f'{f3(r.test_f1_mean)} ({f3(r.test_f1_sd)})' if pd.notna(r.test_f1_sd) else f3(r.test_f1_mean),
+                    f3(r.test_precision_mean), f3(r.test_recall_mean), f3(r.test_delay_mean_steps), r.seeds]
                    for r in hpo.itertuples()])
-    text += "\nHyperparameters are selected by mean validation F1 across three seeds; the reported test metrics use the selected configuration and remain untouched during selection. The mean-change rule has no learned hyperparameters.\n"
-    assert sorted(row["table"] for row in TABLE_LOG) == list(range(1, 29))
+    text += "\nTrans.-AE denotes the positional Transformer autoencoder. Size denotes TimesNet d_model or KAN-AD Fourier order; width and z are encoder width and latent size for the sequence autoencoders. SD is across training seeds. Model selection uses mean validation F1; the simple rule selects its mean window on the same validation population.\n"
+    confirmation = pd.read_csv(ROOT / "outputs/detection_confirmation_v16/metrics.csv")
+    confirm_rows = []
+    for (condition, model), group in confirmation.groupby(["condition", "model"]):
+        value = f'{f3(group.f1.mean())} ({f3(group.f1.std())})' if len(group) > 1 else f3(group.f1.iloc[0])
+        confirm_rows.append([condition.replace('_', ' '), compute_labels[model], len(group), value,
+                             f3(group.precision.mean()), f3(group.recall.mean()), f3(group.mean_delay_steps.mean())])
+    text += table("Table S29. Fresh post-selection synthetic confirmation", ["Condition", "Model", "Seeds", "F1 (SD)", "Precision", "Recall", "Delay"], confirm_rows)
+    text += "\nEach condition contains 1,600 fresh sequences, including 800 episodes. Delay is in generator steps, and SD summarizes the three frozen training seeds.\n"
+    gains = pd.read_csv(ROOT / "outputs/detection_confirmation_v16/paired_gain_intervals.csv")
+    text += table("Table S30. Paired F1 differences from the validation-selected mean rule",
+                  ["Condition", "Model", "F1 difference", "95% interval"],
+                  [[r.condition.replace('_', ' '), compute_labels[r.model], f3(r.mean_f1_gain_vs_mean_rule),
+                    f'[{f3(r.ci95_low)}, {f3(r.ci95_high)}]'] for r in gains.itertuples()])
+    text += "\nIntervals use 2,000 shared resamples of complete synthetic sequences, conditional on the frozen trained models. They characterize sampling uncertainty separately from between-seed variation.\n"
+    runtime = pd.read_csv(ROOT / "outputs/detection_confirmation_v16/compute.csv")
+    text += table("Table S31. CPU score-generation cost of the selected configurations",
+                  ["Model", "Parameters", "Median ms/sequence", "Range", "Batch"],
+                  [[compute_labels[r.model], r.parameters, f'{r.cpu_ms_per_sequence_median:.6f}',
+                    f'[{r.cpu_ms_per_sequence_min:.6f}, {r.cpu_ms_per_sequence_max:.6f}]', r.batch_size]
+                   for r in runtime.itertuples()])
+    text += "\nTiming uses an AMD Ryzen 7 9700X under WSL2, two CPU threads, one warm-up and five runs of 800 sequences. Normalization and score generation are timed; interval postprocessing is excluded. The simple rule uses a NumPy cumulative-sum implementation.\n"
+    composition = pd.read_csv(ROOT / "outputs/matched_composition_v16/site_composition_summary.csv")
+    feature_labels = {"duration_hours": "Duration (h)", "amplitude": "Signed change", "absolute_amplitude": "Abs. change",
+                      "power_range": "Power range", "power_start": "Start power", "upward_fraction": "Upward share",
+                      "wind_prewindow_ms": "Wind (m/s)"}
+    text += table("Table S32. Matched and unmatched composition within detector-pair sides",
+                  ["Site", "Feature", "Sides used / all", "Matched mean", "Unmatched mean", "Difference"],
+                  [[names[r.site], feature_labels[r.feature], f'{r.supported_pair_sides}/{r.pair_sides}',
+                    f3(r.equal_pair_mean_matched), f3(r.equal_pair_mean_unmatched), f3(r.equal_pair_mean_difference)]
+                   for r in composition.itertuples()])
+    text += "\nMeans give equal weight to supported detector-pair sides with available feature values in both populations. Power and amplitude use the archived normalization; direction is the fraction of upward events. Earlier wind averages four complete half-hour bins strictly before event start. The detailed companion CSV includes population sizes, valid wind counts and quartiles for every side.\n"
+    assert sorted(row["table"] for row in TABLE_LOG) == list(range(1, 33))
     (OUT / "supplementary_table_manifest.json").write_text(json.dumps(sorted(TABLE_LOG, key=lambda row: row["table"]), indent=2))
     first = text.index("\n\n### Table S")
     parts = re.split(r"(?=\n\n### Table S\d+\.)", text[first:])
@@ -357,6 +394,10 @@ def main():
     supp_latex = supp_latex.replace(
         r"\subsubsection*{Table S",
         r"\needspace{9\baselineskip}\subsubsection*{Table S",
+    )
+    supp_latex = supp_latex.replace(
+        r"\needspace{9\baselineskip}\subsubsection*{Table S29.",
+        r"\clearpage\subsubsection*{Table S29.",
     )
     # Give the detector field enough room while preserving readable numeric columns.
     start = supp_latex.index("Table S11.")

@@ -1,0 +1,9 @@
+condition,model,mean_f1_gain_vs_mean_rule,ci95_low,ci95_high,resamples,unit
+same_family,timesnet,-0.12811058041952283,-0.15377382596623515,-0.10127210361429714,2000,independent synthetic sequence; frozen models
+same_family,kanad,0.06059703965487673,0.03976047525855581,0.08229143082079633,2000,independent synthetic sequence; frozen models
+same_family,tcn_ae,-0.016167940243942303,-0.03763164851043766,0.006517574793687424,2000,independent synthetic sequence; frozen models
+same_family,transformer_ae,-0.08257768281734013,-0.1047555106592227,-0.059451877345630476,2000,independent synthetic sequence; frozen models
+higher_noise,timesnet,0.1651578637728125,0.13753064653649238,0.19545301767165887,2000,independent synthetic sequence; frozen models
+higher_noise,kanad,0.2786530237892014,0.25898172895576527,0.2992549998480914,2000,independent synthetic sequence; frozen models
+higher_noise,tcn_ae,0.20978127791916856,0.18832735321871097,0.23171021830513655,2000,independent synthetic sequence; frozen models
+higher_noise,transformer_ae,0.10679736800622713,0.08855231655388221,0.12592823315157428,2000,independent synthetic sequence; frozen models

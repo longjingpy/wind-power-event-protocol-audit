@@ -1,0 +1,137 @@
+{
+  "created_utc": "2026-09-15T08:55:04.696509+00:00",
+  "selection": {
+    "timesnet": {
+      "directory": "h08_z08",
+      "size": 8,
+      "latent": 8,
+      "calibration": {
+        "41": {
+          "threshold": 0.03957271739840507,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "42": {
+          "threshold": 0.03354925945401186,
+          "ratio": 0.5,
+          "gap": 0,
+          "minimum": 3
+        },
+        "43": {
+          "threshold": 0.03046611556783316,
+          "ratio": 0.5,
+          "gap": 0,
+          "minimum": 3
+        }
+      }
+    },
+    "kanad": {
+      "directory": "h16_z16",
+      "size": 16,
+      "latent": 16,
+      "calibration": {
+        "41": {
+          "threshold": 0.7316455036401668,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "42": {
+          "threshold": 0.8954277187585729,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 1
+        },
+        "43": {
+          "threshold": 0.762438374757763,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        }
+      }
+    },
+    "tcn_ae": {
+      "directory": "sequence_h08_z08",
+      "size": 8,
+      "latent": 8,
+      "calibration": {
+        "41": {
+          "threshold": 0.7238753885030728,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "42": {
+          "threshold": 0.7277119278907731,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "43": {
+          "threshold": 0.7443954944610588,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        }
+      }
+    },
+    "transformer_ae": {
+      "directory": "sequence_h08_z08",
+      "size": 8,
+      "latent": 8,
+      "calibration": {
+        "41": {
+          "threshold": 0.5272893190383894,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "42": {
+          "threshold": 0.5284517705440508,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "43": {
+          "threshold": 0.47293399423360744,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        }
+      }
+    }
+  },
+  "simple_rule": {
+    "tp": 296,
+    "fp": 103,
+    "fn": 104,
+    "precision": 0.7418546365914787,
+    "recall": 0.74,
+    "f1": 0.7409261576971214,
+    "mean_delay_steps": 1.162162162162162,
+    "sequences": 800,
+    "truth_events": 400,
+    "selected_window": 4,
+    "validation_f1": 0.7738693467336684,
+    "config": {
+      "threshold": 0.07176654972136018,
+      "ratio": 0.5,
+      "gap": 2,
+      "minimum": 1
+    }
+  },
+  "new_generator_seeds": [
+    2026091501,
+    2026091502
+  ],
+  "sequences_per_condition": 1600,
+  "training_seeds": [
+    41,
+    42,
+    43
+  ],
+  "iou_cutoff": 0.3,
+  "scope": "post-selection synthetic confirmation; same generator family",
+  "bootstrap": "2000 paired sequence resamples, conditional on frozen trained models"
+}

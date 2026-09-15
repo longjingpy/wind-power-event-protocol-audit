@@ -1,0 +1,9 @@
+{
+  "events": 526276,
+  "sites": 5,
+  "turbines": 189,
+  "pair_side_population_feature_rows": 19040,
+  "scope": "complete test events, each detector-pair side considered separately; no union-match substitution",
+  "wind": "same-turbine four complete 30-min bins strictly before event start; no interpolation",
+  "summary": "equal pair-side feature means; missing wind and empty populations are explicit"
+}

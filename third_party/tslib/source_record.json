@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/thuml/Time-Series-Library.git",
+  "commit": "4e938a1767106324dd753b2a44832bf870a0252e",
+  "license": "MIT; original THUML copyright retained in LICENSE",
+  "files": ["models/TimesNet.py", "models/KANAD.py", "layers/Embed.py", "layers/Conv_Blocks.py"],
+  "modifications": "none; subset of upstream files needed by the controlled benchmark"
+}
