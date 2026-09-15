@@ -17,11 +17,11 @@
 
 ## 次要问题
 
-- [ ] M1：全文统一把 5,000 CNY/MWh 标为声明的 severe-deviation 风险敏感性。
+- [x] M1：全文和 S11/S23/S38 统一把 5,000 CNY/MWh 标为声明的 severe-deviation 风险敏感性。
 - [x] M2：S37 给出每种 validation-selected 设计的测试成本对照；S24 保留设计选择频次。
 - [ ] M3：Jiangsu 历史政策仅提供工程参照；Yandun 是同设计比较，不是该政策适用项目。
 - [x] M4：天气模型收敛 22 次 IRLS，31 块 cluster SE、block-t 与 BH q 值写入 S40；多 horizon 仍按观察性对比解读。
-- [ ] M5：最终 PDF 表题、页内表体、编号与机器提取文本逐表核对。
+- [x] M5：最终编译前的 S1–S43 表题、页内表体、编号和机器提取文本结构检查已通过；加入 S38 inventory 列后需再编译。
 - [ ] M6：再次核查 apenergy DOI，包括论文题名/年份/DOI 对应。
 - [x] M7：结论采用 supports an audit trail，并给出最小协议字段模板。
 - [ ] M8：公开去标识化处理数据集，不继续分发原始数据；数据声明与实际入口同步。
