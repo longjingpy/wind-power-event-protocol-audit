@@ -1,14 +1,14 @@
 # Wind-power event protocol audit
 
-Open study-data release v0.2.0 for **Measuring transferable wind-power dynamics with explicit event protocols**.
+Code and analysis resources for **Measuring transferable wind-power dynamics with explicit event protocols**.
 
 ## Study data
 
-All wind-event study data are authorized for release by the data provider (15 September 2026). The release assets contain native Chinese SCADA, seven-farm analysis inputs, weather data, the event catalogue and human labels. Original public source terms remain applicable.
+The provider authorizes release, and the current distribution policy is to share de-identified processed datasets. The former original-input release v0.2.0 is now a non-public draft while the processed replacement is prepared. See `DATA_POLICY_V17.md` for the current status. Original provider terms remain applicable.
 
-Download the ZIP assets from [v0.2.0](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.2.0) and extract them at the repository root. Relative input paths are retained. `data_manifest.json` lists members, sizes and SHA-256 checksums.
+The historical `data_manifest.json` documents the former bundle and is not an active download index. A new processed-data index will be supplied after validation.
 
-The raw Chinese archive includes Pizhou, Suining and Yandun. Public originals and metadata are attributed through SDWPF (10.6084/m9.figshare.24798654), Greece (10.5281/zenodo.14546480), La Haute Borne and Hill of Towie source records. Unrelated GNSS projects, private attachments and corrupt download copies are excluded.
+Public original sources are attributed through SDWPF (10.6084/m9.figshare.24798654), Greece (10.5281/zenodo.14546480), La Haute Borne and Hill of Towie source records. Unrelated GNSS projects, private attachments and corrupt download copies are excluded.
 
 ## Verified entry points
 

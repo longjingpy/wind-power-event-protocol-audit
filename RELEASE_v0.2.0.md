@@ -1,5 +1,7 @@
 # Wind-event study data and verified analyses
 
+Historical notice: this release is now a non-public draft. The latest distribution policy uses de-identified processed datasets instead of original provider files; see DATA_POLICY_V17.md. The text below records the former release contents and is not a current availability statement.
+
 The data provider authorized release of all data used in this wind-power event study on 15 September 2026. This release includes native Chinese SCADA, analysis inputs for seven farms, regional weather, the event catalogue, and human-review labels. Original public archives retain their source licenses and DOI attribution. The release excludes unrelated GNSS projects, personal attachments, credentials, corrupt download copies, and redundant caches.
 
 Extract each ZIP in the repository root. Archive members preserve the relative paths used by the analysis scripts. `data_manifest.json` lists every member, asset size and checksum.
