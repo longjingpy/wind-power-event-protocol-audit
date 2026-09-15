@@ -11,6 +11,10 @@ import os
 import shutil
 import subprocess
 import zipfile
+import hashlib
+import math
+
+TABLE_LOG = []
 
 import pandas as pd
 
@@ -35,7 +39,38 @@ def read_rows(name):
         return list(csv.DictReader(f))
 
 
+TABLE_SOURCES = {
+  "1": "outputs/dynamic_events_v6/representation_summary_primary.csv",
+  "2": "outputs/dynamic_events_v6/block_intervals.csv",
+  "3": "outputs/dynamic_events_v6/external_greece/summary_by_sample_size.csv",
+  "4": "outputs/dynamic_events_v6/weather_mechanism/risk_by_horizon.csv",
+  "5": "outputs/dynamic_events_v6/weather_mechanism/time_shift_placebo.csv",
+  "6": "outputs/dynamic_events_v6/weather_mechanism/mechanism_chain_recovery_effects.csv",
+  "7": "outputs/real_decision_v9_signed/forecast_summary.csv",
+  "8": "outputs/real_decision_v9_signed/economic_summary.csv",
+  "9": "outputs/detection_benchmark_v9/protocol_ablation_metrics.csv",
+  "10": "outputs/annotation_v9/sampling_support.csv",
+  "11": "outputs/user_labels_v9/window_detector_metrics.csv",
+  "12": "outputs/cv_benchmark_v7_100_complete/cv_benchmark_metrics.csv",
+  "13": "outputs/sdwpf_v7/learned_forward_metrics.csv",
+  "14": "outputs/matching_coverage_v12/pair_coverage_summary.csv",
+  "15": "outputs/weather_uncertainty_v12/risk_block_intervals.csv",
+  "16": "outputs/event_matching_v14/event_matching_summary.csv",
+  "17": "outputs/yandun_sampling_v14/anchor_detection_summary.csv",
+  "18": "outputs/weight_sensitivity_v13/weight_sensitivity.csv",
+  "19": "outputs/weather_adjusted_v14/adjusted_weather_association.json",
+  "20": "outputs/external_local_v13/greece_local_raw25_pairs.csv",
+  "21": "outputs/external_transfer_v14/summary.csv",
+  "22": "outputs/detection_benchmark_v9_100/metrics.csv"
+}
+
+
 def table(title, headers, rows):
+    number = re.search(r"Table S(\d+)\.", title)[1]
+    assert len(rows) > 0, title
+    source = ROOT / TABLE_SOURCES[number]
+    TABLE_LOG.append({"table": int(number), "rows": len(rows), "source": str(source.relative_to(ROOT)),
+                      "source_bytes": source.stat().st_size, "status": "GENERATED"})
     escape = lambda x: str(x).replace("|", "/").replace("\n", " ")
     return "\n\n### " + title + "\n\n" + "| " + " | ".join(headers) + " |\n| " + " | ".join(["---"] * len(headers)) + " |\n" + "\n".join("| " + " | ".join(escape(v) for v in row) + " |" for row in rows) + "\n"
 
@@ -109,11 +144,11 @@ def supplement_tables():
                   ["Representation", "k", "Runs", "Mean NMI", "SD NMI", "Mean ARI"],
                   [[rep, k, len(part), f3(part.nmi.mean()), f3(part.nmi.std()), f3(part.ari.mean())]
                    for (rep, k), part in external.groupby(["representation", "k"])])
-    rematch = pd.read_csv(ROOT / "outputs/event_matching_v13/event_matching_summary.csv")
+    rematch = pd.read_csv(ROOT / "outputs/event_matching_v14/event_matching_summary.csv")
     text += table("Table S16. Event-level IoU and matching-strategy sensitivity",
-                  ["Site", "IoU cutoff", "Matcher", "Pairs", "Mean IoU", "NMI", "ARI"],
+                  ["Site", "IoU", "Matcher", "Pairs", "NMI", "ARI", "Weighted NMI"],
                   [[names.get(r.site, r.site), f"{r.cutoff:.1f}", r.method,
-                    str(int(r.pairs)), f3(r.mean_iou), f3(r.nmi), f3(r.ari)]
+                    str(int(r.pairs)), f3(r.nmi), f3(r.ari), f3(r.weighted_nmi)]
                    for r in rematch.itertuples()])
     weather = pd.read_csv(ROOT / "outputs/weather_uncertainty_v12/risk_block_intervals.csv")
     text += table("Table S15. Observational weather contrasts with shared calendar-block intervals",
@@ -127,7 +162,9 @@ def supplement_tables():
                   ["Model", "Protocol", "Precision", "Recall", "F1", "Optimizer steps"],
                   [[r.model, r.protocol, f3(r.precision), f3(r.recall), f3(r.f1), f3(r.optimizer_steps)]
                    for r in bsum.itertuples()])
-    adjusted = json.loads((ROOT / "outputs/weather_adjusted_v13/adjusted_weather_association.json").read_text())
+    adjusted = json.loads((ROOT / "outputs/weather_adjusted_v14/adjusted_weather_association.json").read_text())
+    assert all(math.isfinite(v) for key in ["standardized_rd_ci95", "odds_ratio_ci95"] for v in adjusted[key])
+    assert all(len(adjusted[key]) == 2 for key in ["standardized_rd_ci95", "odds_ratio_ci95"])
     text += table("Table S19. Adjusted weather association model",
                   ["Records", "Blocks", "Risk difference", "95% interval", "Odds ratio", "OR interval"],
                   [[adjusted["rows"], adjusted["blocks"], f3(adjusted["standardized_risk_difference"]),
@@ -136,35 +173,33 @@ def supplement_tables():
     local = json.loads((ROOT / "outputs/external_local_v13/manifest.json").read_text())
     frozen = pd.read_csv(ROOT / "outputs/dynamic_events_v6/external_greece/representation_summary.csv")
     text += table("Table S20. Greek local-training and frozen-transfer comparison",
-                  ["Training population", "Test pairs", "NMI", "ARI", "Agreement"],
+                  ["Training population", "Config. pairs", "NMI", "ARI", "Agreement"],
                   [["Greek local", local["configuration_pairs"], f3(local["mean_nmi"]), f3(local["mean_ari"]), f3(local["mean_agreement"])],
                    ["Pizhou frozen", len(frozen), f3(frozen.nmi.mean()), f3(frozen.ari.mean()), f3(frozen.agreement.mean())]])
-    fine = json.loads((ROOT / "outputs/external_finetune_v13/manifest.json").read_text())
-    text += table("Table S21. Greek external training-population comparison",
-                  ["Training population", "Epochs", "Test pairs", "NMI", "ARI", "Agreement"],
-                  [["Greek local", "K-means", local["configuration_pairs"], f3(local["mean_nmi"]), f3(local["mean_ari"]), f3(local["mean_agreement"])],
-                   ["Pizhou frozen", "100", len(frozen), f3(frozen.nmi.mean()), f3(frozen.ari.mean()), f3(frozen.agreement.mean())],
-                   ["Pizhou + Greek adaptation", fine["epochs"], fine["test_pairs"], f3(fine["nmi"]), f3(fine["ari"]), f3(fine["agreement"])]])
-    sampling = pd.read_csv(ROOT / "outputs/yandun_sampling_v13/yandun_sampling_summary.csv")
-    sm = sampling.groupby("frequency", sort=False)[["grid_rows", "usable_rows", "threshold_4h_candidates"]].sum().reset_index()
-    text += table("Table S17. Yandun native and aggregated sampling sensitivity",
-                  ["Grid", "Rows", "Usable rows", "4-h threshold candidates"],
-                  [[r.frequency, str(int(r.grid_rows)), str(int(r.usable_rows)), str(int(r.threshold_4h_candidates))]
-                   for r in sm.itertuples()])
-    return text
-
-
-
+    fine = pd.read_csv(ROOT / "outputs/external_transfer_v14/summary.csv")
+    text += table("Table S21. Same-encoder Greek frozen and adapted TCN comparison",
+                  ["Mode", "Pairs", "Config. pairs", "Equal-pair NMI", "Equal-pair ARI", "Pooled NMI"],
+                  [[r.mode.replace("_", " "), r.event_pairs, r.configuration_pairs, f3(r.equal_pair_nmi),
+                    f3(r.equal_pair_ari), f3(r.pooled_nmi)] for r in fine.itertuples()])
+    sampling = pd.read_csv(ROOT / "outputs/yandun_sampling_v14/anchor_detection_summary.csv")
+    text += table("Table S17. Yandun physical-horizon and sampling sensitivity",
+                  ["Minutes", "Horizon (h)", "Clock", "Eligible anchors", "Positive anchors", "Positive rate"],
+                  [[r.minutes, r.horizon_h, r.clock.replace("_", " "), r.eligible_anchors,
+                    r.positive_anchors, f3(r.positive_rate)] for r in sampling.itertuples()])
     weight = pd.read_csv(ROOT / "outputs/weight_sensitivity_v13/weight_sensitivity.csv")
     weight_test = weight[weight.split.eq("test")]
     wsummary = weight_test.groupby(["site", "factor"])[["all_nmae_pct", "ramp_nmae_pct", "ramp_n"]].mean().reset_index()
     econ = weight[weight.split.str.startswith("economics_base")].groupby(["site", "factor"])[["test_cost", "selected_power"]].mean().reset_index()
     wsummary = wsummary.merge(econ, on=["site", "factor"])
     text += table("Table S18. Event-weight sensitivity for forecasting and scenario cost",
-                  ["Site", "Weight", "All nMAE (%)", "Ramp nMAE (%)", "Ramp n", "Base cost", "Selected P"],
-                  [[r.site, r.factor, f3(r.all_nmae_pct), f3(r.ramp_nmae_pct), str(int(r.ramp_n)),
-                    f3(r.test_cost), f3(r.selected_power)] for r in wsummary.itertuples()])
-    return text
+                  ["Site", "Factor", "Ramp weight", "All nMAE (%)", "Ramp nMAE (%)", "Base cost"],
+                  [[r.site, r.factor, r.factor + 1, f3(r.all_nmae_pct), f3(r.ramp_nmae_pct), f3(r.test_cost)] for r in wsummary.itertuples()])
+    assert sorted(row["table"] for row in TABLE_LOG) == list(range(1, 23))
+    (OUT / "supplementary_table_manifest.json").write_text(json.dumps(sorted(TABLE_LOG, key=lambda row: row["table"]), indent=2))
+    first = text.index("\n\n### Table S")
+    parts = re.split(r"(?=\n\n### Table S\d+\.)", text[first:])
+    parts = [part for part in parts if part.strip()]
+    return text[:first] + "".join(sorted(parts, key=lambda part: int(re.search(r"Table S(\d+)", part)[1])))
 
 
 PREAMBLE = r"""\documentclass[preprint,12pt]{elsarticle}
@@ -202,6 +237,7 @@ def compile_tex(name):
 def main():
     BUILD.mkdir(parents=True, exist_ok=True)
     SOURCES.mkdir(parents=True, exist_ok=True)
+    TABLE_LOG.clear()
     meta = json.loads((OUT / "frontmatter.json").read_text())
     assert 3 <= len(meta["highlights"]) <= 5
     assert all(len(s) <= 85 for s in meta["highlights"])

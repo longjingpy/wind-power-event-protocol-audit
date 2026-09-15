@@ -1,0 +1,1955 @@
+{
+  "version": "v0.2.0",
+  "authorization": "User explicitly authorized all data in this wind-event study on 2026-09-15",
+  "scope": "Seven wind farms, weather inputs, event catalogue and human labels; unrelated GNSS and personal attachments excluded",
+  "external_licenses": "Original public-data licenses remain applicable; see source records",
+  "groups": [
+    {
+      "asset": "chinese_raw.zip",
+      "bytes": 368183279,
+      "sha256": "62a70f35120bb4434838bc0047a224cf51e428fc5e1361a8aef63cc2f374c995",
+      "files": [
+        {
+          "path": "data/real/HRPZ#01(F01)_20240701_20250201_minute.csv",
+          "bytes": 16741186
+        },
+        {
+          "path": "data/real/HRPZ#02(F02)_20240701_20250201_minute.csv",
+          "bytes": 16724894
+        },
+        {
+          "path": "data/real/HRPZ#03(F03)_20240701_20250201_minute.csv",
+          "bytes": 16727350
+        },
+        {
+          "path": "data/real/HRPZ#04(F04)_20240701_20250201_minute.csv",
+          "bytes": 16736281
+        },
+        {
+          "path": "data/real/HRPZ#05(F05)_20240701_20250201_minute.csv",
+          "bytes": 16712994
+        },
+        {
+          "path": "data/real/HRPZ#06(F06)_20240701_20250201_minute.csv",
+          "bytes": 16736069
+        },
+        {
+          "path": "data/real/HRPZ#07(F07)_20240701_20250201_minute.csv",
+          "bytes": 16728867
+        },
+        {
+          "path": "data/real/HRPZ#08(F11)_20240701_20250201_minute.csv",
+          "bytes": 16736690
+        },
+        {
+          "path": "data/real/HRPZ#09(F12)_20240701_20250201_minute.csv",
+          "bytes": 16726171
+        },
+        {
+          "path": "data/real/HRPZ#10(F13)_20240701_20250201_minute.csv",
+          "bytes": 16737723
+        },
+        {
+          "path": "data/real/HRPZ#11(F08)_20240701_20250201_minute.csv",
+          "bytes": 16722298
+        },
+        {
+          "path": "data/real/HRPZ#12(F09)_20240701_20250201_minute.csv",
+          "bytes": 16639579
+        },
+        {
+          "path": "data/real/HRPZ#13(F10)_20240701_20250201_minute.csv",
+          "bytes": 16717252
+        },
+        {
+          "path": "data/real/HRPZ#14(F14)_20240701_20250201_minute.csv",
+          "bytes": 16720314
+        },
+        {
+          "path": "data/real/HRPZ#15(F15)_20240701_20250201_minute.csv",
+          "bytes": 16706329
+        },
+        {
+          "path": "data/real/HRPZ#16(F16)_20240701_20250201_minute.csv",
+          "bytes": 16731325
+        },
+        {
+          "path": "data/real/HRPZ#17(F17)_20240701_20250201_minute.csv",
+          "bytes": 16734040
+        },
+        {
+          "path": "data/real/HRPZ#18(F18)_20240701_20250201_minute.csv",
+          "bytes": 16728770
+        },
+        {
+          "path": "data/real/HRPZ#19(F19)_20240701_20250201_minute.csv",
+          "bytes": 16740711
+        },
+        {
+          "path": "data/real/HRPZ#20(F20)_20240701_20250201_minute.csv",
+          "bytes": 16744786
+        },
+        {
+          "path": "data/real/HRPZ#21(S01)_20240701_20250201_minute.csv",
+          "bytes": 16755125
+        },
+        {
+          "path": "data/real/HRPZ#22(S02)_20240701_20250201_minute.csv",
+          "bytes": 16736556
+        },
+        {
+          "path": "data/real/HRPZ#23(S03)_20240701_20250201_minute.csv",
+          "bytes": 16735648
+        },
+        {
+          "path": "data/real/HRPZ#24(S06)_20240701_20250201_minute.csv",
+          "bytes": 16737091
+        },
+        {
+          "path": "data/real/HRPZ#25(S07)_20240701_20250201_minute.csv",
+          "bytes": 16734698
+        },
+        {
+          "path": "data/real/HRPZ#26(S15)_20240701_20250201_minute.csv",
+          "bytes": 16747024
+        },
+        {
+          "path": "data/real/HRPZ#27(S08)_20240701_20250201_minute.csv",
+          "bytes": 16696759
+        },
+        {
+          "path": "data/real/HRPZ#28(S09)_20240701_20250201_minute.csv",
+          "bytes": 16734917
+        },
+        {
+          "path": "data/real/HRPZ#29(S10)_20240701_20250201_minute.csv",
+          "bytes": 16747678
+        },
+        {
+          "path": "data/real/HRPZ#30(S11)_20240701_20250201_minute.csv",
+          "bytes": 16729196
+        },
+        {
+          "path": "data/real/HRPZ#31(S12)_20240701_20250201_minute.csv",
+          "bytes": 16730152
+        },
+        {
+          "path": "data/real/HRPZ#32(S13)_20240701_20250201_minute.csv",
+          "bytes": 16735483
+        },
+        {
+          "path": "data/real/HRPZ#33(S14)_20240701_20250201_minute.csv",
+          "bytes": 16745775
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#01(F01)_20230901_20240901_minute.csv",
+          "bytes": 33929296
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#02(F02)_20230901_20240901_minute.csv",
+          "bytes": 33912103
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#03(F03)_20230901_20240901_minute.csv",
+          "bytes": 33931161
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#04(F04)_20230901_20240901_minute.csv",
+          "bytes": 33888521
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#05(F05)_20230901_20240901_minute.csv",
+          "bytes": 33886960
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#06(F06)_20230901_20240901_minute.csv",
+          "bytes": 33887651
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#07(F07)_20230901_20240901_minute.csv",
+          "bytes": 33922451
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#08(F11)_20230901_20240901_minute.csv",
+          "bytes": 33931304
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#09(F12)_20230901_20240901_minute.csv",
+          "bytes": 33912020
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXA/HRPZ#10(F13)_20230901_20240901_minute.csv",
+          "bytes": 33943068
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#11(F08)_20230901_20240901_minute.csv",
+          "bytes": 33905909
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#12(F09)_20230901_20240901_minute.csv",
+          "bytes": 33902912
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#13(F10)_20230901_20240901_minute.csv",
+          "bytes": 33907520
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#14(F14)_20230901_20240901_minute.csv",
+          "bytes": 33921074
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#15(F15)_20230901_20240901_minute.csv",
+          "bytes": 33950537
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#16(F16)_20230901_20240901_minute.csv",
+          "bytes": 33956880
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#17(F17)_20230901_20240901_minute.csv",
+          "bytes": 33934121
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#18(F18)_20230901_20240901_minute.csv",
+          "bytes": 33922377
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#19(F19)_20230901_20240901_minute.csv",
+          "bytes": 33940475
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXB/HRPZ#20(F20)_20230901_20240901_minute.csv",
+          "bytes": 33934551
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXC/HRPZ#21(S01)_20230901_20240901_minute.csv",
+          "bytes": 33982490
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXC/HRPZ#22(S02)_20230901_20240901_minute.csv",
+          "bytes": 33958428
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXC/HRPZ#23(S03)_20230901_20240901_minute.csv",
+          "bytes": 33910001
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXC/HRPZ#24(S06)_20230901_20240901_minute.csv",
+          "bytes": 33970873
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXC/HRPZ#25(S07)_20230901_20240901_minute.csv",
+          "bytes": 33973725
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXC/HRPZ#26(S15)_20230901_20240901_minute.csv",
+          "bytes": 33976930
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXD/HRPZ#27(S08)_20230901_20240901_minute.csv",
+          "bytes": 33934253
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXD/HRPZ#28(S09)_20230901_20240901_minute.csv",
+          "bytes": 33937750
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXD/HRPZ#29(S10)_20230901_20240901_minute.csv",
+          "bytes": 33970000
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXD/HRPZ#30(S11)_20230901_20240901_minute.csv",
+          "bytes": 33925870
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXD/HRPZ#31(S12)_20230901_20240901_minute.csv",
+          "bytes": 33946041
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXD/HRPZ#32(S13)_20230901_20240901_minute.csv",
+          "bytes": 33967554
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/pizhou/20230901~20240901_scadas/JXD/HRPZ#33(S14)_20230901_20240901_minute.csv",
+          "bytes": 33976941
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX01/HRSN01_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3079830
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX01/HRSN02_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3082307
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX01/HRSN03_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3078785
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX01/HRSN04_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3079640
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX01/HRSN05_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3079457
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX01/HRSN06_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3080036
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX01/HRSN07_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3081866
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX01/HRSN08_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3080014
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX02/HRSN09_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3080747
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX02/HRSN10_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3080131
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX02/HRSN11_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3081395
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX02/HRSN12_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3081819
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX02/HRSN13_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3080415
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/jiangsu/xuzhou/suining/20230901~20240831_scadas/KX02/HRSN14_20230901_20240831_ten_avg_val.csv",
+          "bytes": 3080690
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/xinjiang/yandun/machine_meta.csv",
+          "bytes": 3997
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/xinjiang/yandun/scadas_20240216-20240824_plant.csv",
+          "bytes": 440339
+        },
+        {
+          "path": "data/whole-SCADA-data/wind_power/xinjiang/yandun/scadas_20240216-20240824_single.csv",
+          "bytes": 29819137
+        }
+      ]
+    },
+    {
+      "asset": "analysis_inputs.zip",
+      "bytes": 459930246,
+      "sha256": "fb1dfc62c338c42745ccc2638987cb4f2ce9f314c0c5e05d0b1115147c329f52",
+      "files": [
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#01(F01).csv.gz",
+          "bytes": 730185
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#02(F02).csv.gz",
+          "bytes": 728999
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#03(F03).csv.gz",
+          "bytes": 731053
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#04(F04).csv.gz",
+          "bytes": 726877
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#05(F05).csv.gz",
+          "bytes": 730842
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#06(F06).csv.gz",
+          "bytes": 728830
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#07(F07).csv.gz",
+          "bytes": 729594
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#08(F11).csv.gz",
+          "bytes": 730013
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#09(F12).csv.gz",
+          "bytes": 729671
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#10(F13).csv.gz",
+          "bytes": 731505
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#11(F08).csv.gz",
+          "bytes": 727740
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#12(F09).csv.gz",
+          "bytes": 726951
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#13(F10).csv.gz",
+          "bytes": 728459
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#14(F14).csv.gz",
+          "bytes": 729133
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#15(F15).csv.gz",
+          "bytes": 724592
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#16(F16).csv.gz",
+          "bytes": 729108
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#17(F17).csv.gz",
+          "bytes": 728130
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#18(F18).csv.gz",
+          "bytes": 726992
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#19(F19).csv.gz",
+          "bytes": 727892
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#20(F20).csv.gz",
+          "bytes": 729814
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#21(S01).csv.gz",
+          "bytes": 732684
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#22(S02).csv.gz",
+          "bytes": 731931
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#23(S03).csv.gz",
+          "bytes": 729379
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#24(S06).csv.gz",
+          "bytes": 733483
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#25(S07).csv.gz",
+          "bytes": 732042
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#26(S15).csv.gz",
+          "bytes": 732919
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#27(S08).csv.gz",
+          "bytes": 729117
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#28(S09).csv.gz",
+          "bytes": 729674
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#29(S10).csv.gz",
+          "bytes": 731173
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#30(S11).csv.gz",
+          "bytes": 731653
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#31(S12).csv.gz",
+          "bytes": 731368
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#32(S13).csv.gz",
+          "bytes": 730513
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/HRPZ#33(S14).csv.gz",
+          "bytes": 732022
+        },
+        {
+          "path": "data/event_clean_v2/pizhou/quality_report.json",
+          "bytes": 16009
+        },
+        {
+          "path": "data/event_clean_v2/yandun/1.csv.gz",
+          "bytes": 53575
+        },
+        {
+          "path": "data/event_clean_v2/yandun/10.csv.gz",
+          "bytes": 52281
+        },
+        {
+          "path": "data/event_clean_v2/yandun/100.csv.gz",
+          "bytes": 50216
+        },
+        {
+          "path": "data/event_clean_v2/yandun/101.csv.gz",
+          "bytes": 50366
+        },
+        {
+          "path": "data/event_clean_v2/yandun/102.csv.gz",
+          "bytes": 50152
+        },
+        {
+          "path": "data/event_clean_v2/yandun/103.csv.gz",
+          "bytes": 50436
+        },
+        {
+          "path": "data/event_clean_v2/yandun/104.csv.gz",
+          "bytes": 50964
+        },
+        {
+          "path": "data/event_clean_v2/yandun/105.csv.gz",
+          "bytes": 50041
+        },
+        {
+          "path": "data/event_clean_v2/yandun/106.csv.gz",
+          "bytes": 50388
+        },
+        {
+          "path": "data/event_clean_v2/yandun/107.csv.gz",
+          "bytes": 50401
+        },
+        {
+          "path": "data/event_clean_v2/yandun/108.csv.gz",
+          "bytes": 50792
+        },
+        {
+          "path": "data/event_clean_v2/yandun/109.csv.gz",
+          "bytes": 50211
+        },
+        {
+          "path": "data/event_clean_v2/yandun/11.csv.gz",
+          "bytes": 53013
+        },
+        {
+          "path": "data/event_clean_v2/yandun/110.csv.gz",
+          "bytes": 50398
+        },
+        {
+          "path": "data/event_clean_v2/yandun/111.csv.gz",
+          "bytes": 49860
+        },
+        {
+          "path": "data/event_clean_v2/yandun/112.csv.gz",
+          "bytes": 49899
+        },
+        {
+          "path": "data/event_clean_v2/yandun/113.csv.gz",
+          "bytes": 50486
+        },
+        {
+          "path": "data/event_clean_v2/yandun/114.csv.gz",
+          "bytes": 50784
+        },
+        {
+          "path": "data/event_clean_v2/yandun/115.csv.gz",
+          "bytes": 50922
+        },
+        {
+          "path": "data/event_clean_v2/yandun/116.csv.gz",
+          "bytes": 50340
+        },
+        {
+          "path": "data/event_clean_v2/yandun/117.csv.gz",
+          "bytes": 50146
+        },
+        {
+          "path": "data/event_clean_v2/yandun/12.csv.gz",
+          "bytes": 53230
+        },
+        {
+          "path": "data/event_clean_v2/yandun/13.csv.gz",
+          "bytes": 53145
+        },
+        {
+          "path": "data/event_clean_v2/yandun/14.csv.gz",
+          "bytes": 53247
+        },
+        {
+          "path": "data/event_clean_v2/yandun/15.csv.gz",
+          "bytes": 53095
+        },
+        {
+          "path": "data/event_clean_v2/yandun/16.csv.gz",
+          "bytes": 52652
+        },
+        {
+          "path": "data/event_clean_v2/yandun/17.csv.gz",
+          "bytes": 52519
+        },
+        {
+          "path": "data/event_clean_v2/yandun/18.csv.gz",
+          "bytes": 52752
+        },
+        {
+          "path": "data/event_clean_v2/yandun/19.csv.gz",
+          "bytes": 52677
+        },
+        {
+          "path": "data/event_clean_v2/yandun/2.csv.gz",
+          "bytes": 52897
+        },
+        {
+          "path": "data/event_clean_v2/yandun/20.csv.gz",
+          "bytes": 53747
+        },
+        {
+          "path": "data/event_clean_v2/yandun/21.csv.gz",
+          "bytes": 52979
+        },
+        {
+          "path": "data/event_clean_v2/yandun/22.csv.gz",
+          "bytes": 52678
+        },
+        {
+          "path": "data/event_clean_v2/yandun/23.csv.gz",
+          "bytes": 53008
+        },
+        {
+          "path": "data/event_clean_v2/yandun/24.csv.gz",
+          "bytes": 53387
+        },
+        {
+          "path": "data/event_clean_v2/yandun/25.csv.gz",
+          "bytes": 52296
+        },
+        {
+          "path": "data/event_clean_v2/yandun/26.csv.gz",
+          "bytes": 52320
+        },
+        {
+          "path": "data/event_clean_v2/yandun/27.csv.gz",
+          "bytes": 52800
+        },
+        {
+          "path": "data/event_clean_v2/yandun/28.csv.gz",
+          "bytes": 52604
+        },
+        {
+          "path": "data/event_clean_v2/yandun/29.csv.gz",
+          "bytes": 52672
+        },
+        {
+          "path": "data/event_clean_v2/yandun/3.csv.gz",
+          "bytes": 52860
+        },
+        {
+          "path": "data/event_clean_v2/yandun/30.csv.gz",
+          "bytes": 52355
+        },
+        {
+          "path": "data/event_clean_v2/yandun/31.csv.gz",
+          "bytes": 51762
+        },
+        {
+          "path": "data/event_clean_v2/yandun/32.csv.gz",
+          "bytes": 52064
+        },
+        {
+          "path": "data/event_clean_v2/yandun/33.csv.gz",
+          "bytes": 52010
+        },
+        {
+          "path": "data/event_clean_v2/yandun/34.csv.gz",
+          "bytes": 51161
+        },
+        {
+          "path": "data/event_clean_v2/yandun/35.csv.gz",
+          "bytes": 51028
+        },
+        {
+          "path": "data/event_clean_v2/yandun/36.csv.gz",
+          "bytes": 50677
+        },
+        {
+          "path": "data/event_clean_v2/yandun/37.csv.gz",
+          "bytes": 50616
+        },
+        {
+          "path": "data/event_clean_v2/yandun/38.csv.gz",
+          "bytes": 50914
+        },
+        {
+          "path": "data/event_clean_v2/yandun/39.csv.gz",
+          "bytes": 50667
+        },
+        {
+          "path": "data/event_clean_v2/yandun/4.csv.gz",
+          "bytes": 52461
+        },
+        {
+          "path": "data/event_clean_v2/yandun/40.csv.gz",
+          "bytes": 50230
+        },
+        {
+          "path": "data/event_clean_v2/yandun/41.csv.gz",
+          "bytes": 51026
+        },
+        {
+          "path": "data/event_clean_v2/yandun/42.csv.gz",
+          "bytes": 50588
+        },
+        {
+          "path": "data/event_clean_v2/yandun/43.csv.gz",
+          "bytes": 51112
+        },
+        {
+          "path": "data/event_clean_v2/yandun/44.csv.gz",
+          "bytes": 51920
+        },
+        {
+          "path": "data/event_clean_v2/yandun/45.csv.gz",
+          "bytes": 51360
+        },
+        {
+          "path": "data/event_clean_v2/yandun/46.csv.gz",
+          "bytes": 50834
+        },
+        {
+          "path": "data/event_clean_v2/yandun/47.csv.gz",
+          "bytes": 49839
+        },
+        {
+          "path": "data/event_clean_v2/yandun/48.csv.gz",
+          "bytes": 50781
+        },
+        {
+          "path": "data/event_clean_v2/yandun/49.csv.gz",
+          "bytes": 50821
+        },
+        {
+          "path": "data/event_clean_v2/yandun/5.csv.gz",
+          "bytes": 52317
+        },
+        {
+          "path": "data/event_clean_v2/yandun/50.csv.gz",
+          "bytes": 49228
+        },
+        {
+          "path": "data/event_clean_v2/yandun/51.csv.gz",
+          "bytes": 51803
+        },
+        {
+          "path": "data/event_clean_v2/yandun/52.csv.gz",
+          "bytes": 52089
+        },
+        {
+          "path": "data/event_clean_v2/yandun/53.csv.gz",
+          "bytes": 51948
+        },
+        {
+          "path": "data/event_clean_v2/yandun/54.csv.gz",
+          "bytes": 51530
+        },
+        {
+          "path": "data/event_clean_v2/yandun/55.csv.gz",
+          "bytes": 52365
+        },
+        {
+          "path": "data/event_clean_v2/yandun/56.csv.gz",
+          "bytes": 52451
+        },
+        {
+          "path": "data/event_clean_v2/yandun/57.csv.gz",
+          "bytes": 52464
+        },
+        {
+          "path": "data/event_clean_v2/yandun/58.csv.gz",
+          "bytes": 52115
+        },
+        {
+          "path": "data/event_clean_v2/yandun/59.csv.gz",
+          "bytes": 51342
+        },
+        {
+          "path": "data/event_clean_v2/yandun/6.csv.gz",
+          "bytes": 54323
+        },
+        {
+          "path": "data/event_clean_v2/yandun/60.csv.gz",
+          "bytes": 49597
+        },
+        {
+          "path": "data/event_clean_v2/yandun/61.csv.gz",
+          "bytes": 50505
+        },
+        {
+          "path": "data/event_clean_v2/yandun/62.csv.gz",
+          "bytes": 50539
+        },
+        {
+          "path": "data/event_clean_v2/yandun/63.csv.gz",
+          "bytes": 50469
+        },
+        {
+          "path": "data/event_clean_v2/yandun/64.csv.gz",
+          "bytes": 49640
+        },
+        {
+          "path": "data/event_clean_v2/yandun/65.csv.gz",
+          "bytes": 50577
+        },
+        {
+          "path": "data/event_clean_v2/yandun/66.csv.gz",
+          "bytes": 49378
+        },
+        {
+          "path": "data/event_clean_v2/yandun/67.csv.gz",
+          "bytes": 50274
+        },
+        {
+          "path": "data/event_clean_v2/yandun/68.csv.gz",
+          "bytes": 50864
+        },
+        {
+          "path": "data/event_clean_v2/yandun/69.csv.gz",
+          "bytes": 51155
+        },
+        {
+          "path": "data/event_clean_v2/yandun/7.csv.gz",
+          "bytes": 52973
+        },
+        {
+          "path": "data/event_clean_v2/yandun/70.csv.gz",
+          "bytes": 50928
+        },
+        {
+          "path": "data/event_clean_v2/yandun/71.csv.gz",
+          "bytes": 51377
+        },
+        {
+          "path": "data/event_clean_v2/yandun/72.csv.gz",
+          "bytes": 50805
+        },
+        {
+          "path": "data/event_clean_v2/yandun/73.csv.gz",
+          "bytes": 50922
+        },
+        {
+          "path": "data/event_clean_v2/yandun/74.csv.gz",
+          "bytes": 50492
+        },
+        {
+          "path": "data/event_clean_v2/yandun/75.csv.gz",
+          "bytes": 50808
+        },
+        {
+          "path": "data/event_clean_v2/yandun/76.csv.gz",
+          "bytes": 50966
+        },
+        {
+          "path": "data/event_clean_v2/yandun/77.csv.gz",
+          "bytes": 50461
+        },
+        {
+          "path": "data/event_clean_v2/yandun/78.csv.gz",
+          "bytes": 51054
+        },
+        {
+          "path": "data/event_clean_v2/yandun/79.csv.gz",
+          "bytes": 50574
+        },
+        {
+          "path": "data/event_clean_v2/yandun/8.csv.gz",
+          "bytes": 52174
+        },
+        {
+          "path": "data/event_clean_v2/yandun/80.csv.gz",
+          "bytes": 49891
+        },
+        {
+          "path": "data/event_clean_v2/yandun/81.csv.gz",
+          "bytes": 50076
+        },
+        {
+          "path": "data/event_clean_v2/yandun/82.csv.gz",
+          "bytes": 49759
+        },
+        {
+          "path": "data/event_clean_v2/yandun/83.csv.gz",
+          "bytes": 50918
+        },
+        {
+          "path": "data/event_clean_v2/yandun/84.csv.gz",
+          "bytes": 50546
+        },
+        {
+          "path": "data/event_clean_v2/yandun/85.csv.gz",
+          "bytes": 50593
+        },
+        {
+          "path": "data/event_clean_v2/yandun/86.csv.gz",
+          "bytes": 50989
+        },
+        {
+          "path": "data/event_clean_v2/yandun/87.csv.gz",
+          "bytes": 50162
+        },
+        {
+          "path": "data/event_clean_v2/yandun/88.csv.gz",
+          "bytes": 49632
+        },
+        {
+          "path": "data/event_clean_v2/yandun/89.csv.gz",
+          "bytes": 49702
+        },
+        {
+          "path": "data/event_clean_v2/yandun/9.csv.gz",
+          "bytes": 52786
+        },
+        {
+          "path": "data/event_clean_v2/yandun/90.csv.gz",
+          "bytes": 50637
+        },
+        {
+          "path": "data/event_clean_v2/yandun/91.csv.gz",
+          "bytes": 50617
+        },
+        {
+          "path": "data/event_clean_v2/yandun/92.csv.gz",
+          "bytes": 50313
+        },
+        {
+          "path": "data/event_clean_v2/yandun/93.csv.gz",
+          "bytes": 50362
+        },
+        {
+          "path": "data/event_clean_v2/yandun/94.csv.gz",
+          "bytes": 49201
+        },
+        {
+          "path": "data/event_clean_v2/yandun/95.csv.gz",
+          "bytes": 49466
+        },
+        {
+          "path": "data/event_clean_v2/yandun/96.csv.gz",
+          "bytes": 49231
+        },
+        {
+          "path": "data/event_clean_v2/yandun/97.csv.gz",
+          "bytes": 50610
+        },
+        {
+          "path": "data/event_clean_v2/yandun/98.csv.gz",
+          "bytes": 50770
+        },
+        {
+          "path": "data/event_clean_v2/yandun/99.csv.gz",
+          "bytes": 49756
+        },
+        {
+          "path": "data/event_clean_v2/yandun/quality_report.json",
+          "bytes": 36421
+        },
+        {
+          "path": "data/event_clean_v2/yandun/unmatched_ids.csv.gz",
+          "bytes": 330908
+        },
+        {
+          "path": "data/external_public/sdwpf/README.txt",
+          "bytes": 4355
+        },
+        {
+          "path": "data/external_public/sdwpf/sdwpf_2001_2112_full.parquet",
+          "bytes": 291653253
+        },
+        {
+          "path": "data/external_public/sdwpf/sdwpf_turb_location_elevation.csv",
+          "bytes": 5612
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT01_data.csv.gz",
+          "bytes": 3844804
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT01_logs.csv.gz",
+          "bytes": 155644
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT02_data.csv.gz",
+          "bytes": 3882631
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT02_logs.csv.gz",
+          "bytes": 236034
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT03_data.csv.gz",
+          "bytes": 3594513
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT03_logs.csv.gz",
+          "bytes": 222733
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT04_data.csv.gz",
+          "bytes": 3942254
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT04_logs.csv.gz",
+          "bytes": 188905
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT05_data.csv.gz",
+          "bytes": 3773762
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT05_logs.csv.gz",
+          "bytes": 212475
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT06_data.csv.gz",
+          "bytes": 3924850
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT06_logs.csv.gz",
+          "bytes": 242480
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT07_data.csv.gz",
+          "bytes": 3874745
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT07_logs.csv.gz",
+          "bytes": 242469
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT08_data.csv.gz",
+          "bytes": 3932391
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT08_logs.csv.gz",
+          "bytes": 230242
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT09_data.csv.gz",
+          "bytes": 3845322
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT09_logs.csv.gz",
+          "bytes": 230561
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT10_data.csv.gz",
+          "bytes": 3920368
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/WT10_logs.csv.gz",
+          "bytes": 228446
+        },
+        {
+          "path": "data/external_samples/greece_smd10towfgr/clean_native/quality_report.json",
+          "bytes": 138591
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T01.csv.gz",
+          "bytes": 2757687
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T02.csv.gz",
+          "bytes": 2757566
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T03.csv.gz",
+          "bytes": 2725618
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T04.csv.gz",
+          "bytes": 2733264
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T05.csv.gz",
+          "bytes": 2741139
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T06.csv.gz",
+          "bytes": 2765136
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T07.csv.gz",
+          "bytes": 2745167
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T08.csv.gz",
+          "bytes": 2740101
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T09.csv.gz",
+          "bytes": 2693119
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T10.csv.gz",
+          "bytes": 2763450
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T11.csv.gz",
+          "bytes": 2718773
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T12.csv.gz",
+          "bytes": 2755392
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T13.csv.gz",
+          "bytes": 2728211
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T14.csv.gz",
+          "bytes": 2753118
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T15.csv.gz",
+          "bytes": 2759014
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T16.csv.gz",
+          "bytes": 2769426
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T17.csv.gz",
+          "bytes": 2581476
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T18.csv.gz",
+          "bytes": 2763591
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T19.csv.gz",
+          "bytes": 2735288
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T20.csv.gz",
+          "bytes": 2739736
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/T21.csv.gz",
+          "bytes": 2741378
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/one_hour_change_feasibility.csv",
+          "bytes": 1571
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/quality_report.json",
+          "bytes": 7358
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/tblSCTurGrid_duplicate_keys.csv.gz",
+          "bytes": 4914
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/tblSCTurTemp_duplicate_keys.csv.gz",
+          "bytes": 3883
+        },
+        {
+          "path": "data/external_samples/hill_of_towie/clean_native/tblSCTurbine_duplicate_keys.csv.gz",
+          "bytes": 7186
+        },
+        {
+          "path": "data/external_samples/la_haute_borne/SCADA_data_description.csv",
+          "bytes": 284
+        },
+        {
+          "path": "data/external_samples/la_haute_borne/era5_wind_la_haute_borne.csv",
+          "bytes": 25710158
+        },
+        {
+          "path": "data/external_samples/la_haute_borne/la-haute-borne-data-2014-2015.csv",
+          "bytes": 41443638
+        },
+        {
+          "path": "data/external_samples/la_haute_borne/la-haute-borne_asset_table.csv",
+          "bytes": 313
+        },
+        {
+          "path": "data/external_samples/la_haute_borne/member_verification.json",
+          "bytes": 553
+        },
+        {
+          "path": "data/external_samples/la_haute_borne/merra2_la_haute_borne.csv",
+          "bytes": 37994878
+        },
+        {
+          "path": "data/external_samples/la_haute_borne/plant_data.csv",
+          "bytes": 4411019
+        }
+      ]
+    },
+    {
+      "asset": "weather.zip",
+      "bytes": 15505847,
+      "sha256": "0541d0722db092e4dae1523584c61c210418917fda24404a530385f785d17c3d",
+      "files": [
+        {
+          "path": "data/era5/raw/era5_202407.nc",
+          "bytes": 636188
+        },
+        {
+          "path": "data/era5/raw/era5_202408.nc",
+          "bytes": 639650
+        },
+        {
+          "path": "data/era5/raw/era5_202409.nc",
+          "bytes": 616785
+        },
+        {
+          "path": "data/era5/raw/era5_202410.nc",
+          "bytes": 843486
+        },
+        {
+          "path": "data/era5/raw/era5_202411.nc",
+          "bytes": 816894
+        },
+        {
+          "path": "data/era5/raw/era5_202412.nc",
+          "bytes": 843486
+        },
+        {
+          "path": "data/era5/raw/era5_202501.nc",
+          "bytes": 843486
+        },
+        {
+          "path": "data/era5/raw/era5_202502.nc",
+          "bytes": 763710
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__100m-u-component-of-wind-day.nc",
+          "bytes": 78745
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__100m-v-component-of-wind-day.nc",
+          "bytes": 78251
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__2m-temperature-day.nc",
+          "bytes": 65627
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Geopotential-1000hpa.nc",
+          "bytes": 388453
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Geopotential-500hpa.nc",
+          "bytes": 418973
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Geopotential-850hpa.nc",
+          "bytes": 420405
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Geopotential-925hpa.nc",
+          "bytes": 426632
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Specific-humidity-1000hpa.nc",
+          "bytes": 458203
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Specific-humidity-925hpa.nc",
+          "bytes": 466712
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Surface-pressure-day.nc",
+          "bytes": 66850
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Temperature-1000hpa.nc",
+          "bytes": 443356
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Temperature-500hpa.nc",
+          "bytes": 436617
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Temperature-850hpa.nc",
+          "bytes": 432855
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Temperature-925hpa.nc",
+          "bytes": 436047
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__Total-precipitation-day.nc",
+          "bytes": 46701
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__U-component-of-wind-1000hpa.nc",
+          "bytes": 515222
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__U-component-of-wind-500hpa.nc",
+          "bytes": 429710
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__U-component-of-wind-850hpa.nc",
+          "bytes": 480077
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/china__U-component-of-wind-925hpa.nc",
+          "bytes": 485657
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/u100_china.nc",
+          "bytes": 78687
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__100m-u-component-of-wind-day.nc",
+          "bytes": 13561
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__100m-v-component-of-wind-day.nc",
+          "bytes": 13561
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__2m-temperature-day.nc",
+          "bytes": 12706
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Geopotential-1000hpa.nc",
+          "bytes": 286466
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Geopotential-500hpa.nc",
+          "bytes": 256773
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Geopotential-850hpa.nc",
+          "bytes": 268061
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Geopotential-925hpa.nc",
+          "bytes": 281508
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Specific-humidity-1000hpa.nc",
+          "bytes": 285638
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Specific-humidity-925hpa.nc",
+          "bytes": 285449
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Surface-pressure-day.nc",
+          "bytes": 12871
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Temperature-1000hpa.nc",
+          "bytes": 279207
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Temperature-500hpa.nc",
+          "bytes": 267852
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Temperature-850hpa.nc",
+          "bytes": 275350
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Temperature-925hpa.nc",
+          "bytes": 279154
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__Total-precipitation-day.nc",
+          "bytes": 13166
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__U-component-of-wind-1000hpa.nc",
+          "bytes": 351596
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__U-component-of-wind-500hpa.nc",
+          "bytes": 275793
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__U-component-of-wind-850hpa.nc",
+          "bytes": 348143
+        },
+        {
+          "path": "data/era5_remote_subset_20260911/yandun__U-component-of-wind-925hpa.nc",
+          "bytes": 351434
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/522030-99999-2023.gz",
+          "bytes": 135160
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/522030-99999-2024.gz",
+          "bytes": 120864
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/549160-99999-2023.gz",
+          "bytes": 123459
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/549160-99999-2024.gz",
+          "bytes": 108944
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/549290-99999-2023.gz",
+          "bytes": 113891
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/549290-99999-2024.gz",
+          "bytes": 120239
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/580270-99999-2023.gz",
+          "bytes": 139896
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/580270-99999-2024.gz",
+          "bytes": 124291
+        },
+        {
+          "path": "data/ground_obs/noaa_isd/580280-99999-2024.gz",
+          "bytes": 212
+        },
+        {
+          "path": "data/ground_obs/noaa_isd_parsed/noaa_isd_hourly.csv.gz",
+          "bytes": 150337
+        },
+        {
+          "path": "data/ground_obs/noaa_isd_parsed/quality_report.json",
+          "bytes": 2250
+        },
+        {
+          "path": "data/ground_obs/noaa_isd_parsed_v2/observations.csv.gz",
+          "bytes": 448603
+        },
+        {
+          "path": "data/ground_obs/noaa_isd_parsed_v2/precipitation_intervals.csv.gz",
+          "bytes": 355609
+        },
+        {
+          "path": "data/ground_obs/noaa_isd_parsed_v2/quality_report.json",
+          "bytes": 5832
+        },
+        {
+          "path": "data/ground_obs/noaa_isd_parsed_v2/station_timeline.csv.gz",
+          "bytes": 224620
+        },
+        {
+          "path": "outputs/dynamic_events_v3/pizhou_surface_hourly.csv.gz",
+          "bytes": 282940
+        }
+      ]
+    },
+    {
+      "asset": "event_catalogue.zip",
+      "bytes": 364119182,
+      "sha256": "82753a7cb28a5acc62f3d85b3f02fcef3967734e80adf6e19dc7b1647f1fe1dd",
+      "files": [
+        {
+          "path": "outputs/dynamic_events_v6/R80711_conflict_times.csv.gz",
+          "bytes": 736
+        },
+        {
+          "path": "outputs/dynamic_events_v6/R80721_conflict_times.csv.gz",
+          "bytes": 824
+        },
+        {
+          "path": "outputs/dynamic_events_v6/R80736_conflict_times.csv.gz",
+          "bytes": 781
+        },
+        {
+          "path": "outputs/dynamic_events_v6/R80790_conflict_times.csv.gz",
+          "bytes": 758
+        },
+        {
+          "path": "outputs/dynamic_events_v6/adaptive_run_audit.csv",
+          "bytes": 2297830
+        },
+        {
+          "path": "outputs/dynamic_events_v6/block_intervals.csv",
+          "bytes": 33566
+        },
+        {
+          "path": "outputs/dynamic_events_v6/candidate_intervals.csv.gz",
+          "bytes": 142600221
+        },
+        {
+          "path": "outputs/dynamic_events_v6/catalog_manifest.json",
+          "bytes": 25581
+        },
+        {
+          "path": "outputs/dynamic_events_v6/catalog_summary.csv",
+          "bytes": 12058
+        },
+        {
+          "path": "outputs/dynamic_events_v6/causal_mechanism_summary.csv",
+          "bytes": 1457
+        },
+        {
+          "path": "outputs/dynamic_events_v6/causal_weather_manifest.json",
+          "bytes": 1746
+        },
+        {
+          "path": "outputs/dynamic_events_v6/causal_weather_panel.csv.gz",
+          "bytes": 8622890
+        },
+        {
+          "path": "outputs/dynamic_events_v6/causal_weather_result.json",
+          "bytes": 957
+        },
+        {
+          "path": "outputs/dynamic_events_v6/context_shapes.npy",
+          "bytes": 153837728
+        },
+        {
+          "path": "outputs/dynamic_events_v6/covariate_conditioned_stability.csv",
+          "bytes": 621283
+        },
+        {
+          "path": "outputs/dynamic_events_v6/covariate_pair_coverage.csv",
+          "bytes": 358
+        },
+        {
+          "path": "outputs/dynamic_events_v6/detector_overlap.csv",
+          "bytes": 6292591
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/candidate_intervals.csv.gz",
+          "bytes": 8746820
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/confirmation_table_manifest.json",
+          "bytes": 1090
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/context_shapes.npy",
+          "bytes": 7429528
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/external_confirmation_main.csv",
+          "bytes": 5546
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/external_confirmation_supplement.csv",
+          "bytes": 1187
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/greece_logs.csv",
+          "bytes": 18515654
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/greece_scada_quality.csv",
+          "bytes": 2048
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/lock_hashes.sha256",
+          "bytes": 494
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/log_code_mapping.csv",
+          "bytes": 10687
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/pair_coverage.csv",
+          "bytes": 62160
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/quality_report.json",
+          "bytes": 5456
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/representation_summary.csv",
+          "bytes": 5818
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/result.json",
+          "bytes": 549
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/sampling_unit_audit.json",
+          "bytes": 282
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/strict_log_association.csv",
+          "bytes": 584153
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/summary_by_sample_size.csv",
+          "bytes": 320
+        },
+        {
+          "path": "outputs/dynamic_events_v6/external_greece/test_pairs.csv.gz",
+          "bytes": 459224
+        },
+        {
+          "path": "outputs/dynamic_events_v6/inference_manifest.json",
+          "bytes": 2267
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_event_row_permutation_k4.npz",
+          "bytes": 3583539
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_gaf_pca6_k2.npz",
+          "bytes": 3181596
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_gaf_pca6_k4.npz",
+          "bytes": 3253055
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_gaf_pca6_k6.npz",
+          "bytes": 3281932
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_gaf_signed_pca6_k2.npz",
+          "bytes": 3181658
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_gaf_signed_pca6_k4.npz",
+          "bytes": 3253017
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_gaf_signed_pca6_k6.npz",
+          "bytes": 3281479
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_raw25_k2.npz",
+          "bytes": 3203399
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_raw25_k4.npz",
+          "bytes": 3255258
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_raw25_k6.npz",
+          "bytes": 3290400
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_raw_pca6_k2.npz",
+          "bytes": 3210870
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_raw_pca6_k4.npz",
+          "bytes": 3263603
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_raw_pca6_k6.npz",
+          "bytes": 3297020
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_statistics9_k2.npz",
+          "bytes": 3153186
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_statistics9_k4.npz",
+          "bytes": 3248532
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_statistics9_k6.npz",
+          "bytes": 3269500
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_primary_within_event_time_permutation_k4.npz",
+          "bytes": 4907351
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260912_raw25_k4.npz",
+          "bytes": 3255535
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260913_raw25_k4.npz",
+          "bytes": 3255696
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260914_raw25_k4.npz",
+          "bytes": 3255633
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260915_raw25_k4.npz",
+          "bytes": 3256485
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260916_raw25_k4.npz",
+          "bytes": 3256621
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260917_raw25_k4.npz",
+          "bytes": 3255574
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260918_raw25_k4.npz",
+          "bytes": 3255400
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260919_raw25_k4.npz",
+          "bytes": 3256309
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260920_raw25_k4.npz",
+          "bytes": 3256557
+        },
+        {
+          "path": "outputs/dynamic_events_v6/labels_repeat_20260921_raw25_k4.npz",
+          "bytes": 3255269
+        },
+        {
+          "path": "outputs/dynamic_events_v6/legacy_evidence_status.json",
+          "bytes": 4590
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_gaf_pca6_k2.npz",
+          "bytes": 30359
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_gaf_pca6_k4.npz",
+          "bytes": 30460
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_gaf_pca6_k6.npz",
+          "bytes": 30561
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_gaf_signed_pca6_k2.npz",
+          "bytes": 32067
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_gaf_signed_pca6_k4.npz",
+          "bytes": 32167
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_gaf_signed_pca6_k6.npz",
+          "bytes": 32267
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_raw25_k2.npz",
+          "bytes": 1787
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_raw25_k4.npz",
+          "bytes": 2185
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_raw25_k6.npz",
+          "bytes": 2555
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_raw_pca6_k2.npz",
+          "bytes": 2865
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_raw_pca6_k4.npz",
+          "bytes": 2967
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_raw_pca6_k6.npz",
+          "bytes": 3070
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_statistics9_k2.npz",
+          "bytes": 1262
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_statistics9_k4.npz",
+          "bytes": 1416
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_primary_statistics9_k6.npz",
+          "bytes": 1566
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260912_raw25_k4.npz",
+          "bytes": 2187
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260913_raw25_k4.npz",
+          "bytes": 2188
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260914_raw25_k4.npz",
+          "bytes": 2185
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260915_raw25_k4.npz",
+          "bytes": 2192
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260916_raw25_k4.npz",
+          "bytes": 2189
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260917_raw25_k4.npz",
+          "bytes": 2186
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260918_raw25_k4.npz",
+          "bytes": 2189
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260919_raw25_k4.npz",
+          "bytes": 2188
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260920_raw25_k4.npz",
+          "bytes": 2191
+        },
+        {
+          "path": "outputs/dynamic_events_v6/model_repeat_20260921_raw25_k4.npz",
+          "bytes": 2187
+        },
+        {
+          "path": "outputs/dynamic_events_v6/pair_coverage.csv",
+          "bytes": 2510771
+        },
+        {
+          "path": "outputs/dynamic_events_v6/pair_manifest.json",
+          "bytes": 687
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_distances_primary.csv",
+          "bytes": 9239
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_distances_repeated.csv",
+          "bytes": 13583
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_distances_sensitivity.csv",
+          "bytes": 12938
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_manifest_primary.json",
+          "bytes": 4217
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_manifest_repeated.json",
+          "bytes": 14805
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_manifest_sensitivity.json",
+          "bytes": 6174
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_pairs_primary.csv",
+          "bytes": 847028
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_pairs_repeated.csv",
+          "bytes": 1243887
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_pairs_sensitivity.csv",
+          "bytes": 1142934
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_summary_primary.csv",
+          "bytes": 4515
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_summary_repeated.csv",
+          "bytes": 6292
+        },
+        {
+          "path": "outputs/dynamic_events_v6/representation_summary_sensitivity.csv",
+          "bytes": 6105
+        },
+        {
+          "path": "outputs/dynamic_events_v6/source_series.csv",
+          "bytes": 26883
+        },
+        {
+          "path": "outputs/dynamic_events_v6/test_pairs.csv.gz",
+          "bytes": 41661081
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_primary.csv",
+          "bytes": 3022473
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260912.csv",
+          "bytes": 3027660
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260913.csv",
+          "bytes": 3034631
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260914.csv",
+          "bytes": 3028818
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260915.csv",
+          "bytes": 3030431
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260916.csv",
+          "bytes": 3013322
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260917.csv",
+          "bytes": 3024367
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260918.csv",
+          "bytes": 3032893
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260919.csv",
+          "bytes": 3029723
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260920.csv",
+          "bytes": 3016944
+        },
+        {
+          "path": "outputs/dynamic_events_v6/train_repeat_20260921.csv",
+          "bytes": 3022301
+        },
+        {
+          "path": "outputs/dynamic_events_v6/verification.json",
+          "bytes": 1025
+        }
+      ]
+    },
+    {
+      "asset": "human_labels.zip",
+      "bytes": 11454,
+      "sha256": "f989c0f917a914b507accd47533813101636c2ef1cca797cdf2f440b6aa1dddc",
+      "files": [
+        {
+          "path": "outputs/annotation_v9/submissions/human_annotations_20260914T091209_001557Z_dd447d.json",
+          "bytes": 50901
+        },
+        {
+          "path": "outputs/annotation_v9/submissions/human_focus_annotations_20260914.json",
+          "bytes": 34197
+        },
+        {
+          "path": "outputs/user_labels_v9/final_user_label_manifest.json",
+          "bytes": 575
+        },
+        {
+          "path": "outputs/user_labels_v9/manifest.json",
+          "bytes": 582
+        },
+        {
+          "path": "outputs/user_labels_v9/merged_window_labels.csv",
+          "bytes": 32358
+        },
+        {
+          "path": "outputs/user_labels_v9/window_detector_metrics.csv",
+          "bytes": 8451
+        }
+      ]
+    }
+  ]
+}

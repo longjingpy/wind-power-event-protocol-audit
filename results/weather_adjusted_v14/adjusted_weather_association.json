@@ -1,0 +1,22 @@
+{
+  "rows": 76538,
+  "blocks": 31,
+  "treated": 12011,
+  "control": 64527,
+  "unadjusted_same_population": 0.08434865195949648,
+  "standardized_risk_difference": 0.07438517638969554,
+  "standardized_rd_ci95": [
+    0.023350895630405967,
+    0.12541945714898511
+  ],
+  "odds_ratio": 1.3941857533875002,
+  "odds_ratio_ci95": [
+    1.103327227352791,
+    1.7617202465059372
+  ],
+  "formula": "y ~ a + pre_power4 + pre_speed4 + pre_change4 + pre_sin + pre_cos + C(hour) + C(month) + C(turbine)",
+  "outcome": "integer 1 means an event start in the following 4 h",
+  "covariate_time": "exact t-4h; previous power contrast t-4h minus t-5h",
+  "interval": "cluster covariance delta method with t critical value, blocks-1 df",
+  "status": "OBSERVATIONAL_ASSOCIATION"
+}

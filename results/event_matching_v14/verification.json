@@ -1,0 +1,7 @@
+{
+  "baseline_exact_event_pairs": 1465997,
+  "baseline_matches": true,
+  "aggregation": "pool labels across turbines within configuration pairs; average nonempty configuration pairs",
+  "optimal_objective": "maximize total feasible IoU, unmatched reward zero",
+  "tie_rule": "greedy original v6 rule; optimal fixed ID-ordered matrix"
+}
