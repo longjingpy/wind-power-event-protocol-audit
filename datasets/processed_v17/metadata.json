@@ -1,0 +1,36 @@
+{
+  "status": "PROCESSED_TABLES_VERIFIED",
+  "version": "v17",
+  "turbines": 333,
+  "sites": 7,
+  "rows": 7548467,
+  "site_turbine_counts": {
+    "WF01": 33,
+    "WF02": 14,
+    "WF03": 117,
+    "WF04": 21,
+    "WF05": 4,
+    "WF06": 10,
+    "WF07": 134
+  },
+  "columns": [
+    "site_id",
+    "turbine_id",
+    "time_index",
+    "interval_minutes",
+    "relative_day",
+    "source_hour",
+    "month",
+    "split",
+    "power_norm",
+    "power_valid",
+    "wind_speed_ms",
+    "wind_valid"
+  ],
+  "deidentification": "pseudonymous identifiers; original IDs, coordinates, absolute dates and clock origins excluded",
+  "time": "common relative time index within site; no interpolation; month/source-hour retained for context",
+  "clock_caution": "WF06/WF07 timezone is unverified; hour follows the source clock",
+  "power": "unitless archived analysis normalization; primary reference scales frozen, external q995 uses each archive",
+  "quality": "primary source time spans, row counts, usable-power counts and Parquet numeric round trips checked",
+  "scope": "processed SCADA only; original files, private maps, free-text logs and personal material excluded"
+}

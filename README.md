@@ -6,7 +6,7 @@ Code and analysis resources for **Measuring transferable wind-power dynamics wit
 
 The provider authorizes release, and the current distribution policy is to share de-identified processed datasets. The former original-input release v0.2.0 is now a non-public draft while the processed replacement is prepared. See `DATA_POLICY_V17.md` for the current status. Original provider terms remain applicable.
 
-The historical `data_manifest.json` documents the former bundle and is not an active download index. A new processed-data index will be supplied after validation.
+The processed-data schema and verified file index are under `datasets/processed_v17/`. The former raw-file manifest has been removed from the current distribution tree; its historical copies remain outside the new dataset bundle.
 
 Public original sources are attributed through SDWPF (10.6084/m9.figshare.24798654), Greece (10.5281/zenodo.14546480), La Haute Borne and Hill of Towie source records. Unrelated GNSS projects, private attachments and corrupt download copies are excluded.
 

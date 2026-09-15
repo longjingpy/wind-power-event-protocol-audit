@@ -1,0 +1,14 @@
+{
+  "site_id": "Pseudonymous study archive ID",
+  "turbine_id": "Pseudonymous turbine ID within archive",
+  "time_index": "Integer interval offset from a common site origin, retained only in the private map",
+  "interval_minutes": "10 or 30; multiply time-index differences by this value for physical durations",
+  "relative_day": "Calendar-day difference from the site origin; preserves same-site day grouping",
+  "source_hour": "UTC hour for primary archives; unverified source-clock hour for WF06/WF07",
+  "month": "Calendar month 1-12; absolute year and date are omitted",
+  "split": "Archived chronological train/validation/test assignment at 60% and 80% of each turbine span",
+  "power_norm": "Unitless power divided by the archived analysis reference; null when power_valid is false",
+  "power_valid": "Eligibility under the stated archive-specific power protocol",
+  "wind_speed_ms": "Processed turbine wind speed in m/s; null when wind_valid is false",
+  "wind_valid": "Available wind meeting source completeness and the 0-60 m/s range check"
+}

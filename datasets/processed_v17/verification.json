@@ -1,0 +1,15 @@
+{
+  "status": "PASS_PROCESSED_RELEASE_AUDIT",
+  "turbines": 333,
+  "rows": 7548467,
+  "checks": [
+    "schema whitelist",
+    "relative indices",
+    "chronological splits",
+    "numeric validity",
+    "no hidden timestamp index",
+    "no private map in archive",
+    "all archive CRCs"
+  ],
+  "limitation": "pseudonymization removes direct fields; it cannot recall old downloads or guarantee non-reidentification"
+}
