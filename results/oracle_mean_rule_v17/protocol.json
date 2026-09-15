@@ -1,0 +1,27 @@
+{
+  "primary_windows": [
+    2,
+    4,
+    8,
+    16
+  ],
+  "expanded_windows": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16,
+    24,
+    32
+  ],
+  "evaluated_sequences_per_condition": 1600,
+  "scope": "same fixed post-selection synthetic samples as v16",
+  "window_only": "choose test-best window with each window's original-validation output calibration",
+  "window_and_protocol": "choose both window and complete output calibration on the test labels",
+  "comparison": "oracle ceilings are separate from frozen trained-model performance"
+}

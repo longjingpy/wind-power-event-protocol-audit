@@ -1,0 +1,54 @@
+{
+  "record_type": "template_fill_before_evaluation",
+  "record_version": "v17",
+  "dataset": {
+    "release": "https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.3.0",
+    "site_id": null,
+    "turbine_population": null,
+    "sampling_minutes": null,
+    "clock_convention": null,
+    "quality_and_missingness_rule": null
+  },
+  "detector": {
+    "definition_or_source": null,
+    "physical_lag_minutes": null,
+    "threshold_value": null,
+    "threshold_units_and_fitting_population": null,
+    "grouping_and_boundary_rule": null
+  },
+  "matching": {
+    "eligible_population": null,
+    "same_site_turbine_split": true,
+    "iou_threshold": null,
+    "assignment_and_tie_breaking": null,
+    "candidate_counts_left_right": null,
+    "matched_count": null,
+    "coverage_left_right": null
+  },
+  "representation_and_clustering": {
+    "encoding": null,
+    "shape_and_context_definition": null,
+    "transform_fitting_population": null,
+    "algorithm": null,
+    "cluster_count_and_initializations": null,
+    "seeds": null,
+    "conditional_agreement_and_support": null
+  },
+  "evaluation": {
+    "measurement_population": null,
+    "forecast_validation_population": null,
+    "decision_test_population": null,
+    "metric_and_aggregation_unit": null,
+    "uncertainty_unit_and_interval": null,
+    "selection_label_access": "validation only; test-label oracles reported separately"
+  },
+  "decision": {
+    "cost_objective_and_components": null,
+    "price_source_and_scenario_status": null,
+    "cost_units_and_calendar_exposure": null,
+    "storage_constraints": null,
+    "controller_information_set": null,
+    "capacity_and_reserve_selected_on": "validation",
+    "policy_evaluated_on": "held-out test"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "validation_seed": 2026091703,
+  "test_seed": 2026091704,
+  "validation_n": 400,
+  "test_n": 1600,
+  "noise_innovation_sd": 0.027,
+  "windows": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16,
+    24,
+    32
+  ],
+  "frozen_models": {
+    "timesnet": {
+      "directory": "h08_z08",
+      "size": 8,
+      "latent": 8,
+      "calibration": {
+        "41": {
+          "threshold": 0.03957271739840507,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "42": {
+          "threshold": 0.03354925945401186,
+          "ratio": 0.5,
+          "gap": 0,
+          "minimum": 3
+        },
+        "43": {
+          "threshold": 0.03046611556783316,
+          "ratio": 0.5,
+          "gap": 0,
+          "minimum": 3
+        }
+      }
+    },
+    "kanad": {
+      "directory": "h16_z16",
+      "size": 16,
+      "latent": 16,
+      "calibration": {
+        "41": {
+          "threshold": 0.7316455036401668,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "42": {
+          "threshold": 0.8954277187585729,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 1
+        },
+        "43": {
+          "threshold": 0.762438374757763,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        }
+      }
+    },
+    "tcn_ae": {
+      "directory": "sequence_h08_z08",
+      "size": 8,
+      "latent": 8,
+      "calibration": {
+        "41": {
+          "threshold": 0.7238753885030728,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "42": {
+          "threshold": 0.7277119278907731,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "43": {
+          "threshold": 0.7443954944610588,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        }
+      }
+    },
+    "transformer_ae": {
+      "directory": "sequence_h08_z08",
+      "size": 8,
+      "latent": 8,
+      "calibration": {
+        "41": {
+          "threshold": 0.5272893190383894,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "42": {
+          "threshold": 0.5284517705440508,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        },
+        "43": {
+          "threshold": 0.47293399423360744,
+          "ratio": 0.5,
+          "gap": 2,
+          "minimum": 3
+        }
+      }
+    }
+  },
+  "training": "no new model fitting; target calibration changes output settings only"
+}

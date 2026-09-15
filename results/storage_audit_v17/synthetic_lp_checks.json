@@ -1,0 +1,23 @@
+{
+  "synthetic_steps": 16,
+  "online_severe_steps": 7,
+  "lp_severe_steps": 7,
+  "online_prefix_steps": 8,
+  "online_prefix_unchanged_after_future_edit": true,
+  "lp_full_horizon_steps": 16,
+  "lp_future_nonzero_steps": 13,
+  "lp_uses_future_steps": true,
+  "lp_objective_units": "CNY: (MW * 0.5 h) * CNY/MWh; SOC in MWh; residual and charge/discharge in MW",
+  "lp_constraint_units": "SOC balance: MWh = (MW * h); residual balance: MW; tail constraints: MW",
+  "online_prefix_note": "Online actions at steps 0..7 are identical when steps 8..15 are changed.",
+  "lp_note": "LP sees all 16 residuals and optimizes the complete horizon.",
+  "foresight_case_residual_mw": [
+    -0.1,
+    -0.6
+  ],
+  "foresight_case_tail_premium_cny_per_mwh": 5000.0,
+  "foresight_online_total_cny": 979.8275445148437,
+  "foresight_lp_total_cny": 729.8275445148438,
+  "foresight_lp_lower_than_online": true,
+  "foresight_case_note": "The first -0.10 MW shortfall is below critical; the subsequent -0.60 MW deficit is severe. LP uses the full future and preserves SOC."
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "factor": 0,
+    "expected_path": "/mnt/d/projects/WindPowerForcast/outputs/real_decision_v9_signed/forecast_factor0_test.csv",
+    "exists": false,
+    "action": "not retrained"
+  },
+  {
+    "factor": 1,
+    "expected_path": "/mnt/d/projects/WindPowerForcast/outputs/real_decision_v9_signed/forecast_factor1_test.csv",
+    "exists": false,
+    "action": "not retrained"
+  },
+  {
+    "factor": 2,
+    "expected_path": "/mnt/d/projects/WindPowerForcast/outputs/real_decision_v9_signed/forecast_factor2_test.csv",
+    "exists": false,
+    "action": "not retrained"
+  },
+  {
+    "factor": 4,
+    "expected_path": "/mnt/d/projects/WindPowerForcast/outputs/real_decision_v9_signed/forecast_factor4_test.csv",
+    "exists": false,
+    "action": "not retrained"
+  },
+  {
+    "factor": 8,
+    "expected_path": "/mnt/d/projects/WindPowerForcast/outputs/real_decision_v9_signed/forecast_factor8_test.csv",
+    "exists": false,
+    "action": "not retrained"
+  }
+]

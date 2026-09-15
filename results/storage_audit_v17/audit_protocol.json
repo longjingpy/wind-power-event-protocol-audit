@@ -1,0 +1,13 @@
+{
+  "input_policy": "Read-only reuse of outputs/real_decision_v9_signed forecast files and storage_policy_v15 cost assumptions.",
+  "selection": "For each site/model/seed/price/tail/regime, capacity, duration and reserve are selected only on validation; all selected test rows are retained.",
+  "regimes": [
+    "unconstrained",
+    "at_least_10pct_2h"
+  ],
+  "paired_training": "mse versus event_weighted under identical site/model/seed/price/tail/regime keys",
+  "cost_units": "CNY; energy terms use MWh; reported period CNY/installed-MW, annualized CNY/installed-MW/year (calendar_h/8760), and CNY/(installed-MW*h).",
+  "inventory_definition": "inventory_cny = (initial SOC - terminal SOC) * 300 CNY/MWh; negative values are terminal inventory credit when SOC rises.",
+  "lp_units": "Residual/charge/discharge MW, SOC MWh, dt=0.5 h, tariffs CNY/MWh; constraints are dimensionally checked in synthetic_lp_checks.json.",
+  "source_unchanged": true
+}

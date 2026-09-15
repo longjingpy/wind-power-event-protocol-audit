@@ -1,0 +1,3 @@
+step,residual_mw,online_charge_mw,online_discharge_mw,online_soc_mwh,lp_charge_mw,lp_discharge_mw,lp_soc_mwh,lp_net_residual_mw
+0,-0.1,0.0,0.1,0.1,0.0,0.0,0.1,-0.1
+1,-0.6,0.0,0.053466608746007026,0.04787139648573131,0.0,0.15346660874600704,0.1,-0.44653339125399294

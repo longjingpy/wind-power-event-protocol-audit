@@ -71,7 +71,18 @@ TABLE_SOURCES = {
   "29": "outputs/detection_confirmation_v16/metrics.csv",
   "30": "outputs/detection_confirmation_v16/paired_gain_intervals.csv",
   "31": "outputs/detection_confirmation_v16/compute.csv",
-  "32": "outputs/matched_composition_v16/site_composition_summary.csv"
+  "32": "outputs/matched_composition_v16/site_composition_summary.csv",
+  "33": "outputs/conditional_agreement_v17/paper_summary.csv",
+  "34": "outputs/oracle_mean_rule_v17/oracle_summary.csv",
+  "35": "outputs/noise_calibration_v17/summary.csv",
+  "36": "outputs/noise_calibration_v17/paired_intervals.csv",
+  "37": "outputs/storage_audit_v17/paired_mse_event_weighted.csv",
+  "38": "outputs/storage_audit_v17/selected_test_cost_decomposition.csv",
+  "39": "outputs/storage_audit_v17/real_trace_costs.csv",
+  "40": "outputs/weather_diagnostics_v17/diagnostics.json",
+  "41": "outputs/detection_hpo_v16/summary.csv",
+  "42": "outputs/oracle_mean_rule_v17/all_rule_candidates.csv",
+  "43": "outputs/yandun_resolution_v17/resolution_pair_summary.csv"
 }
 
 
@@ -209,12 +220,15 @@ def supplement_tables():
                   ["Site", "Factor", "Ramp weight", "All nMAE (%)", "Ramp nMAE (%)", "Base cost"],
                   [[r.site, r.factor, r.factor + 1, f3(r.all_nmae_pct), f3(r.ramp_nmae_pct), f3(r.test_cost)] for r in wsummary.itertuples()])
     policy = pd.read_csv(ROOT / "outputs/storage_policy_v15/capacity_price_surface.csv")
-    fixed = policy[policy.storage_fraction.eq(.1) & policy.duration_h.eq(2)]
-    cost = fixed.groupby(["site", "model", "price_case", "tail_premium", "training"]).total_cny_per_installed_mw.mean().unstack("training").reset_index()
-    text += table("Table S23. Fixed 10%-power and 2-hour storage costs per installed MW",
-                  ["Site", "Model", "Prices", "Tail premium", "MSE cost", "Event-weighted cost", "Difference"],
-                  [[r.site, r.model, r.price_case, r.tail_premium, f3(r.mse), f3(r.event_weighted),
-                    f3(r.event_weighted-r.mse)] for r in cost.itertuples()])
+    fixed = policy[policy.storage_fraction.eq(.1) & policy.duration_h.eq(2)].copy()
+    rates = fixed.groupby(["site", "model", "price_case", "tail_premium", "training"]).total_cny_per_installed_mw.mean().unstack("training").reset_index()
+    hours = fixed.groupby(["site", "model", "price_case", "tail_premium"]).calendar_h.first().reset_index()
+    rates = rates.merge(hours, on=["site", "model", "price_case", "tail_premium"])
+    text += table("Table S23. Fixed 10%-power and 2-hour storage costs normalized by test-calendar hours",
+                  ["Site", "Model", "Prices", "Tail premium", "Calendar h", "MSE CNY/MW/h", "Event-weighted CNY/MW/h", "Difference"],
+                  [[r.site, r.model, r.price_case, r.tail_premium, f3(r.calendar_h), f3(r.mse/r.calendar_h),
+                    f3(r.event_weighted/r.calendar_h), f3((r.event_weighted-r.mse)/r.calendar_h)] for r in rates.itertuples()])
+    text += "\nTable S23 compares training objectives within each site. Calendar-hour normalization makes Pizhou and Yandun exposure lengths explicit; all estimated contrasts are within-site.\n"
     designs = pd.read_csv(ROOT / "outputs/storage_policy_v15/validation_selected_designs.csv")
     counts = designs.groupby(["regime", "fraction", "duration_h"]).size().reset_index(name="configurations")
     text += table("Table S24. Validation-selected storage designs across model-seed-price configurations",
@@ -227,11 +241,11 @@ def supplement_tables():
                     f3(r.oracle_operating_cny_per_installed_mw), f3(r.online_operating_cny_per_installed_mw)] for r in bounds.itertuples()])
     conditional = pd.read_csv(ROOT / "outputs/storage_policy_v15/conditional_advantage.csv")
     conditional = conditional[conditional.mean_difference < 0].sort_values("mean_difference")
-    text += table("Table S26. Conditions associated with lower event-weighted storage cost",
+    text += table("Table S26. Exploratory test-grid cells with lower event-weighted storage cost",
                   ["Site", "Model", "Prices", "Tail premium", "Power fraction", "Duration (h)", "Mean difference", "Seeds better"],
                   [[r.site, r.model, r.price_case, r.tail_premium, r.storage_fraction, r.duration_h,
                     f3(r.mean_difference), f"{int(r.better_seeds)}/{int(r.seeds)}"] for r in conditional.itertuples()])
-    text += "\nMean difference is event-weighted minus MSE total cost in CNY per installed MW, averaged over three seeds. Negative values identify declared scenario cells; the table lists all such cells in the tested grid.\n"
+    text += "\nMean difference is event-weighted minus MSE total cost in CNY per installed MW, averaged over three seeds. These cells are a post-hoc diagnostic over the test grid; validation-selected policy comparisons appear in Table S37.\n"
     compute = pd.read_csv(ROOT / "outputs/detection_benchmark_v9_100/compute_cost_summary.csv")
     compute_labels = {"mean_rule": "Mean rule", "timesnet": "TimesNet", "kanad": "KAN-AD",
                       "tcn_ae": "TCN-AE", "transformer_ae": "Transformer-AE"}
@@ -280,7 +294,68 @@ def supplement_tables():
                     f3(r.equal_pair_mean_matched), f3(r.equal_pair_mean_unmatched), f3(r.equal_pair_mean_difference)]
                    for r in composition.itertuples()])
     text += "\nMeans give equal weight to supported detector-pair sides with available feature values in both populations. Power and amplitude use the archived normalization; direction is the fraction of upward events. Earlier wind averages four complete half-hour bins strictly before event start. The detailed companion CSV includes population sizes, valid wind counts and quartiles for every side.\n"
-    assert sorted(row["table"] for row in TABLE_LOG) == list(range(1, 33))
+    conditional = pd.read_csv(ROOT / "outputs/conditional_agreement_v17/paper_summary.csv")
+    conditional = conditional[conditional.representation.eq("raw25")]
+    text += table("Table S33. Conditional raw25 agreement and retained support",
+                  ["Site", "Conditioning", "Retained / original", "Catalogue cov. L", "Catalogue cov. R", "Scored fraction", "W. NMI", "W. ARI"],
+                  [[names[r.site], r.conditioning, f"{r.retained_pairs}/{r.original_matched_pairs}", f3(r.conditional_left_coverage),
+                    f3(r.conditional_right_coverage), f3(r.scored_fraction_of_retained), f3(r.pair_weighted_nmi_n_ge_30),
+                    f3(r.pair_weighted_ari_n_ge_30)] for r in conditional.itertuples()])
+    text += "\nConditional raw25 scores are computed within detector-pair strata. Direction retains most temporal matches and gives lower information agreement. Amplitude and duration conditioning retain higher within-stratum agreement at lower support. Both-constant strata are excluded from informative scores, and one-side-constant strata contribute zero. Scored fractions refer to retained pairs in defined strata with at least 30 matches.\n"
+    oracle = pd.read_csv(ROOT / "outputs/oracle_mean_rule_v17/oracle_summary.csv")
+    text += table("Table S34. Test-label oracle ceilings for adjacent-mean windows",
+                  ["Condition", "Window grid", "Oracle mode", "Window", "F1", "Label access"],
+                  [[r.condition.replace("_", " "), r.grid.replace("_", " "), r.mode.replace("_", " "), r.window, f3(r.f1), "test-label oracle"] for r in oracle.itertuples()])
+    noise = pd.read_csv(ROOT / "outputs/noise_calibration_v17/summary.csv")
+    text += table("Table S35. Equal-validation noise calibration on a fresh high-noise draw",
+                  ["Model", "Policy", "F1", "F1 SD", "Precision", "Recall", "Seeds"],
+                  [[compute_labels[r.model], r.policy.replace("_", " "), f3(r.f1), f3(r.f1_sd) if pd.notna(r.f1_sd) else "-", f3(r.precision), f3(r.recall), r.seeds] for r in noise.itertuples()])
+    noise_gains = pd.read_csv(ROOT / "outputs/noise_calibration_v17/paired_intervals.csv")
+    text += table("Table S36. Paired gains after source or target-noise calibration",
+                  ["Model", "Policy", "F1 gain", "95% interval"],
+                  [[compute_labels[r.model], r.policy.replace("_", " "), f3(r.f1_gain_vs_mean_rule), f"[{f3(r.ci95_low)}, {f3(r.ci95_high)}]"] for r in noise_gains.itertuples()])
+    audit = pd.read_csv(ROOT / "outputs/storage_audit_v17/paired_mse_event_weighted.csv")
+    decomp = pd.read_csv(ROOT / "outputs/storage_audit_v17/selected_test_cost_decomposition.csv")
+    dmean = decomp.groupby(["site", "model", "price_case", "tail_premium", "regime", "training"]).total_cny_per_installed_mw_h.mean().reset_index()
+    piv = dmean.pivot_table(index=["site", "model", "price_case", "tail_premium", "regime"], columns="training", values="total_cny_per_installed_mw_h").reset_index()
+    pairs_count = audit.groupby(["site", "model", "price_case", "tail_premium", "regime"]).agg(seeds=("seed", "size"), lower_event_weighted=("event_weighted_minus_mse_cny_per_installed_mw", lambda x: int((x < 0).sum()))).reset_index()
+    policy_summary = piv.merge(pairs_count, on=["site", "model", "price_case", "tail_premium", "regime"])
+    text += table("Table S37. Validation-selected policy cost comparison",
+                  ["Site", "Model", "Prices", "Tail", "Regime", "MSE CNY/MW/h", "Event-weighted CNY/MW/h", "Difference", "Lower EW / seeds"],
+                  [[r.site, r.model, r.price_case, r.tail_premium, r.regime.replace("_", " "), f3(r.mse), f3(r.event_weighted), f3(r.event_weighted-r.mse), f"{r.lower_event_weighted}/{r.seeds}"] for r in policy_summary.itertuples()])
+    representative = decomp[(decomp.model.eq("tcn")) & (decomp.seed.eq(41)) & decomp.regime.eq("at_least_10pct_2h") & decomp.price_case.isin(["low", "base", "high"]) & decomp.tail_premium.isin([0., 5000.])]
+    text += table("Table S38. Representative validation-selected cost decomposition",
+                  ["Site", "Training", "Prices", "Tail", "Capital", "Throughput", "Short", "Surplus", "Tail cost", "Total"],
+                  [[r.site, r.training.replace("_", " "), r.price_case, r.tail_premium, f3(r.capital_cny_per_installed_mw_h), f3(r.throughput_cny_per_installed_mw_h), f3(r.shortfall_cny_per_installed_mw_h), f3(r.surplus_cny_per_installed_mw_h), f3(r.tail_premium_cny_per_installed_mw_h), f3(r.total_cny_per_installed_mw_h)] for r in representative.itertuples()])
+    traces = pd.read_csv(ROOT / "outputs/storage_audit_v17/real_trace_costs.csv")
+    traces["online_rate"] = traces.online_total_cny_per_installed_mw / traces.calendar_h
+    traces["lp_rate"] = traces.lp_total_cny_per_installed_mw / traces.calendar_h
+    text += table("Table S39. Real fixed 10%-power/2-hour online and LP traces",
+                  ["Site", "Training", "Scenario", "Calendar h", "Online CNY/MW/h", "LP CNY/MW/h", "LP minus online", "Online severe steps", "LP severe steps"],
+                  [[r.site, r.training.replace("_", " "), r.scenario, f3(r.calendar_h), f3(r.online_rate), f3(r.lp_rate), f3(r.lp_rate-r.online_rate), r.online_severe_steps, r.lp_severe_steps] for r in traces.itertuples()])
+    diag = json.loads((ROOT / "outputs/weather_diagnostics_v17/diagnostics.json").read_text())
+    coefficient = pd.read_csv(ROOT / "outputs/weather_diagnostics_v17/coefficients.csv")
+    exposure = coefficient[coefficient.term.eq("a")].iloc[0]
+    text += table("Table S40. Weather association model diagnostics",
+                  ["Observations", "Blocks", "IRLS iterations", "Converged", "Exposure estimate", "Cluster SE", "Block-t p", "BH q"],
+                  [[diag["observations"], diag["blocks"], diag["iterations"], diag["converged"], f3(exposure.estimate), f3(exposure.cluster_se), f3(exposure.block_t_pvalue), f3(exposure.bh_qvalue_block_t)]])
+    all_hpo = pd.read_csv(ROOT / "outputs/detection_hpo_v16/summary.csv")
+    all_hpo = all_hpo.merge(pd.read_csv(ROOT / "outputs/detection_hpo_v16/validation_summary.csv"), on=["model", "config"], validate="one_to_one")
+    text += table("Table S41. All neural model-size validation and test curves",
+                  ["Model", "Configuration", "Validation F1", "Validation SD", "Test F1", "Test SD"],
+                  [[compute_labels.get(r.model, r.model), r.config, f3(r.validation_f1_mean), f3(r.validation_f1_sd), f3(r.f1), f3(r.f1_sd)] for r in all_hpo.itertuples()])
+    all_oracle = pd.read_csv(ROOT / "outputs/oracle_mean_rule_v17/all_rule_candidates.csv")
+    text += table("Table S42. All adjacent-mean candidate curves",
+                  ["Condition", "Window", "Validation F1", "Frozen test F1", "Oracle test F1"],
+                  [[r.condition.replace("_", " "), r.window, f3(r.validation_f1), f3(r.frozen_test_f1), f3(r.oracle_test_f1)] for r in all_oracle.itertuples()])
+    text += "\nAll candidate rows in S41 and S42 remain available in CSV form with their full selection settings. Oracle rows use test labels and provide an upper-bound diagnostic. Deployable selection uses validation labels. S37 uses validation-selected storage designs; S26 remains a post-hoc test-grid diagnostic. Cost components are in CNY per installed MW per test-calendar hour; unrounded values remain in the source CSV.\n"
+    resolution = pd.read_csv(ROOT / "outputs/yandun_resolution_v17/resolution_pair_summary.csv")
+    text += table("Table S43. Yandun raw25 agreement across native and aggregated resolutions",
+                  ["Left min", "Right min", "Left test", "Right test", "Pairs", "Left cov.", "Right cov.", "NMI", "ARI"],
+                  [[r.left_minutes, r.right_minutes, r.left_test_events, r.right_test_events, r.matched_pairs,
+                    f3(r.left_coverage), f3(r.right_coverage), f3(r.nmi), f3(r.ari)] for r in resolution.itertuples()])
+    text += "\nEach resolution fits its own training standardizer and k=4 prototypes. Test intervals match within turbine and split at IoU 0.5. The source is Yandun's native 15-min SCADA; 30- and 60-min series use complete arithmetic means and preserve missing-bin boundaries.\n"
+    assert sorted(row["table"] for row in TABLE_LOG) == list(range(1, 44))
     (OUT / "supplementary_table_manifest.json").write_text(json.dumps(sorted(TABLE_LOG, key=lambda row: row["table"]), indent=2))
     first = text.index("\n\n### Table S")
     parts = re.split(r"(?=\n\n### Table S\d+\.)", text[first:])
@@ -406,7 +481,7 @@ def main():
     widths = iter([0.12, 0.24, 0.10, 0.06, 0.06, 0.06, 0.12, 0.12, 0.12])
     fragment = re.sub(r"\\real\{0\.1111\}", lambda _: r"\real{" + f"{next(widths):.4f}" + "}", fragment)
     supp_latex = supp_latex[:start] + fragment + supp_latex[end:]
-    supp_tex = PREAMBLE + r"\begin{frontmatter}\title{Supplementary material: " + latex(meta["title"]) + r"}\begin{abstract}Methods and result tables for the seven-archive study, including learned representations, external transfer, human-reviewed regions, controlled episode localization and chronological forecasting.\end{abstract}\end{frontmatter}" + "\n\\small\\setlength{\\tabcolsep}{3pt}\n" + supp_latex + "\n\\clearpage\n\\bibliographystyle{elsarticle-num}\\bibliography{references}\n\\end{document}\n"
+    supp_tex = PREAMBLE + r"\begin{frontmatter}\title{Supplementary material: " + latex(meta["title"]) + r"}\begin{abstract}Methods and result tables for the seven-archive study, including learned representations, external transfer, human-reviewed regions, controlled episode localization and chronological forecasting.\end{abstract}\end{frontmatter}" + "\n\\scriptsize\\setlength{\\tabcolsep}{2pt}\n" + supp_latex + "\n\\clearpage\n\\bibliographystyle{elsarticle-num}\\bibliography{references}\n\\end{document}\n"
     (SOURCES / "supplementary.tex").write_text(supp_tex)
     compile_tex("main")
     compile_tex("supplementary")

@@ -1,0 +1,27 @@
+{
+  "source": "outputs/dynamic_events_v6/train_primary.csv event IDs resolved in candidate_intervals.csv.gz",
+  "quantiles": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "bins": {
+    "direction": null,
+    "amplitude_abs": [
+      0.2457243088261608,
+      0.325280434694663,
+      0.4555961697562458
+    ],
+    "duration_hours": [
+      1.0,
+      1.5,
+      3.5
+    ],
+    "power_start": [
+      0.3478105259348905,
+      0.5523707547345558,
+      0.7764067991862624
+    ]
+  },
+  "power_start_definition": "catalog power_start: first event value; no pre_mean substitution"
+}

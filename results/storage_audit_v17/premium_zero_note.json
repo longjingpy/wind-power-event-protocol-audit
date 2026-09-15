@@ -1,0 +1,6 @@
+{
+  "base_tail_premium": 0.0,
+  "high_tail_premium": 0.0,
+  "meaning": "v15 base/high scenario rows set tail_premium=0; equal premium terms are zero by construction, not evidence that severe-deviation premium has no effect.",
+  "positive_sensitivity_cases": "tail_premium=1000 and 5000 are reported separately."
+}

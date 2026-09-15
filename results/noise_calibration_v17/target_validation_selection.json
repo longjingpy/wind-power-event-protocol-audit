@@ -1,0 +1,92 @@
+{
+  "mean_rule_window": 5,
+  "mean_rule_config": {
+    "threshold": 0.10399963289499262,
+    "ratio": 0.5,
+    "gap": 2,
+    "minimum": 1
+  },
+  "model_configs": {
+    "timesnet": {
+      "41": {
+        "threshold": 0.051674202755093455,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      },
+      "42": {
+        "threshold": 0.046227556318044614,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      },
+      "43": {
+        "threshold": 0.03478434536606071,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      }
+    },
+    "kanad": {
+      "41": {
+        "threshold": 1.2424269974231543,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      },
+      "42": {
+        "threshold": 1.4187529742717708,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      },
+      "43": {
+        "threshold": 1.2899159848690014,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      }
+    },
+    "tcn_ae": {
+      "41": {
+        "threshold": 2.2677992439269965,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      },
+      "42": {
+        "threshold": 1.1526746094226805,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      },
+      "43": {
+        "threshold": 2.4345217800140357,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      }
+    },
+    "transformer_ae": {
+      "41": {
+        "threshold": 1.636951582431791,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      },
+      "42": {
+        "threshold": 1.7465605032443972,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      },
+      "43": {
+        "threshold": 1.644265062808987,
+        "ratio": 0.5,
+        "gap": 2,
+        "minimum": 3
+      }
+    }
+  },
+  "test_labels_used": false
+}

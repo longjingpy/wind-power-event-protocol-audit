@@ -1,0 +1,8 @@
+{
+  "score_support_threshold": 30,
+  "status": "DESCRIPTIVE_WITHIN_STRATUM_SUMMARY",
+  "denominator_rule": "all 17-configuration pair-side catalogue views at each primary site, including zero-match pairings",
+  "retention": "conditional matches / original temporal matches; distinct from full-catalogue coverage",
+  "scoring": "one-side constant comparisons contribute zero; both-constant comparisons have no informative conditional partition",
+  "uncertainty": "point summaries only; no new block intervals or significance claim for the conditional decrease"
+}

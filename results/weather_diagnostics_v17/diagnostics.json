@@ -1,0 +1,17 @@
+{
+  "converged": true,
+  "iterations": 22,
+  "observations": 76538,
+  "blocks": 31,
+  "df_resid": 76469.0,
+  "deviance": 97996.33287325021,
+  "pearson_chi2": 77237.32338131167,
+  "covariance_type": "cluster",
+  "coefficient_count": 69,
+  "block_t_df": 30,
+  "max_coefficient_difference_v14": 8.413536534135346e-10,
+  "max_cluster_se_difference_v14": 4.4075854077618715e-14,
+  "fdr_family": "all coefficients in this single 4h model, including intercept and categorical indicators",
+  "scope": "coefficient-wise BH is not simultaneous correction of the separate ERA5/NOAA horizon risk contrasts",
+  "inference_update": "block-t p-values align coefficient tests with the existing blocks-1 t-based confidence intervals"
+}

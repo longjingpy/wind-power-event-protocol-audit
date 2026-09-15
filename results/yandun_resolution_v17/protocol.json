@@ -1,0 +1,18 @@
+{
+  "path": "data/whole-SCADA-data/wind_power/xinjiang/yandun/scadas_20240216-20240824_single.csv",
+  "native_interval_minutes": 15,
+  "resolutions": [
+    15,
+    30,
+    60
+  ],
+  "physical_lag_h": 4,
+  "train_fit": "each resolution standardizer and KMeans k=4 fit on train split only",
+  "test_match": "same turbine, test split, one-to-one UTC intervals, IoU >= 0.5",
+  "events": {
+    "15": 32395,
+    "30": 19219,
+    "60": 9912
+  },
+  "summary": "NMI/ARI compare resolution-specific raw25 prototypes"
+}

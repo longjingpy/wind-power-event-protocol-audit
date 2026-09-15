@@ -14,7 +14,7 @@ def main():
     papers={key for kind,key in entries if kind.lower() in ["article","inproceedings"]}|{"wang2015gaf"}
     assert len(citations&papers)>=35,len(citations&papers)
     manifest=json.loads((BASE/"supplementary_table_manifest.json").read_text())
-    assert {item["table"] for item in manifest}==set(range(1,33))
+    assert {item["table"] for item in manifest}==set(range(1,44))
     assert all(item["rows"]>0 for item in manifest)
     result={"references":len(keys),"cited_references":len(citations),"cited_papers":len(citations&papers),
             "supplementary_tables":len(manifest),"status":"STRUCTURAL_CHECK_PASS"}

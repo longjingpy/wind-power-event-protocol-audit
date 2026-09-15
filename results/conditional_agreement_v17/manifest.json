@@ -1,0 +1,22 @@
+{
+  "status": "EXPLORATORY_CONDITIONAL_AGREEMENT_AUDIT",
+  "source": "outputs/dynamic_events_v6",
+  "output": "outputs/conditional_agreement_v17",
+  "n_test_events": 526276,
+  "n_test_pairs": 1465997,
+  "k": 4,
+  "metric_implementation": "sklearn normalized_mutual_info_score(average_method=arithmetic) and adjusted_rand_score",
+  "inputs_sha256": {
+    "outputs/dynamic_events_v6/candidate_intervals.csv.gz": "1e827eeccbd5bdfb60c2c330b18d7be99b42ab99e701fdfd3437a104c9ad85cd",
+    "outputs/dynamic_events_v6/test_pairs.csv.gz": "68fa42bc443ffc3d9a82d4f88300a142b3d7b40b767e1ca82f0d7a517ea350e3",
+    "outputs/dynamic_events_v6/train_primary.csv": "9e19bf2970838f23a3130255fd41e715c664eb96b446b1df5db11cb69f2f3f05",
+    "outputs/dynamic_events_v6/covariate_conditioned_stability.csv": "96ab053c310a9e5e4b4222a9abac07ac3ce8dd3a40a37ca3b42eb2125e7101b3",
+    "script/conditional_agreement_v17.py": "3207ef647c3a04b2ddf55a47cfa949102e17679e4d35fc7b2c4cbbd15149308d"
+  },
+  "notes": [
+    "Thresholds fit on training IDs only",
+    "Metrics are per site/configuration pair and stratum",
+    "NaN metrics mark insufficient or both-constant label support; one-side-constant comparisons retain zero scores",
+    "Descriptive agreement, not causal adjustment"
+  ]
+}
