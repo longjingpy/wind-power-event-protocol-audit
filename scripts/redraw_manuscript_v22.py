@@ -247,23 +247,23 @@ def economics():
     d=pd.read_csv(ROOT/'outputs/protocol_benchmark_v20/economics/selected_test_scores.csv')
     names=['persistence','selected_weather','selected_weather_events','predicted_ramp_historical_events']
     labs=['Persistence','Weather','Weather + events','Legacy event mixture'];colors=['#536474','#19836A','#A33378','#BE8533']
-    fig,(a,b)=plt.subplots(2,1,figsize=(6.5,4.65));fig.subplots_adjust(left=.16,right=.98,top=.86,bottom=.15,hspace=.42)
+    fig,(a,b)=plt.subplots(1,2,figsize=(6.5,3.45),gridspec_kw={'width_ratios':[1,1.08]});fig.subplots_adjust(left=.16,right=.98,top=.82,bottom=.22,wspace=.32)
     for name,label,c in zip(names,labs,colors):
         q=d[d.model.eq(name)].sort_values('horizon_hours');a.plot(q.horizon_hours,q.nmae*100,'o-',color=c,label=label,ms=5,lw=1.6)
         b.plot(q.horizon_hours,q.gross_debit_gbp/1000,'o-',color=c,label=label,ms=5,lw=1.6)
-    a.set(title='a  Forecast error',ylabel='nMAE (%)');b.set(title='b  Observed-price exposure',ylabel='Gross debits (£k)',xlabel='Forecast lead (h)')
+    a.set(title='a  Forecast error',ylabel='nMAE (%)');b.set(title='b  Price exposure',ylabel='Gross debits (£k)',xlabel='Forecast lead (h)')
     for ax in [a,b]:ax.set_xticks([1,2,4]);axis(ax)
-    fig.legend(*a.get_legend_handles_labels(),loc='upper center',bbox_to_anchor=(.5,1.0),ncol=2,frameon=False,columnspacing=1)
+    fig.legend(*a.get_legend_handles_labels(),loc='upper center',bbox_to_anchor=(.5,1.0),ncol=4,frameon=False,columnspacing=.75,handlelength=1.4)
     d.to_csv(OUT/'fig13_forecast_cost.csv',index=False)
     save(fig,'fig13_forecast_cost',14,['outputs/protocol_benchmark_v20/economics/selected_test_scores.csv'],
         'Forecast error and gross imbalance debits at 1-, 2- and 4-hour leads. Top and bottom panels use the same model colors and common eligible test targets within each horizon. Forecast candidates were selected on validation nMAE; the reused test calendar is exploratory. Both weather-only and persistence baselines accompany the event-aware forecast.',panels=[('a',a),('b',b)])
     d=pd.read_csv(ROOT/'outputs/protocol_benchmark_v22/economics/capability_frontier.csv');ci=pd.read_csv(ROOT/'outputs/protocol_benchmark_v22/economics/capability_intervals.csv')
     q=d[d.split.eq('test')&d.horizon_hours.eq(2)&d.model.isin(names[:3])]
-    fig,(a,b)=plt.subplots(2,1,figsize=(6.5,4.35));fig.subplots_adjust(left=.17,right=.98,top=.85,bottom=.15,hspace=.46)
+    fig,(a,b)=plt.subplots(1,2,figsize=(6.5,3.45),gridspec_kw={'width_ratios':[1.08,1]});fig.subplots_adjust(left=.16,right=.98,top=.82,bottom=.22,wspace=.32)
     for name,label,c in zip(names[:3],labs[:3],colors[:3]):
         g=q[q.model.eq(name)].sort_values('power_fraction');a.plot(g.power_fraction*100,g.gross_after_gbp/1000,'o-',c=c,lw=1.6,label=label,ms=5)
         gain=g.signed_after_gbp-g.signed_before_gbp;b.plot(g.power_fraction*100,gain/1000,'o-',c=c,lw=1.6,ms=5)
-    a.set(title='a  Settlement debit exposure',ylabel='Gross debits (£k)');b.set(title='b  Incremental signed settlement cost',ylabel='Cost change (£k)',xlabel='Battery power / farm capacity (%)')
+    a.set(title='a  Gross debit',ylabel='Gross debits (£k)');b.set(title='b  Signed-cost change',ylabel='Cost change (£k)',xlabel='Battery power / farm capacity (%)')
     for ax in [a,b]:axis(ax);ax.set_xticks([0,5,10,20])
     fig.legend(*a.get_legend_handles_labels(),loc='upper center',bbox_to_anchor=(.55,1),ncol=3,frameon=False,columnspacing=.9,handlelength=1.5)
     q.to_csv(OUT/'fig14_storage.csv',index=False);ci.to_csv(OUT/'fig14_storage_intervals.csv',index=False)
