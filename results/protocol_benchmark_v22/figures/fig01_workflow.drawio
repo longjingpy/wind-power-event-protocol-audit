@@ -1,119 +1,80 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
- <root>
-  <mxCell id="0" />
-  <mxCell id="1" parent="0" />
-  <mxCell id="title" value="Event measurement → independent validation" style="fontFamily=Arial;fontSize=28;fontStyle=1;align=center;verticalAlign=middle;html=1;whiteSpace=wrap;fontColor=#172A3A;" vertex="1">
-   <mxGeometry x="100" y="25" width="1400" height="55" as="geometry" />
-  </mxCell>
-  <mxCell id="china" value="China&lt;br&gt;4 archives · 298 turbines" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#E9F3F9;strokeColor=#23749B;" vertex="1">
-   <mxGeometry x="90" y="110" width="620" height="85" as="geometry" />
-  </mxCell>
-  <mxCell id="europe" value="Europe&lt;br&gt;4 archives · 42 turbines" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#FFF1E5;strokeColor=#C47731;" vertex="1">
-   <mxGeometry x="890" y="110" width="620" height="85" as="geometry" />
-  </mxCell>
-  <mxCell id="shared" value="Shared clock · quality flags · training-only scaling" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontSize=17;fontColor=#425363;" vertex="1">
-   <mxGeometry x="430" y="215" width="740" height="48" as="geometry" />
-  </mxCell>
-  <mxCell id="detector" value="1  Detection&lt;br&gt;Intervals + turns" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#E1F0F5;strokeColor=#95C8D5;" vertex="1">
-   <mxGeometry x="70" y="320" width="410" height="120" as="geometry" />
-  </mxCell>
-  <mxCell id="matching" value="2  Matching&lt;br&gt;One-to-one IoU" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#E9F1DC;strokeColor=#AFC68D;" vertex="1">
-   <mxGeometry x="595" y="320" width="410" height="120" as="geometry" />
-  </mxCell>
-  <mxCell id="representation" value="3  Representation&lt;br&gt;Shapes + partitions" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#FFF0CB;strokeColor=#DFC16A;" vertex="1">
-   <mxGeometry x="1120" y="320" width="410" height="120" as="geometry" />
-  </mxCell>
-  <mxCell id="evaltitle" value="4  Evaluation and decision" style="fontFamily=Arial;fontSize=28;fontStyle=1;align=center;verticalAlign=middle;html=1;whiteSpace=wrap;align=left;fontSize=22;fontColor=#1B2430;" vertex="1">
-   <mxGeometry x="70" y="480" width="600" height="52" as="geometry" />
-  </mxCell>
-  <mxCell id="structure" value="Structural survival&lt;br&gt;ARI · NMI · coverage" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#F0E9F5;strokeColor=#B49DC4;" vertex="1">
-   <mxGeometry x="70" y="570" width="410" height="115" as="geometry" />
-  </mxCell>
-  <mxCell id="physical" value="External process tracking&lt;br&gt;Wind · LiDAR" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#F0E9F5;strokeColor=#B49DC4;" vertex="1">
-   <mxGeometry x="595" y="570" width="410" height="115" as="geometry" />
-  </mxCell>
-  <mxCell id="decision" value="Forecast-to-cost validation&lt;br&gt;Prices · storage" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#F0E9F5;strokeColor=#B49DC4;" vertex="1">
-   <mxGeometry x="1120" y="570" width="410" height="115" as="geometry" />
-  </mxCell>
-  <mxCell id="references" value="Independent references: blind ratings · weather · LiDAR · prices" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=16;strokeWidth=1.5;fillColor=#F5F6F7;strokeColor=#CCD2D8;fontSize=17;" vertex="1">
-   <mxGeometry x="220" y="760" width="1160" height="72" as="geometry" />
-  </mxCell>
-  <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="china" target="detector">
-   <mxGeometry relative="1" as="geometry">
-    <Array as="points">
-     <mxPoint x="400" y="260" />
-     <mxPoint x="270" y="260" />
-     <mxPoint x="270" y="320" />
-    </Array>
-   </mxGeometry>
-  </mxCell>
-  <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="europe" target="detector">
-   <mxGeometry relative="1" as="geometry">
-    <Array as="points">
-     <mxPoint x="1200" y="260" />
-     <mxPoint x="270" y="260" />
-     <mxPoint x="270" y="320" />
-    </Array>
-   </mxGeometry>
-  </mxCell>
-  <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="detector" target="matching">
-   <mxGeometry relative="1" as="geometry" />
-  </mxCell>
-  <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="matching" target="representation">
-   <mxGeometry relative="1" as="geometry" />
-  </mxCell>
-  <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="matching" target="structure">
-   <mxGeometry relative="1" as="geometry">
-    <Array as="points">
-     <mxPoint x="800" y="440" />
-     <mxPoint x="800" y="525" />
-     <mxPoint x="275" y="525" />
-     <mxPoint x="275" y="570" />
-    </Array>
-   </mxGeometry>
-  </mxCell>
-  <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="representation" target="physical">
-   <mxGeometry relative="1" as="geometry">
-    <Array as="points">
-     <mxPoint x="1325" y="440" />
-     <mxPoint x="1325" y="525" />
-     <mxPoint x="800" y="525" />
-     <mxPoint x="800" y="570" />
-    </Array>
-   </mxGeometry>
-  </mxCell>
-  <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="representation" target="decision">
-   <mxGeometry relative="1" as="geometry">
-    <Array as="points">
-     <mxPoint x="1325" y="440" />
-     <mxPoint x="1325" y="570" />
-    </Array>
-   </mxGeometry>
-  </mxCell>
-  <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;html=1;strokeWidth=1.5;endArrow=block;" edge="1" parent="1" source="references" target="structure">
-   <mxGeometry relative="1" as="geometry">
-    <Array as="points">
-     <mxPoint x="275" y="760" />
-     <mxPoint x="275" y="685" />
-    </Array>
-   </mxGeometry>
-  </mxCell>
-  <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;html=1;strokeWidth=1.5;endArrow=block;" edge="1" parent="1" source="references" target="physical">
-   <mxGeometry relative="1" as="geometry">
-    <Array as="points">
-     <mxPoint x="800" y="760" />
-     <mxPoint x="800" y="685" />
-    </Array>
-   </mxGeometry>
-  </mxCell>
-  <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;html=1;strokeWidth=1.5;endArrow=block;" edge="1" parent="1" source="references" target="decision">
-   <mxGeometry relative="1" as="geometry">
-    <Array as="points">
-     <mxPoint x="1325" y="760" />
-     <mxPoint x="1325" y="685" />
-    </Array>
-   </mxGeometry>
-  </mxCell>
- </root>
-</mxGraphModel>
+<mxfile host="draw.io" version="28.0.0" type="device">
+ <diagram id="wind-measurement" name="Figure 1">
+  <mxGraphModel dx="880" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="880" pageHeight="655" math="0" shadow="0">
+   <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="title" value="Protocol-aware wind-power event measurement" style="shape=text;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=25;fontStyle=1;align=center;verticalAlign=middle;html=0;whiteSpace=wrap;fontColor=#172A3A;" parent="1" vertex="1">
+     <mxGeometry x="20" y="10" width="840" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="inputs" value="" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#F4F7F9;strokeColor=#C3D1DB;" parent="1" vertex="1">
+     <mxGeometry x="20" y="65" width="840" height="115" as="geometry" />
+    </mxCell>
+    <mxCell id="china" value="China&#10;4 archives · 298 turbines" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontColor=#23688F;" parent="1" vertex="1">
+     <mxGeometry x="40" y="73" width="380" height="64" as="geometry" />
+    </mxCell>
+    <mxCell id="europe" value="Europe&#10;4 archives · 42 turbines" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontColor=#AD681E;" parent="1" vertex="1">
+     <mxGeometry x="460" y="73" width="380" height="64" as="geometry" />
+    </mxCell>
+    <mxCell id="shared" value="Physical time · quality flags · training-only scaling" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=19;" parent="1" vertex="1">
+     <mxGeometry x="40" y="139" width="800" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="detector" value="1  Detection&#10;Intervals + turns" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#E1F0F5;strokeColor=#95C8D5;" parent="1" vertex="1">
+     <mxGeometry x="20" y="215" width="245" height="85" as="geometry" />
+    </mxCell>
+    <mxCell id="matching" value="2  Matching&#10;One-to-one IoU" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#E9F1DC;strokeColor=#AFC68D;" parent="1" vertex="1">
+     <mxGeometry x="317.5" y="215" width="245" height="85" as="geometry" />
+    </mxCell>
+    <mxCell id="representation" value="3  Representation&#10;Shapes + partitions" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#FFF0CB;strokeColor=#DFC16A;" parent="1" vertex="1">
+     <mxGeometry x="615" y="215" width="245" height="85" as="geometry" />
+    </mxCell>
+    <mxCell id="evaluation" value="4  Evaluation and decision" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#F2EDF6;strokeColor=#B49DC4;fontStyle=1;" parent="1" vertex="1">
+     <mxGeometry x="20" y="340" width="840" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="structure" value="Structural survival&#10;ARI · NMI · coverage" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#F2EDF6;strokeColor=#B49DC4;" parent="1" vertex="1">
+     <mxGeometry x="20" y="445" width="245" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="physical" value="Physical tracking&#10;Wind · LiDAR" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#F2EDF6;strokeColor=#B49DC4;" parent="1" vertex="1">
+     <mxGeometry x="317.5" y="445" width="245" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="decision" value="Forecast-to-cost&#10;Prices · storage" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#F2EDF6;strokeColor=#B49DC4;" parent="1" vertex="1">
+     <mxGeometry x="615" y="445" width="245" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="references" value="Independent references&#10;Blind ratings · weather · LiDAR · prices" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;fillColor=#F5F6F7;strokeColor=#CCD2D8;fontSize=20;" parent="1" vertex="1">
+     <mxGeometry x="20" y="570" width="840" height="65" as="geometry" />
+    </mxCell>
+    <mxCell id="data_to_detection" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=0.1458333333333333;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="inputs" target="detector">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="detection_to_matching" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="detector" target="matching">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="matching_to_representation" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="matching" target="representation">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="representation_to_evaluation" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.8541666666666666;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="representation" target="evaluation">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="evaluate_structure" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=0.1458333333333333;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="evaluation" target="structure">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="reference_structure" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=0.1458333333333333;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="references" target="structure">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="evaluate_physical" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="evaluation" target="physical">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="reference_physical" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="references" target="physical">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="evaluate_decision" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=0.8541666666666666;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="evaluation" target="decision">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="reference_decision" value="" style="edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;exitX=0.8541666666666666;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="references" target="decision">
+     <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+   </root>
+  </mxGraphModel>
+ </diagram>
+</mxfile>

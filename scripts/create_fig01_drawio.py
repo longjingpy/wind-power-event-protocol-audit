@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'manuscript/figures_v22/fig01_workflow.drawio'
 
 def cell(root, ident, value, x, y, w, h, style, vertex=True):
-    attrs={'id':ident,'value':value,'style':style}
+    attrs={'id':ident,'value':value,'style':style,'parent':'1'}
     if vertex: attrs['vertex']='1'
     c=ET.SubElement(root,'mxCell',attrs)
     ET.SubElement(c,'mxGeometry',{'x':str(x),'y':str(y),'width':str(w),'height':str(h),'as':'geometry'})
@@ -27,36 +27,45 @@ def edge(root, ident, source, target, points=None, style='edgeStyle=orthogonalEd
     return c
 
 def main():
-    mx=ET.Element('mxGraphModel',{'dx':'1600','dy':'1000','grid':'1','gridSize':'10','guides':'1','tooltips':'1','connect':'1','arrows':'1','fold':'1','page':'1','pageScale':'1','pageWidth':'1600','pageHeight':'1000','math':'0','shadow':'0'})
+    mx=ET.Element('mxGraphModel',{'dx':'880','dy':'655','grid':'1','gridSize':'10','guides':'1','tooltips':'1','connect':'1','arrows':'1','fold':'1','page':'1','pageScale':'1','pageWidth':'880','pageHeight':'655','math':'0','shadow':'0'})
     root=ET.SubElement(mx,'root');ET.SubElement(root,'mxCell',{'id':'0'});ET.SubElement(root,'mxCell',{'id':'1','parent':'0'})
-    title='fontFamily=Arial;fontSize=28;fontStyle=1;align=center;verticalAlign=middle;html=1;whiteSpace=wrap;'
-    section='rounded=1;arcSize=12;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;strokeWidth=2;'
-    body='rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;strokeWidth=2;'
-    note='rounded=1;arcSize=8;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=16;strokeWidth=1.5;'
-    text='whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;'
-    cell(root,'title','Event measurement → independent validation',100,25,1400,55,title+'fontColor=#172A3A;')
-    cell(root,'china','China<br>4 archives · 298 turbines',90,110,620,85,section+'fillColor=#E9F3F9;strokeColor=#23749B;')
-    cell(root,'europe','Europe<br>4 archives · 42 turbines',890,110,620,85,section+'fillColor=#FFF1E5;strokeColor=#C47731;')
-    cell(root,'shared','Shared clock · quality flags · training-only scaling',430,215,740,48,text+'fontSize=17;fontColor=#425363;')
-    cell(root,'detector','1  Detection<br>Intervals + turns',70,320,410,120,section+'fillColor=#E1F0F5;strokeColor=#95C8D5;')
-    cell(root,'matching','2  Matching<br>One-to-one IoU',595,320,410,120,section+'fillColor=#E9F1DC;strokeColor=#AFC68D;')
-    cell(root,'representation','3  Representation<br>Shapes + partitions',1120,320,410,120,section+'fillColor=#FFF0CB;strokeColor=#DFC16A;')
-    cell(root,'evaltitle','4  Evaluation and decision',70,480,600,52,title+'align=left;fontSize=22;fontColor=#1B2430;')
-    cell(root,'structure','Structural survival<br>ARI · NMI · coverage',70,570,410,115,section+'fillColor=#F0E9F5;strokeColor=#B49DC4;')
-    cell(root,'physical','External process tracking<br>Wind · LiDAR',595,570,410,115,section+'fillColor=#F0E9F5;strokeColor=#B49DC4;')
-    cell(root,'decision','Forecast-to-cost validation<br>Prices · storage',1120,570,410,115,section+'fillColor=#F0E9F5;strokeColor=#B49DC4;')
-    cell(root,'references','Independent references: blind ratings · weather · LiDAR · prices',220,760,1160,72,note+'fillColor=#F5F6F7;strokeColor=#CCD2D8;fontSize=17;')
-    edge(root,'e1','china','detector',[(400,260),(270,260),(270,320)])
-    edge(root,'e2','europe','detector',[(1200,260),(270,260),(270,320)])
-    edge(root,'e3','detector','matching')
-    edge(root,'e4','matching','representation')
-    edge(root,'e5','matching','structure',[(800,440),(800,525),(275,525),(275,570)])
-    edge(root,'e6','representation','physical',[(1325,440),(1325,525),(800,525),(800,570)])
-    edge(root,'e7','representation','decision',[(1325,440),(1325,570)])
-    edge(root,'e8','references','structure',[(275,760),(275,685)],'edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;html=1;strokeWidth=1.5;endArrow=block;')
-    edge(root,'e9','references','physical',[(800,760),(800,685)],'edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;html=1;strokeWidth=1.5;endArrow=block;')
-    edge(root,'e10','references','decision',[(1325,760),(1325,685)],'edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;html=1;strokeWidth=1.5;endArrow=block;')
-    tree=ET.ElementTree(mx);ET.indent(tree,space=' ');OUT.write_bytes(ET.tostring(mx,encoding='utf-8',xml_declaration=True))
+    title='shape=text;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=25;fontStyle=1;align=center;verticalAlign=middle;html=0;whiteSpace=wrap;'
+    boxstyle='rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=2;'
+    text='shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;'
+    cell(root,'title','Protocol-aware wind-power event measurement',20,10,840,40,title+'fontColor=#172A3A;')
+    # One input panel prevents crossing the common quality-control annotation.
+    cell(root,'inputs','',20,65,840,115,boxstyle+'fillColor=#F4F7F9;strokeColor=#C3D1DB;')
+    cell(root,'china','China\n4 archives · 298 turbines',40,73,380,64,text+'fontColor=#23688F;')
+    cell(root,'europe','Europe\n4 archives · 42 turbines',460,73,380,64,text+'fontColor=#AD681E;')
+    cell(root,'shared','Physical time · quality flags · training-only scaling',40,139,800,30,text+'fontSize=19;')
+    cell(root,'detector','1  Detection\nIntervals + turns',20,215,245,85,boxstyle+'fillColor=#E1F0F5;strokeColor=#95C8D5;')
+    cell(root,'matching','2  Matching\nOne-to-one IoU',317.5,215,245,85,boxstyle+'fillColor=#E9F1DC;strokeColor=#AFC68D;')
+    cell(root,'representation','3  Representation\nShapes + partitions',615,215,245,85,boxstyle+'fillColor=#FFF0CB;strokeColor=#DFC16A;')
+    cell(root,'evaluation','4  Evaluation and decision',20,340,840,65,boxstyle+'fillColor=#F2EDF6;strokeColor=#B49DC4;fontStyle=1;')
+    cell(root,'structure','Structural survival\nARI · NMI · coverage',20,445,245,80,boxstyle+'fillColor=#F2EDF6;strokeColor=#B49DC4;')
+    cell(root,'physical','Physical tracking\nWind · LiDAR',317.5,445,245,80,boxstyle+'fillColor=#F2EDF6;strokeColor=#B49DC4;')
+    cell(root,'decision','Forecast-to-cost\nPrices · storage',615,445,245,80,boxstyle+'fillColor=#F2EDF6;strokeColor=#B49DC4;')
+    cell(root,'references','Independent references\nBlind ratings · weather · LiDAR · prices',20,570,840,65,boxstyle+'fillColor=#F5F6F7;strokeColor=#CCD2D8;fontSize=20;')
+    plain='edgeStyle=none;html=0;rounded=0;strokeColor=#405564;strokeWidth=2;endArrow=block;endFill=1;'
+    def connect(ident,source,target,ex,ey,ix,iy,dashed=False):
+        edge(root,ident,source,target,style=plain+f'exitX={ex};exitY={ey};exitDx=0;exitDy=0;entryX={ix};entryY={iy};entryDx=0;entryDy=0;'+('dashed=1;' if dashed else ''))
+    left=.1458333333333333;right=.8541666666666666
+    connect('data_to_detection','inputs','detector',left,1,.5,0)
+    connect('detection_to_matching','detector','matching',1,.5,0,.5)
+    connect('matching_to_representation','matching','representation',1,.5,0,.5)
+    connect('representation_to_evaluation','representation','evaluation',.5,1,right,0)
+    for ident,target,x in [('structure','structure',left),('physical','physical',.5),('decision','decision',right)]:
+        connect('evaluate_'+ident,'evaluation',target,x,1,.5,0)
+        connect('reference_'+ident,'references',target,x,0,.5,1,True)
+    file=ET.Element('mxfile',{'host':'draw.io','version':'28.0.0','type':'device'})
+    diagram=ET.SubElement(file,'diagram',{'id':'wind-measurement','name':'Figure 1'});diagram.append(mx)
+    ET.indent(file,space=' ');OUT.write_bytes(ET.tostring(file,encoding='utf-8',xml_declaration=True))
+    # Each geometry-bearing cell must belong to the default layer; each edge
+    # has a real source and target. This catches the prior orphan-cell file.
+    vertices={c.attrib['id'] for c in root if c.get('vertex')=='1'}
+    for c in root:
+        if c.get('vertex')=='1' or c.get('edge')=='1':assert c.get('parent')=='1'
+        if c.get('edge')=='1':assert c.get('source') in vertices and c.get('target') in vertices
     print(OUT)
 
 if __name__=='__main__':main()
