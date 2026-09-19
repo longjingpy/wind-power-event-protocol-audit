@@ -47,18 +47,18 @@ def axis(ax):
     ax.set_axisbelow(True);ax.grid(axis='y',color='#DFE5EB',lw=.6)
 
 def overview():
-    fig,ax=plt.subplots(figsize=(6.5,4.9));fig.subplots_adjust(left=.015,right=.985,bottom=.035,top=.99)
+    fig,ax=plt.subplots(figsize=(6.5,4.5));fig.subplots_adjust(left=.015,right=.985,bottom=.035,top=.99)
     ax.set(xlim=(0,100),ylim=(0,100));ax.axis('off')
-    def box(name,x,y,w,h,text,face,edge,fs=11):
+    def box(name,x,y,w,h,text,face,edge,fs=12):
         p=FancyBboxPatch((x,y),w,h,boxstyle='round,pad=.3,rounding_size=2.2',facecolor=face,edgecolor=edge,lw=1.2)
         p.set_gid(name);ax.add_patch(p);t=ax.text(x+w/2,y+h/2,text,ha='center',va='center',fontsize=fs,linespacing=1.3);t.set_gid(name+'_text')
     def arrow(name,points,dashed=False):
         for a,b in zip(points[:-2],points[1:-1]):ax.plot([a[0],b[0]],[a[1],b[1]],color='#425363',lw=1.1,ls='--' if dashed else '-')
         a=FancyArrowPatch(points[-2],points[-1],arrowstyle='-|>',mutation_scale=10,color='#425363',lw=1.1,linestyle='--' if dashed else '-',shrinkA=1,shrinkB=2);a.set_gid(name);ax.add_patch(a)
-    ax.text(50,97,'Data → event measurement → independent validation',ha='center',fontsize=15,fontweight='bold')
+    ax.text(50,97,'Event measurement → independent validation',ha='center',fontsize=15,fontweight='bold')
     box('china',1,79,46,12,'China: 4 archives · 298 turbines','#E9F3F9','#23749B')
     box('europe',53,79,46,12,'Europe: 4 archives · 42 turbines','#FFF1E5','#C47731')
-    ax.text(50,72,'Shared clock, quality flags and training-only scaling',ha='center',fontsize=13)
+    ax.text(50,72,'Shared clock, quality flags and training-only scaling',ha='center',fontsize=12)
     box('detector',1,47,29,18,'1  Detection\nIntervals + turns','#E1F0F5','#95C8D5')
     box('matching',35.5,47,29,18,'2  Matching\nOne-to-one IoU','#E9F1DC','#AFC68D')
     box('representation',71,47,28,18,'3  Representation\nShapes + partitions','#FFF0CB','#DFC16A')
@@ -101,7 +101,7 @@ def compression():
     labels=pd.read_csv(ROOT/'outputs/protocol_benchmark_v21/representation_audit/test_partition_equivalence.csv')
     labels=labels[labels.reference.eq('raw25')].groupby('site').partition_ari.agg(['median','min','max']).reindex(SITES)
     d['partition_ari_median']=labels['median'].to_numpy();d.to_csv(OUT/'fig03_compression.csv',index=False)
-    fig,(a,b)=plt.subplots(1,2,figsize=(6.5,3.55),gridspec_kw={'width_ratios':[1.05,1]});fig.subplots_adjust(left=.18,right=.98,top=.9,bottom=.2,wspace=.48)
+    fig,(a,b)=plt.subplots(1,2,figsize=(6.5,5.8),gridspec_kw={'width_ratios':[1.05,1]});fig.subplots_adjust(left=.18,right=.98,top=.9,bottom=.2,wspace=.48)
     y=np.arange(8)
     for col,c in [('reference_median',COL['raw25']),('candidate_median',COL['raw_pca6'])]:a.scatter(d[col],y,s=32,c=c,edgecolor='white',lw=.4,zorder=4,label='Raw25' if col=='reference_median' else 'Raw/PCA6')
     a.set_yticks(y,[NAMES[s] for s in SITES]);a.invert_yaxis();a.set(xlim=(.66,.90),xlabel='Cross-protocol ARI',title='a  Trajectory compression')
@@ -155,7 +155,7 @@ def sampling():
 
 def conditional():
     d=pd.read_csv(BASE/'conditional/conditional_information_protocol_conditioned.csv');d=d[d.condition.eq('joint')&d.block_days.eq(7)]
-    fig,ax=plt.subplots(figsize=(6.5,3.2));fig.subplots_adjust(left=.27,right=.98,top=.80,bottom=.2)
+    fig,ax=plt.subplots(figsize=(6.5,4.2));fig.subplots_adjust(left=.27,right=.98,top=.84,bottom=.2)
     for j,rep in enumerate(['raw25','gaf_pca6','gaf_bit6']):
         q=d[d.representation.eq(rep)].set_index('site').loc[SITES]
         ax.scatter(q.conditional_mi_above_permutation,np.arange(8)+(j-1)*.15,color=COL[rep],marker=['o','s','D'][j],s=28,label=LABEL[rep],zorder=4)
