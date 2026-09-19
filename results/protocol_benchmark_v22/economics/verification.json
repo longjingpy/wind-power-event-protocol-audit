@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "gross_negative_price_hand_examples": true,
+  "debit_credit_identity": true,
+  "max_terminal_inventory_error_mwh": 0.0,
+  "max_soc_violation_mwh": 0.0,
+  "scope": "Ex-post correction capability using realised half-hour averages; complete-day cohort; terminal restoration settled",
+  "supersedes": "v21 online_metered_correction: gross included credits and daily SOC was reset without accounting"
+}

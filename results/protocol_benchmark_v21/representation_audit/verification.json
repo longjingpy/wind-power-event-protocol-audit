@@ -1,0 +1,8 @@
+{
+  "status": "COMPLETED",
+  "source_version": "v18 frozen models and test catalogues",
+  "site_medians_reproduced": 48,
+  "scores_compared": 24,
+  "test_partition_rows": 72,
+  "note": "Cross-representation partition ARI is distinct from cross-detector ARI."
+}

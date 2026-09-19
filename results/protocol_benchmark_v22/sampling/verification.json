@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "sites": [
+    "lahaute",
+    "hill"
+  ],
+  "turbines": 25,
+  "rows": 102,
+  "scope": "30/60-minute sampling; original native grid not newly reconstructed",
+  "physical_context_minutes": 120
+}

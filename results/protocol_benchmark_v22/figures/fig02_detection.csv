@@ -1,0 +1,5 @@
+config,label,start_relative_hours,end_relative_hours,iou_with_reference
+threshold_120min,"Threshold, 120 min",0.0,2.0,1.0
+financial_tail_120min,"Financial tail, 120 min",0.0,2.0,1.0
+mean_shift_120min,"Mean shift, 120 min",-3.0,0.5,0.1
+opsda_cui2015_120min_0.025,"OpSDA, 120 min",0.0,1.5,0.75
