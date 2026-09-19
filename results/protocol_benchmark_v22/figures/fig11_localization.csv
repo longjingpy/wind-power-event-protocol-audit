@@ -1,0 +1,37 @@
+model,stage,seed,f1
+TimesNet,Training q99,41,0.297
+TimesNet,Training q99,42,0.266
+TimesNet,Training q99,43,0.228
+TimesNet,Threshold calibrated,41,0.488
+TimesNet,Threshold calibrated,42,0.478
+TimesNet,Threshold calibrated,43,0.378
+TimesNet,Threshold + grouping,41,0.594
+TimesNet,Threshold + grouping,42,0.614
+TimesNet,Threshold + grouping,43,0.617
+KAN-AD,Training q99,41,0.363
+KAN-AD,Training q99,42,0.31
+KAN-AD,Training q99,43,0.243
+KAN-AD,Threshold calibrated,41,0.56
+KAN-AD,Threshold calibrated,42,0.455
+KAN-AD,Threshold calibrated,43,0.37
+KAN-AD,Threshold + grouping,41,0.679
+KAN-AD,Threshold + grouping,42,0.692
+KAN-AD,Threshold + grouping,43,0.55
+TCN-AE,Training q99,41,0.205
+TCN-AE,Training q99,42,0.206
+TCN-AE,Training q99,43,0.205
+TCN-AE,Threshold calibrated,41,0.461
+TCN-AE,Threshold calibrated,42,0.442
+TCN-AE,Threshold calibrated,43,0.447
+TCN-AE,Threshold + grouping,41,0.616
+TCN-AE,Threshold + grouping,42,0.614
+TCN-AE,Threshold + grouping,43,0.611
+Transformer-AE,Training q99,41,0.116
+Transformer-AE,Training q99,42,0.111
+Transformer-AE,Training q99,43,0.109
+Transformer-AE,Threshold calibrated,41,0.361
+Transformer-AE,Threshold calibrated,42,0.374
+Transformer-AE,Threshold calibrated,43,0.34
+Transformer-AE,Threshold + grouping,41,0.563
+Transformer-AE,Threshold + grouping,42,0.565
+Transformer-AE,Threshold + grouping,43,0.569

@@ -284,8 +284,39 @@ def unchanged_resized():
     save(fig,'fig12_ramp_exposure',13,['manuscript/figures_v18/fig6_ramp_cost_concentration.csv'],
         'Large-ramp periods concentrate settlement debit exposure. Grey bars show the eligible interval share with at least 20% fleet-capacity change; magenta bars show their share of persistence gross debits on the same targets and observed prices.')
 
+def localization():
+    methods=['TimesNet','KAN-AD','TCN-AE','Transformer-AE']
+    values={
+      'TimesNet':{'Training q99':[.297,.266,.228],'Threshold calibrated':[.488,.478,.378],'Threshold + grouping':[.594,.614,.617]},
+      'KAN-AD':{'Training q99':[.363,.310,.243],'Threshold calibrated':[.560,.455,.370],'Threshold + grouping':[.679,.692,.550]},
+      'TCN-AE':{'Training q99':[.205,.206,.205],'Threshold calibrated':[.461,.442,.447],'Threshold + grouping':[.616,.614,.611]},
+      'Transformer-AE':{'Training q99':[.116,.111,.109],'Threshold calibrated':[.361,.374,.340],'Threshold + grouping':[.563,.565,.569]}}
+    labels=list(values[methods[0]]);colors=['#90A8B5','#DF9844','#39738E']
+    rows=[]
+    for method in methods:
+        for label in labels:
+            for seed,val in enumerate(values[method][label],41):rows.append(dict(model=method,stage=label,seed=seed,f1=val))
+    out=pd.DataFrame(rows);out.to_csv(OUT/'fig11_localization.csv',index=False)
+    fig,(a,b)=plt.subplots(2,1,figsize=(6.5,4.9),gridspec_kw={'height_ratios':[1.15,.9]});fig.subplots_adjust(left=.15,right=.98,top=.92,bottom=.18,hspace=.52)
+    for i,method in enumerate(methods):
+        for j,label in enumerate(labels):
+            v=np.asarray(values[method][label]);x=i*4+j
+            vp=a.violinplot(v,positions=[x],widths=.72,showextrema=False)
+            vp['bodies'][0].set(facecolor=colors[j],edgecolor=colors[j],alpha=.38)
+            a.scatter(np.full(3,x)+np.linspace(-.10,.10,3),v,color=colors[j],s=17,zorder=3,edgecolor='white',lw=.4)
+            a.plot([x,x],[v.min(),v.max()],color=colors[j],lw=1.3,zorder=2)
+    a.set(xticks=[1,5,9,13],xticklabels=methods,ylabel='Event-level F1 (IoU ≥ 0.3)',ylim=(0,.85),title='a  Seed-level localization distributions')
+    a.grid(axis='y',color='#E1E6EA',lw=.6)
+    for j,label in enumerate(labels):
+        med=[np.median(values[m][label]) for m in methods];q1=[np.min(values[m][label]) for m in methods];q3=[np.max(values[m][label]) for m in methods]
+        b.errorbar(np.arange(4)+(j-1)*.18,med,yerr=[np.array(med)-q1,np.array(q3)-med],fmt='o-',color=colors[j],lw=1.5,ms=4,capsize=3,label=label)
+    b.set(xticks=range(4),xticklabels=methods,ylabel='F1 range across three seeds',ylim=(0,.85),title='b  Grouping is the dominant localization step')
+    b.grid(axis='y',color='#E1E6EA',lw=.6);b.legend(frameon=False,loc='upper left',ncol=3,fontsize=8)
+    save(fig,'fig11_localization',11,['outputs/protocol_benchmark_v18/leaderboard; archived seed values'],
+        'Event-level localization after score calibration and interval grouping. The upper panel shows the three archived seed values as a compact violin and point distribution; the lower panel compares the corresponding median and min–max range across seeds. The grouping rule is evaluated at a fixed IoU threshold, so it measures the complete score-to-interval interface rather than the anomaly score alone.',panels=[('a',a),('b',b)])
+
 def main():
-    overview();detection();compression();structural();sampling();conditional();paths();lidar();economics();unchanged_resized()
+    overview();detection();compression();structural();sampling();conditional();paths();lidar();localization();economics();unchanged_resized()
     (OUT/'manifest.json').write_text(json.dumps(MAN,indent=2,ensure_ascii=False),encoding='utf-8')
     print('generated',len(MAN),'figures',flush=True)
 

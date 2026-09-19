@@ -13,7 +13,7 @@ entries=[
 ('F08','shared_gasf','fig08_shared_gasf.pdf','G(x)=G(-x) ambiguity'),
 ('F09','lidar_roc','fig09_lidar_roc.pdf','Paired T11/T07 ROC panels'),
 ('F10','external_validation','fig10_external_validation.pdf','LiDAR and SMARTEOLE violin/transfer panels'),
-('F11','localization','../figures_v18/fig8_event_localization.pdf','Existing event-level localization result'),
+('F11','localization','fig11_localization.pdf','Seed-level localization distributions and grouping step'),
 ('F12','ramp_exposure','fig12_ramp_exposure.pdf','Ramp concentration'),
 ('F13','forecast_cost','fig13_forecast_cost.pdf','Forecast error and price exposure'),
 ('F14','storage','fig14_storage.pdf','Corrected storage capability and signed cost'),
