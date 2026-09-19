@@ -27,7 +27,7 @@ The storage-policy tables include the historical 10%-power/2-hour engineering be
 
 The latest evidence map is `REPRODUCIBILITY_V17.md`; the itemized review register is `REVIEW_ACTION_REGISTER_V17.md`. The public repository separates measurement, synthetic confirmation, storage, weather and processed-data populations so that a passing check in one population does not silently become a claim about another.
 
-The v19/v22 manuscript evidence is tracked in the [v0.4.0 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.4.0) and in `outputs/protocol_benchmark_v19/RELEASE_MANIFEST_V19.json`. The repository release includes the current processed-data entry points, v22 result tables and reproducibility metadata; provider attribution and upstream data terms remain applicable.
+The v19/v22 manuscript evidence is tracked in the [v0.4.1 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.4.1) and in `outputs/protocol_benchmark_v19/RELEASE_MANIFEST_V19.json`. The repository release includes the current processed-data entry points, v22 result tables and reproducibility metadata; provider attribution and upstream data terms remain applicable.
 
 The full raw-data-to-manuscript command is under integration. Aggregate reproduction and targeted experiment checks are reported separately from that outstanding end-to-end test.
 
