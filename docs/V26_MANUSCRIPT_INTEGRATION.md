@@ -64,8 +64,8 @@ metadata synchronization, result values, intervals, source assets and references
 then renders changed pages. Visual review must be recorded after inspecting the
 rendered pages; script completion alone is not visual approval.
 
-On 20 September 2026, the two current PDFs compiled successfully: main 42 pages,
-Supplementary Information 59 pages, 13 main figures and 81 supplementary tables.
+On 20 September 2026, the two current PDFs compiled successfully: main 45 pages,
+Supplementary Information 60 pages, 13 main figures and 83 supplementary tables.
 The abstract contains 160 words. All 51 targeted unit tests passed. Numerical
 values, interval bounds, metadata, embedded source-figure identity and references
 passed the v26 verifier. The largest remaining TeX box excess is below 0.24 pt.
