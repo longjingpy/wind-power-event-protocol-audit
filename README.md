@@ -3,8 +3,8 @@
 Code and analysis resources for **Preserving physical information in transferable wind-power event measurements**.
 
 Current manuscript, complete supplementary material, editable figures and
-v18–v24 results are in the [v0.6.0 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.6.0).
-See `RELEASE_V24.md` and `docs/V24_MANUSCRIPT_INTEGRATION.md` for paths and scope.
+v18–v26 results are in the [v0.7.0 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.7.0).
+See `RELEASE_V26.md` and `docs/V26_MANUSCRIPT_INTEGRATION.md` for paths and scope.
 
 The [v0.6.0 integrated study release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.6.0)
 adds native policy-fee experiments, forecast-price storage control, complete

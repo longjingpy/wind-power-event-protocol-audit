@@ -80,6 +80,50 @@ def main(version=23):
         copy(ROOT / 'manuscript/references_v18_additions.bib', PUBLIC / 'manuscript/references_v18_additions.bib')
         for source in (ROOT / 'outputs/protocol_benchmark_v24/economics').glob('*.csv'):
             copy(source, DEST / 'result_tables/protocol_benchmark_v24/economics' / source.name)
+    if version >= 25:
+        for name in ['polarity_increment_v25.py', 'polarity_absolute_noise_v25.py',
+                     'legacy_polarity_pairs_v25.py', 'summarize_v25.py',
+                     'prepare_ai_panel_v25.py', 'analyze_ai_panel_v25.py',
+                     'human_agreement_v19.py', 'verify_manuscript_v25.py',
+                     'reproduce_panel_alpha_v25.py']:
+            copy(ROOT / 'script' / name, PUBLIC / 'script' / name)
+        for name in ['V25_POLARITY_AND_REFERENCE_PLAN.md', 'V25_POLARITY_AND_REFERENCE_RESULTS.md']:
+            copy(ROOT / 'docs' / name, PUBLIC / 'docs' / name)
+            copy(ROOT / 'docs' / name, DEST / name)
+        copy(ROOT / 'tests/test_paired_probability_v25.py', PUBLIC / 'tests/test_paired_probability_v25.py')
+        base = ROOT / 'outputs/protocol_benchmark_v25'
+        for source in (base / 'polarity').rglob('*.csv'):
+            rel = source.relative_to(ROOT / 'outputs')
+            copy(source, PUBLIC / 'results' / rel)
+            copy(source, DEST / 'result_tables' / rel)
+        for name in ['agreement_intervals.csv', 'pairwise_agreement.csv', 'category_counts.csv',
+                     'alpha_reproduction_counts.csv', 'protocol.json']:
+            copy(base / 'ai_reference' / name, PUBLIC / 'results/protocol_benchmark_v25/ai_reference' / name)
+            copy(base / 'ai_reference' / name, DEST / 'result_tables/protocol_benchmark_v25/ai_reference' / name)
+        for number in range(1,8):
+            for name in ['input.txt','labels.csv']:
+                source = base / 'ai_reference' / f'A{number:02d}' / name
+                copy(source, PUBLIC / 'results/protocol_benchmark_v25/ai_reference' / f'A{number:02d}' / name)
+    if version >= 26:
+        names = ['prepare_process_v26.py', 'prepare_native_process_v26.py',
+                 'physical_process_v26.py', 'physical_calibration_v26.py',
+                 'freeze_process_v26.py', 'summarize_process_v26.py',
+                 'process_controls_v26.py', 'process_hierarchy_v26.py',
+                 'process_duration_control_v26.py', 'verify_process_v26.py',
+                 'verify_manuscript_v26.py']
+        for name in names:
+            copy(ROOT / 'script' / name, PUBLIC / 'script' / name)
+        for name in ['test_process_encoding_v26.py', 'test_process_targets_v26.py']:
+            copy(ROOT / 'tests' / name, PUBLIC / 'tests' / name)
+        for name in ['V26_PHYSICAL_PROCESS_PLAN.md', 'V26_PHYSICAL_PROCESS_RESULTS.md',
+                     'V26_MANUSCRIPT_INTEGRATION.md']:
+            copy(ROOT / 'docs' / name, PUBLIC / 'docs' / name)
+            copy(ROOT / 'docs' / name, DEST / name)
+        for source in (ROOT / 'outputs/protocol_benchmark_v26').rglob('*'):
+            if source.is_file() and source.suffix in ['.csv', '.json']:
+                relative = source.relative_to(ROOT / 'outputs')
+                copy(source, PUBLIC / 'results' / relative)
+                copy(source, DEST / 'result_tables' / relative)
     readme = '''# Current manuscript source packet (v23)
 
 The canonical manuscript is main.pdf, with the complete supplementary.pdf.
@@ -100,6 +144,12 @@ the earlier de-identified SCADA distribution; raw provider licences persist.
         readme = readme.replace('(v23)', '(v24)')
         readme = readme.replace('Public release v0.5.0', 'Public release v0.6.0')
         readme += '\nThe v24 integration foregrounds verified native Jiangsu rule-based fee savings and a fixed-model action comparison. Earlier British exposure, zero-capacity and adverse trading results remain in the same Supplementary Information. See V24_MANUSCRIPT_INTEGRATION.md for exact mappings.\n'
+    if version >= 25:
+        readme = readme.replace('(v24)', '(v25)').replace('v0.6.0', 'v0.7.0')
+        readme += '\nThe v25 extension adds an eight-population scalar/polarity factorial, paired block differences, sign/noise controls and seven explicitly AI-sourced review sessions. Human, AI and mixed-panel agreement remain distinct. See V25_POLARITY_AND_REFERENCE_RESULTS.md.\n'
+    if version >= 26:
+        readme = readme.replace('(v25)', '(v26)')
+        readme += '\nThe v26 integration adds complete measured-wind trajectories, power-defined compound-event contrasts and common-duration tests. Results 2.6 and Supplementary S26 with Tables S75-S80 connect temporal information to physical-process recovery. All full-population outcomes and scalar controls remain available. No new model fitting was performed during this manuscript integration.\n'
     (DEST / 'README_SUBMISSION.md').write_text(readme, encoding='utf-8')
     files = sorted(p for p in DEST.rglob('*') if p.is_file())
     with zipfile.ZipFile(DOC / f'AppliedEnergy_current_v{version}.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
@@ -114,5 +164,5 @@ the earlier de-identified SCADA distribution; raw provider licences persist.
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--version', type=int, choices=[23,24], default=23)
+    parser.add_argument('--version', type=int, choices=[23,24,25,26], default=23)
     main(parser.parse_args().version)

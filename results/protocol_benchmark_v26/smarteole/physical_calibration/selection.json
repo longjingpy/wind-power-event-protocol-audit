@@ -1,0 +1,102 @@
+{
+  "status": "FROZEN_VALIDATION_ONLY",
+  "selected": [
+    {
+      "arm": "scalar19",
+      "validation_mse": 1.584045097368511,
+      "candidate": 7,
+      "config": {
+        "family": "extra",
+        "leaf": 16,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "scalar27",
+      "validation_mse": 1.569371591438696,
+      "candidate": 4,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": 12,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "normalized_raw25",
+      "validation_mse": 1.4649400907029386,
+      "candidate": 5,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "level_delta17",
+      "validation_mse": 1.5084584637356429,
+      "candidate": 7,
+      "config": {
+        "family": "extra",
+        "leaf": 16,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "cube_delta17",
+      "validation_mse": 1.5083818034201943,
+      "candidate": 4,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": 12,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "cube_delta25",
+      "validation_mse": 1.4368506938088732,
+      "candidate": 3,
+      "config": {
+        "family": "ridge",
+        "alpha": 100.0
+      }
+    },
+    {
+      "arm": "cube_pca6",
+      "validation_mse": 1.5017282705219166,
+      "candidate": 3,
+      "config": {
+        "family": "ridge",
+        "alpha": 100.0
+      }
+    },
+    {
+      "arm": "scale_gadf6",
+      "validation_mse": 1.5113199310309866,
+      "candidate": 3,
+      "config": {
+        "family": "ridge",
+        "alpha": 100.0
+      }
+    },
+    {
+      "arm": "scale_phase12",
+      "validation_mse": 1.5147043721322424,
+      "candidate": 6,
+      "config": {
+        "family": "extra",
+        "leaf": 16,
+        "depth": 12,
+        "trees": 192
+      }
+    }
+  ],
+  "baseline": "scalar27",
+  "primary_representation": "cube_delta25",
+  "revision": "Added after first encoding-only validation, before any v26 test was opened",
+  "all_targets": "independent measured wind trajectories; no inferred-wind ground truth"
+}

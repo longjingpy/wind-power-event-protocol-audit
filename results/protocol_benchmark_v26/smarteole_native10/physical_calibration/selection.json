@@ -1,0 +1,98 @@
+{
+  "status": "FROZEN_VALIDATION_ONLY",
+  "selected": [
+    {
+      "arm": "scalar19",
+      "validation_mse": 1.3780869478793025,
+      "candidate": 5,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "scalar27",
+      "validation_mse": 1.3930514366136941,
+      "candidate": 7,
+      "config": {
+        "family": "extra",
+        "leaf": 16,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "normalized_raw25",
+      "validation_mse": 1.2102245499472066,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "level_delta17",
+      "validation_mse": 1.1430468695117173,
+      "candidate": 3,
+      "config": {
+        "family": "ridge",
+        "alpha": 100.0
+      }
+    },
+    {
+      "arm": "cube_delta17",
+      "validation_mse": 1.2480419197453345,
+      "candidate": 5,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "cube_delta25",
+      "validation_mse": 1.254280920633721,
+      "candidate": 7,
+      "config": {
+        "family": "extra",
+        "leaf": 16,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "cube_pca6",
+      "validation_mse": 1.3228628136498446,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "scale_gadf6",
+      "validation_mse": 1.2252109893057987,
+      "candidate": 3,
+      "config": {
+        "family": "ridge",
+        "alpha": 100.0
+      }
+    },
+    {
+      "arm": "scale_phase12",
+      "validation_mse": 1.2325680775595222,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    }
+  ],
+  "baseline": "scalar19",
+  "primary_representation": "level_delta17",
+  "revision": "Added after first encoding-only validation, before any v26 test was opened",
+  "all_targets": "independent measured wind trajectories; no inferred-wind ground truth"
+}

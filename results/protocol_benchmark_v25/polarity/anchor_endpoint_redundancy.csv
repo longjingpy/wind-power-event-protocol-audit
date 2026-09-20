@@ -1,0 +1,6 @@
+dataset,events,nonzero_endpoint_events,opposite_to_endpoint_fraction,zero_endpoint_fraction
+era5_hill,79436,79436,0.0815373382345536,0.0
+era5_pizhou,94534,94534,0.092241944697146,0.0
+lidar_T07,444,444,0.06756756756756757,0.0
+lidar_T11,1064,1064,0.07518796992481203,0.0
+smarteole,13931,13931,0.02821046586748977,0.0

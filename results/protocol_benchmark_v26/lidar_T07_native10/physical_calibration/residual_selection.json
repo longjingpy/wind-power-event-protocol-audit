@@ -1,0 +1,93 @@
+{
+  "status": "FROZEN_VALIDATION_ONLY",
+  "base": "scalar27",
+  "folds": [
+    {
+      "fold": 0,
+      "held_events": 111,
+      "fit_events": 422,
+      "purge": "full observed power context"
+    },
+    {
+      "fold": 1,
+      "held_events": 165,
+      "fit_events": 368,
+      "purge": "full observed power context"
+    },
+    {
+      "fold": 2,
+      "held_events": 72,
+      "fit_events": 461,
+      "purge": "full observed power context"
+    },
+    {
+      "fold": 3,
+      "held_events": 146,
+      "fit_events": 387,
+      "purge": "full observed power context"
+    },
+    {
+      "fold": 4,
+      "held_events": 39,
+      "fit_events": 494,
+      "purge": "full observed power context"
+    }
+  ],
+  "selected": [
+    {
+      "arm": "scalar27",
+      "weight": 1.0,
+      "candidate": 5,
+      "validation_mse": 1.2431230426408195,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "level_delta17",
+      "weight": 1.0,
+      "candidate": 2,
+      "validation_mse": 0.9541412171515176,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "cube_delta17",
+      "weight": 1.0,
+      "candidate": 2,
+      "validation_mse": 1.0476014945398908,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "cube_pca6",
+      "weight": 1.0,
+      "candidate": 5,
+      "validation_mse": 1.1207505547077465,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "scale_phase12",
+      "weight": 1.0,
+      "candidate": 2,
+      "validation_mse": 0.9453898390405686,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    }
+  ],
+  "control": "scalar-only correction receives the same learner and shrinkage budget"
+}

@@ -1,0 +1,90 @@
+{
+  "status": "FROZEN_VALIDATION_ONLY",
+  "selected": [
+    {
+      "arm": "scalar19",
+      "validation_mse": 1.8550041809324394,
+      "candidate": 0,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      }
+    },
+    {
+      "arm": "scalar27",
+      "validation_mse": 1.7833522131142856,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "normalized_raw25",
+      "validation_mse": 1.397065752487402,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "level_delta17",
+      "validation_mse": 1.4121077700691322,
+      "candidate": 1,
+      "config": {
+        "family": "ridge",
+        "alpha": 1.0
+      }
+    },
+    {
+      "arm": "cube_delta17",
+      "validation_mse": 1.4499762752874557,
+      "candidate": 0,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      }
+    },
+    {
+      "arm": "cube_delta25",
+      "validation_mse": 1.415877713001482,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "cube_pca6",
+      "validation_mse": 1.4798761625895847,
+      "candidate": 0,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      }
+    },
+    {
+      "arm": "scale_gadf6",
+      "validation_mse": 1.4452757398754488,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "scale_phase12",
+      "validation_mse": 1.4165029738205126,
+      "candidate": 1,
+      "config": {
+        "family": "ridge",
+        "alpha": 1.0
+      }
+    }
+  ],
+  "baseline": "scalar27",
+  "primary_representation": "level_delta17",
+  "revision": "Added after first encoding-only validation, before any v26 test was opened",
+  "all_targets": "independent measured wind trajectories; no inferred-wind ground truth"
+}

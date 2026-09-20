@@ -13,24 +13,27 @@ The current unified physical-time experiments are specified in S13–S17; S22 pr
 | S3. Matching and summaries | Same archives, detector pairs and IoU thresholds 0.3/0.5/0.7 | One-to-one matched event pair | Measure structural survival together with left/right coverage | 2.2; Methods 4.3 | Complete |
 | S4. Representation and perturbation | Pizhou training/holdout plus five-farm transfer; raw, PCA, statistics and angular representations | Event vector × partition | Quantify retained shape information and separate correspondence, order and attribute effects | 2.2–2.3; Methods 4.4 | Complete |
 | S5. External representation transfer | Greek January–June 2020 and SDWPF 2020–2021 | Configuration pair × turbine/batch | Test whether frozen or local representations transfer across archives | 2.3 | Complete; support strata retained |
-| S6. Human-reviewed regions | Legacy 120-region cohort and v19 eight-archive packet (320 windows × 3 observers) | Window × observer; detector presence per window | Provide an external event-presence and morphology reference | 2.6; Methods 4.6 | Three exports complete; one further review ongoing |
+| S6. Human-reviewed regions | Legacy 120-region cohort and v19 eight-archive packet (320 windows × 3 observers) | Window × observer; detector presence per window | Provide an external event-presence and morphology reference | Supplementary reference; Methods 4.6 | Three exports complete; one further review ongoing |
 | S7. Forecasting and storage | Pizhou and Yandun chronological forecasts | Issue time × target interval × farm | Test event-aware forecasting and engineering cost scenarios | Supplementary cost context | Complete under stated scenario prices |
-| S8. Controlled localization | Synthetic sequences with known episodes and fresh confirmation seeds | Sequence × injected episode | Measure event-level localization and delay under known truth | 2.6; Methods 4.7 | Complete |
+| S8. Controlled localization | Synthetic sequences with known episodes and fresh confirmation seeds | Sequence × injected episode | Measure event-level localization and delay under known truth | 2.7; Methods 4.7 | Complete |
 | S9. Weather and post-event context | ERA5 panel, NOAA station comparison and Yandun sampling sensitivity | Time anchor × turbine; subsequent event window | Test external-process tracking and post-event association | 2.4 | Exploratory association; causal effect not estimated |
 | S10. Table-reading convention | All result populations | Table row with an explicit unit and denominator | Keep structural, physical, forecast and cost estimands distinct | Methods 4.5 | Complete |
 | S11. Policy-capacity scenario | Jiangsu-informed engineering scenarios on Pizhou and Yandun | Farm × test interval × storage design | Quantify policy-informed capacity and price sensitivities | Supplementary cost context | Scenario study; not a realized settlement replay |
-| S12. Independent collection design | v15 packet specification and annotation interface | Window × observer response | Record provenance and the distinction from the received v19 exports | 2.6; Methods 4.6 | Design archived; received responses reported in S6 |
+| S12. Independent collection design | v15 packet specification and annotation interface | Window × observer response | Record provenance and the distinction from the received v19 exports | Supplementary reference; Methods 4.6 | Design archived; received responses reported in S6 |
 | S13. Protocol space and hierarchy | Seven archives on the v18 physical-time grid | Protocol tuple π × primitive/composite event | Formalize detection, matching, representation and evaluation layers | Introduction; Methods 4.1–4.3 | Complete |
 | S14. Common support and information | Pizhou-fitted representations evaluated on site/configuration pairs | Matched pair × conditioning stratum | Estimate conditional partition information and metric sensitivity | 2.2–2.3 | Complete |
 | S15. Physical-process probes | Five primary farms with regional weather targets | Event × site × weather class | Test whether retained shape information tracks an independent process | 2.3–2.4 | Complete for the archived association analysis |
 | S16. Hill LiDAR chronology | Hill of Towie T07/T11, 2026 instrument release | Event × instrument × seven-day block | Chronologically test calibrated physical-process discrimination | 2.4 | Complete; instrument and block scope reported |
 | S17. Forecast-to-cost replay | Hill of Towie 2020 and GB Elexon half-hour prices | Farm × half-hour settlement interval | Convert high-ramp forecast errors into observed-price exposure and storage replay | Supplementary cost context | GB price replay; native Jiangsu rule test in S22 |
 | S18. Output and reproducibility | Versioned public repository and release artifacts | Artifact × protocol/result record | Bind code, tables, figures and validation records to reproducible paths | Data availability; Methods 4.8 | Versioned GitHub repository release |
-| S19. Decision-aligned forecast extension | Hill of Towie existing forecast replay; 1/2/4-h horizons | Issue time × target interval × candidate model | Test whether event information can improve error and priced exposure under a fixed validation budget | Results 2.7; Table S56 | Exploratory extension; existing test calendar reused |
+| S19. Decision-aligned forecast extension | Hill of Towie existing forecast replay; 1/2/4-h horizons | Issue time × target interval × candidate model | Test whether event information can improve error and priced exposure under a fixed validation budget | Supplementary cost context; Table S56 | Exploratory extension; existing test calendar reused |
 | S20. Metered correction | Hill 2020; 58 complete days | Half-hour × schedule × battery | Separate gross debit from signed settlement | Supplementary S23 | Ex-post capability |
 | S21. Overlap correspondence | Eight structural populations | Connected overlap component | Resolve splitting, merging and composite episodes | 2.2; Methods 4.3 | Complete |
-| S22. Native policy-fee test | Pizhou 2023–2025; held-out late calendar | Native 15-min target × issue horizon | Connect historical shape and issued weather to rule-based charges | 2.7; Methods 4.6 | Complete; 2022-rule simulation |
+| S22. Native policy-fee test | Pizhou 2023–2025; held-out late calendar | Native 15-min target × issue horizon | Connect historical shape and issued weather to rule-based charges | 2.8; Methods 4.6 | Complete; 2022-rule simulation |
 | S23. British full-income tests | Hill 2020–2021; Elexon prices and vintages | Operating day or scheduled interval | Distinguish exposure, net operating gain and trading income | Discussion; S17–S20 | All outcomes retained |
+| S24. Polarity increments | Five ERA5 populations, two LiDAR instruments, SMARTEOLE | Paired event predictions and shared calendar blocks | Separate encoding recovery, scalar redundancy and noise sensitivity | 2.4–2.5; Methods 4.5 | Reviewer-triggered exploratory extension |
+| S25. AI/human reference | Same 320 displayed windows; 3 human + 7 AI sources | Window × review source | Evaluate auxiliary reference agreement without conflating sources | Supplementary S6; Methods 4.6 | Seven actual AI sessions complete |
+| S26. Complete physical trajectories | Hill T11/T07 2026 and SMARTEOLE 2020 | Unique power interval × measured wind curve | Locate the incremental value of temporal geometry in compound processes | 2.6; Methods 4.5 | Validation-locked models; exploratory chronological test |
 
 ## S1. Archive coverage and source eligibility
 
@@ -266,7 +269,7 @@ The v20 Jiangsu duplicated-slot screen is a historical scenario recorded under `
 ## S18. Output and reproducibility map
 
 The v18 event engine and unit-explicit economic functions are in `src/wind_events/`. Structural, physical, LiDAR, threshold, weather, forecast and storage outputs are under `outputs/protocol_benchmark_v18/`. Independent SVG, PDF, PNG and data-table sources are under `manuscript/figures_v18/`. The static support-aware benchmark index is under `outputs/protocol_benchmark_v18/leaderboard/`. The package wheel, isolated demo and unit tests are recorded under `outputs/protocol_benchmark_v18/package/`. The complete v18 input, transformation and evaluation record is `docs/V18_CURRENT_EXECUTION.md`.
-The v19 manifest records the multirater and SMARTEOLE stages. Current v21/v22 representation, sampling and economic tables remain under their versioned output folders. The v23 extension adds `outputs/protocol_benchmark_v23/cluster_count_common_support.csv` and the `many_to_many/` directory: `configuration_pairs.csv`, `site_summary.csv`, `verification.json` and `coverage_aggregation_reconciliation.csv`. The last table verifies the equal-configuration versus pooled-coverage distinction against the original one-to-one counts. Supplementary Tables S57–S58 and Fig. S1 summarize these additions. The v24 native economic task adds Tables S59–S64, S22–S23 methods and the model-input replication bundle. The public v0.6.0 release mirrors aggregate outputs under `results/`, contains the current manuscript and editable Fig. 1, and links the de-identified processed-data release. The detailed local component ledger retains internal event clocks; public tables use aggregate counts. The SMARTEOLE support diagnostic remains `outputs/protocol_benchmark_v19/smarteole/diagnostic/report.json`, with the supported-row median, all-row and pair-weighted summaries.
+The v19 manifest records the multirater and SMARTEOLE stages. Current v21/v22 representation, sampling and economic tables remain under their versioned output folders. The v23 extension adds `outputs/protocol_benchmark_v23/cluster_count_common_support.csv` and the `many_to_many/` directory: `configuration_pairs.csv`, `site_summary.csv`, `verification.json` and `coverage_aggregation_reconciliation.csv`. The last table verifies the equal-configuration versus pooled-coverage distinction against the original one-to-one counts. Supplementary Tables S57–S58 and Fig. S1 summarize these additions. The v24 native economic task adds Tables S59–S64, S22–S23 methods and the model-input replication bundle. The public v0.7.0 release mirrors aggregate outputs under `results/`, contains the current manuscript and editable Fig. 1, and links the de-identified processed-data release. The detailed local component ledger retains internal event clocks; public tables use aggregate counts. The SMARTEOLE support diagnostic remains `outputs/protocol_benchmark_v19/smarteole/diagnostic/report.json`, with the supported-row median, all-row and pair-weighted summaries.
 
 ## S19. Decision-aligned forecast extension
 
@@ -321,6 +324,76 @@ The v24 wind-storage controller optimizes forecast operating revenue over a rece
 For a battery power equal to 10% of farm capacity, the event-information arm gains GBP 5,986.77 relative to no storage after the assumed wear charge; the market-information arm gains GBP 7,168.89 and the weather arm GBP 6,413.51. At 20%, the corresponding gains are GBP 8,763.00, GBP 12,287.43 and GBP 11,503.57. These demonstrate operating gains for the tested assets; the event arm is not the best information arm. Capital costs and contractual service payments are separate investment quantities. The full per-day outcomes, capacity frontier and block intervals accompany the package.
 
 A separate complete-income experiment includes market-index reference revenue, signed imbalance settlement and an assumed GBP 0.5/MWh scheduled trading fee. Forecasts and bounded schedule adjustments are selected on 2021 April–June validation, with July–December reserved for this test. The observed market index is an execution-price reference rather than a transaction record. Test revenue differences for the event arm relative to passive persistence are GBP -19,829.64, -21,721.27 and -26,310.43 at 1/2/4 h; weather-only differences are GBP -16,311.56, -22,117.41 and -25,991.07. These complete-income results prevent the gross-debit improvements from being interpreted as a general trading-profit advantage. They concern a different task, jurisdiction, period and objective from the positive Jiangsu accuracy-charge simulation.
+
+## S24. Scalar-controlled polarity increments and noise sensitivity
+
+The v25 mechanism extension was designed after the reviewer identified a distinction between restoring angular direction and adding information beyond existing scalar covariates. It is exploratory on the existing populations. The four factorial cells are S, S+G5, S+b and S+G5+b, where S contains endpoint direction, signed endpoint change, duration, starting power and pre-window mean. G5 is the first five coordinates of the same frozen Pizhou six-component GAF/PCA transform; b is the sign at the largest-absolute-value coordinate. Thus the conditional bit contrast holds angular coordinates fixed. G6, pre-PCA signed-channel GAF/PCA6 and raw25 provide dimension, compression-order and trajectory controls.
+
+The complete thirteen arms are scalar, scalar_g5, scalar_bit, scalar_g5_bit, scalar_g6, scalar_signed6, scalar_raw25, scalar_g5_random, scalar_g5_reversed, scalar_g5_endpoint, scalar_g5_pre, scalar_g5_post and scalar_g5_internal. Random signs are independent Bernoulli signs with seed 250041 and use separate events across source and target populations. Consistent reversal negates b during both fitting and evaluation, preserving information. Test-only corruption independently reverses 25%, 50% or 100% of the true signs after fitting, with seed 404. Alternative signs come from event-end coordinate 20, pre-context coordinate 0, post-context coordinate 24, or the largest absolute value among event-interior coordinates 4–20. The pre-PCA signed-channel control appends the original path before standardization and compression; it differs from reserving a sign coordinate after compression.
+
+Each of the five regional ERA5 sites reuses its archived training-event identifiers and matched, weather-valid validation/test events. Training counts are 9,732 Pizhou, 9,648 Suining, 8,606 Yandun, 9,562 La Haute Borne and 10,000 Hill. A histogram gradient-boosted classifier uses 200 iterations, learning rate 0.05, L2 regularization 1, seed 41, no early stopping and candidate leaf budgets 7/15. Validation log loss selects the budget; scalar temperature in [0.5,5] is fitted on the same validation period. The source representation remains Pizhou-fitted. SMARTEOLE uses Pizhou source heads without target fitting on the exact stored WindCube-eligible population. Hill's heads supply the two LiDAR instruments, followed by multinomial-logistic calibration with C in {0.1,1,10}; the original 14 March/7 April boundaries and context restrictions are preserved. There are 65 selected source heads (130 candidate fits) and 104 feature-arm/population evaluations across eight populations.
+
+Direction AUROC conditions on observed increase/decrease; three-class log loss and summed Brier score also retain small-net-change outcomes. Event identifiers and target times are identical across all feature arms within each population. Shared UTC-anchored 3/7/14-day blocks, with 2,000 fixed-seed resamples, preserve model pairing and all same-farm turbines. A weighted positive-negative concordance calculation gives exact block-resampled AUROC, including half credit for tied scores; unit tests compare it with explicit weighted AUROC. The LiDAR final periods each contain four seven-day blocks. Draws are not additional independent weather periods. Confidence intervals quantify temporal sampling conditional on these fitted models and are not multiplicity-adjusted simultaneous bounds. Full scores and paired contrasts are archived, rather than selecting models by significance.
+
+### Anchor stability and measurement-noise experiments
+
+Valid nonconstant shapes satisfy max|x|=1; the pre-normalization scale a=shape_normalizer measures the original maximum deviation in training-production-scale units. Zero a is excluded before encoding. For additive representation perturbation e, define the opposing-extrema margin m=|max(x)+min(x)|. If m>2||e||∞, the dominant positive/negative sign cannot exchange under that perturbation. When noise is added to samples before subtracting the noisy start value, e includes that subtraction; the experiment implements it explicitly. This explains why opposing extrema close to equal magnitude, rather than a small normalized anchor, are the important sign-instability case.
+
+Relative-noise tests use independent Gaussian samples with standard deviation 0, 0.01, 0.05, 0.10, 0.20 or 0.40 times a and seeds 101/202/303. After subtracting the perturbed event-start sample, paths are renormalized and encoded with frozen transforms and heads. Scalar descriptors stay fixed, so this isolates the representation channel rather than re-running detection on noisy SCADA. Pizhou, Hill, both LiDAR instruments and SMARTEOLE are included. At relative noise 0.05, mean anchor-flip fractions over the three seeds range from 0.0097 to 0.0175 across these populations. All probability scores and paired differences are retained across noise levels.
+
+A complementary absolute-noise test applies standard deviations 0.001/0.005/0.01 in the original training-production-scale units before normalization, on Pizhou and both LiDAR instruments. The effective normalized noise is sigma/a. Results are stratified by a<0.05, 0.05≤a<0.2, a≥0.2, and opposing-extrema margin below/above 0.1. Empty strata remain explicitly empty; notably the final T11 sample contains no a<0.05 events. These checks distinguish algorithmic instability near zero scale from the actual amplitude support of the evaluated populations.
+
+## S25. Seven AI review sessions and source-separated reference agreement
+
+The three received human assessments remain unchanged and are described in S6. Seven additional independent AI review sessions each assessed all 320 windows, producing 2,240 model-generated judgments. Together there are ten review configurations and 3,200 judgments, not ten human respondents or 3,200 independent events. The final seven-session roster was fixed before calculating expanded-panel agreement, and every completed session was retained. Session identifiers A01–A07 preserve this analysis roster.
+
+Each clean-context session received only the same nine normalized-power samples at -120,-90,-60,-30,0,30,60,90,120 min and the rubric below, with a different fixed random presentation order. The central five samples define the rated two-hour region; the outer samples provide context. No site, detector vote, human answer or other AI response was supplied. Reviewers produced labels by judging each curve; code was permitted only for reading input, writing the answers and checking schema/coverage, not for generating labels with a threshold classifier. Each response records morphology and H/M/L confidence. The source type is AI, with its actual task-context identifier stored separately from anonymous human identifiers.
+
+The review sessions used Codex's inherited model configuration on 20 September 2026. The collaboration interface did not expose a verified effective model version, temperature, top-p or reasoning setting; these are recorded as unavailable rather than inferred. The sessions therefore represent repeated model-based reviews under a common interface and rubric, not seven independently developed model families. The human observers retain their original separate provenance. No requests failed, no missing answers were imputed, and all seven outputs contained 320 unique valid window identifiers.
+
+The task rubric was: judge recognizable upward, downward, V-shaped, inverted-V or repeated dynamic changes in the central two hours; a return to the initial level can still contain an event. Persistent low power is a state, whereas entering or leaving it can be dynamic. Ordinary small jitter need not be an event. Use uncertain for unsupported judgments and bad_data for invalid observations; infer neither sub-sample boundaries nor weather/fault causes. No numerical event threshold was added to the original human rubric. Confidence records the morphology judgment. The complete per-session task text, nine-point inputs, output schema and raw AI labels are archived with the reference results.
+
+For category alignment, the original UI names valley/peak/data_issue are mapped bijectively to v_shape/inverted_v/bad_data; original strings are retained. This harmonizes names without changing judgments. Dynamic classes map to presence=yes; quiet/low_state map to no. Uncertain or bad-data responses would remain missing for nominal-alpha calculations; all received judgments were assessable. Human-only, AI-only and mixed panels are reported separately with 3/7/14-day resampling within farm, preserving every observer in each sampled window. The common seven-day analysis contains 197 occupied farm-blocks.
+
+AI-only presence/morphology alpha is 0.958/0.958; mixed-panel alpha is 0.707/0.741. The original human values remain 0.528/0.476. Source-pair comparisons distinguish human–human, human–AI and AI–AI agreement. In the ten-configuration panel, only 3 of 45 observer pairs are human–human, while 21 are AI–AI and 21 are human–AI. Consequently a higher mixed-panel alpha measures agreement in a different, model-heavy panel; it is neither evidence of additional human recruitment nor a measure of annotation accuracy. The reference remains auxiliary to the externally measured physical outcomes and known-support synthetic localization task.
+
+## S26. Complete physical-process reconstruction
+
+### Population, independent targets and chronology
+
+This extension asks when ordered power-event information improves recovery of a measured wind process beyond scalar descriptions. It uses the T11 and T07 LiDAR references described in S16 and the SMARTEOLE WindCube 80-m series. It retains power-defined primitive and compound intervals lasting 60–240 min, then collapses identical turbine/start/end intervals across detector configurations. A retained interval has a compound flag if at least one source definition contains opposite legs; the complementary primitive-only stratum contains intervals without this flag. Neither flag uses wind outcomes. This unique-interval population is separate from the earlier endpoint-probability population and its repeated configuration rows.
+
+At least seven consecutive valid 10-min wind observations, including both endpoints, are required. WindCube 10-min means require at least eight valid minute values. Missing internal bins exclude an interval rather than being interpolated across. Native power inputs at SMARTEOLE require ten valid minute observations per 10-min bin. The Hill timestamp convention follows S16. Event supports and the entire power context, from 120 min before start through 150 min after end, remain within one split. Hill training ends at 00:00 UTC on 14 March 2026 and validation at 00:00 UTC on 7 April; SMARTEOLE boundaries are 01:48 UTC on 16 April 2020 and 12:54 UTC on 5 May. Table S75 gives retained counts. Test calendars have appeared in preceding tasks; the new reconstruction analysis is exploratory.
+
+For phase \(r_j=j/16\), the wind target is \(Y_j=u(s+r_j(e-s))-u(s)\), with j=0,...,16. Linear interpolation occurs only within consecutive valid wind support. All trajectories start at zero. Full-trajectory error averages squared differences over j=1,...,16 and over events before taking the square root. Geometry error applies the same calculation after subtracting each measured or predicted curve's own endpoint chord, \(R_j=Y_j-r_jY_{16}\). Thus this diagnostic asks whether intermediate evolution is recovered after removing endpoint tendency; it is not an error in absolute wind speed. The 10/30-min power tracks retain identical event identifiers, wind targets and splits. All scalar and temporal arms within a track use that track's power support.
+
+### Scalar controls and representation matrix
+
+S5 comprises endpoint direction, signed endpoint change, duration, starting power and pre-window mean. S19 adds range, total variation, maximum rate, maximum chord residual, absolute curvature, post-window mean, shape normalization scale, minimum and maximum phases, internal mean and standard deviation, positive and negative chord extremes, and chord-extreme phase. S27 adds eight summaries of the cube root of nonnegative power: starting and ending level, internal mean, standard deviation and range, pre/post means and mean absolute internal difference. These are input transformations; independent instruments remain the wind target.
+
+The basic matrix contains S5, S19 and ten S19-plus-representation arms: raw25, raw/PCA6, raw/PCA12, GASF/PCA6, GASF/PCA5 plus sign, GADF/PCA6, dual angular fields, energy-balanced signed channels, and two angular/phase combinations. The Gramian angular difference field (GADF) follows the angular construction of Wang and Oates [@wang2015gaf]. With the same signed unit-domain x and \(c_i=\sqrt{1-x_i^2}\), \(D=cx^T-xc^T\) and \(D(-x)=-D(x)\). Because the event-start coordinate \(x_4=0\), the uncompressed row \(D_{4j}=x_j\). This is an exact full-field identity; compressed-coordinate performance is empirical. Dual fields combine GASF and GADF, each divided by its training root-mean-square vector energy. The signed-channel arm similarly balances GASF and raw coordinates. The phase arms combine three angular PCs with three orthonormal type-II discrete-cosine coordinates from the seventeen internal samples, or six of each. All standardization, energy factors and principal components are fitted on the corresponding training partition.
+
+The scale-restoration matrix contains nine arms: S19, S27, S27 plus normalized raw25, internal level changes at seventeen positions, cube-root changes at seventeen or twenty-five positions, six cube-root principal components, amplitude-scaled GADF/PCA6, and amplitude-scaled twelve-coordinate phase encoding. Restored levels are \(p_j=p_s+a x_j\); the selected level-change arm supplies the seventeen internal values \(p_j-p_s\) alongside S27. Power remains in the fitted production-scale units used by the catalogue. A final residual matrix compares S27, internal level changes, internal cube-root changes, cube-root/PCA6 and scaled phase12. Repeated controls across branches are explicit common comparators, not independent experimental replications.
+
+### Decoder selection and residual control
+
+Every arm compares eight decoder configurations: standardized ridge regression with penalty 0.1, 1, 10 or 100, and 192-tree extremely randomized ensembles with minimum leaf size 4 or 16 crossed with depth 12 or unrestricted depth. Tree seed is 41, all features are eligible at a split, and two CPU threads are used. Validation full-trajectory mean squared error selects the configuration. Residual fitting first generates out-of-fold scalar predictions over up to five contiguous groups of seven-day training blocks. Fitting observations whose complete contextual support overlaps a held fold are excluded. Residual models receive the same eight decoders and correction weights 0, 0.25, 0.5 and 1; the scalar-only correction has the identical budget.
+
+The final validation record compares all completed scalar-only controls and all temporal candidates, within native 10-min support and across 10/30-min support. Both selections choose native 10-min internal level changes in each population. T11 and T07 use the S27 residual comparator; SMARTEOLE uses the S19 comparator. The selected trajectory models use ridge penalties 100, 10 and 100 for T11, T07 and SMARTEOLE, respectively. This selection was frozen before opening any v26 test result. Validation scoring rows, all selected-arm test scores and all pairwise comparisons remain in the release; previously inspected endpoint tasks are recorded separately.
+
+### Paired uncertainty and mechanistic diagnostics
+
+The relative reduction is \(100[1-\operatorname{RMSE}_{trajectory}/\operatorname{RMSE}_{scalar}]\). The shared calendar-block bootstrap draws 2,000 paired replicates, with seven days primary and three/fourteen days as sensitivities. Each native test population occupies four seven-day blocks; all turbines sharing the SMARTEOLE wind record receive the same draw. T11 and T07 are instrument-specific analyses at one farm, rather than independent climate replications. Tables S76–S77 retain full-population and hierarchy contrasts. Empty-support resamples are excluded and counted: the seven-day SMARTEOLE compound contrast has 1,990 valid draws.
+
+For duration standardization, each exact-duration stratum present in both power-defined groups receives mass equal to the smaller group count. An event in group g then has weight min(n_compound,n_primitive)/n_g. These fixed, outcome-blind weights are combined with each shared calendar draw. The resulting compound-minus-primitive difference is descriptive effect modification, not an intervention on event topology (Table S78).
+
+Two frozen-decoder diagnostics preserve every scalar descriptor and each event's endpoints. One shuffles interior temporal coordinates within the event. The other reassigns endpoint-chord residuals between events within direction, amplitude and duration strata. Seeds 101, 202 and 303 retain all realized controls. These perturbations evaluate reliance on ordered correspondence and can move inputs outside the training distribution; they are mechanistic checks, not independent natural experiments (Table S79).
+
+For auxiliary process recognition, the maximum measured drawup and drawdown define four classes: weak, up, down and return. A return requires both changes to reach the study threshold of 1.5 m/s; it includes V, inverted-V and multistage dynamics. Applying this same rule to the predicted curve yields a derived class. Table S80 reports precision/recall/F1 with an always-return comparator; ranking uses the smaller of predicted maximum drawup and drawdown. These scores describe curve-derived process recovery, separate from a tuned classification benchmark. All model comparisons and 3/7/14-day intervals are supplied with the result tables.
+
+### Reproduction and result map
+
+The data interface is prepared by prepare_process_v26.py and prepare_native_process_v26.py; physical_process_v26.py and physical_calibration_v26.py perform validation and locked evaluation. The final selection is final_validation_lock.json. Summary, hierarchy, duration-standardized and perturbation tables are produced by summarize_process_v26.py, process_hierarchy_v26.py, process_duration_control_v26.py and process_controls_v26.py. Outputs reside under outputs/protocol_benchmark_v26. The six prepared tracks passed identical-event, target, split, finite-value and saved-prediction checks; targeted tests cover angular identities and continuous wind targets. Source calendars and the differing experiment denominators remain explicit.
 
 ## Supplementary result tables
 
@@ -1947,3 +2020,423 @@ The July–December 2021 test uses frozen validation selections, observed MID ex
 ### Figure S4. Preserved British economic comparison
 
 ![Earlier ex-post metered-correction capability. The event-aware 20% battery reduces gross debits by 27.1% while signed settlement cost rises. Realized half-hour power, inventory restoration and model-specific schedules define this task; it is not an issue-time forecast or net-profit gain.](figures_v22/fig14_storage.pdf)
+
+### Table S65. Physical factorial evaluation populations
+
+| Population | All events | Directional events | Seven-day blocks |
+| :-- | :-- | :-- | :-- |
+| Pizhou ERA5 | 94534 | 5862 | 16 |
+| Suining ERA5 | 33617 | 3202 | 11 |
+| Yandun ERA5 | 238131 | 56960 | 7 |
+| La Haute ERA5 | 12534 | 963 | 21 |
+| Hill ERA5 | 79436 | 7749 | 12 |
+| T11 LiDAR | 1064 | 705 | 4 |
+| T07 LiDAR | 444 | 285 | 4 |
+| SMARTEOLE | 13931 | 9265 | 15 |
+
+### Table S66. Direction AUROC in the common-input factorial
+
+S denotes the five scalar descriptors, G5 the common five angular coordinates, and b the protected polarity coordinate. All four columns use the same event set within each row.
+
+| Population | S | S+G5 | S+b | S+G5+b |
+| :-- | :-- | :-- | :-- | :-- |
+| Hill ERA5 | 0.9476 | 0.9558 | 0.9485 | 0.9566 |
+| La Haute ERA5 | 0.7312 | 0.7769 | 0.7351 | 0.7727 |
+| Pizhou ERA5 | 0.9235 | 0.9211 | 0.9236 | 0.9201 |
+| Suining ERA5 | 0.7824 | 0.7992 | 0.7849 | 0.8010 |
+| Yandun ERA5 | 0.6006 | 0.5971 | 0.5992 | 0.5962 |
+| T07 LiDAR | 0.8870 | 0.9211 | 0.8721 | 0.9156 |
+| T11 LiDAR | 0.8580 | 0.8573 | 0.8522 | 0.8554 |
+| SMARTEOLE | 0.8579 | 0.8748 | 0.8862 | 0.8835 |
+
+### Table S67. Paired increments of S+G5+b
+
+Positive gains indicate higher AUROC or lower loss/Brier. The same seven-day blocks are used for both compared models. These are exploratory pointwise intervals; support is in S65.
+
+| Population | Reference | Metric | Gain | Lower | Upper |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| Pizhou ERA5 | S | Log loss | 0.0048 | 0.0010 | 0.0083 |
+| Pizhou ERA5 | S | Brier | 0.0037 | 0.0014 | 0.0059 |
+| Pizhou ERA5 | S | AUROC | -0.0034 | -0.0259 | 0.0104 |
+| Pizhou ERA5 | S+G5 | Log loss | -0.0001 | -0.0007 | 0.0005 |
+| Pizhou ERA5 | S+G5 | Brier | 0.0001 | -0.0001 | 0.0004 |
+| Pizhou ERA5 | S+G5 | AUROC | -0.0010 | -0.0046 | 0.0010 |
+| Suining ERA5 | S | Log loss | -0.0007 | -0.0125 | 0.0103 |
+| Suining ERA5 | S | Brier | -0.0016 | -0.0075 | 0.0038 |
+| Suining ERA5 | S | AUROC | 0.0185 | -0.0044 | 0.0490 |
+| Suining ERA5 | S+G5 | Log loss | -0.0003 | -0.0013 | 0.0005 |
+| Suining ERA5 | S+G5 | Brier | -0.0001 | -0.0003 | 0.0001 |
+| Suining ERA5 | S+G5 | AUROC | 0.0017 | -0.0025 | 0.0085 |
+| Yandun ERA5 | S | Log loss | 0.0080 | 0.0023 | 0.0132 |
+| Yandun ERA5 | S | Brier | 0.0071 | 0.0051 | 0.0088 |
+| Yandun ERA5 | S | AUROC | -0.0044 | -0.0148 | 0.0077 |
+| Yandun ERA5 | S+G5 | Log loss | -0.0003 | -0.0008 | 0.0002 |
+| Yandun ERA5 | S+G5 | Brier | -0.0001 | -0.0004 | 0.0001 |
+| Yandun ERA5 | S+G5 | AUROC | -0.0009 | -0.0022 | 0.0003 |
+| La Haute ERA5 | S | Log loss | 0.0079 | 0.0030 | 0.0135 |
+| La Haute ERA5 | S | Brier | 0.0029 | 0.0009 | 0.0051 |
+| La Haute ERA5 | S | AUROC | 0.0415 | 0.0181 | 0.0755 |
+| La Haute ERA5 | S+G5 | Log loss | -0.0003 | -0.0017 | 0.0011 |
+| La Haute ERA5 | S+G5 | Brier | -0.0001 | -0.0006 | 0.0005 |
+| La Haute ERA5 | S+G5 | AUROC | -0.0043 | -0.0121 | 0.0037 |
+| Hill ERA5 | S | Log loss | 0.0054 | -0.0036 | 0.0145 |
+| Hill ERA5 | S | Brier | 0.0038 | -0.0011 | 0.0083 |
+| Hill ERA5 | S | AUROC | 0.0090 | 0.0013 | 0.0224 |
+| Hill ERA5 | S+G5 | Log loss | 0.0011 | 0.0000 | 0.0020 |
+| Hill ERA5 | S+G5 | Brier | 0.0004 | -0.0000 | 0.0007 |
+| Hill ERA5 | S+G5 | AUROC | 0.0008 | -0.0004 | 0.0024 |
+| T11 LiDAR | S | Log loss | 0.0039 | -0.0251 | 0.0309 |
+| T11 LiDAR | S | Brier | 0.0016 | -0.0115 | 0.0119 |
+| T11 LiDAR | S | AUROC | -0.0026 | -0.0565 | 0.0198 |
+| T11 LiDAR | S+G5 | Log loss | -0.0064 | -0.0088 | 0.0001 |
+| T11 LiDAR | S+G5 | Brier | -0.0045 | -0.0049 | -0.0032 |
+| T11 LiDAR | S+G5 | AUROC | -0.0019 | -0.0084 | 0.0056 |
+| T07 LiDAR | S | Log loss | 0.0223 | 0.0044 | 0.1150 |
+| T07 LiDAR | S | Brier | 0.0115 | 0.0037 | 0.0704 |
+| T07 LiDAR | S | AUROC | 0.0286 | -0.0100 | 0.0752 |
+| T07 LiDAR | S+G5 | Log loss | -0.0051 | -0.0086 | 0.0139 |
+| T07 LiDAR | S+G5 | Brier | -0.0027 | -0.0044 | 0.0062 |
+| T07 LiDAR | S+G5 | AUROC | -0.0055 | -0.0150 | 0.0023 |
+| SMARTEOLE | S | Log loss | 0.0395 | 0.0155 | 0.0677 |
+| SMARTEOLE | S | Brier | 0.0045 | -0.0018 | 0.0118 |
+| SMARTEOLE | S | AUROC | 0.0256 | 0.0120 | 0.0390 |
+| SMARTEOLE | S+G5 | Log loss | 0.0135 | 0.0091 | 0.0186 |
+| SMARTEOLE | S+G5 | Brier | 0.0011 | 0.0003 | 0.0019 |
+| SMARTEOLE | S+G5 | AUROC | 0.0087 | 0.0039 | 0.0154 |
+
+### Table S68. Paired contrasts for the original LiDAR headline models
+
+This table reuses the original stored predictions without refitting. It distinguishes the large angular-encoding recovery from the smaller difference relative to scalar-only heads. Each instrument supplies four seven-day blocks.
+
+| Instrument | Reference | Metric | Gain | Lower | Upper |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| T11 | Scalar only | Log loss | 0.0173 | -0.0258 | 0.0795 |
+| T11 | Scalar only | Brier | 0.0029 | -0.0160 | 0.0465 |
+| T11 | Scalar only | AUROC | 0.0320 | -0.0207 | 0.0587 |
+| T11 | GAF/PCA6 | Log loss | 0.1831 | 0.1058 | 0.2789 |
+| T11 | GAF/PCA6 | Brier | 0.1098 | 0.0650 | 0.1674 |
+| T11 | GAF/PCA6 | AUROC | 0.3956 | 0.3302 | 0.4722 |
+| T07 | Scalar only | Log loss | -0.0043 | -0.1723 | 0.0232 |
+| T07 | Scalar only | Brier | -0.0139 | -0.1045 | 0.0090 |
+| T07 | Scalar only | AUROC | 0.0178 | -0.1561 | 0.0669 |
+| T07 | GAF/PCA6 | Log loss | 0.1769 | 0.0496 | 0.2376 |
+| T07 | GAF/PCA6 | Brier | 0.0941 | 0.0435 | 0.1374 |
+| T07 | GAF/PCA6 | AUROC | 0.4281 | 0.3449 | 0.5337 |
+
+### Table S69. Direction-AUROC controls for dimension, sign and anchor
+
+Positive gain favours the first named model. Reversed-both is information-preserving; test-only sign corruption and all three probability metrics are retained in the machine-readable noise tables.
+
+| Population | Comparison | Gain | Lower | Upper |
+| :-- | :-- | :-- | :-- | :-- |
+| Pizhou ERA5 | Protected / G6 | -0.0050 | -0.0091 | 0.0002 |
+| Pizhou ERA5 | Protected / Pre-PCA signed | -0.0035 | -0.0067 | 0.0006 |
+| Pizhou ERA5 | Protected / Random bit | -0.0028 | -0.0062 | 0.0007 |
+| Pizhou ERA5 | Reversed both / Protected | 0.0000 | 0.0000 | 0.0000 |
+| Pizhou ERA5 | End sign / Protected | 0.0010 | -0.0010 | 0.0046 |
+| Pizhou ERA5 | Pre sign / Protected | 0.0040 | -0.0009 | 0.0086 |
+| Pizhou ERA5 | Post sign / Protected | -0.0003 | -0.0086 | 0.0102 |
+| Pizhou ERA5 | Internal sign / Protected | -0.0013 | -0.0030 | 0.0000 |
+| Suining ERA5 | Protected / G6 | 0.0063 | -0.0000 | 0.0125 |
+| Suining ERA5 | Protected / Pre-PCA signed | 0.0066 | -0.0013 | 0.0155 |
+| Suining ERA5 | Protected / Random bit | 0.0024 | -0.0018 | 0.0090 |
+| Suining ERA5 | Reversed both / Protected | 0.0000 | 0.0000 | 0.0000 |
+| Suining ERA5 | End sign / Protected | -0.0017 | -0.0085 | 0.0025 |
+| Suining ERA5 | Pre sign / Protected | -0.0016 | -0.0094 | 0.0037 |
+| Suining ERA5 | Post sign / Protected | 0.0038 | -0.0053 | 0.0146 |
+| Suining ERA5 | Internal sign / Protected | 0.0006 | -0.0043 | 0.0055 |
+| Yandun ERA5 | Protected / G6 | -0.0032 | -0.0088 | 0.0015 |
+| Yandun ERA5 | Protected / Pre-PCA signed | 0.0006 | -0.0085 | 0.0084 |
+| Yandun ERA5 | Protected / Random bit | -0.0017 | -0.0031 | 0.0007 |
+| Yandun ERA5 | Reversed both / Protected | 0.0000 | 0.0000 | 0.0000 |
+| Yandun ERA5 | End sign / Protected | 0.0009 | -0.0003 | 0.0022 |
+| Yandun ERA5 | Pre sign / Protected | -0.0009 | -0.0040 | 0.0017 |
+| Yandun ERA5 | Post sign / Protected | 0.0064 | -0.0024 | 0.0166 |
+| Yandun ERA5 | Internal sign / Protected | 0.0009 | -0.0013 | 0.0025 |
+| La Haute ERA5 | Protected / G6 | -0.0126 | -0.0349 | 0.0152 |
+| La Haute ERA5 | Protected / Pre-PCA signed | -0.0159 | -0.0311 | 0.0050 |
+| La Haute ERA5 | Protected / Random bit | -0.0032 | -0.0109 | 0.0048 |
+| La Haute ERA5 | Reversed both / Protected | 0.0000 | 0.0000 | 0.0000 |
+| La Haute ERA5 | End sign / Protected | 0.0043 | -0.0037 | 0.0121 |
+| La Haute ERA5 | Pre sign / Protected | 0.0076 | -0.0084 | 0.0204 |
+| La Haute ERA5 | Post sign / Protected | 0.0141 | -0.0040 | 0.0296 |
+| La Haute ERA5 | Internal sign / Protected | -0.0001 | -0.0091 | 0.0082 |
+| Hill ERA5 | Protected / G6 | 0.0016 | -0.0018 | 0.0053 |
+| Hill ERA5 | Protected / Pre-PCA signed | 0.0005 | -0.0015 | 0.0024 |
+| Hill ERA5 | Protected / Random bit | 0.0004 | -0.0001 | 0.0010 |
+| Hill ERA5 | Reversed both / Protected | 0.0000 | 0.0000 | 0.0000 |
+| Hill ERA5 | End sign / Protected | -0.0008 | -0.0024 | 0.0004 |
+| Hill ERA5 | Pre sign / Protected | 0.0037 | 0.0007 | 0.0066 |
+| Hill ERA5 | Post sign / Protected | 0.0036 | -0.0001 | 0.0081 |
+| Hill ERA5 | Internal sign / Protected | -0.0003 | -0.0014 | 0.0004 |
+| T11 LiDAR | Protected / G6 | 0.0366 | 0.0287 | 0.0596 |
+| T11 LiDAR | Protected / Pre-PCA signed | 0.0036 | -0.0083 | 0.0073 |
+| T11 LiDAR | Protected / Random bit | 0.0029 | -0.0024 | 0.0059 |
+| T11 LiDAR | Reversed both / Protected | 0.0000 | 0.0000 | 0.0000 |
+| T11 LiDAR | End sign / Protected | 0.0019 | -0.0056 | 0.0084 |
+| T11 LiDAR | Pre sign / Protected | -0.0158 | -0.0218 | -0.0108 |
+| T11 LiDAR | Post sign / Protected | -0.0144 | -0.0330 | -0.0025 |
+| T11 LiDAR | Internal sign / Protected | -0.0039 | -0.0164 | 0.0065 |
+| T07 LiDAR | Protected / G6 | 0.0334 | 0.0209 | 0.0836 |
+| T07 LiDAR | Protected / Pre-PCA signed | -0.0005 | -0.0377 | 0.0339 |
+| T07 LiDAR | Protected / Random bit | -0.0013 | -0.0184 | 0.0192 |
+| T07 LiDAR | Reversed both / Protected | 0.0000 | 0.0000 | 0.0000 |
+| T07 LiDAR | End sign / Protected | 0.0055 | -0.0023 | 0.0150 |
+| T07 LiDAR | Pre sign / Protected | -0.0093 | -0.0128 | 0.0029 |
+| T07 LiDAR | Post sign / Protected | -0.0141 | -0.0333 | -0.0069 |
+| T07 LiDAR | Internal sign / Protected | -0.0000 | -0.0099 | 0.0084 |
+| SMARTEOLE | Protected / G6 | 0.0063 | -0.0005 | 0.0131 |
+| SMARTEOLE | Protected / Pre-PCA signed | 0.0068 | -0.0040 | 0.0233 |
+| SMARTEOLE | Protected / Random bit | 0.0026 | -0.0026 | 0.0089 |
+| SMARTEOLE | Reversed both / Protected | 0.0000 | 0.0000 | 0.0000 |
+| SMARTEOLE | End sign / Protected | -0.0087 | -0.0154 | -0.0039 |
+| SMARTEOLE | Pre sign / Protected | -0.0269 | -0.0394 | -0.0163 |
+| SMARTEOLE | Post sign / Protected | 0.0117 | 0.0033 | 0.0216 |
+| SMARTEOLE | Internal sign / Protected | -0.0086 | -0.0131 | -0.0046 |
+
+### Table S70. Anchor flips under relative representation-channel noise
+
+Noise standard deviation is a fraction of the pre-normalization shape amplitude. Values summarize three fixed perturbation seeds, not calendar uncertainty. Scalar descriptors and detectors remain unchanged.
+
+| Population | Noise / amplitude | Mean flip rate | Minimum | Maximum |
+| :-- | :-- | :-- | :-- | :-- |
+| Hill ERA5 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| Hill ERA5 | 0.0100 | 0.0029 | 0.0028 | 0.0029 |
+| Hill ERA5 | 0.0500 | 0.0158 | 0.0156 | 0.0161 |
+| Hill ERA5 | 0.1000 | 0.0346 | 0.0343 | 0.0348 |
+| Hill ERA5 | 0.2000 | 0.0857 | 0.0855 | 0.0859 |
+| Hill ERA5 | 0.4000 | 0.2127 | 0.2108 | 0.2146 |
+| Pizhou ERA5 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| Pizhou ERA5 | 0.0100 | 0.0032 | 0.0030 | 0.0033 |
+| Pizhou ERA5 | 0.0500 | 0.0175 | 0.0172 | 0.0178 |
+| Pizhou ERA5 | 0.1000 | 0.0378 | 0.0371 | 0.0388 |
+| Pizhou ERA5 | 0.2000 | 0.0919 | 0.0911 | 0.0924 |
+| Pizhou ERA5 | 0.4000 | 0.2196 | 0.2177 | 0.2207 |
+| T07 LiDAR | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| T07 LiDAR | 0.0100 | 0.0038 | 0.0000 | 0.0068 |
+| T07 LiDAR | 0.0500 | 0.0143 | 0.0090 | 0.0180 |
+| T07 LiDAR | 0.1000 | 0.0293 | 0.0225 | 0.0338 |
+| T07 LiDAR | 0.2000 | 0.0796 | 0.0653 | 0.0968 |
+| T07 LiDAR | 0.4000 | 0.2027 | 0.1959 | 0.2072 |
+| T11 LiDAR | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| T11 LiDAR | 0.0100 | 0.0034 | 0.0000 | 0.0056 |
+| T11 LiDAR | 0.0500 | 0.0172 | 0.0150 | 0.0216 |
+| T11 LiDAR | 0.1000 | 0.0420 | 0.0357 | 0.0508 |
+| T11 LiDAR | 0.2000 | 0.0865 | 0.0799 | 0.0902 |
+| T11 LiDAR | 0.4000 | 0.2206 | 0.2124 | 0.2265 |
+| SMARTEOLE | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| SMARTEOLE | 0.0100 | 0.0022 | 0.0021 | 0.0024 |
+| SMARTEOLE | 0.0500 | 0.0097 | 0.0090 | 0.0109 |
+| SMARTEOLE | 0.1000 | 0.0201 | 0.0181 | 0.0216 |
+| SMARTEOLE | 0.2000 | 0.0608 | 0.0573 | 0.0635 |
+| SMARTEOLE | 0.4000 | 0.1836 | 0.1789 | 0.1874 |
+
+### Table S71. Small-amplitude and opposing-extrema strata
+
+Gaussian standard deviation is 0.005 training-production-scale units before shape normalization. Means are over three fixed seeds. NaN denotes an empty stratum, not zero instability. The shape normalizer a and extrema margin m are defined in S24.
+
+| Population | Stratum | Events | Mean flip rate |
+| :-- | :-- | :-- | :-- |
+| Pizhou ERA5 | all | 94534 | 0.0052 |
+| Pizhou ERA5 | extreme gap ge 0.1 | 91325 | 0.0001 |
+| Pizhou ERA5 | extreme gap lt 0.1 | 3209 | 0.1523 |
+| Pizhou ERA5 | normalizer 0.05 0.2 | 33 | 0.1313 |
+| Pizhou ERA5 | normalizer ge 0.2 | 94501 | 0.0052 |
+| Pizhou ERA5 | normalizer lt 0.05 | 0 | nan |
+| T07 LiDAR | all | 444 | 0.0060 |
+| T07 LiDAR | extreme gap ge 0.1 | 429 | 0.0008 |
+| T07 LiDAR | extreme gap lt 0.1 | 15 | 0.1556 |
+| T07 LiDAR | normalizer 0.05 0.2 | 0 | nan |
+| T07 LiDAR | normalizer ge 0.2 | 444 | 0.0060 |
+| T07 LiDAR | normalizer lt 0.05 | 0 | nan |
+| T11 LiDAR | all | 1064 | 0.0060 |
+| T11 LiDAR | extreme gap ge 0.1 | 1025 | 0.0003 |
+| T11 LiDAR | extreme gap lt 0.1 | 39 | 0.1538 |
+| T11 LiDAR | normalizer 0.05 0.2 | 0 | nan |
+| T11 LiDAR | normalizer ge 0.2 | 1064 | 0.0060 |
+| T11 LiDAR | normalizer lt 0.05 | 0 | nan |
+
+### Table S72. Source-separated reference agreement
+
+All panels assess the same 320 windows. Human-only and AI-only sources remain distinct. The mixed-panel presence point estimate exceeds 0.7, but its interval includes lower values; agreement is not annotation accuracy.
+
+| Panel | Target | Reviews | Alpha | Lower | Upper |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| human3 | event presence | 3 | 0.5279 | 0.4553 | 0.5994 |
+| human3 | morphology | 3 | 0.4761 | 0.4257 | 0.5228 |
+| AI7 | event presence | 7 | 0.9582 | 0.9287 | 0.9817 |
+| AI7 | morphology | 7 | 0.9577 | 0.9413 | 0.9727 |
+| mixed10 | event presence | 10 | 0.7067 | 0.6420 | 0.7596 |
+| mixed10 | morphology | 10 | 0.7411 | 0.7150 | 0.7657 |
+
+### Table S73. Pairwise agreement by source combination
+
+Each row summarizes observer-pair fractions of identically labelled assessable windows. Min/max describe pairs rather than confidence bounds.
+
+| Target | Source pair | Pairs | Mean | Minimum | Maximum |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| event presence | AI-AI | 21 | 0.9881 | 0.9812 | 0.9969 |
+| event presence | human-AI | 21 | 0.8289 | 0.7625 | 0.9344 |
+| event presence | human-human | 3 | 0.7958 | 0.7656 | 0.8438 |
+| morphology | AI-AI | 21 | 0.9659 | 0.9531 | 0.9844 |
+| morphology | human-AI | 21 | 0.6403 | 0.6031 | 0.6719 |
+| morphology | human-human | 3 | 0.5594 | 0.4656 | 0.6562 |
+
+### Table S74. Protected anchor sign and scalar endpoint direction
+
+The populations are those included in the representation-noise diagnostic. All retained endpoints in these populations have nonzero direction. The opposing-sign fraction measures coordinate redundancy directly; it is separate from predictive information gain.
+
+| Population | Events | Opposing signs (%) |
+|:--|--:|--:|
+| Hill ERA5 | 79,436 | 8.154 |
+| Pizhou ERA5 | 94,534 | 9.224 |
+| T07 LiDAR | 444 | 6.757 |
+| T11 LiDAR | 1,064 | 7.519 |
+| SMARTEOLE | 13,931 | 2.821 |
+
+
+### Table S75. Unique-interval support for measured-wind reconstruction
+
+Identical turbine/start/end intervals are counted once. Native 10-min and 30-min power tracks share these intervals and wind targets; counts must not be added across tracks. Source periods and context purging are specified in S26.
+
+| Reference | Train | Validation | Test | Seven-day test blocks |
+| :-- | :-- | :-- | :-- | :-- |
+| T11 | 1108 | 689 | 507 | 4 |
+| T07 | 533 | 335 | 170 | 4 |
+| SMARTEOLE | 5025 | 1566 | 449 | 4 |
+
+
+### Table S76. All-event wind-process error reductions
+
+Values are relative RMSE reductions (%) with paired 95% intervals. Same-support comparisons use native 10-min inputs for both arms. The 30-to-10-min contrast includes aggregation and temporal-support changes; it is not a representation-only effect. Counts are given in S75.
+
+| Reference | Comparison | Block days | Reduction [interval] | Blocks |
+| :-- | :-- | :-- | :-- | :-- |
+| T11 | Full curve, same support | 3 | 4.50 [-5.93, 12.59] | 7 |
+| T11 | Full curve, same support | 7 | 4.50 [-3.55, 13.69] | 4 |
+| T11 | Full curve, same support | 14 | 4.50 [-1.89, 16.71] | 3 |
+| T11 | Geometry, same support | 3 | 11.09 [5.21, 19.77] | 7 |
+| T11 | Geometry, same support | 7 | 11.09 [6.21, 19.86] | 4 |
+| T11 | Geometry, same support | 14 | 11.09 [2.91, 24.84] | 3 |
+| T11 | Full curve, 30 to 10 min | 3 | 12.14 [4.73, 23.70] | 7 |
+| T11 | Full curve, 30 to 10 min | 7 | 12.14 [4.98, 22.50] | 4 |
+| T11 | Full curve, 30 to 10 min | 14 | 12.14 [1.93, 30.50] | 3 |
+| T07 | Full curve, same support | 3 | 4.47 [-13.63, 23.37] | 6 |
+| T07 | Full curve, same support | 7 | 4.47 [-1.75, 16.20] | 4 |
+| T07 | Full curve, same support | 14 | 4.47 [2.12, 17.48] | 3 |
+| T07 | Geometry, same support | 3 | 26.94 [16.59, 39.25] | 6 |
+| T07 | Geometry, same support | 7 | 26.94 [17.80, 40.66] | 4 |
+| T07 | Geometry, same support | 14 | 26.94 [10.88, 28.45] | 3 |
+| T07 | Full curve, 30 to 10 min | 3 | 23.36 [10.53, 38.65] | 6 |
+| T07 | Full curve, 30 to 10 min | 7 | 23.36 [15.57, 35.18] | 4 |
+| T07 | Full curve, 30 to 10 min | 14 | 23.36 [22.83, 43.50] | 3 |
+| SMARTEOLE | Full curve, same support | 3 | 1.72 [-0.01, 4.74] | 6 |
+| SMARTEOLE | Full curve, same support | 7 | 1.72 [0.96, 7.90] | 4 |
+| SMARTEOLE | Full curve, same support | 14 | 1.72 [0.96, 3.10] | 2 |
+| SMARTEOLE | Geometry, same support | 3 | 9.58 [8.37, 10.71] | 6 |
+| SMARTEOLE | Geometry, same support | 7 | 9.58 [9.03, 10.76] | 4 |
+| SMARTEOLE | Geometry, same support | 14 | 9.58 [9.08, 10.27] | 2 |
+| SMARTEOLE | Full curve, 30 to 10 min | 3 | 4.22 [-2.20, 11.92] | 6 |
+| SMARTEOLE | Full curve, 30 to 10 min | 7 | 4.22 [-4.91, 18.29] | 4 |
+| SMARTEOLE | Full curve, 30 to 10 min | 14 | 4.22 [0.92, 5.84] | 2 |
+
+
+### Table S77. Power-defined hierarchy and full-wind-trajectory recovery
+
+Compound status comes from power-catalogue membership before wind-outcome evaluation. Group values are relative RMSE reductions (%); their difference is in percentage points (pp). Intervals are paired percentile intervals. The difference row includes both groups in its event count.
+
+| Reference | Population | Events | Days | Gain [interval] | Valid draws |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| T11 | Compound | 165 | 3 | 11.67 [3.99, 20.45] | 2000 |
+| T11 | Primitive only | 342 | 3 | -0.72 [-13.20, 8.92] | 2000 |
+| T11 | Difference (pp) | 507 | 3 | 12.39 [2.65, 22.07] | 2000 |
+| T11 | Compound | 165 | 7 | 11.67 [4.91, 21.43] | 2000 |
+| T11 | Primitive only | 342 | 7 | -0.72 [-9.04, 9.09] | 2000 |
+| T11 | Difference (pp) | 507 | 7 | 12.39 [4.80, 20.44] | 2000 |
+| T11 | Compound | 165 | 14 | 11.67 [5.55, 27.01] | 2000 |
+| T11 | Primitive only | 342 | 14 | -0.72 [-6.03, 10.57] | 2000 |
+| T11 | Difference (pp) | 507 | 14 | 12.39 [1.72, 22.99] | 2000 |
+| T07 | Compound | 38 | 3 | 24.45 [12.51, 35.85] | 2000 |
+| T07 | Primitive only | 132 | 3 | -1.30 [-17.15, 22.29] | 2000 |
+| T07 | Difference (pp) | 170 | 3 | 25.75 [3.79, 43.57] | 2000 |
+| T07 | Compound | 38 | 7 | 24.45 [16.78, 41.87] | 2000 |
+| T07 | Primitive only | 132 | 7 | -1.30 [-5.90, 5.22] | 2000 |
+| T07 | Difference (pp) | 170 | 7 | 25.75 [20.01, 38.04] | 2000 |
+| T07 | Compound | 38 | 14 | 24.45 [18.94, 43.02] | 2000 |
+| T07 | Primitive only | 132 | 14 | -1.30 [-22.35, 5.82] | 2000 |
+| T07 | Difference (pp) | 170 | 14 | 25.75 [21.10, 55.77] | 2000 |
+| SMARTEOLE | Compound | 42 | 3 | 5.81 [-11.80, 7.32] | 1999 |
+| SMARTEOLE | Primitive only | 407 | 3 | 1.40 [-0.47, 5.07] | 2000 |
+| SMARTEOLE | Difference (pp) | 449 | 3 | 4.41 [-16.93, 7.63] | 1999 |
+| SMARTEOLE | Compound | 42 | 7 | 5.81 [-9.94, 7.27] | 1990 |
+| SMARTEOLE | Primitive only | 407 | 7 | 1.40 [0.43, 9.59] | 2000 |
+| SMARTEOLE | Difference (pp) | 449 | 7 | 4.41 [-19.53, 6.84] | 1990 |
+| SMARTEOLE | Compound | 42 | 14 | 5.81 [5.51, 6.91] | 2000 |
+| SMARTEOLE | Primitive only | 407 | 14 | 1.40 [0.81, 2.64] | 2000 |
+| SMARTEOLE | Difference (pp) | 449 | 14 | 4.41 [2.87, 6.09] | 2000 |
+
+
+### Table S78. Common-duration standardization of the full-trajectory contrast
+
+Identical duration-stratum mass is assigned to both groups using power-only support. Values are relative reductions (%) or compound-minus-primitive percentage points. Shared-duration counts and all geometry contrasts are retained in the accompanying CSVs.
+
+| Reference | Population | Days | Gain [interval] |
+| :-- | :-- | :-- | :-- |
+| T11 | Compound | 3 | 11.66 [3.96, 20.47] |
+| T11 | Primitive only | 3 | 1.01 [-12.94, 12.21] |
+| T11 | Difference (pp) | 3 | 10.65 [-0.50, 20.91] |
+| T11 | Compound | 7 | 11.66 [4.84, 21.52] |
+| T11 | Primitive only | 7 | 1.01 [-8.58, 12.11] |
+| T11 | Difference (pp) | 7 | 10.65 [1.49, 17.98] |
+| T11 | Compound | 14 | 11.66 [5.36, 26.96] |
+| T11 | Primitive only | 14 | 1.01 [-5.45, 14.12] |
+| T11 | Difference (pp) | 14 | 10.65 [-1.62, 19.06] |
+| T07 | Compound | 3 | 24.45 [12.51, 35.85] |
+| T07 | Primitive only | 3 | -3.71 [-23.50, 25.57] |
+| T07 | Difference (pp) | 3 | 28.16 [0.91, 46.27] |
+| T07 | Compound | 7 | 24.45 [16.78, 41.87] |
+| T07 | Primitive only | 7 | -3.71 [-12.27, 20.71] |
+| T07 | Difference (pp) | 7 | 28.16 [19.74, 33.88] |
+| T07 | Compound | 14 | 24.45 [18.94, 43.02] |
+| T07 | Primitive only | 14 | -3.71 [-6.16, 22.48] |
+| T07 | Difference (pp) | 14 | 28.16 [20.54, 39.58] |
+| SMARTEOLE | Compound | 3 | 5.81 [-11.80, 7.32] |
+| SMARTEOLE | Primitive only | 3 | 0.40 [-2.43, 4.92] |
+| SMARTEOLE | Difference (pp) | 3 | 5.41 [-16.47, 9.21] |
+| SMARTEOLE | Compound | 7 | 5.81 [-9.94, 7.27] |
+| SMARTEOLE | Primitive only | 7 | 0.40 [-0.58, 10.85] |
+| SMARTEOLE | Difference (pp) | 7 | 5.41 [-20.79, 7.57] |
+| SMARTEOLE | Compound | 14 | 5.81 [5.51, 6.91] |
+| SMARTEOLE | Primitive only | 14 | 0.40 [-0.58, 2.41] |
+| SMARTEOLE | Difference (pp) | 14 | 5.41 [3.10, 7.49] |
+
+
+### Table S79. Ordered-correspondence controls for internal wind geometry
+
+Errors are in m/s. Clean and perturbed inputs share the frozen model, scalar descriptors and endpoints. The perturbed value is the mean of seeds 101/202/303; the range describes these seeds, not sampling uncertainty.
+
+| Reference | Control | Clean RMSE | Perturbed RMSE | Seed range |
+| :-- | :-- | :-- | :-- | :-- |
+| T11 | Interior order shuffled | 1.0518 | 1.6119 | 1.6100–1.6153 |
+| T11 | Residual reassigned | 1.0518 | 1.8362 | 1.7942–1.8699 |
+| T07 | Interior order shuffled | 0.6147 | 1.4367 | 1.3929–1.4777 |
+| T07 | Residual reassigned | 0.6147 | 1.5024 | 1.4939–1.5157 |
+| SMARTEOLE | Interior order shuffled | 0.7838 | 1.1628 | 1.1466–1.1715 |
+| SMARTEOLE | Residual reassigned | 0.7838 | 1.0972 | 1.0897–1.1100 |
+
+
+### Table S80. Auxiliary recovery of measured return processes
+
+Classes are derived from reconstructed curves at the fixed 1.5-m/s threshold, not fitted as a separate classifier. Actual return counts are 330/507 at T11, 87/170 at T07 and 194/449 at SMARTEOLE. The always-return comparator illustrates F1's prevalence dependence; precision and recall are therefore shown together. Paired intervals, AUROC and average precision are retained in process_class_intervals.csv and primary_results.csv.
+
+| Reference | Prediction | Events | Precision | Recall | F1 |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| T11 | Scalar control | 507 | 0.947 | 0.379 | 0.541 |
+| T11 | Ordered trajectory | 507 | 0.937 | 0.633 | 0.756 |
+| T11 | Always return | 507 | 0.651 | 1.000 | 0.789 |
+| T07 | Scalar control | 170 | 0.969 | 0.356 | 0.521 |
+| T07 | Ordered trajectory | 170 | 0.968 | 0.690 | 0.805 |
+| T07 | Always return | 170 | 0.512 | 1.000 | 0.677 |
+| SMARTEOLE | Scalar control | 449 | 1.000 | 0.082 | 0.152 |
+| SMARTEOLE | Ordered trajectory | 449 | 0.909 | 0.206 | 0.336 |
+| SMARTEOLE | Always return | 449 | 0.432 | 1.000 | 0.603 |

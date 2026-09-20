@@ -1,0 +1,7 @@
+dataset,events,train,validation,test,composite_backed,verification
+lidar_T11,2304,1108,689,507,641,PASS
+lidar_T11_native10,2304,1108,689,507,641,PASS
+lidar_T07,1038,533,335,170,275,PASS
+lidar_T07_native10,1038,533,335,170,275,PASS
+smarteole,7040,5025,1566,449,1056,PASS
+smarteole_native10,7040,5025,1566,449,1056,PASS

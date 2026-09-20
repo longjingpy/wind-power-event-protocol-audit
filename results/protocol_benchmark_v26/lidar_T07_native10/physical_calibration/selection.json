@@ -1,0 +1,94 @@
+{
+  "status": "FROZEN_VALIDATION_ONLY",
+  "selected": [
+    {
+      "arm": "scalar19",
+      "validation_mse": 1.3793533334168648,
+      "candidate": 4,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": 12,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "scalar27",
+      "validation_mse": 1.3607310096417458,
+      "candidate": 5,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": null,
+        "trees": 192
+      }
+    },
+    {
+      "arm": "normalized_raw25",
+      "validation_mse": 0.9350082939733138,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "level_delta17",
+      "validation_mse": 0.9051585986465637,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "cube_delta17",
+      "validation_mse": 1.0095061322552297,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "cube_delta25",
+      "validation_mse": 1.0197342183031695,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "cube_pca6",
+      "validation_mse": 1.1565493056661826,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "scale_gadf6",
+      "validation_mse": 0.9860224413948715,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    },
+    {
+      "arm": "scale_phase12",
+      "validation_mse": 0.9199678321815301,
+      "candidate": 2,
+      "config": {
+        "family": "ridge",
+        "alpha": 10.0
+      }
+    }
+  ],
+  "baseline": "scalar27",
+  "primary_representation": "level_delta17",
+  "revision": "Added after first encoding-only validation, before any v26 test was opened",
+  "all_targets": "independent measured wind trajectories; no inferred-wind ground truth"
+}

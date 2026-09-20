@@ -85,7 +85,18 @@ def main() -> None:
     )
     conversion = remove_longtable_preamble_blank_lines(conversion)
     conversion = make_long_paths_breakable(conversion)
-    for number in [59, 62]:
+    conversion = re.sub(r'The complete thirteen arms.*?(?=\n\n)',
+                        lambda m: m.group(0).replace(r'\_', r'\_\allowbreak{}'),
+                        conversion, flags=re.DOTALL)
+    conversion = re.sub(r'The data interface is prepared by.*?(?=\n\n)',
+                        lambda m: m.group(0).replace(r'\_', r'\_\allowbreak{}'),
+                        conversion, flags=re.DOTALL)
+    conversion = re.sub(
+        r'(\\subsubsection\{Table S(?:75|76|77|78|79|80)\..*?)(\\begin\{longtable\}.*?\\end\{longtable\})',
+        lambda m: m.group(1) + r'\begingroup\AtBeginEnvironment{longtable}{\footnotesize}'
+        + r'\setlength{\tabcolsep}{3pt}' + '\n' + m.group(2) + '\n' + r'\endgroup',
+        conversion, flags=re.DOTALL)
+    for number in [59, 62, 75, 76, 77, 78, 79, 80]:
         heading = r'\subsubsection{Table S' + str(number) + '.'
         conversion = conversion.replace(heading, r'\Needspace{17\baselineskip}' + heading)
     conversion = conversion.replace(r'\begin{figure}', r'\begin{figure}[H]')

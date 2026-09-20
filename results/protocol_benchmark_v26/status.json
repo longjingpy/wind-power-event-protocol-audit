@@ -1,0 +1,8 @@
+{
+  "status": "COMPLETE_FROZEN_CHOICES_ALL_REPORTED",
+  "primary_practical_gate_pct": 10,
+  "same_resolution_full_curve_gate_count": 0,
+  "total_populations": 3,
+  "higher_secondary_geometry_gain": "reported separately; not substituted for the full-curve primary endpoint",
+  "no_new_human_or_AI_ratings": true
+}

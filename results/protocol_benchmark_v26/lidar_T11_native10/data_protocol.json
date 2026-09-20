@@ -1,0 +1,52 @@
+{
+  "status": "PREPARED_NO_MODEL_RESULTS",
+  "dataset": "lidar_T11_native10",
+  "rows": 2304,
+  "split_counts": {
+    "train": 1108,
+    "validation": 689,
+    "test": 507
+  },
+  "train_end": "2026-03-14 00:00:00+00:00",
+  "validation_end": "2026-04-07 00:00:00+00:00",
+  "scalar_columns": [
+    "direction",
+    "amplitude",
+    "duration_hours",
+    "power_start",
+    "pre_mean",
+    "power_range",
+    "total_variation",
+    "max_abs_rate_per_hour",
+    "max_abs_chord_residual",
+    "curvature_l1",
+    "post_mean",
+    "shape_normalizer",
+    "min_phase",
+    "max_phase",
+    "internal_mean",
+    "internal_std",
+    "positive_chord",
+    "negative_chord",
+    "chord_extreme_phase"
+  ],
+  "matched": true,
+  "population": "unique turbine/start/end intervals; primitive and composite eligible",
+  "duration_minutes": [
+    60,
+    240
+  ],
+  "wind_native_minutes": 10,
+  "target_points": 17,
+  "weather_QC": "continuous valid support; WindCube ten-minute mean requires >=8 minute values",
+  "context_purge": "start minus 120min and end plus150min fit one split",
+  "task": "retrospective measured-wind trajectory reconstruction, not an issued weather forecast",
+  "parent_dataset": "lidar_T11",
+  "parent_rows": 2304,
+  "input_power_minutes": 10,
+  "detector_boundary_minutes": 30,
+  "unchanged_event_ids": true,
+  "excluded_missing_native_power": 0,
+  "scalar_resolution": "same native10 observations as the shape inputs",
+  "relative_clock": "Hill SCADA interval-end shifted to start as in the parent track; Wind10 primary clock unchanged"
+}

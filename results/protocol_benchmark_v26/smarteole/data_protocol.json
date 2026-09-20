@@ -1,0 +1,44 @@
+{
+  "status": "PREPARED_NO_MODEL_RESULTS",
+  "dataset": "smarteole",
+  "rows": 7040,
+  "split_counts": {
+    "train": 5025,
+    "validation": 1566,
+    "test": 449
+  },
+  "train_end": "2020-04-16 01:48:00+00:00",
+  "validation_end": "2020-05-05 12:54:00+00:00",
+  "scalar_columns": [
+    "direction",
+    "amplitude",
+    "duration_hours",
+    "power_start",
+    "pre_mean",
+    "power_range",
+    "total_variation",
+    "max_abs_rate_per_hour",
+    "max_abs_chord_residual",
+    "curvature_l1",
+    "post_mean",
+    "shape_normalizer",
+    "min_phase",
+    "max_phase",
+    "internal_mean",
+    "internal_std",
+    "positive_chord",
+    "negative_chord",
+    "chord_extreme_phase"
+  ],
+  "matched": true,
+  "population": "unique turbine/start/end intervals; primitive and composite eligible",
+  "duration_minutes": [
+    60,
+    240
+  ],
+  "wind_native_minutes": 10,
+  "target_points": 17,
+  "weather_QC": "continuous valid support; WindCube ten-minute mean requires >=8 minute values",
+  "context_purge": "start minus 120min and end plus150min fit one split",
+  "task": "retrospective measured-wind trajectory reconstruction, not an issued weather forecast"
+}

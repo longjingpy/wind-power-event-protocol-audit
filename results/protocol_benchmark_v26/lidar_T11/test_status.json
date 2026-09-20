@@ -1,0 +1,8 @@
+{
+  "status": "COMPLETE_ALL_LOCKED_ARMS",
+  "events": 507,
+  "primary": "phase_protected12",
+  "baseline": "scalar19",
+  "none_hidden": true,
+  "scope": "new trajectory task on previously studied periods"
+}

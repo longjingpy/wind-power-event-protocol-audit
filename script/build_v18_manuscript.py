@@ -99,6 +99,10 @@ def main() -> None:
     conversion = normalize_newlines(conversion)
     def format_policy_table(match):
         chunk = match.group(0)
+        if 'Compound RMSE reduction' in chunk:
+            widths = iter(['0.20', '0.10', '0.35', '0.35'])
+            chunk = re.sub(r'\\real\{0\.2500\}', lambda _: r'\real{' + next(widths) + '}', chunk, count=4)
+            return '\\begingroup\\small\n' + chunk + '\n\\endgroup'
         if 'Accuracy charge (CNY)' not in chunk:
             return chunk
         widths = iter(['0.10', '0.30', '0.13', '0.25', '0.22'])
@@ -156,7 +160,7 @@ def main() -> None:
 \setlength{\emergencystretch}{3em}
 \setlength{\intextsep}{10pt plus 2pt minus 2pt}
 \makeatletter
-\def\ps@pprintTitle{\let\@oddhead\@empty\let\@evenhead\@empty\def\@oddfoot{\footnotesize\itshape Working manuscript, v24\hfill\today}\let\@evenfoot\@oddfoot}
+\def\ps@pprintTitle{\let\@oddhead\@empty\let\@evenhead\@empty\def\@oddfoot{\footnotesize\itshape Working manuscript, v26\hfill\today}\let\@evenfoot\@oddfoot}
 \makeatother
 \begin{document}
 \begin{frontmatter}

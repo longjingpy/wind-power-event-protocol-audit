@@ -1,0 +1,137 @@
+{
+  "status": "FROZEN_VALIDATION_ONLY",
+  "dataset": "lidar_T07",
+  "primary_task": "event-mean squared error of 16 wind-change samples",
+  "baseline": "scalar19",
+  "primary_representation": "gadf6",
+  "selected": [
+    {
+      "arm": "scalar5",
+      "candidate": 5,
+      "validation_mse": 2.5027542213392686,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": null,
+        "trees": 192
+      },
+      "features": 5
+    },
+    {
+      "arm": "scalar19",
+      "candidate": 0,
+      "validation_mse": 1.8550041809324394,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 19
+    },
+    {
+      "arm": "raw25",
+      "candidate": 1,
+      "validation_mse": 1.4657853907852183,
+      "config": {
+        "family": "ridge",
+        "alpha": 1.0
+      },
+      "features": 44
+    },
+    {
+      "arm": "raw_pca6",
+      "candidate": 0,
+      "validation_mse": 1.5486442985750672,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 25
+    },
+    {
+      "arm": "raw_pca12",
+      "candidate": 0,
+      "validation_mse": 1.4863069964301407,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 31
+    },
+    {
+      "arm": "gaf6",
+      "candidate": 5,
+      "validation_mse": 1.8655257520108888,
+      "config": {
+        "family": "extra",
+        "leaf": 4,
+        "depth": null,
+        "trees": 192
+      },
+      "features": 25
+    },
+    {
+      "arm": "gaf5_bit",
+      "candidate": 0,
+      "validation_mse": 1.8788106849665775,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 25
+    },
+    {
+      "arm": "gadf6",
+      "candidate": 0,
+      "validation_mse": 1.4919868838422248,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 25
+    },
+    {
+      "arm": "dual_gaf6",
+      "candidate": 0,
+      "validation_mse": 1.6772407395262992,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 25
+    },
+    {
+      "arm": "balanced_signed6",
+      "candidate": 0,
+      "validation_mse": 1.6987891344495765,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 25
+    },
+    {
+      "arm": "phase_protected6",
+      "candidate": 0,
+      "validation_mse": 1.6311295408733428,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 25
+    },
+    {
+      "arm": "phase_protected12",
+      "candidate": 0,
+      "validation_mse": 1.5619273523345467,
+      "config": {
+        "family": "ridge",
+        "alpha": 0.1
+      },
+      "features": 31
+    }
+  ],
+  "candidate_count": 96,
+  "test_seen_in_prior_tasks": true,
+  "new_task_identity": "EXPLORATORY_CHRONOLOGICAL_PROCESS_RECONSTRUCTION",
+  "practical_target": "at least 10% RMSE improvement over strong scalar controls; not enforced by outcome selection"
+}

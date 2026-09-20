@@ -1,0 +1,5 @@
+{
+  "baseline": "scalar27",
+  "primary": "cube_delta25",
+  "selection_basis": "validation MSE only, including matched scalar residual control"
+}

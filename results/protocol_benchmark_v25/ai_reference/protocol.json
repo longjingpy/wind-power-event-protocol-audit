@@ -1,0 +1,90 @@
+{
+  "status": "COMPLETE_7_ACTUAL_AI_REVIEWS_PLUS_3_HUMANS",
+  "planned_ai_sessions": 7,
+  "completed_ai_sessions": 7,
+  "human_observers": 3,
+  "AI_votes": 2240,
+  "human_votes": 960,
+  "unique_windows": 320,
+  "roster_change": "user reduced 17 to 7 before computing any new panel alpha",
+  "unused_prepared_inputs": "A08-A17; no reviews executed",
+  "sampling": "existing stratified/random selected-window cohort; random presentation is not random human sampling",
+  "category_aliases": {
+    "valley": "v_shape",
+    "peak": "inverted_v",
+    "data_issue": "bad_data"
+  },
+  "interpretation": "alpha measures agreement within the named fixed panel; mixed10 is not 10 human raters",
+  "AI_provenance": [
+    {
+      "rater_id": "AI_A01",
+      "source_type": "AI",
+      "windows": 320,
+      "runtime": "independent Codex collaboration subagent; inherited configuration",
+      "model_version": "not exposed by collaboration tool; not inferred",
+      "task_name": "/root/ai_review_a01",
+      "input": "outputs/protocol_benchmark_v25/ai_reference/A01/input.txt",
+      "answers": "outputs/protocol_benchmark_v25/ai_reference/A01/labels.csv"
+    },
+    {
+      "rater_id": "AI_A02",
+      "source_type": "AI",
+      "windows": 320,
+      "runtime": "independent Codex collaboration subagent; inherited configuration",
+      "model_version": "not exposed by collaboration tool; not inferred",
+      "task_name": "/root/ai_review_a02",
+      "input": "outputs/protocol_benchmark_v25/ai_reference/A02/input.txt",
+      "answers": "outputs/protocol_benchmark_v25/ai_reference/A02/labels.csv"
+    },
+    {
+      "rater_id": "AI_A03",
+      "source_type": "AI",
+      "windows": 320,
+      "runtime": "independent Codex collaboration subagent; inherited configuration",
+      "model_version": "not exposed by collaboration tool; not inferred",
+      "task_name": "/root/ai_review_a03",
+      "input": "outputs/protocol_benchmark_v25/ai_reference/A03/input.txt",
+      "answers": "outputs/protocol_benchmark_v25/ai_reference/A03/labels.csv"
+    },
+    {
+      "rater_id": "AI_A04",
+      "source_type": "AI",
+      "windows": 320,
+      "runtime": "independent Codex collaboration subagent; inherited configuration",
+      "model_version": "not exposed by collaboration tool; not inferred",
+      "task_name": "/root/ai_review_a04",
+      "input": "outputs/protocol_benchmark_v25/ai_reference/A04/input.txt",
+      "answers": "outputs/protocol_benchmark_v25/ai_reference/A04/labels.csv"
+    },
+    {
+      "rater_id": "AI_A05",
+      "source_type": "AI",
+      "windows": 320,
+      "runtime": "independent Codex collaboration subagent; inherited configuration",
+      "model_version": "not exposed by collaboration tool; not inferred",
+      "task_name": "/root/ai_review_a05",
+      "input": "outputs/protocol_benchmark_v25/ai_reference/A05/input.txt",
+      "answers": "outputs/protocol_benchmark_v25/ai_reference/A05/labels.csv"
+    },
+    {
+      "rater_id": "AI_A06",
+      "source_type": "AI",
+      "windows": 320,
+      "runtime": "independent Codex collaboration subagent; inherited configuration",
+      "model_version": "not exposed by collaboration tool; not inferred",
+      "task_name": "/root/ai_review_a06",
+      "input": "outputs/protocol_benchmark_v25/ai_reference/A06/input.txt",
+      "answers": "outputs/protocol_benchmark_v25/ai_reference/A06/labels.csv"
+    },
+    {
+      "rater_id": "AI_A07",
+      "source_type": "AI",
+      "windows": 320,
+      "runtime": "independent Codex collaboration subagent; inherited configuration",
+      "model_version": "not exposed by collaboration tool; not inferred",
+      "task_name": "/root/ai_review_a07",
+      "input": "outputs/protocol_benchmark_v25/ai_reference/A07/input.txt",
+      "answers": "outputs/protocol_benchmark_v25/ai_reference/A07/labels.csv"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "status": "LOCKED_BEFORE_V26_TEST",
+  "choices": [
+    {
+      "source": "lidar_T07",
+      "scope": "native10",
+      "baseline": {
+        "source": "lidar_T07",
+        "dataset": "lidar_T07_native10",
+        "power_minutes": 10,
+        "track": "residual",
+        "arm": "residual_scalar27",
+        "validation_mse": 1.2431230426408195,
+        "scalar_only": true
+      },
+      "pipeline": {
+        "source": "lidar_T07",
+        "dataset": "lidar_T07_native10",
+        "power_minutes": 10,
+        "track": "physical",
+        "arm": "level_delta17",
+        "validation_mse": 0.9051585986465637,
+        "scalar_only": false
+      },
+      "validation_rmse_reduction_pct": 14.669305099995068
+    },
+    {
+      "source": "lidar_T07",
+      "scope": "across_resolution",
+      "baseline": {
+        "source": "lidar_T07",
+        "dataset": "lidar_T07_native10",
+        "power_minutes": 10,
+        "track": "residual",
+        "arm": "residual_scalar27",
+        "validation_mse": 1.2431230426408195,
+        "scalar_only": true
+      },
+      "pipeline": {
+        "source": "lidar_T07",
+        "dataset": "lidar_T07_native10",
+        "power_minutes": 10,
+        "track": "physical",
+        "arm": "level_delta17",
+        "validation_mse": 0.9051585986465637,
+        "scalar_only": false
+      },
+      "validation_rmse_reduction_pct": 14.669305099995068
+    },
+    {
+      "source": "lidar_T11",
+      "scope": "native10",
+      "baseline": {
+        "source": "lidar_T11",
+        "dataset": "lidar_T11_native10",
+        "power_minutes": 10,
+        "track": "residual",
+        "arm": "residual_scalar27",
+        "validation_mse": 1.4171220852474808,
+        "scalar_only": true
+      },
+      "pipeline": {
+        "source": "lidar_T11",
+        "dataset": "lidar_T11_native10",
+        "power_minutes": 10,
+        "track": "physical",
+        "arm": "level_delta17",
+        "validation_mse": 1.123248332800544,
+        "scalar_only": false
+      },
+      "validation_rmse_reduction_pct": 10.970433621270825
+    },
+    {
+      "source": "lidar_T11",
+      "scope": "across_resolution",
+      "baseline": {
+        "source": "lidar_T11",
+        "dataset": "lidar_T11_native10",
+        "power_minutes": 10,
+        "track": "residual",
+        "arm": "residual_scalar27",
+        "validation_mse": 1.4171220852474808,
+        "scalar_only": true
+      },
+      "pipeline": {
+        "source": "lidar_T11",
+        "dataset": "lidar_T11_native10",
+        "power_minutes": 10,
+        "track": "physical",
+        "arm": "level_delta17",
+        "validation_mse": 1.123248332800544,
+        "scalar_only": false
+      },
+      "validation_rmse_reduction_pct": 10.970433621270825
+    },
+    {
+      "source": "smarteole",
+      "scope": "native10",
+      "baseline": {
+        "source": "smarteole",
+        "dataset": "smarteole_native10",
+        "power_minutes": 10,
+        "track": "encoding",
+        "arm": "scalar19",
+        "validation_mse": 1.3780869478793025,
+        "scalar_only": true
+      },
+      "pipeline": {
+        "source": "smarteole",
+        "dataset": "smarteole_native10",
+        "power_minutes": 10,
+        "track": "physical",
+        "arm": "level_delta17",
+        "validation_mse": 1.1430468695117173,
+        "scalar_only": false
+      },
+      "validation_rmse_reduction_pct": 8.926147168911614
+    },
+    {
+      "source": "smarteole",
+      "scope": "across_resolution",
+      "baseline": {
+        "source": "smarteole",
+        "dataset": "smarteole_native10",
+        "power_minutes": 10,
+        "track": "encoding",
+        "arm": "scalar19",
+        "validation_mse": 1.3780869478793025,
+        "scalar_only": true
+      },
+      "pipeline": {
+        "source": "smarteole",
+        "dataset": "smarteole_native10",
+        "power_minutes": 10,
+        "track": "physical",
+        "arm": "level_delta17",
+        "validation_mse": 1.1430468695117173,
+        "scalar_only": false
+      },
+      "validation_rmse_reduction_pct": 8.926147168911614
+    }
+  ],
+  "selection": "minimum validation wind-trajectory MSE only; all feature families retained",
+  "endpoint_history": "previous endpoint tasks had used these calendars; this new task is exploratory",
+  "primary_comparison": "same-resolution native10, with all scalar/correction controls eligible",
+  "secondary_comparison": "validation selection across 10/30min using identical targets",
+  "practical_gate_pct": 10,
+  "all_test_results_required": true
+}
