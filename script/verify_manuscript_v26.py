@@ -20,10 +20,13 @@ assert abstract == front["abstract"]
 assert 150 <= len(abstract.split()) <= 200
 assert "among matched, encodable events" in abstract
 assert supp.startswith(methods.rstrip())
-assert len(re.findall(r"^### Table S\d+\.", supp, re.M)) == 81
+assert len(re.findall(r"^### Table S\d+\.", supp, re.M)) == 83
 assert len(re.findall(r"^## S\d+\.", methods, re.M)) == 26
 assert "### 2.8. Linking" in body and "Section 2.8" in body
 assert "#### Complete wind-process reconstruction" in body
+assert all(("Table " + str(n) + ".") in body for n in range(1, 5))
+assert "figures_v26/fig13_physical_process.pdf" in body
+assert "figures_v26/fig07_polarity_mechanism.pdf" in body
 assert "18.22%" in body and "seven AI review sessions" in body
 assert "ten human respondents" in supp
 assert not any(ord(c) < 32 and c not in "\n\t" for c in body + supp)
@@ -53,7 +56,8 @@ for name, text, build in [("main", body, "v19_manuscript_build"),
             "Duration alone", "Complete wind-process", "S26.", "Table S75.",
             "Table S76.", "Table S77.", "Table S78.", "Table S79.", "Table S80.",
             "Decoder selection", "Paired uncertainty", "Reproduction and result",
-            "This study establishes", "Limitations and scope", "v18–v26"]
+            "This study establishes", "Limitations and scope", "v18–v26",
+            "Table S81.", "Table S82.", "leave_out_1"]
     for i, page in enumerate(pdf):
         content = page.get_text()
         if i == 0 or any(s in content for s in hits):
@@ -63,12 +67,14 @@ for name, text, build in [("main", body, "v19_manuscript_build"),
     assert "??" not in extracted
     log = (ROOT / "temp" / build / f"{name}.log").read_text(errors="replace")
     assert not re.search(r"There were undefined references|Citation .* undefined|Float too large", log)
+    assert "Missing character:" not in log
     boxes = [float(x) for x in re.findall(r"Overfull \\hbox \(([0-9.]+)pt", log)]
+    assert max(boxes, default=0) < 1, (name, max(boxes, default=0))
     assert max(boxes, default=0) < 1, (name, boxes)
     reports.append({"document": name, "pages": len(pdf), "review_pages": rendered,
                     "max_overfull_pt": max(boxes, default=0)})
 record = {"status": "CONTENT_ASSETS_PASS_VISUAL_PENDING",
-          "abstract_words": len(abstract.split()), "supplementary_tables": 81,
+          "abstract_words": len(abstract.split()), "supplementary_tables": 83,
           "supplementary_methods": 26, "main_figures": 13, "documents": reports}
 (OUT / "report.json").write_text(json.dumps(record, indent=2))
 print(json.dumps(record, indent=2))

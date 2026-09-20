@@ -41,7 +41,7 @@ def main(version=23):
             if (source / name).exists():
                 copy(source / name, DEST / name)
                 copy(source / name, PUBLIC / 'manuscript/applied_energy' / name)
-    for dirname in ['figures_v22', 'figures_v23'] + (['figures_v24'] if version >= 24 else []):
+    for dirname in ['figures_v22', 'figures_v23'] + (['figures_v24'] if version >= 24 else []) + (['figures_v26'] if version >= 26 else []):
         for source in (ROOT / 'manuscript' / dirname).iterdir():
             if source.is_file() and source.suffix in ['.pdf', '.svg', '.png', '.csv', '.drawio', '.md']:
                 copy(source, PUBLIC / 'manuscript' / dirname / source.name)
@@ -110,7 +110,7 @@ def main(version=23):
                  'freeze_process_v26.py', 'summarize_process_v26.py',
                  'process_controls_v26.py', 'process_hierarchy_v26.py',
                  'process_duration_control_v26.py', 'verify_process_v26.py',
-                 'verify_manuscript_v26.py']
+                 'verify_manuscript_v26.py', 'summarize_manuscript_v26.py']
         for name in names:
             copy(ROOT / 'script' / name, PUBLIC / 'script' / name)
         for name in ['test_process_encoding_v26.py', 'test_process_targets_v26.py']:
@@ -124,6 +124,10 @@ def main(version=23):
                 relative = source.relative_to(ROOT / 'outputs')
                 copy(source, PUBLIC / 'results' / relative)
                 copy(source, DEST / 'result_tables' / relative)
+        for source in (ROOT / 'manuscript/figures_v26').glob('*'):
+            if source.is_file() and source.suffix in ['.csv', '.pdf', '.svg', '.png']:
+                copy(source, DEST / 'figures_v26' / source.name)
+                copy(source, PUBLIC / 'manuscript/figures_v26' / source.name)
     readme = '''# Current manuscript source packet (v23)
 
 The canonical manuscript is main.pdf, with the complete supplementary.pdf.

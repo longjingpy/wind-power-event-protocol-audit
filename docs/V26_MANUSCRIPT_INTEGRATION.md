@@ -42,6 +42,21 @@ population occupies four seven-day blocks. This retrospective task uses complete
 event contexts, distinct from the issue-time economic experiment. These distinctions
 are preserved without treating them as the organizing story.
 
+## Deterministic manuscript summaries
+
+The integration adds no fitted model or new data source. The completed-output
+summary script writes block_diagnostics.csv, reconstruction_matrix.csv,
+reconstruction_examples.csv and conditional_information_summary.csv.
+figures_v26/fig07_polarity_mechanism.* combines the polarity path and its
+identical angular field. figures_v26/fig13_physical_process.* displays
+representative measured/reconstructed trajectories and absolute RMSE by the
+power-defined hierarchy. Tables S81 and S82 expose the implemented
+pre-window-power conditioning and the four-block/leave-one-block-out diagnostics.
+
+The received three-observer detector reference is regenerated from the existing
+ratings and detector outputs; Tables S45 and S46 now contain all three observers.
+No new annotation was collected.
+
 ## Verification
 
 Run script/verify_manuscript_v26.py after both PDF builds. It checks table counts,

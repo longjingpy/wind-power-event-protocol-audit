@@ -26,7 +26,15 @@
     <mxCell id="detector_heading" value="1  Detection" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#173C4D;" parent="1" vertex="1">
      <mxGeometry x="27" y="222" width="231" height="28" as="geometry" />
     </mxCell>
-    <mxCell id="detector_body" value="Ramps · V / inverted V" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;fontColor=#355560;" parent="1" vertex="1">
+    <mxCell id="detector_body" value="Ramps · V / inverted V
+60–240 min
+60–240 min
+60–240 min
+60–240 min
+60–240 min
+60–240 min
+60–240 min
+60–240 min" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;fontColor=#355560;" parent="1" vertex="1">
      <mxGeometry x="26" y="292" width="233" height="25" as="geometry" />
     </mxCell>
     <mxCell id="matching" value="" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=0;fillColor=#DCEEF0;strokeColor=none;" parent="1" vertex="1">
@@ -35,7 +43,15 @@
     <mxCell id="matching_heading" value="2  Correspondence" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#173C4D;" parent="1" vertex="1">
      <mxGeometry x="324.5" y="222" width="231" height="28" as="geometry" />
     </mxCell>
-    <mxCell id="matching_body" value="One-to-one + overlap graph" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;fontColor=#355560;" parent="1" vertex="1">
+    <mxCell id="matching_body" value="One-to-one + overlap graph
+IoU · coverage
+IoU · coverage
+IoU · coverage
+IoU · coverage
+IoU · coverage
+IoU · coverage
+IoU · coverage
+IoU · coverage" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;fontColor=#355560;" parent="1" vertex="1">
      <mxGeometry x="323.5" y="292" width="233" height="25" as="geometry" />
     </mxCell>
     <mxCell id="representation" value="" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=0;fillColor=#DCEEF0;strokeColor=none;" parent="1" vertex="1">
@@ -44,7 +60,15 @@
     <mxCell id="representation_heading" value="3  Representation" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#173C4D;" parent="1" vertex="1">
      <mxGeometry x="622" y="222" width="231" height="28" as="geometry" />
     </mxCell>
-    <mxCell id="representation_body" value="Raw · PCA · angular + sign" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;fontColor=#355560;" parent="1" vertex="1">
+    <mxCell id="representation_body" value="Raw · PCA · angular + sign
+Scale-aware trajectories
+Scale-aware trajectories
+Scale-aware trajectories
+Scale-aware trajectories
+Scale-aware trajectories
+Scale-aware trajectories
+Scale-aware trajectories
+Scale-aware trajectories" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;fontColor=#355560;" parent="1" vertex="1">
      <mxGeometry x="621" y="292" width="233" height="25" as="geometry" />
     </mxCell>
     <mxCell id="rise_icon" edge="1" parent="1" style="edgeStyle=none;endArrow=none;strokeColor=#277E87;strokeWidth=2;">
@@ -178,7 +202,7 @@
     <mxCell id="structure_head" value="Structural survival" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#173C4D;" parent="1" vertex="1">
      <mxGeometry x="25" y="451" width="235" height="30" as="geometry" />
     </mxCell>
-    <mxCell id="structure_detail" value="ARI · NMI · coverage&#10;Split / merge composition" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;" parent="1" vertex="1">
+    <mxCell id="structure_detail" value="ARI · NMI · coverage&#10;Split / merge · composite" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;" parent="1" vertex="1">
      <mxGeometry x="24" y="481" width="237" height="65" as="geometry" />
     </mxCell>
     <mxCell id="physical" value="" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=0;fillColor=#EEF3F7;strokeColor=none;" parent="1" vertex="1">
@@ -187,7 +211,7 @@
     <mxCell id="physical_head" value="Physical tracking" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#173C4D;" parent="1" vertex="1">
      <mxGeometry x="322.5" y="451" width="235" height="30" as="geometry" />
     </mxCell>
-    <mxCell id="physical_detail" value="ERA5 · independent LiDAR&#10;Direction · calibrated probability" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;" parent="1" vertex="1">
+    <mxCell id="physical_detail" value="LiDAR · WindCube · ERA5&#10;Endpoint + full trajectory" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;" parent="1" vertex="1">
      <mxGeometry x="321.5" y="481" width="237" height="65" as="geometry" />
     </mxCell>
     <mxCell id="decision" value="" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=0;fillColor=#EEF3F7;strokeColor=none;" parent="1" vertex="1">
@@ -196,7 +220,7 @@
     <mxCell id="decision_head" value="Forecast-to-cost" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#173C4D;" parent="1" vertex="1">
      <mxGeometry x="620" y="451" width="235" height="30" as="geometry" />
     </mxCell>
-    <mxCell id="decision_detail" value="Issued forecast → settlement&#10;Debit · credit · storage" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;" parent="1" vertex="1">
+    <mxCell id="decision_detail" value="Issued forecast → rule charge&#10;Debit · credit · storage" style="shape=text;strokeColor=none;fillColor=none;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontSize=18;" parent="1" vertex="1">
      <mxGeometry x="619" y="481" width="237" height="65" as="geometry" />
     </mxCell>
     <mxCell id="references" value="Independent references&#10;Blind ratings · weather · LiDAR · prices" style="rounded=1;arcSize=13;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=22;spacing=10;strokeWidth=0;fillColor=#EDF3F5;strokeColor=none;fontSize=20;" parent="1" vertex="1">

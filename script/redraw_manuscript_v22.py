@@ -86,14 +86,18 @@ def detection():
     labels=['Threshold','Financial tail','Mean shift','OpSDA']
     for i,(_,r) in enumerate(bounds.iterrows()):
         color=['#28719D','#B97820','#168A73','#A33378'][i]
-        bottom.plot([r.start_relative_hours,r.end_relative_hours],[3-i,3-i],lw=6,solid_capstyle='butt',color=color)
+        display_start=max(float(r.start_relative_hours), float(signal.relative_hours.min()))
+        bottom.plot([display_start,r.end_relative_hours],[3-i,3-i],lw=6,solid_capstyle='butt',color=color)
         bottom.scatter([r.start_relative_hours,r.end_relative_hours],[3-i]*2,s=30,color=color,zorder=4)
+        if float(r.start_relative_hours) < float(signal.relative_hours.min()):
+            bottom.annotate('continues left', xy=(signal.relative_hours.min(),3-i), xytext=(signal.relative_hours.min()+.12,3-i+.22),
+                            fontsize=7, color=color, arrowprops=dict(arrowstyle='-', color=color, lw=.8))
         bottom.text(3.05,3-i,f'IoU {r.iou_with_reference:.2f}',va='center',fontsize=10)
     bottom.set_yticks(range(4),labels[::-1]);bottom.set(xlabel='Hours relative to reference onset',ylim=(-.6,3.6))
     top.set_xlim(signal.relative_hours.min(),max(signal.relative_hours.max(),4.8));bottom.spines[['left','top','right']].set_visible(False)
     bounds.to_csv(OUT/'fig02_detection.csv',index=False);signal.to_csv(OUT/'fig02_signal.csv',index=False)
     save(fig,'fig02_detection',2,['manuscript/figures_v18/fig2_signal.csv','manuscript/figures_v18/fig2_protocol_comparison.csv'],
-        'The same observed trajectory yields different event boundaries. The lower tracks show the four detector intervals on the same physical-time axis; threshold and financial-tail boundaries coincide in this example. IoU is measured against the threshold reference. Track labels replace an overlapping legend.')
+        'The same observed trajectory yields different event boundaries. The lower tracks show four detector intervals on the same physical-time axis. The mean-shift interval begins before the displayed context and is marked as continuing left. IoU is measured against the threshold reference.')
 
 def compression():
     d=pd.read_csv(ROOT/'outputs/protocol_benchmark_v21/representation_audit/method_score_differences.csv')

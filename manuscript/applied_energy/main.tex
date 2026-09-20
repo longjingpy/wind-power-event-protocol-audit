@@ -42,7 +42,7 @@ Here we organize wind-power event evaluation into four layers: detection, matchi
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{fig01_workflow.pdf}
-\caption{Four layers connect eight wind-farm archives (340 turbines) to three validation criteria. Detection defines ramp and compound intervals; correspondence uses one-to-one matches and split/merge overlap graphs; representations retain trajectory or angular information. Structural survival, external-process tracking and forecast-to-cost tests evaluate progressively different uses. Miniature trajectories, overlap links and the angular field are schematic. China and Europe identify data regions; panel fills distinguish measurement from evaluation. Dashed arrows supply independent reference evidence. Hill 2021 and 2026 are additional periods from the same farm.}
+\caption{Four layers connect eight wind-farm archives (340 turbines) to three validation criteria. Detection defines ramp and compound intervals; correspondence uses one-to-one matches and split/merge overlap graphs; representations retain ordered, scale-aware trajectories and angular information. Structural survival, external-process tracking and forecast-to-cost tests evaluate progressively different uses. The physical branch includes endpoint and complete-trajectory reconstruction, while the decision branch includes rule-based accuracy charges and action choice. China and Europe identify data regions; panel fills distinguish measurement from evaluation. Dashed arrows supply independent reference evidence.}
 \label{fig:main1}
 \end{figure}
 
@@ -63,6 +63,10 @@ The harmonized catalogue contains 4,542,258 candidate intervals and 3,226,925 co
 \end{figure}
 
 Pizhou and Greece each supply 9,925 training events under a matched sampling budget. Six representations, three clustering algorithms, three cluster counts and three seeds yield 324 fitted source models and 648 source--target evaluations. The primary analysis fixes K-means at k=4; k=2 and k=6 test coarser and finer partitions. On the configuration pairs shared by all six primary representations and all three seeds, raw25 median adjusted Rand index (ARI) ranges from 0.714 to 0.817 across the seven archives. ARI measures agreement between cluster partitions after correcting for random agreement: 1 denotes identical partitions up to relabelling, 0 the chance expectation, and negative values less agreement than expected by chance. A supported configuration pair contains at least 100 matched event pairs; a primary informative pair additionally has nonconstant partitions in both protocols. Greece provides 66 such supported configuration pairs and median ARI 0.817; the reserved Hill 2021 period provides 112 and ARI 0.711. An event pair is one matched interval from each protocol, whereas a configuration pair is the pair of detector settings being compared.
+
+\textbf{Table 1. Archive scale and complete event support}
+
+Candidate intervals and complete shapes describe the catalogue; validation and test matches describe the matched comparison population. They are not counts of independent physical events.
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
@@ -99,6 +103,10 @@ Hill of Towie 2021 & 21 & 182,660 & 168,236 & 449,388 \\
 }
 
 Match counts in this catalogue table include both event hierarchies and the validation and test periods. The structural comparison below uses basic-interval test events. Supported pairs are detector-configuration pairs with at least 100 matched events and informative partitions common to the representations. Coverage is the mean left/right catalogue fraction across all configuration comparisons, reported separately from agreement on the supported subset.
+
+\textbf{Table 2. Structural survival and catalogue coverage}
+
+Raw25 ARI is calculated on supported matched configuration pairs. Left and right coverage retain the eligible catalogue denominators for the two protocols.
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
@@ -182,25 +190,18 @@ The content of that structure is revealed by conditioning. Fig.~\ref{fig:main6} 
 
 \subsection{Protected polarity preserves a physically meaningful distinction}\label{protected-polarity-preserves-a-physically-meaningful-distinction}
 
-For the signed-domain Gramian angular summation field (GAF) used here, a path and its sign reversal produce the same image. Fig.~\ref{fig:main7} shows the paired paths and Fig.~\ref{fig:main8} shows their identical angular field. This identity gives a precise intervention: one sign bit at a nonzero reference coordinate resolves the ambiguity of the full field. For a compact representation, we retain five coordinates from principal component analysis (PCA) and reserve a sixth coordinate for polarity. This protects the directional distinction through compression; exact recovery of the entire path is a property of the full field plus sign, whereas the compressed representation is evaluated empirically. The next experiment tests the physical value of retaining that distinction.
+For the signed-domain Gramian angular summation field (GAF) used here, a path and its sign reversal produce the same image. Fig.~\ref{fig:main7} shows the paired paths and their identical angular field in one mechanism figure. This identity gives a precise intervention: one sign bit at a nonzero reference coordinate resolves the ambiguity of the full field. For a compact representation, we retain five coordinates from principal component analysis (PCA) and reserve a sixth coordinate for polarity. This protects the directional distinction through compression; exact recovery of the entire path is a property of the full field plus sign, whereas the compressed representation is evaluated empirically. The next experiment tests the physical value of retaining that distinction.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{fig07_polarity_paths.pdf}
-\caption{An observed 25-coordinate path and its controlled global sign reversal. These two paths have opposite polarity and the same signed-domain Gramian angular summation field.}
+\includegraphics[width=\linewidth]{fig07_polarity_mechanism.pdf}
+\caption{A protected polarity coordinate preserves a distinction erased by angular encoding. Panel a shows an observed path and its controlled sign reversal; panel b shows that both paths have the same signed-domain Gramian angular summation field.}
 \label{fig:main7}
 \end{figure}
 
 The empirical comparison separates preserving a coordinate from appending an input channel. Appending signed coordinates before PCA exposes them to the same compression as the image. Reserving a polarity coordinate after PCA keeps the chosen distinction explicit. Both representations remain compact, but they encode different guarantees about directional information.
 
-The protected sign refers to the largest departure across the full contextual trajectory, whereas the scalar direction refers to the net change between event endpoints. These signs coincide in 90.8--97.2\% of events in the five populations examined for anchor sensitivity. The remaining 2.8--9.2\% distinguish the dominant contextual excursion from the net event direction (Supplementary Table S74). This relation motivates two separate tests: recovering a sign erased by angular encoding, and measuring its additional predictive value when scalar direction is already supplied.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=.66\linewidth]{fig08_shared_gasf.pdf}
-\caption{The common Gramian angular summation field for the two paths in Fig.~\ref{fig:main7}. The identity G(x)=G(−x) motivates retaining a sign coordinate alongside the compressed angular representation.}
-\label{fig:main8}
-\end{figure}
+The protected sign refers to the largest departure across the full contextual trajectory, whereas the scalar direction refers to the net change between event endpoints. These signs coincide in 90.8--97.2\% of events in the five populations examined for anchor sensitivity. The remaining 2.8--9.2\% distinguish the dominant contextual excursion from the net event direction (Supplementary Table S74). The paired-path construction in Fig.~\ref{fig:main7} therefore separates two questions: which distinction is erased by angular encoding, and how much of that distinction can be read by an external physical target.
 
 In the primary fit, the protected polarity coordinate has a variance share bounded above by approximately 0.225\% in the six-dimensional encoding. Its small geometric weight explains the similar cluster partitions; its scientific role is to retain a direction that can be read by a supervised physical head.
 
@@ -208,7 +209,7 @@ The compact comparison contains six-dimensional ordinary GAF/PCA, signed-channel
 
 Five regional-weather evaluations relate these event representations to signed 100-m wind-speed change. At Hill of Towie, the protected-polarity representation reduces held-out signed log loss from 0.379 to 0.345, a 9.03\% reduction, with a seven-day block interval of 6.35--10.96\%. Decomposing the same probability score into occurrence and direction components explains the gain. Conditional wind-tendency AUROC rises from 0.538 to 0.932, while the occurrence component changes little. The intervention principally restores the distinction that its mathematical construction was designed to preserve.
 
-The five evaluations are Pizhou, Suining, Yandun, La Haute Borne and Hill of Towie. At Hill, the occurrence component is 0.307 for GAF/PCA and 0.311 for protected polarity, whereas the direction component falls from 0.073 to 0.034. The gain is therefore directional information rather than a change in event frequency.
+The five evaluations are Pizhou, Suining, Yandun, La Haute Borne and Hill of Towie. At Hill, the occurrence component is 0.307 for GAF/PCA and 0.311 for protected polarity, whereas the direction component falls from 0.073 to 0.034. The gain is therefore directional information rather than a change in event frequency. In the controlled conditional-information analysis, the implemented nuisance variable is the pre-window mean power (pre\_mean), together with direction, absolute amplitude and duration. For the joint Pizhou comparison, all three representations retain 268,569 of 274,569 pairs (97.8\%); the normalized conditional mutual information is 0.221 for raw25 and 0.404--0.406 for the angular representations, while the remaining label-entropy fractions are 0.130 and 0.862--0.862, respectively (Supplementary Table S81). These quantities describe different information normalizations; the absolute excess above within-stratum permutation is the primary comparison.
 
 Continuous shape and scalar metadata provide a second route to process information. Adding raw25 to direction, amplitude, duration, initial power and pre-window power reduces signed regional-weather log loss pointwise at all five sites. The complete block intervals and the corresponding hard-cluster-label probes are reported together in the Supplementary Information. This comparison separates the information in a trajectory from the coarser information carried by a four-class label.
 
@@ -216,7 +217,7 @@ Prototype geometry provides a compact bridge between these descriptions. Adding 
 
 \subsection{Independent LiDAR validates directional information recovery}\label{independent-lidar-validates-directional-information-recovery}
 
-To test the external validity of protected polarity, we use independent 2026 LiDAR measurements. Fig.~\ref{fig:main9} places the two instruments on one ROC canvas. A ground-based instrument near T11 measures horizontal wind near hub height, and a nacelle instrument on T07 measures upstream flow at a 208-m range. Applying the frozen Hill-2020 physical probes gives 5,106 and 2,627 matched events with complete wind support at the primary clock alignment. Protected polarity reduces signed log loss relative to angular PCA by 7.21\% at T11 and 9.20\% at T07. The respective seven-day block intervals are 5.37--8.85\% and 7.42--10.72\%; both gains also retain their direction under the predeclared ±10-min clock checks.
+To test the external validity of protected polarity, we use independent 2026 LiDAR measurements. Fig.~\ref{fig:main8} places the two instruments on one ROC canvas. A ground-based instrument near T11 measures horizontal wind near hub height, and a nacelle instrument on T07 measures upstream flow at a 208-m range. Applying the frozen Hill-2020 physical probes gives 5,106 and 2,627 matched events with complete wind support at the primary clock alignment. Protected polarity reduces signed log loss relative to angular PCA by 7.21\% at T11 and 9.20\% at T07. The respective seven-day block intervals are 5.37--8.85\% and 7.42--10.72\%; both gains also retain their direction under the predeclared ±10-min clock checks.
 
 A separate chronological field-calibration experiment translates the source scores into local probabilities. Calibration training ends before 14 March, validation ends before 7 April, and testing uses later events with their full contexts contained in the test period. The three-class test contains 1,064 T11 and 444 T07 events. Directional AUROC uses the 705 and 285 events with measured wind increase or decrease, respectively, occupying four seven-day blocks at each instrument. Protected polarity attains AUROC 0.890 (95\% block interval 0.822--0.974) and 0.905 (0.808--0.947), compared with 0.494 (0.468--0.544) and 0.477 (0.321--0.599) for angular PCA. Three-class signed log loss decreases by 16.42\% and 16.11\%, respectively. The independent measured outcome thus identifies a useful physical distinction in the event representation. ARI and AUROC answer different questions: ARI measures agreement between partitions of matched events; AUROC measures discrimination of independently measured wind tendencies.
 
@@ -226,14 +227,14 @@ Scalar descriptors provide an alternative route to directional information. On t
 \centering
 \includegraphics[width=\linewidth]{fig09_lidar_roc.pdf}
 \caption{Independent LiDAR direction discrimination after chronological calibration. T11 and T07 occupy the left and right panels, with 705 and 285 measured increase/decrease events. Small-net-change observations are retained in the separate three-class score. Both instruments use the same representation colors and axes.}
-\label{fig:main9}
+\label{fig:main8}
 \end{figure}
 
 This experiment answers the reverse-identification question directly: an observed power-event description can support a probability for an externally measured wind-speed tendency. Section 2.6 extends this endpoint question to the complete wind trajectory, including changes that reverse within an event. Its forecasting counterpart uses information available at issue time, as tested in the forecast-to-cost experiment in Section 2.8.
 
 \subsection{A second instrumented field archive preserves the event interface}\label{a-second-instrumented-field-archive-preserves-the-event-interface}
 
-SMARTEOLE supplies a second public instrumented wind farm: seven Senvion MM82 turbines, 1-min supervisory control and data acquisition (SCADA), a ground WindCube profiler and a yaw-control log. Fig.~\ref{fig:main10} combines its physical transfer with the resampled LiDAR distributions. Applying the frozen Pizhou K-means (k=4, seed 41) transformations after complete 30-min aggregation produces 77 supported turbine-by-configuration-pair rows, containing 8,985 matched primitive-event pairs per representation summary. Raw25 reaches median ARI 1.000 on this high-support subset; 45 of the 77 rows have ARI=1.000, while the pair-weighted ARI is 0.964 and the all-row pair-weighted ARI is 0.887 across 852 rows. GAF/PCA and protected polarity reach 0.605 and 0.597 on the same supported-row summary. Here agreement refers to the retained partition on matched events. Reporting the support rule and weighted diagnostics makes the transfer result transparent: the high-support raw25 median is a concentrated structural-transfer signal, not an identity claim for every detector pair. The structural result establishes a working transfer of the event ledger and one-to-one correspondence interface to a different field archive.
+SMARTEOLE supplies a second public instrumented wind farm: seven Senvion MM82 turbines, 1-min supervisory control and data acquisition (SCADA), a ground WindCube profiler and a yaw-control log. Fig.~\ref{fig:main9} combines its physical transfer with the resampled LiDAR distributions. Applying the frozen Pizhou K-means (k=4, seed 41) transformations after complete 30-min aggregation produces 77 supported turbine-by-configuration-pair rows, containing 8,985 matched primitive-event pairs per representation summary. Raw25 reaches median ARI 1.000 on this high-support subset; 45 of the 77 rows have ARI=1.000, while the pair-weighted ARI is 0.964 and the all-row pair-weighted ARI is 0.887 across 852 rows. GAF/PCA and protected polarity reach 0.605 and 0.597 on the same supported-row summary. Here agreement refers to the retained partition on matched events. Reporting the support rule and weighted diagnostics makes the transfer result transparent: the high-support raw25 median is a concentrated structural-transfer signal, not an identity claim for every detector pair. The structural result establishes a working transfer of the event ledger and one-to-one correspondence interface to a different field archive.
 
 The same frozen Pizhou physical heads use WindCube 80-m endpoint wind-speed changes as an independent outcome. Across the seven turbines, models combining scalar event descriptors with raw25 attain direction AUROC from 0.902 to 0.926. Corresponding angular and protected-polarity models retain the same scalar inputs, including direction, to evaluate shape information under a common control set. The SMARTEOLE provider removes rows with at least one stopped turbine, so this experiment identifies structure and wind-process information during the supplied operating population.
 
@@ -243,7 +244,7 @@ The scalar-controlled factorial test identifies an external setting with a posit
 \centering
 \includegraphics[width=\linewidth]{fig10_external_validation.pdf}
 \caption{External physical validation across two instrumented fields. Top: standalone angular/protected encodings and a scalar-only control; empirical directional-AUROC distributions from 2,000 resamples of four occupied seven-day blocks per Hill instrument; bars show percentile intervals and dots medians. Bottom: seven turbine responses paired with the same SMARTEOLE WindCube reference, with scalar controls shared across representations. SMARTEOLE structural agreement has a raw25 median of 1.000 across 77 high-support rows, of which 45 equal 1.000; pair-weighted ARI is 0.964 and all-row pair-weighted ARI is 0.887. Structural row distributions are supplied separately.}
-\label{fig:main10}
+\label{fig:main9}
 \end{figure}
 
 \subsection{Ordered trajectories recover the physical structure of compound events}\label{ordered-trajectories-recover-the-physical-structure-of-compound-events}
@@ -251,6 +252,10 @@ The scalar-controlled factorial test identifies an external setting with a posit
 The physical value of event geometry becomes clearest when a process changes direction within its measured interval. We therefore reconstruct seventeen points along an independently measured wind-speed trajectory, rather than reducing that trajectory to its endpoint tendency. The experiment combines primitive and compound power intervals lasting 60--240 min, with continuous wind support and complete contexts inside each chronological split. After identical-interval deduplication, T11, T07 and SMARTEOLE contribute 2,304, 1,038 and 7,040 intervals, respectively; their test populations contain 507, 170 and 449 intervals. Models and observation support are selected on validation data and frozen before evaluation.
 
 Scale-restored ordered trajectories provide their largest full-process gains on compound events. Relative to validation-selected scalar and scalar-residual controls using the same native 10-min inputs, wind-trajectory root mean square error (RMSE) falls by 11.67\% at T11 and 24.45\% at T07 (paired seven-day 95\% intervals 4.91--21.43\% and 16.78--41.87\%). These groups contain 165 and 38 intervals identified as compound by the power catalogue, independently of the wind outcome. The corresponding primitive-only changes are −0.72\% and −1.30\%, with intervals spanning zero. At SMARTEOLE, the compound full-trajectory reduction is 5.81\%, with a wider interval of −9.94--7.27\%. The result locates the strongest incremental value in the internal evolution of compound changes, where endpoints and scalar summaries provide a less complete description.
+
+\textbf{Table 3. Absolute and relative recovery of measured wind-process structure}
+
+The table reports the same native 10-min test events for the validation-selected scalar comparator and ordered trajectory. Compound status is defined from the power catalogue before wind evaluation. RMSE is in m s−1; brackets are paired seven-day 95\% intervals.
 
 {\def\LTcaptype{none} % do not increment counter
 \begingroup\small
@@ -280,13 +285,20 @@ SMARTEOLE WindCube & 42 & 5.81 {[}−9.94, 7.27{]} & 9.58 {[}9.03, 10.76{]} \\
 \endgroup
 }
 
-Here n counts compound test intervals; brackets give paired seven-day 95\% intervals. Internal geometry is the wind trajectory remaining after removal of its endpoint chord; its all-event denominators are 507, 170 and 449, respectively. Each population occupies four seven-day test blocks. Complete all-event, primitive-only and 3/14-day results accompany these comparisons in Supplementary Tables S75--S78.
+Here n counts compound test intervals; brackets give paired seven-day 95\% intervals. Internal geometry is the wind trajectory remaining after removal of its endpoint chord; its all-event denominators are 507, 170 and 449, respectively. Each population occupies four seven-day test blocks. Absolute full-curve and geometry RMSE for all, compound and primitive-only events are provided in Supplementary Table S80; complete 3/7/14-day intervals accompany these comparisons in Supplementary Tables S75--S79.
 
 Duration alone does not explain the Hill contrast. Standardizing compound and primitive-only groups to a common duration distribution leaves compound-minus-primitive gain differences of 10.65 percentage points at T11 and 28.16 at T07, with intervals of 1.49--17.98 and 19.74--33.88 percentage points. The weights depend on power-event duration and shared support. Thus the advantage persists beyond the longer duration often associated with a two-leg episode.
 
 Internal wind geometry improves across all three reference populations. Removing each trajectory's endpoint chord exposes intermediate accelerations and reversals: reconstruction RMSE falls by 11.09\%, 26.94\% and 9.58\% at T11, T07 and SMARTEOLE, respectively, with positive seven-day intervals. Full-trajectory reductions over all eligible events are 4.50\%, 4.47\% and 1.72\%. This contrast separates the information recovered inside an event from the coarser endpoint trend. Perturbing only the temporal coordinates of the frozen decoder, while preserving scalar descriptors and endpoints, raises geometry RMSE in every population (Supplementary Table S79). Ordered correspondence therefore carries useful measured-process information beyond the supplied summaries.
 
-These results yield a practical representation principle: retain native temporal support and ordered, scale-aware trajectories when the scientific target includes compound dynamics. The validation-selected decoder is regularized linear regression in all three populations. The gain is therefore achieved through the observation and representation interface, with the complete nonlinear and compressed-encoding comparisons retained in Supplementary S26.
+These results yield a practical representation principle: retain native temporal support and ordered, scale-aware trajectories when the scientific target includes compound dynamics. The validation-selected decoder is regularized linear regression in all three populations. The gain is therefore achieved through the observation and representation interface, with the complete nonlinear and compressed-encoding comparisons retained in Supplementary S26. The effect is visible across the four calendar blocks but is not uniform: T11 gains are 11.41\%, −5.95\%, 6.83\% and 16.71\%; T07 gains are 2.81\%, −1.87\%, 9.55\% and 17.48\% (Supplementary Table S82). These block summaries describe temporal concentration in the evaluated periods rather than additional independent weather replications.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{fig13_physical_process.pdf}
+\caption{Ordered trajectories recover intermediate wind-process structure. Top: outcome-blind representative compound events selected by median power-defined duration and amplitude, showing measured wind change, the scalar control and the ordered trajectory. Bottom: absolute full-curve RMSE for compound and primitive-only events under the same native 10-min inputs. The complete matrix, event counts and calendar-block diagnostics are provided in Supplementary Tables S80 and S82.}
+\label{fig:main10}
+\end{figure}
 
 \subsection{Controlled localization connects event scores to detection}\label{controlled-localization-connects-event-scores-to-detection}
 
@@ -317,6 +329,10 @@ The selected pipelines reduce both error and accuracy charges on the chronologic
 \end{figure}
 
 The comparison table places the shape pipeline alongside scalar/weather and nMAE-selected alternatives under the same test targets and capacity. All three learned approaches deliver lower charges than persistence. The 18.22\% primary result describes the complete forecast pipeline, encompassing historical information, issued weather and forecast selection. Supplementary Tables S59--S62 retain the information sets, matched control differences and full uncertainty analysis.
+
+\textbf{Table 4. Rule-based accuracy charges and strong forecasting controls}
+
+All rows use the same eligible targets within each lead. Charges are simulated under the documented Jiangsu accuracy component and are reported in Chinese yuan (CNY).
 
 {\def\LTcaptype{none} % do not increment counter
 \begingroup\small
@@ -438,7 +454,7 @@ I(L_a;L_b\mid W)=\sum_w p(w)\sum_{a,b}p(a,b\mid w)
 \ln\frac{p(a,b\mid w)}{p(a\mid w)p(b\mid w)}.
 \]
 
-The reported excess is the observed value minus the mean within-stratum permutation value. Descriptor cut points were fitted on Pizhou training events: individual analyses used terciles, and the joint analysis used median splits for amplitude, duration and starting power together with both event directions. All information and permutation calculations used retained matched pairs.
+The reported excess is the observed value minus the mean within-stratum permutation value. Descriptor cut points were fitted on Pizhou training events: individual analyses used terciles, and the joint analysis used median splits for amplitude, duration and pre-window mean power together with both event directions. All information and permutation calculations used retained matched pairs.
 
 \subsection{Physical reference and probability experiments}\label{physical-reference-and-probability-experiments}
 

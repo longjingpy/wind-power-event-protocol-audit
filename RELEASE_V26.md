@@ -32,6 +32,9 @@ complete event context to reconstruct measured processes retrospectively.
 - script/verify_manuscript_v26.py: manuscript/result and embedded-asset checks.
 - docs/V26_PHYSICAL_PROCESS_RESULTS.md: full research interpretation.
 - docs/V26_MANUSCRIPT_INTEGRATION.md: manuscript integration map.
+- manuscript/figures_v26: editable/vector polarity-mechanism and complete-process figures.
+- Supplementary Tables S81-S82: implemented pre-window-power information summary and
+  seven-day/leave-one-block-out process diagnostics.
 
 v25 factorial comparisons and seven explicitly AI-sourced review sessions are
 included in this release; human and AI reference results remain source-separated.

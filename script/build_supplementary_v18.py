@@ -92,7 +92,7 @@ def main() -> None:
                         lambda m: m.group(0).replace(r'\_', r'\_\allowbreak{}'),
                         conversion, flags=re.DOTALL)
     conversion = re.sub(
-        r'(\\subsubsection\{Table S(?:75|76|77|78|79|80)\..*?)(\\begin\{longtable\}.*?\\end\{longtable\})',
+        r'(\\subsubsection\{Table S(?:75|76|77|78|79|80|81|82)\..*?)(\\begin\{longtable\}.*?\\end\{longtable\})',
         lambda m: m.group(1) + r'\begingroup\AtBeginEnvironment{longtable}{\footnotesize}'
         + r'\setlength{\tabcolsep}{3pt}' + '\n' + m.group(2) + '\n' + r'\endgroup',
         conversion, flags=re.DOTALL)
