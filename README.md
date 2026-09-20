@@ -6,6 +6,12 @@ Current manuscript, supplementary material, editable figures and v23 overlap
 results are in the [v0.5.0 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.5.0).
 See `RELEASE_V23.md` for current paths, tested commands and the source packet.
 
+The [v0.6.0 economic research snapshot](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.6.0)
+adds native policy-fee experiments, forecast-price storage control, complete
+trade-revenue tests and de-identified model-input replication data. See
+`RELEASE_V24.md` for successes, unsuccessful comparisons and remaining evidence
+gates. It is a research snapshot, not a replacement submission manuscript.
+
 ## Study data
 
 The provider authorizes release, and the current distribution uses de-identified processed datasets. Download the verified [processed SCADA v0.3.0 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.3.0), containing seven archives and 333 turbines. The former original-input v0.2.0 release remains a non-public draft. See `DATA_POLICY_V17.md` for identifier and clock handling. Original provider terms remain applicable.

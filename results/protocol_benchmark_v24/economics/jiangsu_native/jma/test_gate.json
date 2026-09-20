@@ -1,0 +1,115 @@
+{
+  "status": "FROZEN",
+  "selected": [
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "scalar",
+      "leaf": 8,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3204,
+      "validation_nmae": 0.03216214695327845
+    },
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "raw25",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3220,
+      "validation_nmae": 0.032427840510533316
+    },
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "raw_pca6",
+      "leaf": 8,
+      "action": "tolerance",
+      "blend": 0.75,
+      "validation_failed_points": 3212,
+      "validation_nmae": 0.03787032757913091
+    },
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "gaf_pca6",
+      "leaf": 8,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3209,
+      "validation_nmae": 0.03221731892022613
+    },
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "gaf_bit6",
+      "leaf": 8,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3207,
+      "validation_nmae": 0.03218787994289507
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "scalar",
+      "leaf": 32,
+      "action": "tolerance",
+      "blend": 0.75,
+      "validation_failed_points": 3130,
+      "validation_nmae": 0.1495450805774309
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "raw25",
+      "leaf": 32,
+      "action": "tolerance",
+      "blend": 0.75,
+      "validation_failed_points": 3114,
+      "validation_nmae": 0.14872558313770873
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "raw_pca6",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3163,
+      "validation_nmae": 0.12368974701171083
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "gaf_pca6",
+      "leaf": 8,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3129,
+      "validation_nmae": 0.12310183414435136
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "gaf_bit6",
+      "leaf": 8,
+      "action": "tolerance",
+      "blend": 0.75,
+      "validation_failed_points": 3150,
+      "validation_nmae": 0.1497447370678331
+    }
+  ]
+}

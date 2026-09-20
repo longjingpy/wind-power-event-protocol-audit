@@ -1,0 +1,1443 @@
+{
+  "status": "ACQUIRED_WITH_GAPS_RETAINED",
+  "prices": 35088,
+  "forecast_rows": 275135,
+  "market_index_rows": 33309,
+  "test_economic_results_read": false,
+  "downloads": [
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-01?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210701.json",
+      "bytes": 43193,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-02?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210702.json",
+      "bytes": 43120,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-03?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210703.json",
+      "bytes": 43141,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-04?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210704.json",
+      "bytes": 43102,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-05?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210705.json",
+      "bytes": 43201,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-06?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210706.json",
+      "bytes": 43434,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-07?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210707.json",
+      "bytes": 43270,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-08?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210708.json",
+      "bytes": 43246,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-09?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210709.json",
+      "bytes": 43474,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-10?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210710.json",
+      "bytes": 43259,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-11?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210711.json",
+      "bytes": 43235,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-12?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210712.json",
+      "bytes": 43330,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-13?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210713.json",
+      "bytes": 43335,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-14?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210714.json",
+      "bytes": 43353,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-15?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210715.json",
+      "bytes": 43358,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-16?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210716.json",
+      "bytes": 43440,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-17?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210717.json",
+      "bytes": 43288,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-18?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210718.json",
+      "bytes": 43204,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-19?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210719.json",
+      "bytes": 43424,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-20?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210720.json",
+      "bytes": 43397,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-21?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210721.json",
+      "bytes": 43361,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-22?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210722.json",
+      "bytes": 43363,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-23?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210723.json",
+      "bytes": 43342,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-24?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210724.json",
+      "bytes": 43246,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-25?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210725.json",
+      "bytes": 43389,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-26?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210726.json",
+      "bytes": 43353,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-27?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210727.json",
+      "bytes": 43290,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-28?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210728.json",
+      "bytes": 43409,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-29?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210729.json",
+      "bytes": 43460,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-30?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210730.json",
+      "bytes": 43357,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-07-31?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210731.json",
+      "bytes": 43138,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-01?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210801.json",
+      "bytes": 43145,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-02?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210802.json",
+      "bytes": 43189,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-03?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210803.json",
+      "bytes": 43207,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-04?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210804.json",
+      "bytes": 43205,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-05?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210805.json",
+      "bytes": 43383,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-06?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210806.json",
+      "bytes": 43448,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-07?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210807.json",
+      "bytes": 43264,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-08?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210808.json",
+      "bytes": 43234,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-09?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210809.json",
+      "bytes": 43290,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-10?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210810.json",
+      "bytes": 43179,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-11?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210811.json",
+      "bytes": 43185,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-12?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210812.json",
+      "bytes": 43425,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-13?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210813.json",
+      "bytes": 43471,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-14?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210814.json",
+      "bytes": 43153,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-15?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210815.json",
+      "bytes": 43214,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-16?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210816.json",
+      "bytes": 43473,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-17?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210817.json",
+      "bytes": 43358,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-18?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210818.json",
+      "bytes": 43284,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-19?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210819.json",
+      "bytes": 43151,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-20?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210820.json",
+      "bytes": 43182,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-21?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210821.json",
+      "bytes": 43058,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-22?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210822.json",
+      "bytes": 43095,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-23?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210823.json",
+      "bytes": 43214,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-24?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210824.json",
+      "bytes": 43140,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-25?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210825.json",
+      "bytes": 43112,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-26?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210826.json",
+      "bytes": 43220,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-27?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210827.json",
+      "bytes": 43104,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-28?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210828.json",
+      "bytes": 43055,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-29?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210829.json",
+      "bytes": 43267,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-30?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210830.json",
+      "bytes": 43297,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-08-31?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210831.json",
+      "bytes": 43187,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-01?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210901.json",
+      "bytes": 43140,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-02?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210902.json",
+      "bytes": 43098,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-03?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210903.json",
+      "bytes": 43096,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-04?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210904.json",
+      "bytes": 43014,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-05?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210905.json",
+      "bytes": 43045,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-06?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210906.json",
+      "bytes": 43065,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-07?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210907.json",
+      "bytes": 43106,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-08?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210908.json",
+      "bytes": 43175,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-09?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210909.json",
+      "bytes": 43142,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-10?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210910.json",
+      "bytes": 43041,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-11?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210911.json",
+      "bytes": 43084,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-12?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210912.json",
+      "bytes": 42973,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-13?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210913.json",
+      "bytes": 43103,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-14?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210914.json",
+      "bytes": 43106,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-15?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210915.json",
+      "bytes": 43063,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-16?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210916.json",
+      "bytes": 43000,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-17?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210917.json",
+      "bytes": 43148,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-18?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210918.json",
+      "bytes": 42875,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-19?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210919.json",
+      "bytes": 42931,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-20?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210920.json",
+      "bytes": 43111,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-21?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210921.json",
+      "bytes": 43544,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-22?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210922.json",
+      "bytes": 43101,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-23?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210923.json",
+      "bytes": 43488,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-24?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210924.json",
+      "bytes": 43415,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-25?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210925.json",
+      "bytes": 42957,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-26?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210926.json",
+      "bytes": 43239,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-27?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210927.json",
+      "bytes": 43214,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-28?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210928.json",
+      "bytes": 43203,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-29?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210929.json",
+      "bytes": 43218,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-09-30?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20210930.json",
+      "bytes": 43299,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-01?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211001.json",
+      "bytes": 43769,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-02?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211002.json",
+      "bytes": 43245,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-03?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211003.json",
+      "bytes": 43311,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-04?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211004.json",
+      "bytes": 43164,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-05?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211005.json",
+      "bytes": 43184,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-06?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211006.json",
+      "bytes": 43256,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-07?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211007.json",
+      "bytes": 43176,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-08?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211008.json",
+      "bytes": 43091,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-09?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211009.json",
+      "bytes": 42840,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-10?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211010.json",
+      "bytes": 42950,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-11?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211011.json",
+      "bytes": 43058,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-12?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211012.json",
+      "bytes": 43102,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-13?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211013.json",
+      "bytes": 43013,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-14?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211014.json",
+      "bytes": 43235,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-15?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211015.json",
+      "bytes": 43197,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-16?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211016.json",
+      "bytes": 42915,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-17?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211017.json",
+      "bytes": 43086,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-18?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211018.json",
+      "bytes": 43100,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-19?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211019.json",
+      "bytes": 43131,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-20?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211020.json",
+      "bytes": 43372,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-21?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211021.json",
+      "bytes": 43452,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-22?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211022.json",
+      "bytes": 43220,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-23?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211023.json",
+      "bytes": 43226,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-24?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211024.json",
+      "bytes": 43201,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-25?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211025.json",
+      "bytes": 43716,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-26?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211026.json",
+      "bytes": 43650,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-27?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211027.json",
+      "bytes": 43300,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-28?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211028.json",
+      "bytes": 43139,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-29?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211029.json",
+      "bytes": 43354,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-30?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211030.json",
+      "bytes": 43022,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-10-31?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211031.json",
+      "bytes": 44999,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-01?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211101.json",
+      "bytes": 43426,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-02?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211102.json",
+      "bytes": 43298,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-03?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211103.json",
+      "bytes": 43424,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-04?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211104.json",
+      "bytes": 43151,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-05?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211105.json",
+      "bytes": 43084,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-06?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211106.json",
+      "bytes": 43707,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-07?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211107.json",
+      "bytes": 43416,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-08?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211108.json",
+      "bytes": 43453,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-09?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211109.json",
+      "bytes": 43403,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-10?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211110.json",
+      "bytes": 43650,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-11?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211111.json",
+      "bytes": 43428,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-12?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211112.json",
+      "bytes": 43208,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-13?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211113.json",
+      "bytes": 42960,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-14?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211114.json",
+      "bytes": 43161,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-15?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211115.json",
+      "bytes": 43428,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-16?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211116.json",
+      "bytes": 43462,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-17?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211117.json",
+      "bytes": 43515,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-18?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211118.json",
+      "bytes": 44421,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-19?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211119.json",
+      "bytes": 43494,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-20?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211120.json",
+      "bytes": 43189,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-21?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211121.json",
+      "bytes": 43199,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-22?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211122.json",
+      "bytes": 43433,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-23?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211123.json",
+      "bytes": 43517,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-24?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211124.json",
+      "bytes": 43236,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-25?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211125.json",
+      "bytes": 43487,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-26?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211126.json",
+      "bytes": 43627,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-27?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211127.json",
+      "bytes": 43115,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-28?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211128.json",
+      "bytes": 43045,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-29?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211129.json",
+      "bytes": 43190,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-11-30?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211130.json",
+      "bytes": 43070,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-01?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211201.json",
+      "bytes": 43294,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-02?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211202.json",
+      "bytes": 43095,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-03?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211203.json",
+      "bytes": 43425,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-04?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211204.json",
+      "bytes": 43641,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-05?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211205.json",
+      "bytes": 43215,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-06?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211206.json",
+      "bytes": 43304,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-07?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211207.json",
+      "bytes": 43274,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-08?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211208.json",
+      "bytes": 43229,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-09?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211209.json",
+      "bytes": 43079,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-10?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211210.json",
+      "bytes": 43181,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-11?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211211.json",
+      "bytes": 42956,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-12?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211212.json",
+      "bytes": 43256,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-13?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211213.json",
+      "bytes": 43631,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-14?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211214.json",
+      "bytes": 44066,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-15?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211215.json",
+      "bytes": 43465,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-16?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211216.json",
+      "bytes": 43535,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-17?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211217.json",
+      "bytes": 43051,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-18?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211218.json",
+      "bytes": 42921,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-19?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211219.json",
+      "bytes": 42837,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-20?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211220.json",
+      "bytes": 43154,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-21?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211221.json",
+      "bytes": 43122,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-22?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211222.json",
+      "bytes": 43006,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-23?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211223.json",
+      "bytes": 42977,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-24?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211224.json",
+      "bytes": 43092,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-25?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211225.json",
+      "bytes": 43739,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-26?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211226.json",
+      "bytes": 43058,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-27?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211227.json",
+      "bytes": 43120,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-28?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211228.json",
+      "bytes": 43150,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-29?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211229.json",
+      "bytes": 43583,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-30?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211230.json",
+      "bytes": 43240,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2021-12-31?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20211231.json",
+      "bytes": 43119,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/settlement/system-prices/2022-01-01?format=json",
+      "path": "data/policy_v24/holdout_2021H2/prices/20220101.json",
+      "bytes": 43762,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-07-01T00%3A00Z&publishDateTimeTo=2021-07-08T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210701.json",
+      "bytes": 307035,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-07-08T00%3A00Z&publishDateTimeTo=2021-07-15T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210708.json",
+      "bytes": 300735,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-07-15T00%3A00Z&publishDateTimeTo=2021-07-22T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210715.json",
+      "bytes": 305995,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-07-22T00%3A00Z&publishDateTimeTo=2021-07-29T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210722.json",
+      "bytes": 306998,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-07-29T00%3A00Z&publishDateTimeTo=2021-08-05T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210729.json",
+      "bytes": 306440,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-08-05T00%3A00Z&publishDateTimeTo=2021-08-12T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210805.json",
+      "bytes": 307506,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-08-12T00%3A00Z&publishDateTimeTo=2021-08-19T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210812.json",
+      "bytes": 307158,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-08-19T00%3A00Z&publishDateTimeTo=2021-08-26T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210819.json",
+      "bytes": 307270,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-08-26T00%3A00Z&publishDateTimeTo=2021-09-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210826.json",
+      "bytes": 307325,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-09-02T00%3A00Z&publishDateTimeTo=2021-09-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210902.json",
+      "bytes": 307206,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-09-09T00%3A00Z&publishDateTimeTo=2021-09-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210909.json",
+      "bytes": 306881,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-09-16T00%3A00Z&publishDateTimeTo=2021-09-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210916.json",
+      "bytes": 307596,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-09-23T00%3A00Z&publishDateTimeTo=2021-09-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210923.json",
+      "bytes": 308140,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-09-30T00%3A00Z&publishDateTimeTo=2021-10-07T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20210930.json",
+      "bytes": 308375,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-10-07T00%3A00Z&publishDateTimeTo=2021-10-14T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211007.json",
+      "bytes": 307527,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-10-14T00%3A00Z&publishDateTimeTo=2021-10-21T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211014.json",
+      "bytes": 308345,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-10-21T00%3A00Z&publishDateTimeTo=2021-10-28T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211021.json",
+      "bytes": 308917,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-10-28T00%3A00Z&publishDateTimeTo=2021-11-04T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211028.json",
+      "bytes": 309906,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-11-04T00%3A00Z&publishDateTimeTo=2021-11-11T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211104.json",
+      "bytes": 308270,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-11-11T00%3A00Z&publishDateTimeTo=2021-11-18T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211111.json",
+      "bytes": 308326,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-11-18T00%3A00Z&publishDateTimeTo=2021-11-25T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211118.json",
+      "bytes": 308106,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-11-25T00%3A00Z&publishDateTimeTo=2021-12-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211125.json",
+      "bytes": 308931,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-12-02T00%3A00Z&publishDateTimeTo=2021-12-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211202.json",
+      "bytes": 308792,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-12-09T00%3A00Z&publishDateTimeTo=2021-12-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211209.json",
+      "bytes": 307781,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-12-16T00%3A00Z&publishDateTimeTo=2021-12-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211216.json",
+      "bytes": 306337,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-12-23T00%3A00Z&publishDateTimeTo=2021-12-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211223.json",
+      "bytes": 308667,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-12-30T00%3A00Z&publishDateTimeTo=2022-01-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/wind/20211230.json",
+      "bytes": 88466,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-07-01T00%3A00Z&to=2021-07-08T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210701.json",
+      "bytes": 97167,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-07-08T00%3A00Z&to=2021-07-15T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210708.json",
+      "bytes": 97167,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-07-15T00%3A00Z&to=2021-07-22T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210715.json",
+      "bytes": 97207,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-07-22T00%3A00Z&to=2021-07-29T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210722.json",
+      "bytes": 97238,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-07-29T00%3A00Z&to=2021-08-05T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210729.json",
+      "bytes": 97211,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-08-05T00%3A00Z&to=2021-08-12T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210805.json",
+      "bytes": 97297,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-08-12T00%3A00Z&to=2021-08-19T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210812.json",
+      "bytes": 97204,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-08-19T00%3A00Z&to=2021-08-26T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210819.json",
+      "bytes": 97314,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-08-26T00%3A00Z&to=2021-09-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210826.json",
+      "bytes": 97185,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-09-02T00%3A00Z&to=2021-09-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210902.json",
+      "bytes": 97384,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-09-09T00%3A00Z&to=2021-09-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210909.json",
+      "bytes": 97464,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-09-16T00%3A00Z&to=2021-09-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210916.json",
+      "bytes": 97295,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-09-23T00%3A00Z&to=2021-09-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210923.json",
+      "bytes": 97450,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-09-30T00%3A00Z&to=2021-10-07T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20210930.json",
+      "bytes": 97434,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-10-07T00%3A00Z&to=2021-10-14T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211007.json",
+      "bytes": 97499,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-10-14T00%3A00Z&to=2021-10-21T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211014.json",
+      "bytes": 97464,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-10-21T00%3A00Z&to=2021-10-28T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211021.json",
+      "bytes": 97187,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-10-28T00%3A00Z&to=2021-11-04T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211028.json",
+      "bytes": 97464,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-11-04T00%3A00Z&to=2021-11-11T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211104.json",
+      "bytes": 97482,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-11-11T00%3A00Z&to=2021-11-18T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211111.json",
+      "bytes": 97517,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-11-18T00%3A00Z&to=2021-11-25T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211118.json",
+      "bytes": 97234,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-11-25T00%3A00Z&to=2021-12-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211125.json",
+      "bytes": 97373,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-12-02T00%3A00Z&to=2021-12-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211202.json",
+      "bytes": 97238,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-12-09T00%3A00Z&to=2021-12-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211209.json",
+      "bytes": 97406,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-12-16T00%3A00Z&to=2021-12-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211216.json",
+      "bytes": 97341,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-12-23T00%3A00Z&to=2021-12-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211223.json",
+      "bytes": 97462,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-12-30T00%3A00Z&to=2022-01-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/holdout_2021H2/market_index/20211230.json",
+      "bytes": 28064,
+      "status": "DOWNLOADED"
+    }
+  ]
+}

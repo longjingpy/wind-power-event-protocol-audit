@@ -1,0 +1,4 @@
+weather,horizon_minutes,method_a,method_b,same_total_fee_cny,points,identical_forecast_fraction,different_failed_points,mean_absolute_forecast_difference_pu,explanation
+none,15,gaf_pca6,scalar,107843.34,9450,0.012063492063492064,678,0.012025000000000001,Same number of threshold exceedances can have different forecasts and different failing timestamps.
+jma,240,gaf_pca6,scalar,121100.76,9345,0.016907437132156235,1398,0.07056219903691814,Same number of threshold exceedances can have different forecasts and different failing timestamps.
+jma_gfs,240,raw_pca6,scalar,121555.5,9345,0.3810593900481541,232,0.00973836276083467,Same number of threshold exceedances can have different forecasts and different failing timestamps.

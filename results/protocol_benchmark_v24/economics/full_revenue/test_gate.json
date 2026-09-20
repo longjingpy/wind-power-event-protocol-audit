@@ -1,0 +1,113 @@
+{
+  "status": "FROZEN_BEFORE_H2_RESULTS",
+  "policies": [
+    {
+      "horizon_hours": 1,
+      "arm": "market_persistence",
+      "forecast_leaf": 24,
+      "spread_leaf": 7,
+      "blend": 0,
+      "offset": 0,
+      "hedge": 0,
+      "scale": 56.37213094628512,
+      "validation_revenue_gbp": 550963.3443716059,
+      "validation_gain_gbp": 0.0
+    },
+    {
+      "horizon_hours": 1,
+      "arm": "weather",
+      "forecast_leaf": 96,
+      "spread_leaf": 15,
+      "blend": 1,
+      "offset": -0.025,
+      "hedge": 0.025,
+      "scale": 56.37213094628512,
+      "validation_revenue_gbp": 554608.5855209766,
+      "validation_gain_gbp": 3645.241149370675
+    },
+    {
+      "horizon_hours": 1,
+      "arm": "weather_events",
+      "forecast_leaf": 96,
+      "spread_leaf": 15,
+      "blend": 1,
+      "offset": -0.025,
+      "hedge": 0.025,
+      "scale": 56.37213094628512,
+      "validation_revenue_gbp": 554623.7192626693,
+      "validation_gain_gbp": 3660.3748910634313
+    },
+    {
+      "horizon_hours": 2,
+      "arm": "market_persistence",
+      "forecast_leaf": 24,
+      "spread_leaf": 15,
+      "blend": 0,
+      "offset": -0.025,
+      "hedge": 0.025,
+      "scale": 56.37454442983601,
+      "validation_revenue_gbp": 551735.7725293732,
+      "validation_gain_gbp": 453.79811838292517
+    },
+    {
+      "horizon_hours": 2,
+      "arm": "weather",
+      "forecast_leaf": 96,
+      "spread_leaf": 15,
+      "blend": 1,
+      "offset": -0.025,
+      "hedge": 0.05,
+      "scale": 56.37454442983601,
+      "validation_revenue_gbp": 554772.5920572777,
+      "validation_gain_gbp": 3490.617646287428
+    },
+    {
+      "horizon_hours": 2,
+      "arm": "weather_events",
+      "forecast_leaf": 96,
+      "spread_leaf": 15,
+      "blend": 1,
+      "offset": -0.025,
+      "hedge": 0.05,
+      "scale": 56.37454442983601,
+      "validation_revenue_gbp": 554929.2763693668,
+      "validation_gain_gbp": 3647.3019583765417
+    },
+    {
+      "horizon_hours": 4,
+      "arm": "market_persistence",
+      "forecast_leaf": 24,
+      "spread_leaf": 7,
+      "blend": 0,
+      "offset": -0.025,
+      "hedge": 0.025,
+      "scale": 56.379860638302354,
+      "validation_revenue_gbp": 555296.7218127698,
+      "validation_gain_gbp": 1028.3482144195586
+    },
+    {
+      "horizon_hours": 4,
+      "arm": "weather",
+      "forecast_leaf": 96,
+      "spread_leaf": 15,
+      "blend": 1,
+      "offset": -0.025,
+      "hedge": 0.025,
+      "scale": 56.379860638302354,
+      "validation_revenue_gbp": 560392.6397768788,
+      "validation_gain_gbp": 6124.266178528545
+    },
+    {
+      "horizon_hours": 4,
+      "arm": "weather_events",
+      "forecast_leaf": 96,
+      "spread_leaf": 7,
+      "blend": 1,
+      "offset": -0.025,
+      "hedge": 0,
+      "scale": 56.379860638302354,
+      "validation_revenue_gbp": 560200.7725426124,
+      "validation_gain_gbp": 5932.398944262182
+    }
+  ]
+}

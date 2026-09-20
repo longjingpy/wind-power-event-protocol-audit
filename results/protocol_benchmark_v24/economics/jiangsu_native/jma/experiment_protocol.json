@@ -1,0 +1,44 @@
+{
+  "status": "FROZEN_BEFORE_NEW_POLICY_TEST_SCORES",
+  "mode": "EXPLORATORY_EXISTING_ARCHIVE_NEW_NATIVE_GRID_AND_TARGET",
+  "capacity_mw": 87.45,
+  "capacity_basis": "provider-supplied 87.45-MW metadata note",
+  "rule": "Jiangsu 2022 No.53 Article 44(II), printed pages 19-20, accuracy charge only",
+  "source_url": "https://jsb.nea.gov.cn/eWebEditor/webpic/2022815133219753.pdf",
+  "horizons_steps": {
+    "1": 0.03,
+    "16": 0.13
+  },
+  "point_charge_cny_per_mw": 0.4,
+  "no_day_ahead_allowance": "The 2% monthly allowance belongs to subsection I, not this ultra-short-term accuracy component.",
+  "training_end": "2024-07-08 16:00:00+00:00",
+  "validation_end": "2024-10-20 16:00:00+00:00",
+  "representations": [
+    "scalar",
+    "raw25",
+    "raw_pca6",
+    "gaf_pca6",
+    "gaf_bit6"
+  ],
+  "classifier": "ExtraTrees probability forest, 150 trees; leaves 8/32; depth16; seed41",
+  "actions": [
+    "mean",
+    "median",
+    "tolerance"
+  ],
+  "persistence_blends": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "selection": "minimum validation failed points, ties by nMAE and smaller forecast blend",
+  "future_inputs": "none; native inputs precede issue by at least one minute",
+  "reporting": "observed eligible points and monthly coverage; no extrapolated actual invoice or exemptions",
+  "weather": "jma",
+  "weather_source": "Open-Meteo fixed-24h-lead operational forecasts; not reanalysis",
+  "coordinates": "archived administrative proxy 34.3403N,118.0068E",
+  "weather_features": "current-valid and target-valid u/v, temperature, pressure; their differences; no interpolation across gaps",
+  "comparison_population": "all representations and persistence share complete forecast coverage"
+}

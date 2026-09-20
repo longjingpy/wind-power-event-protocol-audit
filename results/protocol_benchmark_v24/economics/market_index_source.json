@@ -1,0 +1,484 @@
+{
+  "status": "PARTIAL",
+  "expected_intervals": 26256,
+  "available_intervals": 24480,
+  "currency": "GBP/MWh",
+  "role": "realised market-index execution reference for scoring, never future feature",
+  "zero_volume_provider_rows_excluded": 24622,
+  "downloads": [
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-01-01T00%3A00Z&to=2020-01-08T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200101_20200108.json",
+      "bytes": 97022,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-01-08T00%3A00Z&to=2020-01-15T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200108_20200115.json",
+      "bytes": 88537,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-01-15T00%3A00Z&to=2020-01-22T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200115_20200122.json",
+      "bytes": 97189,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-01-22T00%3A00Z&to=2020-01-29T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200122_20200129.json",
+      "bytes": 96163,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-01-29T00%3A00Z&to=2020-02-05T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200129_20200205.json",
+      "bytes": 97158,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-02-05T00%3A00Z&to=2020-02-12T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200205_20200212.json",
+      "bytes": 96739,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-02-12T00%3A00Z&to=2020-02-19T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200212_20200219.json",
+      "bytes": 97208,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-02-19T00%3A00Z&to=2020-02-26T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200219_20200226.json",
+      "bytes": 97200,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-02-26T00%3A00Z&to=2020-03-04T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200226_20200304.json",
+      "bytes": 97174,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-03-04T00%3A00Z&to=2020-03-11T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200304_20200311.json",
+      "bytes": 97168,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-03-11T00%3A00Z&to=2020-03-18T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200311_20200318.json",
+      "bytes": 97194,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-03-18T00%3A00Z&to=2020-03-25T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200318_20200325.json",
+      "bytes": 97169,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-03-25T00%3A00Z&to=2020-04-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200325_20200401.json",
+      "bytes": 96571,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-04-01T00%3A00Z&to=2020-04-08T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200401_20200408.json",
+      "bytes": 97191,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-04-08T00%3A00Z&to=2020-04-15T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200408_20200415.json",
+      "bytes": 97140,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-04-15T00%3A00Z&to=2020-04-22T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200415_20200422.json",
+      "bytes": 96726,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-04-22T00%3A00Z&to=2020-04-29T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200422_20200429.json",
+      "bytes": 97130,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-04-29T00%3A00Z&to=2020-05-06T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200429_20200506.json",
+      "bytes": 97132,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-05-06T00%3A00Z&to=2020-05-13T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200506_20200513.json",
+      "bytes": 94108,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-05-13T00%3A00Z&to=2020-05-20T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200513_20200520.json",
+      "bytes": 97135,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-05-20T00%3A00Z&to=2020-05-27T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200520_20200527.json",
+      "bytes": 97182,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-05-27T00%3A00Z&to=2020-06-03T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200527_20200603.json",
+      "bytes": 96662,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-06-03T00%3A00Z&to=2020-06-10T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200603_20200610.json",
+      "bytes": 97142,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-06-10T00%3A00Z&to=2020-06-17T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200610_20200617.json",
+      "bytes": 96999,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-06-17T00%3A00Z&to=2020-06-24T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200617_20200624.json",
+      "bytes": 97131,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-06-24T00%3A00Z&to=2020-07-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200624_20200701.json",
+      "bytes": 96025,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-07-01T00%3A00Z&to=2020-07-08T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200701_20200708.json",
+      "bytes": 83026,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-07-08T00%3A00Z&to=2020-07-15T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200708_20200715.json",
+      "bytes": 96815,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-07-15T00%3A00Z&to=2020-07-22T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200715_20200722.json",
+      "bytes": 81639,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-07-22T00%3A00Z&to=2020-07-29T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200722_20200729.json",
+      "bytes": 97153,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-07-29T00%3A00Z&to=2020-08-05T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200729_20200805.json",
+      "bytes": 96934,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-08-05T00%3A00Z&to=2020-08-12T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200805_20200812.json",
+      "bytes": 97117,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-08-12T00%3A00Z&to=2020-08-19T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200812_20200819.json",
+      "bytes": 97083,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-08-19T00%3A00Z&to=2020-08-26T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200819_20200826.json",
+      "bytes": 96887,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-08-26T00%3A00Z&to=2020-09-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200826_20200902.json",
+      "bytes": 97140,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-09-02T00%3A00Z&to=2020-09-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200902_20200909.json",
+      "bytes": 96434,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-09-09T00%3A00Z&to=2020-09-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200909_20200916.json",
+      "bytes": 97180,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-09-16T00%3A00Z&to=2020-09-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200916_20200923.json",
+      "bytes": 96991,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-09-23T00%3A00Z&to=2020-09-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200923_20200930.json",
+      "bytes": 97148,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-09-30T00%3A00Z&to=2020-10-07T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20200930_20201007.json",
+      "bytes": 97178,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-10-07T00%3A00Z&to=2020-10-14T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201007_20201014.json",
+      "bytes": 96450,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-10-14T00%3A00Z&to=2020-10-21T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201014_20201021.json",
+      "bytes": 97175,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-10-21T00%3A00Z&to=2020-10-28T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201021_20201028.json",
+      "bytes": 97173,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-10-28T00%3A00Z&to=2020-11-04T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201028_20201104.json",
+      "bytes": 55697,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-11-04T00%3A00Z&to=2020-11-11T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201104_20201111.json",
+      "bytes": 66598,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-11-11T00%3A00Z&to=2020-11-18T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201111_20201118.json",
+      "bytes": 27706,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-11-18T00%3A00Z&to=2020-11-25T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201118_20201125.json",
+      "bytes": 41842,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-11-25T00%3A00Z&to=2020-12-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201125_20201202.json",
+      "bytes": 41822,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-12-02T00%3A00Z&to=2020-12-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201202_20201209.json",
+      "bytes": 96796,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-12-09T00%3A00Z&to=2020-12-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201209_20201216.json",
+      "bytes": 96608,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-12-16T00%3A00Z&to=2020-12-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201216_20201223.json",
+      "bytes": 97034,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-12-23T00%3A00Z&to=2020-12-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201223_20201230.json",
+      "bytes": 97180,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2020-12-30T00%3A00Z&to=2021-01-06T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20201230_20210106.json",
+      "bytes": 96695,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-01-06T00%3A00Z&to=2021-01-13T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210106_20210113.json",
+      "bytes": 95806,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-01-13T00%3A00Z&to=2021-01-20T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210113_20210120.json",
+      "bytes": 96943,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-01-20T00%3A00Z&to=2021-01-27T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210120_20210127.json",
+      "bytes": 97233,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-01-27T00%3A00Z&to=2021-02-03T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210127_20210203.json",
+      "bytes": 97104,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-02-03T00%3A00Z&to=2021-02-10T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210203_20210210.json",
+      "bytes": 97199,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-02-10T00%3A00Z&to=2021-02-17T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210210_20210217.json",
+      "bytes": 83107,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-02-17T00%3A00Z&to=2021-02-24T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210217_20210224.json",
+      "bytes": 55378,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-02-24T00%3A00Z&to=2021-03-03T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210224_20210303.json",
+      "bytes": 39205,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-03-03T00%3A00Z&to=2021-03-10T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210303_20210310.json",
+      "bytes": 95624,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-03-10T00%3A00Z&to=2021-03-17T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210310_20210317.json",
+      "bytes": 69531,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-03-17T00%3A00Z&to=2021-03-24T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210317_20210324.json",
+      "bytes": 95305,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-03-24T00%3A00Z&to=2021-03-31T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210324_20210331.json",
+      "bytes": 97197,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-03-31T00%3A00Z&to=2021-04-07T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210331_20210407.json",
+      "bytes": 97023,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-04-07T00%3A00Z&to=2021-04-14T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210407_20210414.json",
+      "bytes": 97236,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-04-14T00%3A00Z&to=2021-04-21T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210414_20210421.json",
+      "bytes": 97141,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-04-21T00%3A00Z&to=2021-04-28T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210421_20210428.json",
+      "bytes": 89859,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-04-28T00%3A00Z&to=2021-05-05T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210428_20210505.json",
+      "bytes": 90188,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-05-05T00%3A00Z&to=2021-05-12T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210505_20210512.json",
+      "bytes": 96440,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-05-12T00%3A00Z&to=2021-05-19T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210512_20210519.json",
+      "bytes": 93251,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-05-19T00%3A00Z&to=2021-05-26T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210519_20210526.json",
+      "bytes": 97193,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-05-26T00%3A00Z&to=2021-06-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210526_20210602.json",
+      "bytes": 84522,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-06-02T00%3A00Z&to=2021-06-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210602_20210609.json",
+      "bytes": 96723,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-06-09T00%3A00Z&to=2021-06-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210609_20210616.json",
+      "bytes": 97162,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-06-16T00%3A00Z&to=2021-06-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210616_20210623.json",
+      "bytes": 97033,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-06-23T00%3A00Z&to=2021-06-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210623_20210630.json",
+      "bytes": 96991,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/balancing/pricing/market-index?from=2021-06-30T00%3A00Z&to=2021-07-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/market_index/20210630_20210701.json",
+      "bytes": 14171,
+      "status": "DOWNLOADED"
+    }
+  ]
+}

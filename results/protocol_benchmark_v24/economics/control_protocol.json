@@ -1,0 +1,34 @@
+{
+  "status": "FROZEN_BEFORE_V24_VALIDATION",
+  "training_end": "2020-08-07 14:24:00+00:00",
+  "validation_end": "2020-10-19 19:12:00+00:00",
+  "test": "Hill 2021H1: previously used structurally, not for this economic selection",
+  "arms": [
+    "calendar_persistence",
+    "weather",
+    "weather_events"
+  ],
+  "leaves": [
+    24,
+    96
+  ],
+  "price_profile_shrink": [
+    0.5,
+    1.0
+  ],
+  "battery_fractions": [
+    0,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "wear_gbp_per_ac_mwh": 10.0,
+  "roundtrip_efficiency": 0.8464,
+  "replan_half_hours": 8,
+  "objective": "maximise forecast-price net operating gain; validation mean plus .25 times negative worst-5%-day mean",
+  "forecast_inputs": "calendar and completed SCADA; events available after full context; no settlement-price history",
+  "controller": "wind-only charging; export cap=48.3MW engineering assumption; daily minimum SOC restored",
+  "dispatch_resolution": "30-minute planning and passive average-interval clipping; no sub-interval guarantee",
+  "primary": "installed 10%-power 2h battery; incremental event value vs strongest validation-selected non-event arm",
+  "secondary": "validation-selected capacity; operational gain before capital; all arms retained"
+}

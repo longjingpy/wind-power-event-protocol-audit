@@ -1,0 +1,58 @@
+{
+  "status": "FROZEN_FROM_VALIDATION_ONLY",
+  "selected": [
+    {
+      "role": "morphology_pipeline",
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "raw_pca6",
+      "leaf": 8,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3185,
+      "validation_nmae": 0.0320479572697757,
+      "weather": "none"
+    },
+    {
+      "role": "scalar_baseline",
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "scalar",
+      "leaf": 8,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3204,
+      "validation_nmae": 0.0321621469532784,
+      "weather": "jma"
+    },
+    {
+      "role": "morphology_pipeline",
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "gaf_bit6",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3049,
+      "validation_nmae": 0.1243734698255185,
+      "weather": "jma_gfs"
+    },
+    {
+      "role": "scalar_baseline",
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "scalar",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3071,
+      "validation_nmae": 0.1243160511749887,
+      "weather": "jma_gfs"
+    }
+  ],
+  "evidence_identity": "New weather variants on the existing Pizhou chronology; earlier SCADA-only test already examined. Not a newly acquired independent farm."
+}

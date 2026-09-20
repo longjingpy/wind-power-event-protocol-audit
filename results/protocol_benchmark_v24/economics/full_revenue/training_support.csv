@@ -1,0 +1,7 @@
+arm,leaf,train_price_rows,train_wind_rows,latest_training_target
+market_persistence,24,21650,16138,2021-04-01 00:00:00+00:00
+market_persistence,96,21650,16138,2021-04-01 00:00:00+00:00
+weather,24,21650,16138,2021-04-01 00:00:00+00:00
+weather,96,21650,16138,2021-04-01 00:00:00+00:00
+weather_events,24,21650,16138,2021-04-01 00:00:00+00:00
+weather_events,96,21650,16138,2021-04-01 00:00:00+00:00

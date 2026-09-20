@@ -1,0 +1,115 @@
+{
+  "status": "FROZEN",
+  "selected": [
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "scalar",
+      "leaf": 8,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3224,
+      "validation_nmae": 0.032598752272634535
+    },
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "raw25",
+      "leaf": 32,
+      "action": "tolerance",
+      "blend": 0.5,
+      "validation_failed_points": 3226,
+      "validation_nmae": 0.036189873923052604
+    },
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "raw_pca6",
+      "leaf": 8,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3220,
+      "validation_nmae": 0.032551239911799146
+    },
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "gaf_pca6",
+      "leaf": 32,
+      "action": "tolerance",
+      "blend": 0.5,
+      "validation_failed_points": 3226,
+      "validation_nmae": 0.03615947796425201
+    },
+    {
+      "horizon_steps": 1,
+      "tolerance": 0.03,
+      "history": 8,
+      "representation": "gaf_bit6",
+      "leaf": 8,
+      "action": "tolerance",
+      "blend": 0.5,
+      "validation_failed_points": 3225,
+      "validation_nmae": 0.036004051169024165
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "scalar",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3071,
+      "validation_nmae": 0.12431605117498871
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "raw25",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3085,
+      "validation_nmae": 0.12540697250953442
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "raw_pca6",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3060,
+      "validation_nmae": 0.12435931263748852
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "gaf_pca6",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3062,
+      "validation_nmae": 0.12400160356525666
+    },
+    {
+      "horizon_steps": 16,
+      "tolerance": 0.13,
+      "history": 16,
+      "representation": "gaf_bit6",
+      "leaf": 32,
+      "action": "median",
+      "blend": 0.75,
+      "validation_failed_points": 3049,
+      "validation_nmae": 0.12437346982551856
+    }
+  ]
+}

@@ -1,0 +1,483 @@
+{
+  "status": "COMPLETE",
+  "rows": 203040,
+  "publications": 4144,
+  "scope": "GB national wind generation forecast; MW; preserve publication vintages",
+  "feature_gate": "publishTime+5min <= issue_time; never choose a later vintage",
+  "downloads": [
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2019-12-30T00%3A00Z&publishDateTimeTo=2020-01-06T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20191230_20200106.json",
+      "bytes": 308882,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-01-06T00%3A00Z&publishDateTimeTo=2020-01-13T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200106_20200113.json",
+      "bytes": 281155,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-01-13T00%3A00Z&publishDateTimeTo=2020-01-20T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200113_20200120.json",
+      "bytes": 308398,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-01-20T00%3A00Z&publishDateTimeTo=2020-01-27T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200120_20200127.json",
+      "bytes": 307773,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-01-27T00%3A00Z&publishDateTimeTo=2020-02-03T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200127_20200203.json",
+      "bytes": 309608,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-02-03T00%3A00Z&publishDateTimeTo=2020-02-10T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200203_20200210.json",
+      "bytes": 308908,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-02-10T00%3A00Z&publishDateTimeTo=2020-02-17T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200210_20200217.json",
+      "bytes": 309510,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-02-17T00%3A00Z&publishDateTimeTo=2020-02-24T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200217_20200224.json",
+      "bytes": 309666,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-02-24T00%3A00Z&publishDateTimeTo=2020-03-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200224_20200302.json",
+      "bytes": 308584,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-03-02T00%3A00Z&publishDateTimeTo=2020-03-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200302_20200309.json",
+      "bytes": 308242,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-03-09T00%3A00Z&publishDateTimeTo=2020-03-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200309_20200316.json",
+      "bytes": 309182,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-03-16T00%3A00Z&publishDateTimeTo=2020-03-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200316_20200323.json",
+      "bytes": 308546,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-03-23T00%3A00Z&publishDateTimeTo=2020-03-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200323_20200330.json",
+      "bytes": 306127,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-03-30T00%3A00Z&publishDateTimeTo=2020-04-06T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200330_20200406.json",
+      "bytes": 308272,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-04-06T00%3A00Z&publishDateTimeTo=2020-04-13T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200406_20200413.json",
+      "bytes": 307424,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-04-13T00%3A00Z&publishDateTimeTo=2020-04-20T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200413_20200420.json",
+      "bytes": 307452,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-04-20T00%3A00Z&publishDateTimeTo=2020-04-27T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200420_20200427.json",
+      "bytes": 307046,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-04-27T00%3A00Z&publishDateTimeTo=2020-05-04T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200427_20200504.json",
+      "bytes": 301617,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-05-04T00%3A00Z&publishDateTimeTo=2020-05-11T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200504_20200511.json",
+      "bytes": 307274,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-05-11T00%3A00Z&publishDateTimeTo=2020-05-18T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200511_20200518.json",
+      "bytes": 307338,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-05-18T00%3A00Z&publishDateTimeTo=2020-05-25T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200518_20200525.json",
+      "bytes": 308252,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-05-25T00%3A00Z&publishDateTimeTo=2020-06-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200525_20200601.json",
+      "bytes": 307117,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-06-01T00%3A00Z&publishDateTimeTo=2020-06-08T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200601_20200608.json",
+      "bytes": 307633,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-06-08T00%3A00Z&publishDateTimeTo=2020-06-15T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200608_20200615.json",
+      "bytes": 306656,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-06-15T00%3A00Z&publishDateTimeTo=2020-06-22T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200615_20200622.json",
+      "bytes": 306690,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-06-22T00%3A00Z&publishDateTimeTo=2020-06-29T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200622_20200629.json",
+      "bytes": 308146,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-06-29T00%3A00Z&publishDateTimeTo=2020-07-06T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200629_20200706.json",
+      "bytes": 308142,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-07-06T00%3A00Z&publishDateTimeTo=2020-07-13T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200706_20200713.json",
+      "bytes": 263434,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-07-13T00%3A00Z&publishDateTimeTo=2020-07-20T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200713_20200720.json",
+      "bytes": 307292,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-07-20T00%3A00Z&publishDateTimeTo=2020-07-27T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200720_20200727.json",
+      "bytes": 263331,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-07-27T00%3A00Z&publishDateTimeTo=2020-08-03T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200727_20200803.json",
+      "bytes": 307602,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-08-03T00%3A00Z&publishDateTimeTo=2020-08-10T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200803_20200810.json",
+      "bytes": 302069,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-08-10T00%3A00Z&publishDateTimeTo=2020-08-17T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200810_20200817.json",
+      "bytes": 307210,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-08-17T00%3A00Z&publishDateTimeTo=2020-08-24T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200817_20200824.json",
+      "bytes": 308340,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-08-24T00%3A00Z&publishDateTimeTo=2020-08-31T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200824_20200831.json",
+      "bytes": 307535,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-08-31T00%3A00Z&publishDateTimeTo=2020-09-07T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200831_20200907.json",
+      "bytes": 307524,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-09-07T00%3A00Z&publishDateTimeTo=2020-09-14T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200907_20200914.json",
+      "bytes": 307607,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-09-14T00%3A00Z&publishDateTimeTo=2020-09-21T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200914_20200921.json",
+      "bytes": 307329,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-09-21T00%3A00Z&publishDateTimeTo=2020-09-28T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200921_20200928.json",
+      "bytes": 307876,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-09-28T00%3A00Z&publishDateTimeTo=2020-10-05T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20200928_20201005.json",
+      "bytes": 307363,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-10-05T00%3A00Z&publishDateTimeTo=2020-10-12T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201005_20201012.json",
+      "bytes": 307818,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-10-12T00%3A00Z&publishDateTimeTo=2020-10-19T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201012_20201019.json",
+      "bytes": 307228,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-10-19T00%3A00Z&publishDateTimeTo=2020-10-26T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201019_20201026.json",
+      "bytes": 310282,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-10-26T00%3A00Z&publishDateTimeTo=2020-11-02T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201026_20201102.json",
+      "bytes": 265281,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-11-02T00%3A00Z&publishDateTimeTo=2020-11-09T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201102_20201109.json",
+      "bytes": 175620,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-11-09T00%3A00Z&publishDateTimeTo=2020-11-16T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201109_20201116.json",
+      "bytes": 132630,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-11-16T00%3A00Z&publishDateTimeTo=2020-11-23T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201116_20201123.json",
+      "bytes": 88326,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-11-23T00%3A00Z&publishDateTimeTo=2020-11-30T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201123_20201130.json",
+      "bytes": 131706,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-11-30T00%3A00Z&publishDateTimeTo=2020-12-07T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201130_20201207.json",
+      "bytes": 263518,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-12-07T00%3A00Z&publishDateTimeTo=2020-12-14T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201207_20201214.json",
+      "bytes": 308200,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-12-14T00%3A00Z&publishDateTimeTo=2020-12-21T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201214_20201221.json",
+      "bytes": 309214,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-12-21T00%3A00Z&publishDateTimeTo=2020-12-28T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201221_20201228.json",
+      "bytes": 308441,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2020-12-28T00%3A00Z&publishDateTimeTo=2021-01-04T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20201228_20210104.json",
+      "bytes": 307338,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-01-04T00%3A00Z&publishDateTimeTo=2021-01-11T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210104_20210111.json",
+      "bytes": 307789,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-01-11T00%3A00Z&publishDateTimeTo=2021-01-18T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210111_20210118.json",
+      "bytes": 308166,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-01-18T00%3A00Z&publishDateTimeTo=2021-01-25T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210118_20210125.json",
+      "bytes": 307977,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-01-25T00%3A00Z&publishDateTimeTo=2021-02-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210125_20210201.json",
+      "bytes": 307489,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-02-01T00%3A00Z&publishDateTimeTo=2021-02-08T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210201_20210208.json",
+      "bytes": 308845,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-02-08T00%3A00Z&publishDateTimeTo=2021-02-15T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210208_20210215.json",
+      "bytes": 308871,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-02-15T00%3A00Z&publishDateTimeTo=2021-02-22T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210215_20210222.json",
+      "bytes": 132588,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-02-22T00%3A00Z&publishDateTimeTo=2021-03-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210222_20210301.json",
+      "bytes": 132308,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-03-01T00%3A00Z&publishDateTimeTo=2021-03-08T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210301_20210308.json",
+      "bytes": 306922,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-03-08T00%3A00Z&publishDateTimeTo=2021-03-15T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210308_20210315.json",
+      "bytes": 220808,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-03-15T00%3A00Z&publishDateTimeTo=2021-03-22T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210315_20210322.json",
+      "bytes": 307427,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-03-22T00%3A00Z&publishDateTimeTo=2021-03-29T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210322_20210329.json",
+      "bytes": 307263,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-03-29T00%3A00Z&publishDateTimeTo=2021-04-05T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210329_20210405.json",
+      "bytes": 302606,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-04-05T00%3A00Z&publishDateTimeTo=2021-04-12T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210405_20210412.json",
+      "bytes": 307844,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-04-12T00%3A00Z&publishDateTimeTo=2021-04-19T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210412_20210419.json",
+      "bytes": 306778,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-04-19T00%3A00Z&publishDateTimeTo=2021-04-26T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210419_20210426.json",
+      "bytes": 306980,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-04-26T00%3A00Z&publishDateTimeTo=2021-05-03T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210426_20210503.json",
+      "bytes": 306879,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-05-03T00%3A00Z&publishDateTimeTo=2021-05-10T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210503_20210510.json",
+      "bytes": 307721,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-05-10T00%3A00Z&publishDateTimeTo=2021-05-17T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210510_20210517.json",
+      "bytes": 307052,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-05-17T00%3A00Z&publishDateTimeTo=2021-05-24T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210517_20210524.json",
+      "bytes": 308052,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-05-24T00%3A00Z&publishDateTimeTo=2021-05-31T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210524_20210531.json",
+      "bytes": 306865,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-05-31T00%3A00Z&publishDateTimeTo=2021-06-07T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210531_20210607.json",
+      "bytes": 306844,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-06-07T00%3A00Z&publishDateTimeTo=2021-06-14T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210607_20210614.json",
+      "bytes": 307338,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-06-14T00%3A00Z&publishDateTimeTo=2021-06-21T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210614_20210621.json",
+      "bytes": 307338,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-06-21T00%3A00Z&publishDateTimeTo=2021-06-28T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210621_20210628.json",
+      "bytes": 307242,
+      "status": "DOWNLOADED"
+    },
+    {
+      "url": "https://data.elexon.co.uk/bmrs/api/v1/datasets/WINDFOR?publishDateTimeFrom=2021-06-28T00%3A00Z&publishDateTimeTo=2021-07-01T00%3A00Z&format=json",
+      "path": "data/policy_v24/issued_wind/20210628_20210701.json",
+      "bytes": 131503,
+      "status": "DOWNLOADED"
+    }
+  ]
+}

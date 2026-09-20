@@ -1,0 +1,7 @@
+arm,leaf,train_price_rows,train_wind_rows,latest_training_target
+calendar_persistence,24,10397,7612,2020-08-07 14:24:00+00:00
+calendar_persistence,96,10397,7612,2020-08-07 14:24:00+00:00
+weather,24,10397,7612,2020-08-07 14:24:00+00:00
+weather,96,10397,7612,2020-08-07 14:24:00+00:00
+weather_events,24,10397,7612,2020-08-07 14:24:00+00:00
+weather_events,96,10397,7612,2020-08-07 14:24:00+00:00

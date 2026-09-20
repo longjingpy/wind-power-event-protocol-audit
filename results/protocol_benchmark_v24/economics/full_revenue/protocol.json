@@ -1,0 +1,51 @@
+{
+  "status": "FROZEN_BEFORE_H2_RESULTS",
+  "train_end_exclusive": "2021-04-01 00:00:00+00:00",
+  "validation": "2021-04-01 through 2021-06-30; development period already seen in storage research",
+  "holdout": "2021-07-01 through 2021-12-31; no prior economic score used for selection",
+  "horizons_hours": [
+    1,
+    2,
+    4
+  ],
+  "arms": [
+    "market_persistence",
+    "weather",
+    "weather_events"
+  ],
+  "forecast_leaves": [
+    24,
+    96
+  ],
+  "spread_leaves": [
+    7,
+    15
+  ],
+  "blends": [
+    0,
+    0.5,
+    1
+  ],
+  "capacity_offsets": [
+    -0.025,
+    0,
+    0.025
+  ],
+  "hedge_capacity_fractions": [
+    0,
+    0.025,
+    0.05
+  ],
+  "selection": "Maximum complete validation net revenue subject to scheduling nMAE <= persistence; passive fallback included",
+  "trade_reference": "Realised Elexon volume-weighted MID, ex-post execution reference only",
+  "fees_gbp_per_scheduled_mwh": 0.5,
+  "fee_sensitivity": [
+    0,
+    0.5,
+    1
+  ],
+  "revenue": "S*MID*0.5+(P-S)*imbalance_price*0.5-fee*abs(S)*0.5",
+  "role": "Risk-constrained research trade replay, not actual orders/invoices",
+  "power_forecast": "Common past farm powers and scalars plus archived issued national wind forecasts",
+  "event_increment": "Training-fitted causal 2h/4h shape distances, no extra raw measurements"
+}
