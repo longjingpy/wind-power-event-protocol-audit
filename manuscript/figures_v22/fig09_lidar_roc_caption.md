@@ -1,0 +1,1 @@
+Independent LiDAR direction discrimination after chronological calibration. T11 and T07 occupy the left and right panels, with 705 and 285 measured increase/decrease events. Small-net-change observations are retained in the separate three-class score. Both instruments use the same representation colors and axes.

@@ -1,0 +1,1 @@
+Forecast error and gross imbalance debits at 1-, 2- and 4-hour leads. Left and right panels use the same model colors and common eligible test targets within each horizon. Forecast candidates were selected on validation nMAE; the reused test calendar is exploratory. Both weather-only and persistence baselines accompany the event-aware forecast.

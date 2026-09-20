@@ -1,0 +1,44 @@
+{
+  "title": "Preserving physical information in transferable wind-power event measurements",
+  "authors": [
+    {
+      "name": "Peiyan Gong",
+      "superscripts": "1,2",
+      "email": "202483300332@nuist.edu.cn",
+      "orcid": "0009-0000-8793-2932"
+    },
+    {
+      "name": "Chaoxia Yuan",
+      "superscripts": "1,2",
+      "email": "chaoxia.yuan@nuist.edu.cn",
+      "orcid": "0000-0001-5121-869X",
+      "corresponding": true
+    }
+  ],
+  "affiliations": [
+    "State Key Laboratory of Climate System Prediction and Risk Management/Key Laboratory of Meteorological Disaster, Ministry of Education/Collaborative Innovation Center on Forecast and Evaluation of Meteorological Disasters, Nanjing University of Information Science and Technology, Nanjing 210044, China",
+    "Jiangsu Key Laboratory of Intelligent Weather Forecasting and Applications Based on Big Data/School of Artificial Intelligence, Nanjing University of Information Science and Technology, Nanjing 210044, China"
+  ],
+  "funding": "This work was financially supported by the State Key Laboratory of Climate System Prediction and Risk Management (CPRM) initiative project (CPRM-2025-NUIST-012) and the National Natural Science Foundation of China (42088101 and 41875099).",
+  "acknowledgements": "The authors thank the Jiangsu Key Laboratory of Intelligent Weather Forecasting and Applications Based on Big Data for providing the experimental environment and support. This work was supported by the Interdisciplinary Research Center of Atmospheric Sciences, Nanjing University of Information Science and Technology.",
+  "author_contributions": "Conceptualization, P.G. and C.Y.; methodology, P.G.; software, P.G.; validation, P.G.; formal analysis, P.G.; investigation, P.G.; resources, C.Y.; data curation, P.G.; writing—original draft preparation, P.G.; writing—review and editing, C.Y.; visualization, P.G.; supervision, C.Y.; project administration, C.Y.; funding acquisition, C.Y.",
+  "conflicts": "None declared.",
+  "data_availability": "Processed, pseudonymized SCADA for seven archives and 333 turbines is openly available at https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.3.0. The bundle contains 7,548,467 regular-grid rows with normalized power, turbine wind, quality flags, chronological splits and relative clocks. Original turbine names, direct location fields and absolute dates are excluded; the identifier and clock policy is documented with the data. Metadata, a data dictionary, a complete file index and verification records accompany the release. Original public sources include the Greek monitoring archive (doi:10.5281/zenodo.14546480), SDWPF (doi:10.6084/m9.figshare.24798654), La Haute Borne and Hill of Towie. Original provider terms and attribution remain applicable. Analysis scripts, selected checkpoints and aggregate results are available in the repository.",
+  "code_availability": "Analysis scripts, targeted tests, selected-checkpoint reproduction and aggregate results are available at https://github.com/longjingpy/wind-power-event-protocol-audit. The repository distinguishes verified reproduction paths from outstanding full-workflow integration.",
+  "abstract": "Wind-power events are useful when the distinctions they retain remain physically meaningful at the time of a decision. We introduce a protocol-aware framework that tests event measurements through detection, matching, representation and evaluation. Across seven wind-farm archives comprising 333 turbines, 17 detector configurations and six representations, plus an instrumented French site, matched trajectories reveal a stable structural reference while exposing information that angular encoding can discard. In the signed-domain Gramian angular field used here, opposite trajectories share one image; reserving a polarity coordinate within a six-dimensional representation protects their directional distinction. Chronological calibration against independent LiDAR measurements raises directional AUROC from 0.494/0.477 to 0.890/0.905 at two turbines. Three observers assess the same 320 real windows. In a separate observed-price experiment, historical event information reduces two-hour gross imbalance debits by 4.5%, while large-ramp periods account for 54–71% of persistence debits. These results establish a task-aware principle: preserve distinctions that survive protocol changes, verify them against independent physical measurements and evaluate them at the decision timescale.",
+  "keywords": [
+    "Wind power",
+    "Ramp events",
+    "SCADA",
+    "Measurement reliability",
+    "Time-series representation",
+    "External validation"
+  ],
+  "highlights": [
+    "Protocol-aware measurement separates event stability from physical information.",
+    "Protecting polarity restores wind-tendency discrimination after angular encoding.",
+    "Independent LiDAR tests connect event representations to measured wind changes.",
+    "Historical event information reduces two-hour gross imbalance debits by 4.5%.",
+    "Three observers anchor event-presence evaluation across 320 real windows."
+  ]
+}

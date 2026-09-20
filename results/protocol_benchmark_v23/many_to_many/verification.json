@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "populations": 8,
+  "arms": 5,
+  "configuration_rows": 5440,
+  "component_type_totals": true,
+  "coverage_bounds": true,
+  "edge_threshold_nesting": true,
+  "primitive_coverage_exceeds_or_equals_one_to_one": true,
+  "primary_non_one_to_one_range": [
+    0.0663734400254365,
+    0.095096292588121
+  ],
+  "hierarchy_non_one_to_one_range": [
+    0.1980138593332242,
+    0.3669318862366931
+  ]
+}

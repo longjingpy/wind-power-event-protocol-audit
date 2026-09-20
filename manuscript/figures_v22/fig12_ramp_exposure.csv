@@ -1,0 +1,4 @@
+split,horizon_hours,model,intervals,nmae,ramp_intervals,ramp_nmae,shortfall_purchase_gbp,surplus_sale_gbp,net_imbalance_cashflow_cost_gbp,gross_debit_gbp,ramp_gross_debit_share,currency,economic_scope
+test,1,persistence,2780,0.1103784365532553,496,0.324276627841998,159432.06571477884,148683.7100929655,10748.355621813333,166614.92708261794,0.5372819776899707,GBP,observed-price imbalance exposure; commitment revenue separate
+test,2,persistence,2768,0.1366262125004936,686,0.3468665015234729,197435.2583201056,182988.0411347341,14447.21718537142,206169.2160562927,0.6378233860539175,GBP,observed-price imbalance exposure; commitment revenue separate
+test,4,persistence,2746,0.1753295256549664,935,0.3753412057103977,250168.09177171465,230658.3579302327,19509.73384148193,262275.2721732252,0.7053267063883338,GBP,observed-price imbalance exposure; commitment revenue separate

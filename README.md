@@ -1,6 +1,10 @@
 # Wind-power event protocol audit
 
-Code and analysis resources for **Measuring transferable wind-power dynamics with explicit event protocols**.
+Code and analysis resources for **Preserving physical information in transferable wind-power event measurements**.
+
+Current manuscript, supplementary material, editable figures and v23 overlap
+results are in the [v0.5.0 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.5.0).
+See `RELEASE_V23.md` for current paths, tested commands and the source packet.
 
 ## Study data
 
@@ -25,9 +29,9 @@ The v16 controlled HPO record is under `results/detection_hpo_v16/`. It covers t
 
 The storage-policy tables include the historical 10%-power/2-hour engineering benchmark, declared price scenarios and the complete conditional-advantage grid. These values are scenario costs per installed MW, with no claim of site-specific settlement revenue.
 
-The latest evidence map is `REPRODUCIBILITY_V17.md`; the itemized review register is `REVIEW_ACTION_REGISTER_V17.md`. The public repository separates measurement, synthetic confirmation, storage, weather and processed-data populations so that a passing check in one population does not silently become a claim about another.
+The v17 historical evidence map is `REPRODUCIBILITY_V17.md`; its itemized review register is `REVIEW_ACTION_REGISTER_V17.md`. Current additions and two independent review responses are indexed in `RELEASE_V23.md` and `docs/V23_REVIEW_RESPONSE.md`. The public repository separates measurement, synthetic confirmation, storage, weather and processed-data populations so that a passing check in one population does not silently become a claim about another.
 
-The v19/v22 manuscript evidence is tracked in the [v0.4.6 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.4.6) and in `outputs/protocol_benchmark_v19/RELEASE_MANIFEST_V19.json`. The repository release includes the current processed-data entry points, v22 result tables, editable Fig. 1 source and reproducibility metadata; provider attribution and upstream data terms remain applicable.
+The earlier v19/v22 evidence is retained in the [v0.4.6 release](https://github.com/longjingpy/wind-power-event-protocol-audit/releases/tag/v0.4.6). The v0.5.0 release adds current manuscript sources, v23 result tables and the native draw.io exports; provider attribution and upstream data terms remain applicable.
 
 The full raw-data-to-manuscript command is under integration. Aggregate reproduction and targeted experiment checks are reported separately from that outstanding end-to-end test.
 

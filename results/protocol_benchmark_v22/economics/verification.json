@@ -4,6 +4,14 @@
   "debit_credit_identity": true,
   "max_terminal_inventory_error_mwh": 0.0,
   "max_soc_violation_mwh": 0.0,
+  "price_leg_fidelity": "systemBuyPrice and systemSellPrice are aligned, finite and equal in the archived single-price calendar",
+  "test_complete_days": 58,
+  "test_intervals_by_horizon": {
+    "1": 2784,
+    "2": 2784,
+    "4": 2784
+  },
   "scope": "Ex-post correction capability using realised half-hour averages; complete-day cohort; terminal restoration settled",
+  "price_fidelity": "systemBuyPrice and systemSellPrice columns both present and identical; this is an observed single-price Elexon replay",
   "supersedes": "v21 online_metered_correction: gross included credits and daily SOC was reset without accounting"
 }

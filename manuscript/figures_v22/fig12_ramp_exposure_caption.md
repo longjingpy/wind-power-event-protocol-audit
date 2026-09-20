@@ -1,0 +1,1 @@
+Large-ramp periods concentrate settlement debit exposure. Grey bars show the eligible interval share with at least 20% fleet-capacity change; magenta bars show their share of persistence gross debits on the same targets and observed prices.

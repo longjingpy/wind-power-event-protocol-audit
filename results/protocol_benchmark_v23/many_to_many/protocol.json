@@ -1,0 +1,45 @@
+{
+  "status": "COMPLETE",
+  "source_model": "Pizhou raw25 k4 seed41 frozen",
+  "evaluation": "test only; same site/turbine; no matching across split",
+  "arms": [
+    [
+      "primitive_iou50",
+      "primitive",
+      "iou",
+      0.5
+    ],
+    [
+      "hierarchy_iou30",
+      "all",
+      "iou",
+      0.3
+    ],
+    [
+      "hierarchy_iou50",
+      "all",
+      "iou",
+      0.5
+    ],
+    [
+      "hierarchy_iou70",
+      "all",
+      "iou",
+      0.7
+    ],
+    [
+      "hierarchy_containment50",
+      "all",
+      "containment",
+      0.5
+    ]
+  ],
+  "estimand": "Equal-weight overlap component label-composition similarity, not duplicate-edge ARI",
+  "coverage": "unique connected nodes per eligible side within each configuration pair",
+  "bootstrap": "2000 shared within-site 7-calendar-day weights; each component anchored at its earliest start",
+  "zero_denominator": "Invalid e<=s intervals rejected before score; empty side coverage undefined",
+  "cautions": "Components can chain beyond 4h; report fraction and retain full duration. Connected components are measurement supports, not physical cause labels.",
+  "support": "At least 100 connected components; descriptive count, not a filter on site summaries.",
+  "weighting": "Each component one vote across all configuration pairs; site coverage pools node counts.",
+  "coverage_reconciliation": "coverage_aggregation_reconciliation.csv: all 1088 original primitive counts agree exactly."
+}

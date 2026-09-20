@@ -1,0 +1,1 @@
+The same observed trajectory yields different event boundaries. The lower tracks show the four detector intervals on the same physical-time axis; threshold and financial-tail boundaries coincide in this example. IoU is measured against the threshold reference. Track labels replace an overlapping legend.

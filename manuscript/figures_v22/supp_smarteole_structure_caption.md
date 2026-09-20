@@ -1,0 +1,1 @@
+Distribution over supported turbine-by-configuration rows. Each representation has 77 rows. Forty-five raw25 rows attain ARI 1.000; its median is 1.000, supported pair-weighted ARI 0.964 and all-row pair-weighted ARI 0.887. Density illustrates protocol variation, not independent-sample uncertainty.

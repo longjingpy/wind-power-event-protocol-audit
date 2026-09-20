@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "populations": 8,
+  "configuration_pairs_checked": 1088,
+  "same_eligible_counts_and_one_to_one_matches": true,
+  "difference_source": "Main table averages configuration-specific fractions; v23 site rows divide summed connected nodes by summed eligible nodes.",
+  "left_right_order": "Lexicographic configuration name; identical in both experiments."
+}

@@ -1,0 +1,37 @@
+model,stage,seed,f1
+TimesNet,Training q99,41,0.2659025787965616
+TimesNet,Training q99,42,0.2955784373107207
+TimesNet,Training q99,43,0.2269129287598944
+TimesNet,Threshold calibrated,41,0.4877384196185286
+TimesNet,Threshold calibrated,42,0.4761904761904761
+TimesNet,Threshold calibrated,43,0.3774954627949183
+TimesNet,Threshold + grouping,41,0.5929078014184397
+TimesNet,Threshold + grouping,42,0.6187050359712231
+TimesNet,Threshold + grouping,43,0.6149068322981367
+KAN-AD,Training q99,41,0.2444943820224719
+KAN-AD,Training q99,42,0.3094736842105263
+KAN-AD,Training q99,43,0.3629392971246006
+KAN-AD,Threshold calibrated,41,0.3680241327300151
+KAN-AD,Threshold calibrated,42,0.455
+KAN-AD,Threshold calibrated,43,0.5568513119533528
+KAN-AD,Threshold + grouping,41,0.5493827160493827
+KAN-AD,Threshold + grouping,42,0.6800501882057717
+KAN-AD,Threshold + grouping,43,0.6960667461263409
+TCN-AE,Training q99,41,0.2055715658021133
+TCN-AE,Training q99,42,0.2059758423394787
+TCN-AE,Training q99,43,0.2043010752688172
+TCN-AE,Threshold calibrated,41,0.4615384615384615
+TCN-AE,Threshold calibrated,42,0.4410876132930513
+TCN-AE,Threshold calibrated,43,0.4528875379939209
+TCN-AE,Threshold + grouping,41,0.6180555555555556
+TCN-AE,Threshold + grouping,42,0.6188235294117647
+TCN-AE,Threshold + grouping,43,0.6113033448673587
+Transformer-AE,Training q99,41,0.1156800723000451
+Transformer-AE,Training q99,42,0.1085239085239085
+Transformer-AE,Training q99,43,0.1095076400679117
+Transformer-AE,Threshold calibrated,41,0.360655737704918
+Transformer-AE,Threshold calibrated,42,0.3732193732193732
+Transformer-AE,Threshold calibrated,43,0.3411279229711141
+Transformer-AE,Threshold + grouping,41,0.5629139072847682
+Transformer-AE,Threshold + grouping,42,0.5661016949152542
+Transformer-AE,Threshold + grouping,43,0.5681444991789819

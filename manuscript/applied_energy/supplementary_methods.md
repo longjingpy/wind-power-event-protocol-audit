@@ -1,0 +1,279 @@
+# Supplementary methods
+
+## Experiment map
+
+The current unified physical-time experiments are specified in S13–S17; S1–S5 preserve the earlier catalogue and representation experiments used by Tables S1–S43. In particular, the earlier native-grid Greek experiment in S5 and the harmonized 30-min Greek experiment in S13 are distinct experiments. S7 and S11 describe scenario-cost studies, whereas S17 describes observed-price settlement. S6 and S12 now distinguish the earlier 120-region review, the unused v15 collection design, and the received 320-window v19 reference. These experimental cohorts retain their own sampling, normalization and evaluation units. Table S0 gives a compact map from each section to its data, statistical unit, scientific purpose and main-text result; this prevents catalogue, transfer, synthetic and cost populations from being interpreted as one evaluation cohort.
+
+### Table S0. Experiment map
+
+| Section | Data and period | Analysis unit | Scientific purpose | Main-text link | Status in this manuscript |
+|:--|:--|:--|:--|:--|:--|
+| S1. Archive coverage | Seven archives; primary 2014–2025 periods and external 2020–2021 periods | Turbine × 30-min row; complete 25-point shape | Define eligible records, chronological splits and quality flags | 2.1; Methods 4.1 | Complete |
+| S2. Detector protocols | Seven archives; 17 fixed configurations on the harmonized grid | Turbine × detector interval | Construct the protocol-dependent event objects | 2.1–2.2; Methods 4.2 | Complete |
+| S3. Matching and summaries | Same archives, detector pairs and IoU thresholds 0.3/0.5/0.7 | One-to-one matched event pair | Measure structural survival together with left/right coverage | 2.2; Methods 4.3 | Complete |
+| S4. Representation and perturbation | Pizhou training/holdout plus five-farm transfer; raw, PCA, statistics and angular representations | Event vector × partition | Quantify retained shape information and separate correspondence, order and attribute effects | 2.2–2.3; Methods 4.4 | Complete |
+| S5. External representation transfer | Greek January–June 2020 and SDWPF 2020–2021 | Configuration pair × turbine/batch | Test whether frozen or local representations transfer across archives | 2.3 | Complete; support strata retained |
+| S6. Human-reviewed regions | Legacy 120-region cohort and v19 eight-archive packet (320 windows × 3 observers) | Window × observer; detector presence per window | Provide an external event-presence and morphology reference | 2.6; Methods 4.6 | Three exports complete; one further review ongoing |
+| S7. Forecasting and storage | Pizhou and Yandun chronological forecasts | Issue time × target interval × farm | Test event-aware forecasting and engineering cost scenarios | 2.5 | Complete under stated scenario prices |
+| S8. Controlled localization | Synthetic sequences with known episodes and fresh confirmation seeds | Sequence × injected episode | Measure event-level localization and delay under known truth | 2.4; Methods 4.4 | Complete |
+| S9. Weather and post-event context | ERA5 panel, NOAA station comparison and Yandun sampling sensitivity | Time anchor × turbine; subsequent event window | Test external-process tracking and post-event association | 2.4 | Exploratory association; causal effect not estimated |
+| S10. Table-reading convention | All result populations | Table row with an explicit unit and denominator | Keep structural, physical, forecast and cost estimands distinct | Methods 4.5 | Complete |
+| S11. Policy-capacity scenario | Jiangsu-informed engineering scenarios on Pizhou and Yandun | Farm × test interval × storage design | Quantify policy-informed capacity and price sensitivities | 2.5 | Scenario study; not a realized settlement replay |
+| S12. Independent collection design | v15 packet specification and annotation interface | Window × observer response | Record provenance and the distinction from the received v19 exports | 2.6; Methods 4.6 | Design archived; received responses reported in S6 |
+| S13. Protocol space and hierarchy | Seven archives on the v18 physical-time grid | Protocol tuple π × primitive/composite event | Formalize detection, matching, representation and evaluation layers | Introduction; Methods 4.1–4.3 | Complete |
+| S14. Common support and information | Pizhou-fitted representations evaluated on site/configuration pairs | Matched pair × conditioning stratum | Estimate conditional partition information and metric sensitivity | 2.2–2.3 | Complete |
+| S15. Physical-process probes | Five primary farms with regional weather targets | Event × site × weather class | Test whether retained shape information tracks an independent process | 2.3–2.4 | Complete for the archived association analysis |
+| S16. Hill LiDAR chronology | Hill of Towie T07/T11, 2026 instrument release | Event × instrument × seven-day block | Chronologically test calibrated physical-process discrimination | 2.4 | Complete; instrument and block scope reported |
+| S17. Forecast-to-cost replay | Hill of Towie 2020 and GB Elexon half-hour prices | Farm × half-hour settlement interval | Convert high-ramp forecast errors into observed-price exposure and storage replay | 2.5 | Complete for the GB market; other markets remain future validation |
+| S18. Output and reproducibility | Versioned public repository and release artifacts | Artifact × protocol/result record | Bind code, tables, figures and validation records to reproducible paths | Data availability; Methods 4.8 | Versioned GitHub repository release |
+| S19. Decision-aligned forecast extension | Hill of Towie existing forecast replay; 1/2/4-h horizons | Issue time × target interval × candidate model | Test whether event information can improve error and priced exposure under a fixed validation budget | Results 2.7; Table S56 | Exploratory extension; existing test calendar reused |
+
+## S1. Archive coverage and source eligibility
+
+The study contains seven archives and 333 turbines. The primary catalogue contains Pizhou (33), Suining (14), Yandun (117), La Haute Borne (4) and Hill of Towie (21). The Greek monitoring archive adds ten turbines, and SDWPF adds 134. Table 1 in the main text identifies their experimental roles.
+
+A full primary-catalogue boundary check covers 1,984,249 candidate intervals and 1,538,376 complete shapes. All event timestamps agree with their source half-hour indices. Every eligible shape, including four samples before and after the event, remains within its assigned 60%/80% chronological period; the check finds zero boundary violations across 189 turbines.
+
+| Primary site | Half-hour grid rows | Usable rows |
+|:--|--:|--:|
+| Pizhou | 823,680 | 507,047 |
+| Suining | 245,952 | 173,437 |
+| Yandun | 1,005,720 | 417,727 |
+| La Haute Borne | 140,160 | 108,298 |
+| Hill of Towie | 368,949 | 288,832 |
+
+The primary catalogue uses source-specific complete-count eligibility flags. Each event and its context lie within one valid run and one chronological period. The split boundaries occur at 60% and 80% of elapsed archive time; event contexts crossing a boundary are excluded, so no morphology vector spans two splits. Primary amplitude scaling uses nameplate capacity where recorded and early-period q99.5 elsewhere. The data provider identifies the q99.5 upper production level as rated power for the applicable farms; event metadata retain the empirical scaling basis. One-minute Pizhou power records are averaged within each 30-min bin. Ten-minute and 15-min records use the corresponding valid-observation mean. A bin enters the catalogue when the required observations for its complete context are present.
+
+The forecasting analysis uses a distinct signed-observation rule. Every turbine in the fixed fleet supplies the required native observation count. Accepted mean power lies between -5% and 120% of the recorded nameplate or early-period q99.5 scale. This rule retains small negative measurements and preserves the calendar grid.
+
+## S2. Detector configurations
+
+The seventeen primary configurations comprise threshold, financial-tail and mean-shift rules at one, two and four hours, three endpoint corridors, an adaptive corridor, SDA and three OpSDA configurations.
+
+The fixed-change rules use a magnitude threshold of 0.20. The historical-tail rule uses the preceding 48 lagged differences, 5th and 95th percentiles, and a minimum magnitude of 0.10. The reference history ends before the current change. Same-direction overlapping detections are merged.
+
+The fixed endpoint corridors use tolerances 0.025, 0.050 and 0.100. Their chord criterion closes a segment at the previous point when the next endpoint violates the constraint. Adaptive tolerance is fixed at segment start. It combines a 0.025 floor, scaled historical median absolute deviation and a local power-level term.
+
+SDA uses the original boundary-crossing convention [@florita2013]. The conference OpSDA implementation merges eligible SDA segments by dynamic programming and a squared-length objective [@cui2015]. Door tolerance is 0.025 and amplitude threshold is 0.20.
+
+## S3. Shapes, matching and summary units
+
+Each complete shape has 4 + 17 + 4 coordinates: observed pre-event values, normalized event-time values, and observed post-event values. The vector is centered at event-start power and divided by its maximum absolute displacement. Duration, amplitude and other interval statistics remain separate fields.
+
+Within each site, turbine and period, temporal IoU defines candidate correspondence. Greedy selection uses decreasing IoU, start separation and event identifiers. The primary event-matching threshold is 0.5. The additional support-overlap diagnostic tabulates the fraction of detector-occupancy comparisons exceeding 0.3, 0.5 and 0.7. Each event is assigned once per configuration pair. Counts refer separately to detector intervals, pair records and supported configuration comparisons. Pair-weighted NMI and ARI use matched-pair counts as weights. The machine-readable composition table compares events matched to at least one other configuration with events matched to none. It records amplitude, duration, direction, power range and starting power. Table S14 gives matched-count-weighted agreement and catalogue reach.
+
+For event-level sensitivity, each configuration pair is rebuilt from interval endpoints at IoU cutoffs 0.3, 0.5 and 0.7. Greedy ties use start-time separation and event identifiers. Maximum-total-IoU assignment uses zero-reward dummy columns and negative reward for infeasible edges. ID-sorted matrices make repeated optimal assignments deterministic within the fixed solver implementation. All 1,465,997 greedy pairs at IoU 0.5 exactly reproduce the original event identifiers. Table S16 pools labels across turbines within each configuration pair, then reports equal-pair and matched-count-weighted summaries.
+
+NMI uses arithmetic entropy normalization. ARI uses chance-adjusted pairwise partition agreement. Primary site summaries average configuration-pair scores equally. The learned-model site scores use within-site contingency tables. The cross-farm learned summary averages five farms equally and averages the three seeds. SDWPF uncertainty summaries retain seven computational batches within its single farm.
+
+Table S1 contains the full primary representation summary. Table S2 gives the raw25 block-length sensitivity, including the number of occupied blocks and paired records.
+
+The expanded composition analysis evaluates every detector pair and each of its two catalogue sides separately. It compares 526,276 eligible primary test events using duration, signed and absolute amplitude, power range, starting power, upward fraction and earlier turbine wind. Wind is the mean of four complete half-hour bins strictly preceding event start; duplicate source timestamps and incomplete wind bins are excluded. Detailed rows retain event counts, valid-feature counts and quartiles. Table S32 averages feature means over the same supported pair sides in both populations. This pair-specific comparison complements the historical union-of-any-match composition file.
+
+The conditional agreement audit fits quartile boundaries for absolute amplitude, duration and starting power on the Pizhou training event IDs. Each statistic is then computed within a site, detector pair and covariate stratum. A matched pair enters a stratum when both event sides share its covariate code. One-side-constant partitions contribute zero NMI/ARI; both-constant partitions and strata with fewer than two pairs have undefined informative scores. Table S33 reports pair-weighted summaries over defined strata with at least thirty matches, along with the fraction of retained pairs represented by those scores. Temporal-match retention and left/right catalogue coverage have separate denominators. The joint-stratum analysis uses all four variables simultaneously. Its point summaries describe conditional partition agreement.
+
+## S4. Representation fitting and perturbation analysis
+
+Primary representation fitting uses eligible events from the first 26 sorted Pizhou turbines. Seven turbines form the primary holdout. Sampling uses at most 2,500 events per configuration, seed 41, six PCA components and twenty K-means initializations.
+
+The fixed representations are raw25, raw-PCA6, statistics9, GAF-PCA6 and signed-GAF-PCA6. Statistics9 includes duration, signed amplitude, range, total variation, maximum rate, chord residual, curvature and pre/post means. The fixed signed-GAF representation appends the 25 signed coordinates to the flattened 625-value field.
+
+Raw-PCA6 is a compression control for the same 25-point path. Across the three current Pizhou source fits it retains 93.4% of standardized training variance; same-event test partition ARI against raw25 ranges from 0.985 to 0.998. The earlier 0.989 pooled v5 value describes a separate historical experiment. Current cross-protocol comparisons use the frozen v18 models and common supported configuration pairs.
+
+The learned image encoders use two convolutional layers and a six-dimensional latent vector. The signed version adds an orientation channel. TCN uses dilated one-dimensional convolutions. Transformer uses positional features and two attention layers. All four reconstruct the ordered trajectory. Input and latent standardization use the corresponding Pizhou training sample. The primary archived models use fifteen training epochs, validation reconstruction selection and seeds 41, 42 and 43. A completed 100-epoch, three-seed rerun uses the same data, transformations, latent dimension and early-stopping rule. Its assembled metrics are reported as the training-budget sensitivity in Table S12 and Figure 7. Parameter counts are 11,167, 11,311, 4,567 and 15,559 for CNN-GAF, signed-GAF, TCN and Transformer, respectively.
+
+Row permutation reallocates complete event shapes within site and turbine. Coordinate permutation changes order within each event. Conditional comparisons use direction and training-defined amplitude, duration and pre-event-power bins. The complementary perturbations distinguish correspondence, order and coarse event attributes.
+
+Calendar uncertainty uses 2,000 resamples with shared weights across turbines in the same block. Seven-day blocks define the primary estimate, and three- and fourteen-day blocks provide sensitivity checks. The 2.5th and 97.5th percentiles define pointwise intervals. Ten further Pizhou turbine splits use seeds 20260912 through 20260921.
+
+## S5. External representation evaluation
+
+The Greek archive contains ten turbines observed during January-June 2020 [@greece2024]. Its twelve base configurations operate on ten-minute samples with lags of two, four and eight points. The physical lags are twenty, forty and eighty minutes. Four source observations on each side provide forty minutes of context.
+
+SDWPF contains 134 turbines observed during 2020-2021 [@sdwpfdata]. The external pipeline aggregates power to thirty-minute bins and applies the twelve base configurations. Seven batches divide the turbine list for computation. The complete archive has 11,361,190 source records and 134 location entries.
+
+Both external catalogues use a turbine-wide q99.5 amplitude scale. Pizhou supplies the raw25 standardizer and centroids. Saved learned encoders, input scaling and latent scaling provide the SDWPF representations. Learned clusterers use saved Pizhou training latent vectors. The Greek local baseline fits standardization and k=4 K-means on Greek training shapes only, then evaluates the same 62 Greek test configuration pairs. This comparison changes the training population while retaining the event correspondence table.
+
+The TCN adaptation comparison uses one source checkpoint (seed 41), the same 26 source fitting turbines, and the same 17,357 Greek test pairs. A second copy of the checkpoint receives five reconstruction-training epochs on Greek training shapes. Each encoder fits latent scaling and k=4 prototypes on the identical Pizhou training sample. Table S21 reports both models using identical pooled, equal-pair and matched-count-weighted metrics. Greek test shapes are used for evaluation.
+
+Greek configuration pairs are grouped by support: 2-4, 5-9, 10-29, 30-99 and at least 100 matches. Table S3 reports every support stratum. The larger-support median is 0.669. Table S13 contains SDWPF batch-seed results for two, four and six clusters.
+
+## S6. Human-reviewed regions and operating logs
+
+### Earlier focused-region review
+
+One researcher labeled thirty regions from each of Pizhou, Yandun, Greece and SDWPF. The first display provided twelve hours of context with a highlighted central two hours. The researcher identified the highlighted region as the principal target. A second display showed four hours and retained the same two-hour target for 52 refinements.
+
+The merged labels contain 35 downward, 28 sustained-low, 24 upward, 14 V-shaped, 13 inverted-V and six quiet regions. Source submissions are retained separately. The second round supplies the final category for its 52 regions. The review record provides a region category and its display scope.
+
+Catalogue agreement marks a region positive when a same-turbine detector interval overlaps its highlighted period. Precision divides positive-label hits by all flagged regions. Recall divides positive-label hits by all presence-positive regions. F1 summarizes their harmonic balance. Table S10 gives sampling support and Table S11 gives all configuration-level results. The sampling population contains 114 positive and six quiet labels.
+
+Source-clock strings are parsed individually because the review table contains both naive and UTC-tagged timestamps. Every region has a finite anchor before catalogue intersection. The selected population and its clock convention remain attached to the reported metrics.
+
+Greek logs provide generator, run, stop, yaw, reset and oil-flow context. The mapping retains 63,163 records. Event-start proximity uses thirty-minute, one-hour and four-hour neighborhoods within each turbine. The review windows also contain 2,336 source-clock log rows.
+
+### Current eight-archive human reference
+
+The v19 packet contains 320 four-hour windows, with 40 per archive from Pizhou, Suining, Yandun, La Haute Borne, Hill of Towie, Greece, SDWPF and SMARTEOLE. The rated region is the central two hours. Each of the first seven archives contributes 20 random and 20 detector-disagreement windows; the 40 SMARTEOLE windows come from its operating-period sample. Sampling source, detector outputs and other responses are hidden from each observer. The exported packet records presence, dominant morphology, assessability and an optional free-text note.
+
+Three actual identifiers supplied 320 assessments each. R_147f4682 recorded 75 upward, 65 downward, 21 V, 22 inverted-V, 11 oscillatory, 75 quiet and 51 sustained-low regions (194 positive). R_2c332025 recorded 64 upward, 50 downward, 27 V, 21 inverted-V, 34 oscillatory, 104 quiet and 20 sustained-low regions (196 positive). R_29d247dd recorded 46 upward, 39 downward, 52 V, 64 inverted-V, 66 oscillatory, 42 quiet and 11 sustained-low regions (267 positive). All 960 responses were assessable. The exports supply region categories rather than start/end labels and are retained byte-for-byte. The earlier 120-region cohort remains separate.
+
+Nominal Krippendorff’s alpha was 0.528 for presence and 0.476 for morphology. The three-way coincidence calculation retains all available ratings per window; missing ratings would remain missing rather than being imputed. Shared calendar resampling preserves the observer set within each sampled window. Seven-day 95% alpha intervals were 0.455–0.599 and 0.426–0.523. Pairwise Cohen kappa and disagreements are retained in the machine-readable agreement record, without an automatically generated consensus label.
+
+Source recovery links each displayed power sequence to its original site, turbine and relative clock. For 280 inherited windows, missing display metadata were recovered through the original private sampling manifest and exact sequence equality. The 40 SMARTEOLE sequences were checked against the prepared source records at the displayed rounding precision. The distributed packet remains unchanged for additional observers. Absolute geographic clock claims are unnecessary for this within-archive comparison.
+
+Each of the seventeen fixed configurations predicts presence if at least one basic detector interval overlaps the target region. Precision is TP/(TP+FP), recall is TP/(TP+FN), and F1 is 2TP/(2TP+FP+FN). Turning recovery additionally requires a matching V or inverted-V composite with its turning point inside the rated target. Multiple detections in a region count once for presence. This unit differs from the boundary-resolved one-to-one event evaluation in S8.
+
+Aggregate estimates condition on the selected windows, with site and sampling-arm results supplied separately. For uncertainty, 2,000 resamples draw calendar blocks within each site, giving all windows and turbines in a sampled block the same multiplicity. Block lengths are 3, 7 and 14 days; paired detector differences share each draw. The primary seven-day analysis contains 197 occupied farm-blocks. The intervals condition on these observers; agreement was calculated on all 320 windows with three ratings. The packet contains no preassigned label-validation/test split, and none of the detector thresholds was tuned to these ratings. Tables S44–S47 report all three observers and all detector results; Table S54 reports agreement and its block sensitivity.
+
+The received v19 assessment set now contains three observers. The third export is included in the agreement record, detector metrics and Tables S44–S47; all three ratings remain separate and no consensus label is created.
+
+## S7. Forecasting and storage objectives
+
+The forecasting experiment uses fixed fleets of 33 Pizhou turbines and 117 Yandun turbines. A 24-point half-hour history predicts the production interval ending one hour after issue. Each input interval is fully observed by issue time.
+
+The chronological training/validation/test window counts are 6,813/3,173/3,549 in Pizhou and 1,847/375/1,525 in Yandun. Each retained context and target lies within one period and one continuous valid run. Persistence, TCN and TimesNet share the target timestamps.
+
+The learned forecasters use seeds 41, 42 and 43 and up to twenty minibatch epochs. Validation MSE selects the checkpoint. The primary event-weighted training multiplies the squared error by four for training changes above the training q95 magnitude. A sensitivity series uses factors 0, 1, 2, 4 and 8 under the same data split, model, optimizer and event threshold. Factor is the incremental coefficient in 1 + factor × ramp_indicator, giving actual ramp weights 1, 2, 3, 5 and 9. The same observed history supplies every training variant at prediction time.
+
+The capacity grid includes zero storage and twenty-five positive combinations. Power fractions are 0.01, 0.02, 0.04, 0.08 and 0.16. Energy durations are 0.5, 1, 2, 4 and 8 h. Validation selects capacity for each model and cost scenario.
+
+Annual capacity costs are 350 CNY/kW and 1,100 CNY/kWh. Throughput costs 25 CNY/MWh. The low, base and high shortfall/surplus penalties are 150/40, 300/80 and 600/160 CNY/MWh. Results are expressed per one-MW-normalized production scale.
+
+Dispatch uses a 0.92 round-trip efficiency, zero initial stock and zero terminal inventory credit. The calendar includes missing intervals, during which stored energy is carried forward. Capacity cost covers the full test span. Delivery penalties accrue on the common observed targets. Table S7 reports forecast error and Table S8 reports the selected scenario costs.
+
+The paired forecast analysis resamples seven-day calendar blocks 2,000 times. Pizhou has fifteen occupied blocks and Yandun has five. Each bootstrap draw is shared across the fixed model seeds. Positive reported error gains mean lower error under event weighting.
+
+## S8. Controlled episode localization
+
+The generator produces 96-point sequences with smooth background variation and known finite episodes. It supplies 1,600 normal training sequences, 400 labeled validation sequences, 800 labeled test sequences and 800 higher-noise sensitivity sequences. Validation and test sets each contain equal numbers of positive and background sequences.
+
+Episodes have amplitudes 0.08, 0.15, 0.30 or 0.50, positive or negative direction, and trapezoidal or smooth single-turn profiles. Rising/falling spans contain 2, 4, 8 or 16 points. Generator seeds are 9101, 9102, 9103 and 9104 for the four datasets.
+
+TimesNet, KAN-AD, TCN-AE and positional-Transformer-AE reconstruct the normal training sequences [@wu2023timesnet; @zhou2025kanad]. Each run receives thirty full minibatch epochs and 750 parameter updates. Normal validation reconstruction selects a checkpoint. The three initialization seeds are 41, 42 and 43.
+
+The default decision threshold is the training reconstruction-score q99. Threshold-only calibration searches nine validation-score quantiles. Complete protocol calibration also searches low/high ratios 1.0 and 0.5, merge gaps zero and two points, and minimum durations one and three points. Validation event F1 selects the settings.
+
+Greedy one-to-one matching compares fully labeled episodes at IoU 0.3. IoU 0.1 and 0.5 provide sensitivity checks. Table S9 records every seed and decision protocol. Paired intervals resample whole generated sequences 2,000 times, with the same draws across the fixed trained seeds.
+
+A 100-epoch upper-budget rerun uses the same generated sequences, model configurations and three seeds. Validation-only calibration selects the threshold and interval-grouping parameters. Table S22 reports its default and calibrated test F1, precision and recall together with optimizer steps.
+
+The subsequent model-size search evaluates three configurations per neural model, each with seeds 41, 42 and 43 and a maximum of thirty epochs. TimesNet uses d_model 8, 16 and 32; KAN-AD uses Fourier orders 8, 16 and 32. Their learning rates are 0.0005, 0.001 and 0.001 respectively. The sequence autoencoders use (width, latent size, learning rate) combinations (8, 8, 0.0005), (16, 16, 0.001) and (32, 16, 0.001). Adam, batch size 64 and five-epoch early stopping follow the original implementation. Mean validation episode F1 across seeds selects each configuration. The analytic reference selects adjacent-mean windows of 2, 4, 8 or 16 points using validation F1; window 4 is selected. Every candidate uses the same threshold, hysteresis, merge-gap and minimum-duration search.
+
+After selection, all checkpoints and output settings are frozen in the confirmation record. Generator seeds 2026091501 and 2026091502 then supply 1,600 fresh sequences each, half containing episodes. Innovation-noise standard deviations are 0.015 and 0.027; the autoregressive coefficient remains 0.65 and the event generator family is retained. The confirmation evaluates the frozen thresholds directly in both conditions. Tables S29–S30 report mean metrics, between-training-seed SD and 2,000 paired sequence-resampling intervals. The intervals condition on the fixed trained checkpoints; they quantify sequence-sampling variation.
+
+Parameter counts use trainable model tensors and exclude positional and normalization buffers. CPU timing uses an AMD Ryzen 7 9700X under Ubuntu 24.04 / WSL2 with two torch threads. Five repeats follow one warm-up run of 800 sequences. Neural score batches contain 64 sequences; the analytic score uses vectorized NumPy cumulative sums. Table S31 reports normalization and score-generation time, with interval postprocessing excluded.
+
+## S9. Weather and post-event context
+
+The regional ERA5 exposure is an absolute 100-m wind-speed change of at least 1.5 m/s over three hours [@hersbach2020; @era5docs]. Weather timestamps use a fifteen-minute nearest-match tolerance. Outcomes record subsequent threshold-event starts within one, two or four hours.
+
+The archived panel has 21,300 exposed and 84,761 unexposed records. The unadjusted risk differences are 0.0388, 0.0679 and 0.0863. NOAA station 580270 supplies a regional surface comparison with a ninety-minute match tolerance [@noaaisd]. Tables S4 and S5 show the observed risks and shifted-exposure contrasts. Table S15 adds 2,000 calendar-block resamples for 3-, 7- and 14-day blocks. Each resampled block carries all its turbine records, preserving within-block cross-turbine dependence. The main seven-day analysis occupies 31 ERA5 blocks and 27 NOAA blocks.
+
+Yandun sampling sensitivity uses 15-, 30- and 60-min arithmetic-mean grids from the same native records. A four-hour physical lag is 16, 8 and 4 rows respectively; a one-hour lag is 4, 2 and 1. Every bin between the two endpoints is required to be valid. Table S17 reports eligible anchors, threshold-positive anchors and their ratio, both on each grid and at hourly clock times. These are anchor counts before event merging.
+
+The post-event analysis retains 96 eligible events, with 17 exposed and 79 unexposed. Its scaled power-recovery index divides post-end power change by the pre-event-to-end amplitude and clips the index to [-2,2]. The exposed-minus-unexposed contrast is -0.390, with a seven-day block interval [-1.429,0.363]. The residual-power contrast is 191.0 source units with interval [-368.5,645.1]. Table S6 retains both estimates. Their interval widths describe the uncertainty in the recovery contrast.
+
+The adjusted binomial model encodes the outcome numerically as 1 for a subsequent event. Exact joins obtain power, wind speed and direction at t−4 h and power change from t−5 h to t−4 h, preceding the exposure window [t−3 h,t]. Complete cases number 76,538, including 12,011 exposed and 64,527 unexposed records. The same cohort supplies the crude and standardized risk differences. Hour, month and turbine indicators accompany these covariates. Clustered covariance uses 31 seven-day blocks; delta-method intervals use a t critical value with 30 degrees of freedom. Coefficient tables also provide Benjamini–Hochberg adjusted q-values [@bh1995].
+
+## S10. Reading the result tables
+
+Each table identifies its measurement unit. NMI and ARI describe cluster correspondence. Coverage describes how much candidate support enters matching. Human-region precision and recall describe catalogue agreement with the reviewed sample. Synthetic F1 describes episode localization. Forecast nMAE describes error relative to training power scale. Scenario cost prices the corresponding errors under the listed rates.
+
+The five-farm comparison, Greek external result, SDWPF external result, reviewed regions, controlled episodes and forecasting targets remain separate evaluation populations. Their complementary measurements form the evidence chain developed in the main text.
+
+## S11. Policy-capacity storage experiment
+
+The fixed baseline has battery power equal to 10% of wind-farm nameplate capacity and energy equal to two hours of battery power. The source is Jiangsu's 2023 market-connection policy [@jiangsu2023storage], applied here as a historical engineering scenario. The 2025 national tariff reform changes the role of compulsory storage [@ndrc2025market]. The Jiangsu rule supplies a historical engineering scenario. Yandun is an analogous Xinjiang archive, and the same technical design serves as an engineering comparator in this study.
+
+Pizhou nameplate capacity is 87.45 MW according to the supplied data description; the sum of the 117 Yandun metadata capacities is 200.5 MW. Forecasts are converted from their original training-scale normalization to MW before dispatch. Costs are reported per installed MW over 2,496 test-calendar hours at Pizhou and 914 hours at Yandun, with missing intervals retained. These units differ from the earlier normalized-reference-MW tables.
+
+The policy-capacity study reuses the original MSE models and the models with ramp sample weight four. The full capacity grid contains a zero-storage option and power fractions 0.05, 0.10 and 0.20 at durations 1, 2 and 4 h. Online dispatch charges during positive delivery deviations and discharges during negative deviations, with SOC limits 10%–90%, initial SOC 50% and round-trip efficiency 92%. Candidate reserve fractions are 0, 0.25 and 0.5 of usable energy; severe deviations above 20% of farm capacity release the reserve. Selection uses validation costs only. Terminal inventory is valued at an assumed 300 CNY/MWh, with initial inventory valued identically.
+
+Assumed upfront power/energy costs are 350 CNY/kW and 1,100 CNY/kWh. A ten-year life and 8% discount rate give the capital-recovery factor; fixed annual maintenance is 2% of upfront cost. This replaces the earlier convention that treated those amounts as annual capacity charges. Shortfall/surplus prices are 150/40, 300/80 and 600/160 CNY/MWh. Additional premiums of 0, 1,000 and 5,000 CNY/MWh apply only to remaining deviations above 20% of installed wind capacity. These prices define scenario sensitivities; comparison with individual farm settlements remains a separate validation task.
+
+The unconstrained design and the design requiring at least 10% power and 2 h duration are selected separately on validation records. A sparse linear program solves a perfect-information cost bound at fixed 10%/2 h capacity. It uses the complete realized residual path, so its cost is a perfect-information lower bound. The online policy uses validation-selected reserves and delivery-time deviations. Positive/negative-deviation-specific charging bounds prevent simultaneous charging and discharging. SOC conservation, feasibility and the oracle-versus-online inequality are checked in tests. Tables S23–S25 report the capacity-price surface, selected designs and cost bounds.
+
+## S12. Independent multirater collection
+
+This section records the earlier v15 collection design. The current submitted file was recognized by its internal v19 schema and packet identifier, despite its filename retaining the v15 prefix; its actual sampling and results are described in S6.
+
+The v15 collection packet contains 200 real SCADA windows, with fifty from each of Pizhou, Yandun, Greece and SDWPF. Each site contributes twenty steady-screen, five rising-screen, five falling-screen, ten turning-screen and ten random-screen windows. These strata balance the sampling design; the human class distribution is determined by new responses. Four hours are displayed and only the central two hours are rated. Detector identities, sampling strata and earlier human answers are hidden in the interface.
+
+Each participant uses an anonymous identifier and exports a versioned JSON file. Duplicate exports from the same identifier are merged by response timestamp; changed target regions are rejected. Cohen's kappa is calculated on shared assessable windows for each rater pair, and nominal Krippendorff alpha uses units with at least two available ratings. Uncertain and data-quality responses are tabulated separately. Constant-category cases return an undefined chance-corrected coefficient. Multirater coefficients will be calculated after independent responses are collected.
+
+The collection interface is available at https://longjingpy.github.io/wind-power-event-protocol-audit/annotation/ . It works offline and stores answers locally. The v15 definition records sustained low production as a state and assigns transitions to their dynamic categories, so its responses remain distinct from the original v9 review labels.
+
+## S13. v18 protocol space and event hierarchy
+
+The v18 protocol is π=(Q,D,M,F,C), where Q specifies the observation clock, sampling, quality and amplitude calibration; D constructs intervals; M establishes correspondence; F encodes trajectories; and C assigns structure. The main grid is 30 min, with 60-, 120- and 240-min detector horizons, a 24-h historical window and 120-min context on each side. All transformations and scales are fitted on the chronological training population. The primary structural estimand is evaluated on matched, encodable events; weather and cost estimands use their eligible calendar populations.
+
+Primitive detector intervals and composite V or inverted-V intervals are separate event levels. A composite joins opposite legs within 30 min and 240 min total duration, retains both child event IDs and stores the observed internal turning index. Primitive candidates describe detector intervals and orientation; they are not assumed to be monotonic physical trajectories.
+
+## S14. v18 common-support matrix and conditional information
+
+### Terminology and support units
+
+An event pair consists of one interval from each detector configuration. A supported configuration pair contains at least 100 matched events; informative summaries additionally require nonconstant partitions. Coverage uses unique eligible events on each side. A nat is the natural-log information unit: 1 nat = 1/ln(2) bits. ARI is chance-adjusted partition agreement with 1 for identical partitions, 0 at the random-label expectation, and possible negative values.
+
+
+For positive-duration intervals \(I_a=[s_a,e_a)\) and \(I_b=[s_b,e_b)\), let \(J=\max(0,\min(e_a,e_b)-\max(s_a,s_b))\) and \(U=(e_a-s_a)+(e_b-s_b)-J\). The intersection over union (IoU) is
+
+\[
+\operatorname{IoU}(I_a,I_b)=J/U,\qquad U>0.
+\]
+
+The implementation rejects zero-duration and reversed intervals (e≤s) before overlap calculation. A zero union is an invalid comparison and receives no score or edge. Empty catalogues contain no matches and their coverage is undefined; intervals touching only at an endpoint have IoU=0. For overlapping valid intervals, U equals the enclosing duration used by the implemented candidate-edge calculation. Matches share site, turbine, split and hierarchy. Greedy assignment sorts feasible edges by descending IoU with deterministic tie rules, using IoU ≥ 0.5. If N_a and N_b are the eligible event counts and M is the number of one-to-one matches, left and right coverage are M/N_a and M/N_b. Primary summaries use supported, informative configuration pairs common to all six representations and three seeds, first taking the median across seeds within each pair and then across pairs. ARI [@hubert1985] and normalized mutual information (NMI) quantify partition agreement. Constant partitions and pairs with fewer than 100 matches remain in separate support tables.
+
+The common-support matrix intersects informative configuration pairs supported by raw25, statistics9, raw-PCA6, GAF-PCA6, signed-GAF-PCA6 and protected-polarity representations across seeds. Within a configuration pair, seed values are summarized by their median; site values are medians across the common intersection. The principal IoU threshold is 0.5; 0.3 and 0.7 are sensitivity values. Maximum-total-IoU assignment is an additional matching sensitivity. Pairs with fewer than 100 matches and constant partitions remain in the machine-readable output and are excluded from the primary informative median.
+
+For matched partition labels \(L_a,L_b\) and conditioning stratum \(W\), conditional mutual information is \(I(L_a;L_b\mid W)=H(L_a\mid W)-H(L_a\mid L_b,W)\), using natural logarithms and empirical frequencies weighted by stratum size. The reported excess subtracts the mean of 100 within-stratum, within-turbine permutations. Individual descriptor analyses use training terciles; the joint analysis uses median splits of amplitude, duration and starting power together with both event directions. Cut points are fitted on Pizhou training events. Each stratum contains at least 30 matched pairs. Calendar uncertainty is reported separately from the permutation reference.
+
+An additional metric analysis reuses the Pizhou-frozen K-means models with k=4 and seed 41 for raw25, GAF-PCA6 and protected-polarity GAF. Adjusted mutual information (AMI), Fowlkes–Mallows index and variation of information (VI) complement ARI and NMI. VI equals \(H(L_a)+H(L_b)-2I(L_a;L_b)\), in nats; lower values indicate closer partitions. All five metrics use identical basic-event test matches. Summaries intersect configuration pairs with at least 100 matches and nonconstant labels in all three representations, and then take the median over configurations. This single-seed, three-representation sensitivity has a different common-support intersection from the primary three-seed, six-representation analysis. Table S48 preserves that distinction.
+
+## S15. v18 representation and physical-process probes
+
+The primary analysis fixes K-means at k=4, with k=2 and k=6 sensitivities shown explicitly in Table S57. All three clustering algorithms retain their original training budgets. For the finite signed unit-domain vector x, set \(c_i=\sqrt{1-x_i^2}\ge0\). The Gramian angular summation field (GASF), the GAF variant used here, is \(G=xx^T-cc^T\) [@wang2015gaf], equivalent to \(G_{ij}=\cos(\arccos x_i+\arccos x_j)\). For an exact, uncompressed full field, its diagonal yields \(|x_i|=\sqrt{(G_{ii}+1)/2}\), and \(G+cc^T=xx^T\). Choose an anchor r with \(|x_r|>0\); the sign bit \(b=\operatorname{sgn}(x_r)\) gives \(x_r=b\sqrt{(G_{rr}+1)/2}\) and \(x_i=(G+cc^T)_{ir}/x_r\). The deterministic largest-magnitude anchor, with the first index breaking ties, is recoverable from the diagonal. The all-zero path is already determined, although constant supports are excluded by preprocessing. This recovers the normalized trajectory; restoring absolute power also requires its offset and scale. PCA retains only part of the field, so GAF/PCA5 plus polarity is an empirical six-dimensional representation, not an exact-inversion guarantee. It preserves the anchor sign explicitly and is evaluated on held-out clustering and physical targets.
+
+The protected polarity coordinate contributes at most about 0.225% of the six-dimensional PCA variance in the primary fit. It therefore changes the physical-readout interface more strongly than the Euclidean cluster geometry. This is the reason the structural ARI of GAF+polarity can remain close to ordinary GAF while its external directional AUROC changes substantially.
+
+Hourly ERA5 wind, temperature, pressure and related surface fields provide regional context for five geographically aligned archives [@hersbach2020; @era5docs]. The event-level physical target is \(\Delta u=u_{100}(e)-u_{100}(s)\), classified as decrease for \(\Delta u\le-1.5\) m s−1, increase for \(\Delta u\ge1.5\) m s−1, and small net change otherwise; event duration satisfies \(0<e-s\le4\) h. The ±1.5 m s−1 cutoffs are study-defined symmetric contrast levels, fixed for the regional probe before the later LiDAR transfer. They provide a common operational definition of a substantial endpoint wind-speed tendency, rather than a turbine cut-in/cut-out boundary or a universal meteorological ramp threshold. The four-hour limit matches the longest principal detector horizon and the composite-event window used in this study, focusing the probe on intraday dynamics. It does not require every wind change to span four hours: the same endpoint contrast may occur over a shorter event. A V-shaped excursion may return to small net change while retaining substantial internal variation, which is evaluated through event morphology and the overlap analysis. NOAA Integrated Surface Database (ISD) observations are archived with variable-level quality codes and precipitation accumulation duration [@noaaisd]; independent LiDAR supplies the local-wind test.
+
+## S16. v18 Hill LiDAR confirmation and chronology
+
+The Hill of Towie v2.1.0 release supplies 2026 Wind10 aggregates. T11 uses ZX300 unit 2428 horizontal speed near 58 m; T07 uses the available ZXTM unit 5060 fit-derived hub-height speed at 208 m. Positive packets and wind values in the physical range define valid measurements. Missing intervals remain missing. Endpoint clock offsets of −10, 0 and +10 min are reported. Frozen Hill-2020 physical heads and Pizhou representation transforms are applied before reading the 2026 scores.
+
+A separate chronological calibration fits multinomial logistic calibration to source log probabilities. Calibration training ends before 14 March 2026, validation ends before 7 April and later events form the test period. Regularization C is selected from 0.1, 1 and 10 on validation. The field test reports AUROC, Brier score, signed log loss and seven-day block intervals. It is an external chronological probability test and does not change the frozen structural matrix.
+
+## S17. v18 forecast-to-cost and storage replay
+
+Elexon prices specify observed half-hour imbalance settlement [@elexonsettlement]. Here \(S_t\) is the experimental scheduled power position in MW for delivery interval t; its definition depends on the comparison. In the forecast-exposure experiment, \(S_t=\widehat P^{(m)}_{t\mid o}\) is model m's prediction issued at o. In the common-commitment storage experiment, every information arm shares the one-hour persistence schedule from the last completed observation; missing forecasts command zero desired correction while preserving inventory restoration. In the ex-post capability experiment, each model retains its own issued schedule across battery sizes, with persistence used where that model's forecast is unavailable. Thus schedules are fixed across capacities within a model, and shared across models only in the common-commitment arm. For metered delivery \(P_t\), interval duration \(\Delta t\) in hours, and buy/sell prices \(p_t^b,p_t^s\) in GBP MWh−1, the signed settlement cost is
+
+\[
+C_t=\max(S_t-P_t,0)\Delta t\,p_t^b-\max(P_t-S_t,0)\Delta t\,p_t^s.
+\]
+
+Hill aggregate power uses 21 turbines and a 48.3-MW reference capacity. Six information variants are persistence, power plus calendar, observed wind, historical event structure and two three-expert ramp mixtures. Event features become available at event end plus 150 min. Forecast horizons are 1, 2 and 4 h and target a 30-min interval. Elexon half-hour buy and sell prices score signed energy deviations. Gross debit is the positive part of the interval cashflow; net cashflow retains both deficit purchases and surplus settlement.
+
+The common-commitment storage arm holds the persistence schedule fixed across information variants when an issued forecast is available; unavailable-forecast intervals use the documented zero-correction fallback. Battery power is 0%, 5%, 10% or 20% of fleet capacity, with two-hour energy capacity, 10–90% state-of-charge bounds, 50% initial and terminal inventory, and 0.92 charge/discharge efficiencies. The issued-forecast controller uses current inventory and a reachable terminal-inventory band; it does not use future power or future prices. Throughput sensitivities are 0, 10 and 30 GBP MWh−1. Validation selects capacity before the test replay.
+
+The policy records provide a reproducible design for future transfer experiments. Jiangsu requires 15-min submitted forecast curves, EMS-based assessment and exemption records; France requires the historical RTE imbalance prices and the balance-responsible-party perimeter. A cadence-preserving Jiangsu counterfactual duplicates each available 30-min score-ready row into its covered 15-min slots, applies the official monthly 2% allowance and tests the quoted 90%/70% point-accuracy criteria. It is archived as `outputs/protocol_benchmark_v20/economics/jiangsu_counterfactual/` and labelled explicitly as a counterfactual screen. Those inputs are kept as publication-level requirements rather than converted into a synthetic invoice. The completed monetary replay therefore remains the Great Britain Elexon experiment.
+
+## S18. Output and reproducibility map
+
+The v18 event engine and unit-explicit economic functions are in `src/wind_events/`. Structural, physical, LiDAR, threshold, weather, forecast and storage outputs are under `outputs/protocol_benchmark_v18/`. Independent SVG, PDF, PNG and data-table sources are under `manuscript/figures_v18/`. The static support-aware benchmark index is under `outputs/protocol_benchmark_v18/leaderboard/`. The package wheel, isolated demo and unit tests are recorded under `outputs/protocol_benchmark_v18/package/`. The complete v18 input, transformation and evaluation record is `docs/V18_CURRENT_EXECUTION.md`.
+The v19 manifest records the multirater and SMARTEOLE stages. Current v21/v22 representation, sampling and economic tables remain under their versioned output folders. The v23 extension adds `outputs/protocol_benchmark_v23/cluster_count_common_support.csv` and the `many_to_many/` directory: `configuration_pairs.csv`, `site_summary.csv`, `verification.json` and `coverage_aggregation_reconciliation.csv`. The last table verifies the equal-configuration versus pooled-coverage distinction against the original one-to-one counts. Supplementary Tables S57–S58 and Fig. S1 summarize these additions. The public v0.5.0 release mirrors aggregate outputs under `results/`, contains the current manuscript and editable Fig. 1, and links the de-identified processed-data release. The detailed local component ledger retains internal event clocks; public tables use aggregate counts. The SMARTEOLE support diagnostic remains `outputs/protocol_benchmark_v19/smarteole/diagnostic/report.json`, with the supported-row median, all-row and pair-weighted summaries.
+
+## S19. Decision-aligned forecast extension
+
+The extension fits residual power targets (future 30-min power minus issue-time power) using two feature arms: past weather and past weather plus frozen historical raw25 event features. The fixed candidate matrix crosses absolute- and squared-error losses, 7/15 leaf budgets, ramp weights 1/4 and persistence blends 0/0.25/0.5/0.75/1, giving 240 candidate predictions across 1-, 2- and 4-h horizons. Validation selects the primary nMAE candidate and a separate gross-debit candidate; no future prices or target power enter model actions. The test period is the previously used calendar and is labelled exploratory. Paired 3/7/14-day farm-block resampling supplies uncertainty. The 2-h event-aware selected model reduces gross debit by 16.51% relative to the legacy historical-event ramp mixture, with a seven-day interval of 11.39–22.31%; its nMAE reduction is 0.79 percentage points (0.40–1.22). Complete candidate rows, selections and effect intervals are under `outputs/protocol_benchmark_v20/economics/`.
+
+## S20. Full settlement and online metered correction
+
+The v22 economic extension is a separate 58-complete-day capability arm after the common-commitment forecast-only arm. It writes the battery action back to delivered power before applying the observed Elexon single-price settlement formula. Gross debit is the positive part of signed settlement cost, including negative-price periods; it is not the absolute sum of purchase and sale legs. The forecast-only arm keeps a persistence commitment, uses the issued forecast, current state of charge and a daily terminal-inventory constraint, and reports the capacity frontier for 0%, 5%, 10% and 20% of the 48.3-MW farm capacity. The separate ex-post capability arm uses the current half-hour power measurement in `planned_inventory_step`, includes settlement of the restoration actions required to return terminal inventory, and reports gross and signed settlement separately under the same 10–90% state-of-charge bounds. The buy-side and sell-side price columns are both present and identical in this archived calendar. The metered balance allows negative delivery when charging exceeds wind generation; this represents grid import. Extra export headroom and grid charging are assumed engineering permissions, and terminal-restoration actions are settled. It evaluates 1-, 2- and 4-h schedules and retains 3-, 7- and 14-day block intervals. At the two-hour horizon, the 20% battery paired with the selected weather-plus-event schedule reduces test gross debit from GBP 223,345 to GBP 162,784 (27.1%; seven-day block interval 23.95–30.73%) over 58 complete days; the accompanying signed settlement cashflow is GBP 57,195 before and GBP 71,075 after correction. Machine-readable outputs are `outputs/protocol_benchmark_v22/economics/capability_daily.csv`, `capability_frontier.csv` and `capability_intervals.csv`.
+
+## S21. Many-to-many correspondence and hierarchy
+
+The many-to-many extension builds a bipartite graph for each site, turbine, test split and configuration pair. All edges satisfying IoU ≥ 0.5 are retained, with 0.3/0.7 sensitivities. Connected components classify one-to-one, one-to-many, many-to-one and many-to-many correspondence. A primitive-only arm keeps the original event population; a hierarchy-inclusive arm allows primitive intervals to correspond to composite V/inverted-V episodes. Coverage counts unique connected nodes on each side, never edge multiplicity. Each component receives one vote when comparing label composition: if p_a and p_b are its four-class frequency vectors, composition overlap is sum_j min(p_aj,p_bj). This descriptive score preserves mixture proportions, while within-component temporal order is represented by the stored intervals and turning points. It is distinct from ARI. A separate containment sensitivity uses intersection/minimum duration ≥ 0.5, allowing a short leg to belong to a longer episode. Components longer than four hours remain explicitly counted as linked measurement supports. Shared seven-day calendar blocks anchor each component at its earliest start; 2,000 draws quantify conditional temporal variation. Per-event predictions use the frozen Pizhou raw25 k=4 seed-41 model.
+
+Configuration names fix the left/right order lexicographically. A supported component pair contains at least 100 connected components; this count is descriptive and does not filter the all-configuration site summary. Site composition scores and topology proportions weight components equally across all 136 configuration pairs. Pooled coverage divides total unique connected nodes by total eligible nodes across those comparisons; an event can contribute once within each comparison. The main one-to-one coverage table instead averages the 136 configuration-specific fractions equally. An exact count reconciliation confirms identical primitive populations and one-to-one matches under both summaries (coverage_aggregation_reconciliation.csv).

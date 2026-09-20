@@ -1,0 +1,1 @@
+Raw/PCA6 provides a compression control for the same 25-point trajectory. Panel a shows current common-support v18 results; panel b resolves differences hidden by two-decimal rounding. PCA retains 93.4% of standardized training variance. The separate event-label partition comparison is reported in the accompanying data; it differs from cross-protocol ARI.
