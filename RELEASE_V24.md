@@ -1,8 +1,9 @@
-# v0.6.0: economic research snapshot
+# v0.6.0: integrated economic evidence and current manuscript
 
-This snapshot adds completed economic experiments and replication inputs. It
-does not replace the v23 manuscript or certify that every novelty/utility
-question is closed. All successful and unsuccessful comparisons are retained.
+This release integrates completed economic experiments into the canonical
+manuscript and its existing Supplementary Information. The main text foregrounds
+native rule-based fee savings and the fixed-model action experiment. Complete
+controls and earlier British economic outcomes remain in the supplement.
 
 ## Verified findings
 
@@ -44,5 +45,8 @@ forecast terms remain applicable, including Open-Meteo attribution. The
 Chinese SCADA-derived material follows the provider authorization recorded
 in this repository. This release does not relicense third-party data as MIT.
 
-The current submission manuscript remains the separately versioned v0.5.0
-packet. Integration of the new economic evidence is a subsequent author step.
+The current manuscript packet is `AppliedEnergy_current_v24.zip`. It contains
+the main and supplementary PDFs, flat TeX sources, editable figures and figure
+data. Supplementary S22/S23 and Tables S59–S64 describe the new economic tracks.
+The older British main-text figures remain as Supplementary Figures S2–S4.
+This is a research manuscript package; no journal submission was performed.

@@ -9,6 +9,7 @@ import json
 import re
 import shutil
 import zipfile
+import argparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DOC = ROOT / 'manuscript/applied_energy'
@@ -21,7 +22,9 @@ def copy(source, destination):
     shutil.copy2(source, destination)
 
 
-def main():
+def main(version=23):
+    global DEST
+    DEST = DOC / f'submission_v{version}'
     DEST.mkdir(parents=True, exist_ok=True)
     for name in ['main.pdf', 'supplementary.pdf', 'manuscript_body.md',
                  'supplementary_methods.md', 'supplementary_complete.md', 'frontmatter.json']:
@@ -38,7 +41,7 @@ def main():
             if (source / name).exists():
                 copy(source / name, DEST / name)
                 copy(source / name, PUBLIC / 'manuscript/applied_energy' / name)
-    for dirname in ['figures_v22', 'figures_v23']:
+    for dirname in ['figures_v22', 'figures_v23'] + (['figures_v24'] if version >= 24 else []):
         for source in (ROOT / 'manuscript' / dirname).iterdir():
             if source.is_file() and source.suffix in ['.pdf', '.svg', '.png', '.csv', '.drawio', '.md']:
                 copy(source, PUBLIC / 'manuscript' / dirname / source.name)
@@ -65,6 +68,18 @@ def main():
     for name in ['V23_REVIEW_RESPONSE.md']:
         copy(ROOT / 'docs' / name, PUBLIC / 'docs' / name)
         copy(ROOT / 'docs' / name, DEST / name)
+    if version >= 24:
+        for name in ['plot_policy_economics_v24.py', 'verify_manuscript_v24.py']:
+            copy(ROOT / 'script' / name, PUBLIC / 'script' / name)
+        copy(ROOT / 'docs/V24_MANUSCRIPT_INTEGRATION.md', PUBLIC / 'docs/V24_MANUSCRIPT_INTEGRATION.md')
+        copy(ROOT / 'docs/V24_MANUSCRIPT_INTEGRATION.md', DEST / 'V24_MANUSCRIPT_INTEGRATION.md')
+        copy(ROOT / 'docs/ECONOMIC_RESULTS_V24.md', PUBLIC / 'docs/ECONOMIC_RESULTS_V24.md')
+        metadata = json.loads((DOC / 'frontmatter.json').read_text(encoding='utf-8'))
+        highlights = '\n'.join('- ' + value for value in metadata['highlights']) + '\n'
+        (DEST / 'highlights.txt').write_text(highlights, encoding='utf-8')
+        copy(ROOT / 'manuscript/references_v18_additions.bib', PUBLIC / 'manuscript/references_v18_additions.bib')
+        for source in (ROOT / 'outputs/protocol_benchmark_v24/economics').glob('*.csv'):
+            copy(source, DEST / 'result_tables/protocol_benchmark_v24/economics' / source.name)
     readme = '''# Current manuscript source packet (v23)
 
 The canonical manuscript is main.pdf, with the complete supplementary.pdf.
@@ -81,17 +96,23 @@ See V23_REVIEW_RESPONSE.md for the six requested clarifications, two independent
 review rounds and completed overlap experiments. Public release v0.5.0 links
 the earlier de-identified SCADA distribution; raw provider licences persist.
 '''
+    if version >= 24:
+        readme = readme.replace('(v23)', '(v24)')
+        readme = readme.replace('Public release v0.5.0', 'Public release v0.6.0')
+        readme += '\nThe v24 integration foregrounds verified native Jiangsu rule-based fee savings and a fixed-model action comparison. Earlier British exposure, zero-capacity and adverse trading results remain in the same Supplementary Information. See V24_MANUSCRIPT_INTEGRATION.md for exact mappings.\n'
     (DEST / 'README_SUBMISSION.md').write_text(readme, encoding='utf-8')
     files = sorted(p for p in DEST.rglob('*') if p.is_file())
-    with zipfile.ZipFile(DOC / 'AppliedEnergy_current_v23.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+    with zipfile.ZipFile(DOC / f'AppliedEnergy_current_v{version}.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
         for source in files:
             archive.write(source, source.relative_to(DEST))
-    report = {'status': 'ASSEMBLED', 'files': len(files), 'main_figures': 14,
+    report = {'status': 'ASSEMBLED', 'files': len(files), 'main_figures': 13 if version >= 24 else 14,
               'internal_clock_ledger_published': False, 'individual_rater_exports_copied': False,
-              'source_package': 'AppliedEnergy_current_v23.zip'}
-    (ROOT / 'temp/v23_package_report.json').write_text(json.dumps(report, indent=2))
+              'source_package': f'AppliedEnergy_current_v{version}.zip'}
+    (ROOT / f'temp/v{version}_package_report.json').write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--version', type=int, choices=[23,24], default=23)
+    main(parser.parse_args().version)

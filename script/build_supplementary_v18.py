@@ -85,6 +85,9 @@ def main() -> None:
     )
     conversion = remove_longtable_preamble_blank_lines(conversion)
     conversion = make_long_paths_breakable(conversion)
+    for number in [59, 62]:
+        heading = r'\subsubsection{Table S' + str(number) + '.'
+        conversion = conversion.replace(heading, r'\Needspace{17\baselineskip}' + heading)
     conversion = conversion.replace(r'\begin{figure}', r'\begin{figure}[H]')
     bib, keys = bibliography()
     cited = set(re.findall(r"@([A-Za-z0-9_-]+)", markdown))
@@ -96,7 +99,7 @@ def main() -> None:
     tex = r"""\documentclass[a4paper,11pt]{article}
 \usepackage{fontspec}
 \setmainfont{TeX Gyre Termes}
-\usepackage{geometry,amsmath,amssymb,booktabs,hyperref,longtable,array,calc,caption,graphicx,adjustbox,xurl,float}
+\usepackage{geometry,amsmath,amssymb,booktabs,hyperref,longtable,array,calc,caption,graphicx,adjustbox,xurl,float,needspace}
 \usepackage[numbers,sort&compress]{natbib}
 \geometry{margin=25mm}
 \setcounter{secnumdepth}{0}

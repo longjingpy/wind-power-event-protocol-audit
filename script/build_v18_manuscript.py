@@ -84,7 +84,7 @@ def run(command: list[str], index: int) -> None:
 def main() -> None:
     BUILD.mkdir(parents=True, exist_ok=True)
     title, abstract, body = read_body()
-    figures = re.findall(r"!\[[^\]]*\]\((figures_v(?:18|20|21|22)/[^)]+)\)", body)
+    figures = re.findall(r"!\[[^\]]*\]\((figures_v\d+/[^)]+)\)", body)
     for figure in figures:
         source = ROOT / "manuscript" / figure
         if not source.exists():
@@ -97,6 +97,14 @@ def main() -> None:
         extra_args=["--natbib", "--wrap=none", "--shift-heading-level-by=-1"],
     )
     conversion = normalize_newlines(conversion)
+    def format_policy_table(match):
+        chunk = match.group(0)
+        if 'Accuracy charge (CNY)' not in chunk:
+            return chunk
+        widths = iter(['0.10', '0.30', '0.13', '0.25', '0.22'])
+        chunk = re.sub(r'\\real\{0\.2000\}', lambda _: r'\real{' + next(widths) + '}', chunk, count=5)
+        return '\\begingroup\\small\n' + chunk + '\n\\endgroup'
+    conversion = re.sub(r'\\begin\{longtable\}.*?\\end\{longtable\}', format_policy_table, conversion, flags=re.DOTALL)
     figure_numbers={Path(path).name:number+1 for number,path in enumerate(figures)}
     seen=set()
     def positioned_figure(match):
@@ -148,12 +156,17 @@ def main() -> None:
 \setlength{\emergencystretch}{3em}
 \setlength{\intextsep}{10pt plus 2pt minus 2pt}
 \makeatletter
-\def\ps@pprintTitle{\let\@oddhead\@empty\let\@evenhead\@empty\def\@oddfoot{\footnotesize\itshape Working manuscript, v23\hfill\today}\let\@evenfoot\@oddfoot}
+\def\ps@pprintTitle{\let\@oddhead\@empty\let\@evenhead\@empty\def\@oddfoot{\footnotesize\itshape Working manuscript, v24\hfill\today}\let\@evenfoot\@oddfoot}
 \makeatother
 \begin{document}
 \begin{frontmatter}
 """
     funding = "\n\\section*{Funding}\n" + metadata["funding"]
+    for heading, key in [('Acknowledgements', 'acknowledgements'),
+                         ('CRediT authorship contribution statement', 'author_contributions'),
+                         ('Declaration of competing interest', 'conflicts')]:
+        if metadata.get(key):
+            funding += '\n\\section*{' + heading + '}\n' + metadata[key] + '\n'
     declaration_marker = "\\section{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}"
     if declaration_marker in conversion:
         conversion_before_ai, declaration_after_ai = conversion.split(declaration_marker, 1)
