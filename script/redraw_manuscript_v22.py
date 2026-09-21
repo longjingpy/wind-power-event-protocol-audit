@@ -46,6 +46,17 @@ def save(fig,name,old_number,sources,caption,panels=None):
 def axis(ax):
     ax.set_axisbelow(True);ax.grid(axis='y',color='#DFE5EB',lw=.6)
 
+def panel_title(ax, text):
+    """Apply one compact panel-title style across all multi-panel figures."""
+    for loc in ('left', 'center', 'right'):
+        ax.set_title('', loc=loc)
+    ax.set_title(text, loc='left', fontsize=10, fontweight='bold', pad=8)
+
+def equal_panel_boxes(axes, aspect=0.68):
+    """Keep panel boxes aligned without distorting the data aspect."""
+    for ax in axes:
+        ax.set_box_aspect(aspect)
+
 def overview():
     fig,ax=plt.subplots(figsize=(6.5,4.5));fig.subplots_adjust(left=.015,right=.985,bottom=.035,top=.99)
     ax.set(xlim=(0,100),ylim=(0,100));ax.axis('off')
@@ -109,10 +120,12 @@ def compression():
     y=np.arange(8)
     for col,c in [('reference_median',COL['raw25']),('candidate_median',COL['raw_pca6'])]:a.scatter(d[col],y,s=32,c=c,edgecolor='white',lw=.4,zorder=4,label='Raw25' if col=='reference_median' else 'Raw/PCA6')
     a.set_yticks(y,[NAMES[s] for s in SITES]);a.invert_yaxis();a.set(xlim=(.66,.90),xlabel='Cross-protocol ARI',title='a  Trajectory compression')
+    panel_title(a, 'a  Trajectory compression')
     a.legend(loc='lower right',bbox_to_anchor=(.98,.03),frameon=True,facecolor='white',edgecolor='#D7DEE6',fontsize=8,handletextpad=.3,columnspacing=.7)
     b.axvline(0,color='#9AA4AF',ls='--',lw=.8);b.hlines(y,0,d.difference_of_medians*1000,color=COL['raw_pca6'],lw=2)
     b.scatter(d.difference_of_medians*1000,y,s=28,color=COL['raw25']);b.set_yticks(y,[]);b.invert_yaxis()
     b.set(xlim=(-3.5,3.5),xticks=[-3,0,3],xlabel='PCA − raw ARI (×10⁻³)',title='b  Full-precision differences')
+    panel_title(b, 'b  Full-precision differences'); equal_panel_boxes([a,b], 0.68)
     save(fig,'fig03_compression',3,['outputs/protocol_benchmark_v21/representation_audit/'],
         'Raw/PCA6 provides a compression control for the same 25-point trajectory. Panel a shows current common-support v18 results; panel b resolves differences hidden by two-decimal rounding. PCA retains 93.4% of standardized training variance. The separate event-label partition comparison is reported in the accompanying data; it differs from cross-protocol ARI.',panels=[('a',a),('b',b)])
 
@@ -154,6 +167,7 @@ def sampling():
     a.set_yticks(range(len(keys)),[f'{NAMES[s]}\n{l}–{r} min' for s,l,r in keys]);a.invert_yaxis()
     for ax in [a,b]:ax.set_xlim(-.06,1.05);ax.set_xticks([0,.5,1]);ax.grid(axis='x',color='#E4E9EE',lw=.5)
     a.set(xlabel='Matched-event ARI',title='a  Structural survival');b.set(xlabel='Smaller-side coverage',title='b  Event support')
+    panel_title(a, 'a  Structural survival'); panel_title(b, 'b  Event support'); equal_panel_boxes([a,b], 0.68)
     save(fig,'fig05_sampling',5,['outputs/protocol_benchmark_v18/resolution/cross_resolution_metrics.csv','outputs/protocol_benchmark_v22/sampling/cross_resolution_metrics.csv'],
         'Sampling sensitivity now includes Greece, Yandun, La Haute Borne and Hill of Towie. Dots are detector configurations; diamonds and bars are medians and interquartile ranges across informative configurations. Counts give configurations with at least one match out of 17. Scale, prototype, split and physical context remain fixed. All eight grid comparisons, including Greece 10/60 and Yandun 15/60, remain in the data table; plotted comparisons connect native/30-minute and common 30/60-minute grids.')
 
@@ -208,6 +222,8 @@ def lidar():
                 sw=w[bi]
                 if sw[y].sum() and sw[~y].sum():draws.append(dict(turbine=turb,representation=name,draw=j,auroc=roc_auc_score(y,p,sample_weight=sw),blocks=blocks,events=len(q)))
         ax.plot([0,1],[0,1],color='#ADB6C0',lw=.8,ls='--');ax.set(xlim=(0,1),ylim=(0,1.02),xticks=[0,.5,1],yticks=[0,.5,1],xlabel='False-positive rate',title=f'{turb} · n = {len(q)}')
+        panel_title(ax, f'{turb} · n = {len(q)}')
+    equal_panel_boxes(axs, 0.90)
     axs[0].set_ylabel('True-positive rate');fig.legend(*axs[0].get_legend_handles_labels(),loc='lower center',bbox_to_anchor=(.5,.02),ncol=3,frameon=False,columnspacing=.9,handlelength=1.7)
     pd.DataFrame(curves).to_csv(OUT/'fig09_lidar_roc.csv',index=False);pd.DataFrame(draws).to_csv(OUT/'fig10_lidar_bootstrap.csv',index=False)
     save(fig,'fig09_lidar_roc','9+10',[str(folder.relative_to(ROOT))],
@@ -225,10 +241,12 @@ def lidar():
             pos.append(x);strings.append(['GAF','+ bit','Scalars'][j])
         a.text(t*4+1,1.08,turb,ha='center',fontsize=11,fontweight='bold')
     a.set(xticks=pos,xticklabels=strings,ylim=(.15,1.15),yticks=[.2,.4,.6,.8,1],ylabel='Directional AUROC',title='a  LiDAR: 2,000 seven-day block resamples')
+    panel_title(a, 'a  LiDAR: 2,000 seven-day block resamples')
     a.axhline(.5,ls='--',lw=.7,color='#ADB6C0');axis(a)
     for rep in ['raw25','gaf_pca6','gaf_bit6']:
         q=sm[sm.representation.eq(rep)].sort_values('turbine');b.plot(range(7),q.direction_auroc,color=COL[rep],marker='o',ms=4,lw=1.4,label=LABEL[rep])
     b.set(xticks=range(7),xticklabels=[f'SMV{i}' for i in range(1,8)],ylim=(.82,.96),yticks=[.84,.88,.92,.96],ylabel='Directional AUROC',title='b  SMARTEOLE: frozen WindCube transfer')
+    panel_title(b, 'b  SMARTEOLE: frozen WindCube transfer')
     axis(b);b.legend(loc='upper center',bbox_to_anchor=(.5,-.20),ncol=3,frameon=False,handlelength=1.5,columnspacing=.8)
     sm.to_csv(OUT/'fig10_smarteole_physical.csv',index=False)
     save(fig,'fig10_external_validation',11,['LiDAR chronological predictions; SMARTEOLE physical_scores.csv'],
@@ -254,6 +272,7 @@ def economics():
         q=d[d.model.eq(name)].sort_values('horizon_hours');a.plot(q.horizon_hours,q.nmae*100,'o-',color=c,label=label,ms=5,lw=1.6)
         b.plot(q.horizon_hours,q.gross_debit_gbp/1000,'o-',color=c,label=label,ms=5,lw=1.6)
     a.set(title='a  Forecast error',ylabel='nMAE (%)');b.set(title='b  Price exposure',ylabel='Gross debits (£k)',xlabel='Forecast lead (h)')
+    panel_title(a, 'a  Forecast error'); panel_title(b, 'b  Price exposure'); equal_panel_boxes([a,b], 0.68)
     for ax in [a,b]:ax.set_xticks([1,2,4]);axis(ax)
     legend_labels=['Persistence','Weather','Weather + events','Legacy mixture']
     fig.legend(a.get_legend_handles_labels()[0],legend_labels,loc='upper center',bbox_to_anchor=(.5,1.0),ncol=4,frameon=False,columnspacing=.65,handlelength=1.2,fontsize=9)
@@ -303,7 +322,7 @@ def localization():
             seeds=source[source.model.eq(method_codes[method])&source.policy.eq(stages[label])].sort_values('seed').seed
             for seed,val in zip(seeds,values[method][label]):rows.append(dict(model=method,stage=label,seed=int(seed),f1=val))
     out=pd.DataFrame(rows);out.to_csv(OUT/'fig11_localization.csv',index=False)
-    fig,(a,b)=plt.subplots(2,1,figsize=(6.5,6.25),gridspec_kw={'height_ratios':[1.15,1]});fig.subplots_adjust(left=.15,right=.98,top=.90,bottom=.14,hspace=.56)
+    fig,(a,b)=plt.subplots(2,1,figsize=(6.5,6.25),gridspec_kw={'height_ratios':[1,1]});fig.subplots_adjust(left=.15,right=.98,top=.90,bottom=.14,hspace=.56)
     for i,method in enumerate(methods):
         for j,label in enumerate(labels):
             v=np.asarray(values[method][label]);x=i*4+j
@@ -313,11 +332,13 @@ def localization():
             a.scatter(np.full(3,x)+np.linspace(-.10,.10,3),v,color=colors[j],s=17,zorder=3,edgecolor='white',lw=.4)
             a.plot([x,x],[v.min(),v.max()],color=colors[j],lw=1.3,zorder=2)
     a.set(xticks=[1,5,9,13],xticklabels=methods,ylabel='Event-level F1 (IoU ≥ 0.3)',ylim=(0,.85),title='a  Seed-level localization distributions')
+    panel_title(a, 'a  Seed-level localization distributions')
     a.grid(axis='y',color='#E1E6EA',lw=.6)
     for j,label in enumerate(labels):
         med=[np.median(values[m][label]) for m in methods];q1=[np.min(values[m][label]) for m in methods];q3=[np.max(values[m][label]) for m in methods]
         b.errorbar(np.arange(4)+(j-1)*.18,med,yerr=[np.array(med)-q1,np.array(q3)-med],fmt='o-',color=colors[j],lw=1.5,ms=4,capsize=3,label=label)
     b.set(xticks=range(4),xticklabels=methods,ylabel='F1 range across three seeds',ylim=(0,.85),title='b  From scores to event intervals')
+    panel_title(b, 'b  From scores to event intervals')
     b.grid(axis='y',color='#E1E6EA',lw=.6)
     fig.legend(*b.get_legend_handles_labels(),frameon=False,loc='upper center',ncol=3,fontsize=9)
     save(fig,'fig11_localization',11,['outputs/detection_benchmark_v9/protocol_ablation_metrics.csv'],

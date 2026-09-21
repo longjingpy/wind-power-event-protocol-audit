@@ -105,6 +105,8 @@ def main(version=23):
                 source = base / 'ai_reference' / f'A{number:02d}' / name
                 copy(source, PUBLIC / 'results/protocol_benchmark_v25/ai_reference' / f'A{number:02d}' / name)
     if version >= 26:
+        for name in ['cover_letter_v26.docx', 'cover_letter_v26.txt']:
+            copy(DOC / name, DEST / name)
         names = ['prepare_process_v26.py', 'prepare_native_process_v26.py',
                  'physical_process_v26.py', 'physical_calibration_v26.py',
                  'freeze_process_v26.py', 'summarize_process_v26.py',
