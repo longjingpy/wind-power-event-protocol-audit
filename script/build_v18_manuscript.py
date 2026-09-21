@@ -103,6 +103,11 @@ def main() -> None:
             widths = iter(['0.20', '0.10', '0.35', '0.35'])
             chunk = re.sub(r'\\real\{0\.2500\}', lambda _: r'\real{' + next(widths) + '}', chunk, count=4)
             return '\\begingroup\\small\n' + chunk + '\n\\endgroup'
+        if 'Scalar full RMSE' in chunk:
+            widths = iter(['0.16', '0.04', '0.10', '0.10', '0.18', '0.14', '0.14', '0.14'])
+            chunk = re.sub(r'\\real\{0\.1250\}', lambda _: r'\real{' + next(widths) + '}', chunk, count=8)
+            chunk = re.sub(r'\\real\{0\.1667\}', lambda _: r'\real{' + next(widths) + '}', chunk, count=8)
+            return '\\begingroup\\scriptsize\n' + chunk + '\n\\endgroup'
         if 'Accuracy charge (CNY)' not in chunk:
             return chunk
         widths = iter(['0.10', '0.30', '0.13', '0.25', '0.22'])

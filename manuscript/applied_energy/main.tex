@@ -22,7 +22,7 @@
 \address[aff1]{State Key Laboratory of Climate System Prediction and Risk Management/Key Laboratory of Meteorological Disaster, Ministry of Education/Collaborative Innovation Center on Forecast and Evaluation of Meteorological Disasters, Nanjing University of Information Science and Technology, Nanjing 210044, China}
 \address[aff2]{Jiangsu Key Laboratory of Intelligent Weather Forecasting and Applications Based on Big Data/School of Artificial Intelligence, Nanjing University of Information Science and Technology, Nanjing 210044, China}
 \begin{abstract}
-Wind-power events connect atmospheric variability to operational decisions, but their useful information depends on measurement and representation. We introduce a protocol-aware framework linking structural survival, independent physical tracking and forecast-to-cost validation across eight archives, 340 turbines and seventeen detector configurations. Ordered trajectories preserve transferable structure among matched, encodable events, while polarity protection restores a distinction erased by angular encoding. Reconstructing independently measured wind trajectories reveals where temporal information matters most. For power-defined compound events, scale-restored trajectories reduce reconstruction error by 11.7\% and 24.5\% against strong scalar controls at two light detection and ranging (LiDAR) instruments, with positive paired seven-day confidence intervals. Internal-geometry error falls by 9.6--26.9\% across both instruments and a French WindCube population. Separately, historical shape and issued weather inputs support an 18.2\% reduction in simulated four-hour accuracy charges relative to persistence under a documented Jiangsu rule. These findings establish event complexity and decision objectives as guides to representation design, connecting transferable structure to physical interpretation and economic evaluation.
+Wind-power events connect atmospheric variability to operational decisions, but their useful information depends on measurement and representation. We introduce a protocol-aware framework linking structural survival, independent physical tracking and forecast-to-cost validation across a primary seven-archive catalogue of 333 turbines and a seven-turbine SMARTEOLE physical extension, with seventeen detector configurations. Ordered trajectories preserve transferable structure among matched, encodable events, while polarity protection restores a distinction erased by angular encoding. Reconstructing independently measured wind trajectories reveals where temporal information matters most. For power-defined compound events, scale-restored trajectories reduce reconstruction error by 11.7\% and 24.5\% against strong scalar controls at two light detection and ranging (LiDAR) instruments, with positive paired seven-day confidence intervals. Internal-geometry error falls by 9.6--26.9\% across both instruments and a French WindCube population. Separately, historical shape and issued weather inputs support an 18.2\% reduction in simulated four-hour accuracy charges relative to persistence under a documented Jiangsu rule. These findings establish event complexity and decision objectives as guides to representation design, connecting transferable structure to physical interpretation and economic evaluation.
 
 \end{abstract}
 \end{frontmatter}
@@ -42,7 +42,7 @@ Here we organize wind-power event evaluation into four layers: detection, matchi
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{fig01_workflow.pdf}
-\caption{Four layers connect eight wind-farm archives (340 turbines) to three validation criteria. Detection defines ramp and compound intervals; correspondence uses one-to-one matches and split/merge overlap graphs; representations retain ordered, scale-aware trajectories and angular information. Structural survival, external-process tracking and forecast-to-cost tests evaluate progressively different uses. The physical branch includes endpoint and complete-trajectory reconstruction, while the decision branch includes rule-based accuracy charges and action choice. China and Europe identify data regions; panel fills distinguish measurement from evaluation. Dashed arrows supply independent reference evidence.}
+\caption{Four layers connect a primary seven-archive catalogue of 333 turbines and a seven-turbine SMARTEOLE physical extension to three validation criteria. Detection defines ramp and compound intervals; correspondence uses one-to-one matches and split/merge overlap graphs; representations retain ordered, scale-aware trajectories and angular information. Structural survival, external-process tracking and forecast-to-cost tests evaluate progressively different uses. The physical branch includes endpoint and complete-trajectory reconstruction, while the decision branch includes rule-based accuracy charges and action choice. China and Europe identify data regions; panel fills distinguish measurement from evaluation. Dashed arrows supply independent reference evidence.}
 \label{fig:main1}
 \end{figure}
 
@@ -255,41 +255,53 @@ Scale-restored ordered trajectories provide their largest full-process gains on 
 
 \textbf{Table 3. Absolute and relative recovery of measured wind-process structure}
 
-The table reports the same native 10-min test events for the validation-selected scalar comparator and ordered trajectory. Compound status is defined from the power catalogue before wind evaluation. RMSE is in m s−1; brackets are paired seven-day 95\% intervals.
+The table reports the same native 10-min compound events for the validation-selected scalar comparator and ordered trajectory. RMSE values are in m s−1; relative gains use paired seven-day 95\% intervals. Compound status is defined from the power catalogue before wind evaluation.
 
 {\def\LTcaptype{none} % do not increment counter
-\begingroup\small
+\begingroup\scriptsize
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.20}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.10}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.35}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.35}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.16}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.04}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.10}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.10}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.18}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.14}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.14}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.14}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Physical reference
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 n
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Scalar full RMSE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Ordered full RMSE
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Compound RMSE reduction (\%)
+Full gain (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Scalar geometry RMSE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Ordered geometry RMSE
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-All-event geometry reduction (\%)
+Geometry gain (\%)
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-T11 LiDAR & 165 & 11.67 {[}4.91, 21.43{]} & 11.09 {[}6.21, 19.86{]} \\
-T07 LiDAR & 38 & 24.45 {[}16.78, 41.87{]} & 26.94 {[}17.80, 40.66{]} \\
-SMARTEOLE WindCube & 42 & 5.81 {[}−9.94, 7.27{]} & 9.58 {[}9.03, 10.76{]} \\
+T11 LiDAR & 165 & 1.729 & 1.527 & 11.67 {[}4.91, 21.43{]} & 1.414 & 1.248 & 11.70 \\
+T07 LiDAR & 38 & 1.092 & 0.825 & 24.45 {[}16.78, 41.87{]} & 1.003 & 0.651 & 35.12 \\
+SMARTEOLE & 42 & 1.202 & 1.132 & 5.81 {[}−9.94, 7.27{]} & 0.983 & 0.820 & 16.54 \\
 \end{longtable}
 \endgroup
 }
 
-Here n counts compound test intervals; brackets give paired seven-day 95\% intervals. Internal geometry is the wind trajectory remaining after removal of its endpoint chord; its all-event denominators are 507, 170 and 449, respectively. Each population occupies four seven-day test blocks. Absolute full-curve and geometry RMSE for all, compound and primitive-only events are provided in Supplementary Table S80; complete 3/7/14-day intervals accompany these comparisons in Supplementary Tables S75--S79.
+Here n counts compound test intervals; brackets give paired seven-day 95\% intervals for full-trajectory gains. Geometry columns give compound-event point estimates; the corresponding all-event geometry intervals and all absolute values for compound and primitive strata are provided in Supplementary Table S83. Internal geometry is the wind trajectory remaining after removal of its endpoint chord; its all-event denominators are 507, 170 and 449, respectively. Each population occupies four seven-day test blocks. Complete 3/7/14-day intervals accompany these comparisons in Supplementary Tables S75--S79.
 
 Duration alone does not explain the Hill contrast. Standardizing compound and primitive-only groups to a common duration distribution leaves compound-minus-primitive gain differences of 10.65 percentage points at T11 and 28.16 at T07, with intervals of 1.49--17.98 and 19.74--33.88 percentage points. The weights depend on power-event duration and shared support. Thus the advantage persists beyond the longer duration often associated with a two-leg episode.
 
-Internal wind geometry improves across all three reference populations. Removing each trajectory's endpoint chord exposes intermediate accelerations and reversals: reconstruction RMSE falls by 11.09\%, 26.94\% and 9.58\% at T11, T07 and SMARTEOLE, respectively, with positive seven-day intervals. Full-trajectory reductions over all eligible events are 4.50\%, 4.47\% and 1.72\%. This contrast separates the information recovered inside an event from the coarser endpoint trend. Perturbing only the temporal coordinates of the frozen decoder, while preserving scalar descriptors and endpoints, raises geometry RMSE in every population (Supplementary Table S79). Ordered correspondence therefore carries useful measured-process information beyond the supplied summaries.
+Internal wind geometry improves across all three reference populations. Removing each trajectory's endpoint chord exposes intermediate accelerations and reversals: reconstruction RMSE falls by 11.09\% {[}6.21--19.86\%{]}, 26.94\% {[}17.80--40.66\%{]} and 9.58\% {[}9.03--10.76\%{]} at T11, T07 and SMARTEOLE, respectively. Full-trajectory reductions over all eligible events are 4.50\%, 4.47\% and 1.72\%. This contrast separates the information recovered inside an event from the coarser endpoint trend. Perturbing only the temporal coordinates of the frozen decoder, while preserving scalar descriptors and endpoints, raises geometry RMSE in every population (Supplementary Table S79). Ordered correspondence therefore carries useful measured-process information beyond the supplied summaries.
 
 These results yield a practical representation principle: retain native temporal support and ordered, scale-aware trajectories when the scientific target includes compound dynamics. The validation-selected decoder is regularized linear regression in all three populations. The gain is therefore achieved through the observation and representation interface, with the complete nonlinear and compressed-encoding comparisons retained in Supplementary S26. The effect is visible across the four calendar blocks but is not uniform: T11 gains are 11.41\%, −5.95\%, 6.83\% and 16.71\%; T07 gains are 2.81\%, −1.87\%, 9.55\% and 17.48\% (Supplementary Table S82). These block summaries describe temporal concentration in the evaluated periods rather than additional independent weather replications. Table 3 gives the principal physical-process summary.
 
@@ -297,8 +309,8 @@ Fig.~\ref{fig:main10} illustrates the same comparison with representative measur
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\linewidth]{fig13_physical_process.pdf}
-\caption{Ordered trajectories recover intermediate wind-process structure. Top: outcome-blind representative compound events selected by median power-defined duration and amplitude, showing measured wind change, the scalar control and the ordered trajectory. Bottom: absolute full-curve RMSE for compound and primitive-only events under the same native 10-min inputs. The complete matrix, event counts and calendar-block diagnostics are provided in Supplementary Tables S80 and S82.}
+\includegraphics[width=\linewidth]{fig10_physical_process.pdf}
+\caption{Ordered trajectories recover intermediate wind-process structure. Top: outcome-blind representative compound events selected by median power-defined duration and amplitude, showing measured wind change, the scalar control and the ordered trajectory. Bottom: absolute full-curve RMSE for compound and primitive-only events under the same native 10-min inputs. The complete matrix, event counts and calendar-block diagnostics are provided in Supplementary Table S83 and S82.}
 \label{fig:main10}
 \end{figure}
 
@@ -321,7 +333,7 @@ The operational test translates forecast quality into an explicit monetary outco
 
 The information design connects the representation analysis to an operational clock. Completed two- or four-hour power prefixes are encoded as 25-point trajectories, raw principal components or angular components with protected polarity. These causal prefixes contain only pre-issue observations; they are distinct from the event-centred shapes used for physical interpretation. The longer-horizon experiment adds archived Japan Meteorological Agency (JMA) and Global Forecast System (GFS) fields with a fixed 24-h forecast lead \citep{openmeteo_previous}. Validation selects representation, weather inputs and the output action of a common probability-forest model. The selected 15-min pipeline uses raw/PCA6 from completed power history; the four-hour pipeline combines protected-polarity angular coordinates with JMA/GFS forecasts.
 
-The selected pipelines reduce both error and accuracy charges on the chronological test period (Fig.~\ref{fig:main12}). At 15 min, charges fall from CNY 112,705.56 to CNY 108,472.98, a saving of CNY 4,232.58 or 3.76\% (95\% seven-day block interval 2.41--4.96\%). At four hours, charges fall from CNY 148,804.92 to CNY 121,695.42, saving CNY 27,109.50 or 18.22\% (15.43--21.38\%). Four-hour nMAE falls from 17.557\% to 14.167\%. The corresponding test populations contain 9,450 and 9,345 forecast targets over 16 occupied seven-day blocks. With transformations and selected settings fixed, three classifier seeds retain four-hour fee reductions of 17.51--18.22\%. Thus the gain persists across both calendar resampling and classifier randomness.
+The selected full forecast pipeline reduces both error and accuracy charges on the chronological test period (Fig.~\ref{fig:main12}). At 15 min, charges fall from CNY 112,705.56 to CNY 108,472.98, a saving of CNY 4,232.58 or 3.76\% (95\% seven-day block interval 2.41--4.96\%). At four hours, charges fall from CNY 148,804.92 to CNY 121,695.42, saving CNY 27,109.50 or 18.22\% (15.43--21.38\%). Four-hour nMAE falls from 17.557\% to 14.167\%. The corresponding test populations contain 9,450 and 9,345 forecast targets over 16 occupied seven-day blocks. With transformations and selected settings fixed, three classifier seeds retain four-hour fee reductions of 17.51--18.22\%. Thus the gain persists across both calendar resampling and classifier randomness.
 
 \begin{figure}[H]
 \centering
@@ -413,7 +425,7 @@ The framework gives the community a concrete reporting and benchmark target. An 
 
 \subsection{Data and common observation conditions}\label{data-and-common-observation-conditions}
 
-The study includes Pizhou (33 turbines), Suining (14), Yandun (117), La Haute Borne (4), Hill of Towie (21), Greece (10) and SDWPF (134). Chinese archives contribute 298 turbines and European archives 35. La Haute Borne is associated with the OpenOA data ecosystem \citep{perr-sauer2021openoa}; the Greek and SDWPF archives supply independent public monitoring resources \citep{greece2024, sdwpfdata}. The main source periods are September 2023--February 2025 for Pizhou, September 2023--August 2024 for Suining, February--August 2024 for Yandun, 2014--2015 for La Haute Borne, 2020 for Hill of Towie, January--June 2020 for Greece and 2020--2021 for SDWPF. Hill of Towie 2021 January--June supplies the frozen temporal evaluation, and its 2026 measurements supply the instrumented physical test \citep{hill2026data}. ERA5 denotes the European Centre for Medium-Range Weather Forecasts fifth-generation reanalysis.
+The primary catalogue includes Pizhou (33 turbines), Suining (14), Yandun (117), La Haute Borne (4), Hill of Towie (21), Greece (10) and SDWPF (134), totaling 333 turbines across seven archives. SMARTEOLE is a separate seven-turbine physical extension, giving eight archives and 340 turbines when the extension is included; Hill of Towie 2021 is a temporal holdout from the same archive. Chinese archives contribute 298 turbines and European archives 35. La Haute Borne is associated with the OpenOA data ecosystem \citep{perr-sauer2021openoa}; the Greek and SDWPF archives supply independent public monitoring resources \citep{greece2024, sdwpfdata}. The main source periods are September 2023--February 2025 for Pizhou, September 2023--August 2024 for Suining, February--August 2024 for Yandun, 2014--2015 for La Haute Borne, 2020 for Hill of Towie, January--June 2020 for Greece and 2020--2021 for SDWPF. Hill of Towie 2021 January--June supplies the frozen temporal evaluation, and its 2026 measurements supply the instrumented physical test \citep{hill2026data}. ERA5 denotes the European Centre for Medium-Range Weather Forecasts fifth-generation reanalysis.
 
 Complete native observations form each half-hour average. Explicit missing bins separate valid runs. SCADA interval-end timestamps at Hill of Towie are shifted to interval starts. A chronological 60/20/20 split defines fitting, validation and test periods. Main detector normalization uses each turbine's training-period q99.5 power, expressed as a production scale. The same empirical method is used for Pizhou and Greece; fitted transformations remain separate from evaluated data \citep{leakage2023}. Nameplate capacity supplies physical MW units where verified, including the 21 × 2.3-MW Hill fleet. Event contexts remain within one split and valid run.
 
@@ -468,13 +480,13 @@ The 2026 instrument test uses 58-m horizontal wind from ZX300 unit 2428 near T11
 
 The SMARTEOLE field archive contains seven turbines with provider-preprocessed 1-min SCADA, a 1-min control log, a ground WindCube profiler and coordinate metadata \citep{smarteole2022}. The provider removes rows with at least one stopped turbine. We aggregate complete 30-min means without interpolation, freeze the median Pizhou training q99.5 scale, and apply Pizhou transformations and calibrated physical heads without target-site fitting. WindCube 80-m endpoint changes use the same signed three-class target and four-hour duration limit.
 
-The reviewer-triggered factorial extension used the same five scalar descriptors (endpoint direction, signed endpoint change, duration, starting power and pre-window mean), with either no additional input, five angular principal components, polarity alone, or their combination. Every feature arm shared event identifiers, chronological splits and the two-leaf-budget probe search. Angular coordinates came from one frozen Pizhou transform. Five ERA5 sites used their recorded training and validation events; SMARTEOLE received frozen Pizhou heads; LiDAR received Hill-2020 heads followed by the same chronological calibration. Paired block differences were calculated for direction AUROC, three-class log loss and Brier score. Random sign, test-only sign errors, consistent sign reversal, pre-PCA signed channels and alternative anchor coordinates isolate different mechanisms. Supplementary S24 specifies all thirteen feature arms and the noise tests.
+The exploratory factorial extension used the same five scalar descriptors (endpoint direction, signed endpoint change, duration, starting power and pre-window mean), with either no additional input, five angular principal components, polarity alone, or their combination. Every feature arm shared event identifiers, chronological splits and the two-leaf-budget probe search. Angular coordinates came from one frozen Pizhou transform. Five ERA5 sites used their recorded training and validation events; SMARTEOLE received frozen Pizhou heads; LiDAR received Hill-2020 heads followed by the same chronological calibration. Paired block differences were calculated for direction AUROC, three-class log loss and Brier score. Random sign, test-only sign errors, consistent sign reversal, pre-PCA signed channels and alternative anchor coordinates isolate different mechanisms. Supplementary S24 specifies all thirteen feature arms and the noise tests.
 
 \subsubsection{Complete wind-process reconstruction}\label{complete-wind-process-reconstruction}
 
 The process experiment retained deduplicated primitive and compound intervals of 60--240 min with at least seven consecutive valid 10-min wind observations. A compound flag was assigned when a retained power-catalogue definition contained opposite legs. Detection boundaries remained fixed on the 30-min grid; paired 10/30-min power tracks shared event identifiers, targets and splits. For event start s, end e and relative phase \(r_j=j/16\), the measured target was \(Y_j=u(s+r_j(e-s))-u(s)\), j=0,\ldots,16. Linear interpolation used only continuous valid wind support. Full-trajectory RMSE scored j=1,\ldots,16. Internal geometry used \(R_j=Y_j-r_jY_{16}\), with the same operation applied to the predicted trajectory before scoring. This second metric isolates intermediate evolution from endpoint tendency.
 
-Scalar controls described endpoint direction/change, duration, initial and contextual power, amplitude scale, variation, curvature, extreme timing and eight cube-root-power summaries. Each temporal arm received the common expanded scalar inputs. Training-only transforms supplied ordered, principal-component and angular encodings, including scale-restored event trajectories. Each arm compared four ridge penalties and four extremely randomized tree configurations. A scalar-only residual model received the same cross-fitting and correction budget as temporal residual models. Validation MSE selected both the scalar comparator and trajectory pipeline before the test was evaluated; all three selected pipelines used native 10-min scale-restored trajectories and ridge regression. Supplementary S26 and Tables S75--S80 specify the full matrix, split dates, selected controls, event hierarchy and negative controls.
+Scalar controls described endpoint direction/change, duration, initial and contextual power, amplitude scale, variation, curvature, extreme timing and eight cube-root-power summaries. Each temporal arm received the common expanded scalar inputs. Training-only transforms supplied ordered, principal-component and angular encodings, including scale-restored event trajectories. Each arm compared four ridge penalties and four extremely randomized tree configurations. A scalar-only residual model received the same cross-fitting and correction budget as temporal residual models. Validation MSE selected both the scalar comparator and trajectory pipeline before the test was evaluated; all three selected pipelines used native 10-min scale-restored trajectories and ridge regression. Supplementary S26 and Tables S75--S83 specify the full matrix, split dates, selected controls, event hierarchy and negative controls.
 
 We calculated paired relative RMSE reductions on the same events using 2,000 shared farm-calendar block draws. Compound and primitive-only strata were defined from power records. A second analysis weighted their common duration strata by the smaller group count, then compared their gain difference. This descriptive standardization retained all common-support durations without consulting wind outcomes. Frozen-decoder perturbations preserved scalar inputs and endpoints while either shuffling interior coordinates or reassigning chord residuals between similarly scaled events.
 

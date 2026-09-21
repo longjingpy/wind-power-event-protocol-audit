@@ -31,13 +31,13 @@ The current unified physical-time experiments are organized by scientific task: 
 | S21. Overlap correspondence | Eight structural populations | Connected overlap component | Resolve splitting, merging and composite episodes | 2.2; Methods 4.3 | Complete |
 | S22. Native policy-fee test | Pizhou 2023–2025; held-out late calendar | Native 15-min target × issue horizon | Connect historical shape and issued weather to rule-based charges | 2.8; Methods 4.6 | Complete; 2022-rule simulation |
 | S23. British full-income tests | Hill 2020–2021; Elexon prices and vintages | Operating day or scheduled interval | Distinguish exposure, net operating gain and trading income | Discussion; S17–S20 | All outcomes retained |
-| S24. Polarity increments | Five ERA5 populations, two LiDAR instruments, SMARTEOLE | Paired event predictions and shared calendar blocks | Separate encoding recovery, scalar redundancy and noise sensitivity | 2.4–2.5; Methods 4.5 | Reviewer-triggered exploratory extension |
+| S24. Polarity increments | Five ERA5 populations, two LiDAR instruments, SMARTEOLE | Paired event predictions and shared calendar blocks | Separate encoding recovery, scalar redundancy and noise sensitivity | 2.4–2.5; Methods 4.5 | Exploratory factorial extension |
 | S25. AI/human reference | Same 320 displayed windows; 3 human + 7 AI sources | Window × review source | Evaluate auxiliary reference agreement without conflating sources | Supplementary S6; Methods 4.6 | Seven actual AI sessions complete |
 | S26. Complete physical trajectories | Hill T11/T07 2026 and SMARTEOLE 2020 | Unique power interval × measured wind curve | Locate the incremental value of temporal geometry in compound processes | 2.6; Methods 4.5 | Validation-locked models; exploratory chronological test |
 
 ## S1. Archive coverage and source eligibility
 
-The study contains seven archives and 333 turbines. The primary catalogue contains Pizhou (33), Suining (14), Yandun (117), La Haute Borne (4) and Hill of Towie (21). The Greek monitoring archive adds ten turbines, and SDWPF adds 134. Table 1 in the main text identifies their experimental roles.
+The primary catalogue contains seven archives and 333 turbines. SMARTEOLE adds a separate seven-turbine physical extension, giving eight archives and 340 turbines when the extension is included; Hill 2021 is a temporal holdout from the Hill archive. The primary catalogue contains Pizhou (33), Suining (14), Yandun (117), La Haute Borne (4) and Hill of Towie (21). The Greek monitoring archive adds ten turbines, and SDWPF adds 134. Table 1 in the main text identifies their experimental roles.
 
 A full primary-catalogue boundary check covers 1,984,249 candidate intervals and 1,538,376 complete shapes. All event timestamps agree with their source half-hour indices. Every eligible shape, including four samples before and after the event, remains within its assigned 60%/80% chronological period; the check finds zero boundary violations across 189 turbines.
 
@@ -207,7 +207,7 @@ This section records the earlier v15 collection design. The current submitted fi
 
 The v15 collection packet contains 200 real SCADA windows, with fifty from each of Pizhou, Yandun, Greece and SDWPF. Each site contributes twenty steady-screen, five rising-screen, five falling-screen, ten turning-screen and ten random-screen windows. These strata balance the sampling design; the human class distribution is determined by new responses. Four hours are displayed and only the central two hours are rated. Detector identities, sampling strata and earlier human answers are hidden in the interface.
 
-Each participant uses an anonymous identifier and exports a versioned JSON file. Duplicate exports from the same identifier are merged by response timestamp; changed target regions are rejected. Cohen's kappa is calculated on shared assessable windows for each rater pair, and nominal Krippendorff alpha uses units with at least two available ratings. Uncertain and data-quality responses are tabulated separately. Constant-category cases return an undefined chance-corrected coefficient. Multirater coefficients will be calculated after independent responses are collected.
+Each participant uses an anonymous identifier and exports a versioned JSON file. Duplicate exports from the same identifier are merged by response timestamp; changed target regions are rejected. Cohen's kappa is calculated on shared assessable windows for each rater pair, and nominal Krippendorff alpha uses units with at least two available ratings. Uncertain and data-quality responses are tabulated separately. Constant-category cases return an undefined chance-corrected coefficient. The current packet contains three independent observer exports; multirater coefficients are calculated on this closed packet.
 
 The collection interface is available at https://longjingpy.github.io/wind-power-event-protocol-audit/annotation/ . It works offline and stores answers locally. The v15 definition records sustained low production as a state and assigns transitions to their dynamic categories, so its responses remain distinct from the original v9 review labels.
 
@@ -327,7 +327,7 @@ A separate complete-income experiment includes market-index reference revenue, s
 
 ## S24. Scalar-controlled polarity increments and noise sensitivity
 
-The v25 mechanism extension was designed after the reviewer identified a distinction between restoring angular direction and adding information beyond existing scalar covariates. It is exploratory on the existing populations. The four factorial cells are S, S+G5, S+b and S+G5+b, where S contains endpoint direction, signed endpoint change, duration, pre-window mean power and pre-window mean. G5 is the first five coordinates of the same frozen Pizhou six-component GAF/PCA transform; b is the sign at the largest-absolute-value coordinate. Thus the conditional bit contrast holds angular coordinates fixed. G6, pre-PCA signed-channel GAF/PCA6 and raw25 provide dimension, compression-order and trajectory controls.
+The exploratory polarity factorial was designed to distinguish restoring angular direction from adding information beyond existing scalar covariates. It is exploratory on the existing populations. The four factorial cells are S, S+G5, S+b and S+G5+b, where S contains endpoint direction, signed endpoint change, duration, pre-window mean power and pre-window mean. G5 is the first five coordinates of the same frozen Pizhou six-component GAF/PCA transform; b is the sign at the largest-absolute-value coordinate. Thus the conditional bit contrast holds angular coordinates fixed. G6, pre-PCA signed-channel GAF/PCA6 and raw25 provide dimension, compression-order and trajectory controls.
 
 The complete thirteen arms are scalar, scalar_g5, scalar_bit, scalar_g5_bit, scalar_g6, scalar_signed6, scalar_raw25, scalar_g5_random, scalar_g5_reversed, scalar_g5_endpoint, scalar_g5_pre, scalar_g5_post and scalar_g5_internal. Random signs are independent Bernoulli signs with seed 250041 and use separate events across source and target populations. Consistent reversal negates b during both fitting and evaluation, preserving information. Test-only corruption independently reverses 25%, 50% or 100% of the true signs after fitting, with seed 404. Alternative signs come from event-end coordinate 20, pre-context coordinate 0, post-context coordinate 24, or the largest absolute value among event-interior coordinates 4–20. The pre-PCA signed-channel control appends the original path before standardization and compression; it differs from reserving a sign coordinate after compression.
 
@@ -1836,7 +1836,7 @@ Every row crosses seven sites (Pizhou, Suining, Yandun, La Haute Borne, Hill of 
 ### Table S54. Independent human agreement before adjudication
 
 
-320 paired windows, three actual observers. Nominal Krippendorff alpha and shared-calendar intervals preserve all ratings per window. The earlier 120-region reference is a separate cohort. One further review is ongoing; only received responses enter this table.
+320 paired windows, three actual observers. Nominal Krippendorff alpha and shared-calendar intervals preserve all ratings per window. The earlier 120-region reference is a separate cohort. The current packet is closed; only received responses enter this table.
 
 
 | Field | Block days | Agreement | Alpha | 95% interval |
@@ -2023,15 +2023,15 @@ The July–December 2021 test uses frozen validation selections, observed MID ex
 | 4 | weather | 8424 | 6916025.2306 | -25991.0653 |
 | 4 | weather events | 8424 | 6915705.8628 | -26310.4331 |
 
-### Figure S2. Preserved British economic comparison
+### British large-ramp exposure concentration
 
 ![Earlier British large-ramp exposure concentration. Grey bars show interval share and magenta bars the share of persistence gross debits.](figures_v22/fig12_ramp_exposure.pdf)
 
-### Figure S3. Preserved British economic comparison
+### British forecast-cost comparison
 
 ![Earlier British forecast-error and gross-debit comparison, on common targets within each horizon. This gross-exposure task is distinct from complete trading income in Table S64.](figures_v22/fig13_forecast_cost.pdf)
 
-### Figure S4. Preserved British economic comparison
+### British metered-correction capability
 
 ![Earlier ex-post metered-correction capability. The event-aware 20% battery reduces gross debits by 27.1% while signed settlement cost rises. Realized half-hour power, inventory restoration and model-specific schedules define this task; it is not an issue-time forecast or net-profit gain.](figures_v22/fig14_storage.pdf)
 
@@ -2495,4 +2495,20 @@ Each row uses the frozen validation-selected models and the same event targets. 
 | SMARTEOLE | leave_out_2 | 259 | 31 | 1.059 | 1.028 | 2.97% |
 | SMARTEOLE | leave_out_3 | 277 | 17 | 1.446 | 1.422 | 1.69% |
 | SMARTEOLE | leave_out_4 | 366 | 36 | 1.438 | 1.420 | 1.22% |
+
+### Table S83. Absolute RMSE and relative gains for full wind-process reconstruction
+
+The same native 10-min test events are scored against the independent measured wind trajectory. Full RMSE and chord-removed internal geometry RMSE are reported in m s−1. Relative gains use the validation-selected scalar comparator. Compound status is defined from power records before wind evaluation.
+
+| Reference | Subset | Events | Scalar full | Ordered full | Full gain | Scalar geometry | Ordered geometry | Geometry gain |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| lidar_T11 | all | 507 | 1.492 | 1.425 | 4.50% | 1.183 | 1.052 | 11.09% |
+| lidar_T11 | compound | 165 | 1.729 | 1.527 | 11.67% | 1.414 | 1.248 | 11.70% |
+| lidar_T11 | primitive | 342 | 1.363 | 1.373 | -0.72% | 1.054 | 0.942 | 10.56% |
+| lidar_T07 | all | 170 | 1.034 | 0.988 | 4.47% | 0.841 | 0.615 | 26.94% |
+| lidar_T07 | compound | 38 | 1.092 | 0.825 | 24.45% | 1.003 | 0.651 | 35.12% |
+| lidar_T07 | primitive | 132 | 1.016 | 1.030 | -1.30% | 0.789 | 0.604 | 23.44% |
+| smarteole | all | 449 | 1.345 | 1.322 | 1.72% | 0.867 | 0.784 | 9.58% |
+| smarteole | compound | 42 | 1.202 | 1.132 | 5.81% | 0.983 | 0.820 | 16.54% |
+| smarteole | primitive | 407 | 1.359 | 1.340 | 1.40% | 0.854 | 0.780 | 8.67% |
 

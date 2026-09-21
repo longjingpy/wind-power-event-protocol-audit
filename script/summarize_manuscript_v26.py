@@ -180,10 +180,10 @@ def process_figure(blocks, matrix, examples):
     axes[1, 2].text(.02, .66, "Bars use the same events and\nnative 10-min inputs.\n\nCompound events are defined\nfrom power records before\nwind evaluation.", fontsize=9, va="top")
     fig.suptitle("Ordered trajectories recover intermediate wind-process structure", fontsize=12, fontweight="bold", y=.99)
     fig.tight_layout(rect=[0, 0, 1, .96])
-    fig.savefig(FIG / "fig13_physical_process.pdf", bbox_inches="tight")
-    fig.savefig(FIG / "fig13_physical_process.svg", bbox_inches="tight")
-    fig.savefig(FIG / "fig13_physical_process.png", dpi=300, bbox_inches="tight")
-    pd.DataFrame({"panel": ["a", "b"], "description": ["Representative measured and reconstructed trajectories", "Absolute RMSE by power-defined hierarchy"]}).to_csv(FIG / "fig13_physical_process.csv", index=False)
+    fig.savefig(FIG / "fig10_physical_process.pdf", bbox_inches="tight")
+    fig.savefig(FIG / "fig10_physical_process.svg", bbox_inches="tight")
+    fig.savefig(FIG / "fig10_physical_process.png", dpi=300, bbox_inches="tight")
+    pd.DataFrame({"panel": ["a", "b"], "description": ["Representative measured and reconstructed trajectories", "Absolute RMSE by power-defined hierarchy"]}).to_csv(FIG / "fig10_physical_process.csv", index=False)
 
 
 def polarity_figure():
@@ -218,7 +218,7 @@ def main():
     polarity_figure()
     print(json.dumps({"status": "COMPLETE_DETERMINISTIC_SUMMARY", "block_rows": len(blocks),
                       "matrix_rows": len(matrix), "example_rows": len(examples),
-                      "figure": str(FIG / "fig13_physical_process.pdf")}, indent=2))
+                      "figure": str(FIG / "fig10_physical_process.pdf")}, indent=2))
 
 
 if __name__ == "__main__":

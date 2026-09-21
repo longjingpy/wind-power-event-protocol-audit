@@ -20,12 +20,12 @@ assert abstract == front["abstract"]
 assert 150 <= len(abstract.split()) <= 200
 assert "among matched, encodable events" in abstract
 assert supp.startswith(methods.rstrip())
-assert len(re.findall(r"^### Table S\d+\.", supp, re.M)) == 83
+assert len(re.findall(r"^### Table S\d+\.", supp, re.M)) == 84
 assert len(re.findall(r"^## S\d+\.", methods, re.M)) == 26
 assert "### 2.8. Linking" in body and "Section 2.8" in body
 assert "#### Complete wind-process reconstruction" in body
 assert all(("Table " + str(n) + ".") in body for n in range(1, 5))
-assert "figures_v26/fig13_physical_process.pdf" in body
+assert "figures_v26/fig10_physical_process.pdf" in body
 assert "figures_v26/fig07_polarity_mechanism.pdf" in body
 assert "18.22%" in body and "seven AI review sessions" in body
 assert "ten human respondents" in supp
@@ -57,7 +57,7 @@ for name, text, build in [("main", body, "v19_manuscript_build"),
             "Table S76.", "Table S77.", "Table S78.", "Table S79.", "Table S80.",
             "Decoder selection", "Paired uncertainty", "Reproduction and result",
             "This study establishes", "Limitations and scope", "v18–v26",
-            "Table S81.", "Table S82.", "leave_out_1"]
+            "Table S81.", "Table S82.", "Table S83.", "leave_out_1"]
     for i, page in enumerate(pdf):
         content = page.get_text()
         if i == 0 or any(s in content for s in hits):
@@ -74,7 +74,7 @@ for name, text, build in [("main", body, "v19_manuscript_build"),
     reports.append({"document": name, "pages": len(pdf), "review_pages": rendered,
                     "max_overfull_pt": max(boxes, default=0)})
 record = {"status": "CONTENT_ASSETS_PASS_VISUAL_PENDING",
-          "abstract_words": len(abstract.split()), "supplementary_tables": 83,
+          "abstract_words": len(abstract.split()), "supplementary_tables": 84,
           "supplementary_methods": 26, "main_figures": 13, "documents": reports}
 (OUT / "report.json").write_text(json.dumps(record, indent=2))
 print(json.dumps(record, indent=2))
